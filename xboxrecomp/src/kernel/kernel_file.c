@@ -811,6 +811,8 @@ NTSTATUS __stdcall xbox_NtCreateFile(
 
     if (fd < 0) {
         int e = errno;
+        fprintf(stderr, "  [FILE] POSIX open FAILED: '%s' (errno=%d: %s)\n", host_path, e, strerror(e));
+        fflush(stderr);
         XBOX_TRACE(XBOX_LOG_FILE, "NtCreateFile FAILED: %s (errno=%d)", host_path, e);
         if (IoStatusBlock) {
             IoStatusBlock->Status = STATUS_OBJECT_NAME_NOT_FOUND;

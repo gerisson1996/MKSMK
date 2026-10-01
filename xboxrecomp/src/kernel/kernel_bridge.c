@@ -2967,10 +2967,24 @@ static void bridge_NtOpenFile(void)
     uint32_t share     = STACK_ARG(4);  /* ShareAccess */
     uint32_t options   = STACK_ARG(5);  /* OpenOptions */
 
+    const char *p = bridge_get_xbox_path(obj_attrs);
+    fprintf(stderr, "  [FILE] NtOpenFile: '%s' (access=0x%08X, options=0x%08X)\n",
+            p ? p : "<null>", access, options);
+    fflush(stderr);
+
     /* NtOpenFile = NtCreateFile with FILE_OPEN disposition */
     g_eax = (uint32_t)bridge_create_file_impl(
         handle_va, access, obj_attrs, iostatus,
         0, share, 1 /* FILE_OPEN */, options);
+
+    if (g_eax) {
+        fprintf(stderr, "  [FILE] NtOpenFile '%s' -> FAILED (0x%08X)\n",
+                p ? p : "<null>", g_eax);
+    } else {
+        fprintf(stderr, "  [FILE] NtOpenFile '%s' -> OK (handle=0x%08X)\n",
+                p ? p : "<null>", handle_va ? BRIDGE_MEM32(handle_va) : 0);
+    }
+    fflush(stderr);
 }
 
 /*

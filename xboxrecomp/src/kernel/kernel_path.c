@@ -535,6 +535,73 @@ void xbox_path_init(const char* game_dir, const char* save_dir)
              s_game_dir, s_save_dir);
 }
 
+#include <strings.h>
+#include <dirent.h>
+
+static void resolve_case_insensitive_path(char* path)
+{
+    struct stat st;
+    if (stat(path, &st) == 0)
+        return; /* Exact match already exists on disk */
+
+    char resolved[MAX_PATH] = {0};
+    char *p = path;
+
+    /* Preserve device prefix like "sdmc:/" */
+    if (strncmp(p, "sdmc:/", 6) == 0) {
+        strcpy(resolved, "sdmc:/");
+        p += 6;
+    } else if (*p == '/') {
+        strcpy(resolved, "/");
+        p++;
+    }
+
+    char temp_path[MAX_PATH];
+    strncpy(temp_path, p, sizeof(temp_path) - 1);
+    temp_path[sizeof(temp_path) - 1] = '\0';
+
+    char *saveptr = NULL;
+    char *segment = strtok_r(temp_path, "/", &saveptr);
+    while (segment) {
+        DIR *d = opendir(resolved);
+        if (!d) {
+            size_t rlen = strlen(resolved);
+            if (rlen > 0 && resolved[rlen - 1] != '/')
+                strncat(resolved, "/", sizeof(resolved) - rlen - 1);
+            strncat(resolved, segment, sizeof(resolved) - strlen(resolved) - 1);
+            segment = strtok_r(NULL, "/", &saveptr);
+            continue;
+        }
+
+        struct dirent *de;
+        int found = 0;
+        while ((de = readdir(d)) != NULL) {
+            if (strcasecmp(de->d_name, segment) == 0) {
+                size_t rlen = strlen(resolved);
+                if (rlen > 0 && resolved[rlen - 1] != '/')
+                    strncat(resolved, "/", sizeof(resolved) - rlen - 1);
+                strncat(resolved, de->d_name, sizeof(resolved) - strlen(resolved) - 1);
+                found = 1;
+                break;
+            }
+        }
+        closedir(d);
+
+        if (!found) {
+            size_t rlen = strlen(resolved);
+            if (rlen > 0 && resolved[rlen - 1] != '/')
+                strncat(resolved, "/", sizeof(resolved) - rlen - 1);
+            strncat(resolved, segment, sizeof(resolved) - strlen(resolved) - 1);
+        }
+
+        segment = strtok_r(NULL, "/", &saveptr);
+    }
+
+    if (stat(resolved, &st) == 0) {
+        strcpy(path, resolved);
+    }
+}
+
 BOOL xbox_translate_path(const char* xbox_path, xbox_host_char* host_path_buf, DWORD buf_size)
 {
     const char* remainder = NULL;
@@ -598,9 +665,30 @@ translate:
                 host_path_buf[--n] = '\0';
         }
 
+        /* Check if file exists, if not try case-insensitive or game/ subfolder */
+        struct stat st_check;
+        if (stat(host_path_buf, &st_check) != 0) {
+            char ci_path[MAX_PATH];
+            strncpy(ci_path, host_path_buf, sizeof(ci_path) - 1);
+            ci_path[sizeof(ci_path) - 1] = '\0';
+            resolve_case_insensitive_path(ci_path);
+            if (stat(ci_path, &st_check) == 0) {
+                strncpy(host_path_buf, ci_path, buf_size - 1);
+            } else if (!sub_dir && base_dir == s_game_dir && remainder_posix[0] != '\0') {
+                /* Check under s_game_dir/game/ */
+                char fallback_game[MAX_PATH];
+                snprintf(fallback_game, sizeof(fallback_game), "%s/game/%s", base_dir, remainder_posix);
+                resolve_case_insensitive_path(fallback_game);
+                if (stat(fallback_game, &st_check) == 0) {
+                    strncpy(host_path_buf, fallback_game, buf_size - 1);
+                }
+            }
+        }
+
         XBOX_TRACE(XBOX_LOG_PATH, "%s -> %s", xbox_path, host_path_buf);
         return TRUE;
     }
 }
 
 #endif /* _WIN32 */
+
