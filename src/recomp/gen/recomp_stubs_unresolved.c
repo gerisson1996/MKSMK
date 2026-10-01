@@ -194,20 +194,29 @@ void sub_000F0048(void) { g_esp += 4; /* 0x000F0048: not detected */ }
 void sub_000F05D5(void) { g_esp += 4; /* 0x000F05D5: not detected */ }
 void sub_000F05FA(void) { g_esp += 4; /* 0x000F05FA: not detected */ }
 void sub_000F0984(void) { g_esp += 4; /* 0x000F0984: not detected */ }
-void sub_000F0BB0(void) { g_esp += 4; /* 0x000F0BB0: not detected */ }
+void sub_000F0BB0(void) {
+    uint32_t dst_va = MEM32(g_esp + 4);
+    uint32_t src_va = MEM32(g_esp + 8);
+    uint32_t size   = MEM32(g_esp + 12);
+    if (dst_va && src_va && size) {
+        memcpy((void*)XBOX_PTR(dst_va), (const void*)XBOX_PTR(src_va), size);
+    }
+    g_eax = dst_va;
+    g_esp += 4; /* cdecl: caller cleans up arguments via esp += 12 */
+}
 void sub_000F361E(void) { g_esp += 4; /* 0x000F361E: not detected */ }
 void sub_000F3636(void) { g_esp += 4; /* 0x000F3636: not detected */ }
 void sub_000F83B3(void) { g_esp += 4; /* 0x000F83B3: not detected */ }
 void sub_000F841C(void) { g_esp += 4; /* 0x000F841C: not detected */ }
 void sub_000F8487(void) { g_esp += 4; /* 0x000F8487: not detected */ }
 void sub_000F84DE(void) { g_esp += 4; /* 0x000F84DE: not detected */ }
-void sub_000F935C(void) { g_esp += 4; /* 0x000F935C: not detected */ }
+void sub_000F935C(void) { g_eax = 0; g_esp += 28; /* ret 24 */ }
 void sub_000F97D8(void) { g_esp += 4; /* 0x000F97D8: not detected */ }
-void sub_000FA3CB(void) { g_esp += 4; /* 0x000FA3CB: not detected */ }
-void sub_000FA828(void) { g_esp += 4; /* 0x000FA828: not detected */ }
-void sub_000FA93B(void) { g_esp += 4; /* 0x000FA93B: not detected */ }
-void sub_000FB151(void) { g_esp += 4; /* 0x000FB151: not detected */ }
-void sub_000FB3F4(void) { g_esp += 4; /* 0x000FB3F4: not detected */ }
+void sub_000FA3CB(void) { g_eax = 0; g_esp += 28; /* ret 24 */ }
+void sub_000FA828(void) { g_eax = 0; g_esp += 12; /* ret 8 */ }
+void sub_000FA93B(void) { g_eax = 0xC0000034u; g_esp += 20; /* ret 16: Return STATUS_OBJECT_NAME_NOT_FOUND (No Title Update) */ }
+void sub_000FB151(void) { uint32_t ebp = g_ebp; g_esp = ebp; g_ebp = MEM32(g_esp); g_esp += 8; }
+void sub_000FB3F4(void) { g_eax = 1; g_esp += 8; /* ret 4: Return TRUE (Media check valid) */ }
 void sub_000FC66E(void) { g_esp += 12; /* 0x000FC66E: ret 8 */ }
 void sub_001018EE(void) { g_esp += 4; /* 0x001018EE: not detected */ }
 void sub_00101E60(void) { g_esp += 4; /* 0x00101E60: not detected */ }
