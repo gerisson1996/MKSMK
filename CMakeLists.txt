@@ -67,6 +67,7 @@ if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W3 /wd4244 /wd4267 /wd4018)
 else()
     target_compile_options(${PROJECT_NAME} PRIVATE
+        -O1 -fno-var-tracking -fno-var-tracking-assignments
         -Wall -Wno-unused-variable -Wno-unused-but-set-variable
         -Wno-sign-compare -Wno-parentheses)
 endif()

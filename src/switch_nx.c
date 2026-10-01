@@ -19,6 +19,12 @@
 
 static int s_log_fd = -1;
 
+uint8_t *g_switch_ram = NULL;
+uint8_t *g_switch_contig = NULL;
+uint8_t *g_switch_nv2a = NULL;
+uint8_t *g_switch_mcpx = NULL;
+uint8_t *g_switch_flash = NULL;
+
 static ssize_t mksm_log_write_r(struct _reent *r, void *fd, const char *ptr, size_t len)
 {
     (void)r; (void)fd;

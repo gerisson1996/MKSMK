@@ -23,6 +23,12 @@
 #endif
 #if defined(__SWITCH__)
 #include <switch.h>
+#include <malloc.h>
+extern uint8_t *g_switch_ram;
+extern uint8_t *g_switch_contig;
+extern uint8_t *g_switch_nv2a;
+extern uint8_t *g_switch_mcpx;
+extern uint8_t *g_switch_flash;
 #endif
 
 /* XBE header field offsets (per xboxdevwiki.net/Xbe) */
@@ -1802,17 +1808,30 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
          * above 4 GB, which is why Half-Life 2 (768 MB) never saw it. Doing
          * this on Windows needs placeholder reservations (VirtualAlloc2). */
 #if defined(__SWITCH__)
-        virtmemLock();
-        void *switch_4gb = virtmemFindAslr(0x100000000ULL, 0x10000);
-        if (switch_4gb) {
-            virtmemAddReservation(switch_4gb, 0x100000000ULL);
-        }
-        virtmemUnlock();
-        if (switch_4gb) {
-            g_memory_base = MapViewOfFileEx(g_mapping_handle,
-                                            FILE_MAP_ALL_ACCESS, 0, 0,
-                                            g_memory_size, switch_4gb);
-        }
+        g_switch_ram = (uint8_t *)memalign(4096, g_memory_size);
+        if (g_switch_ram) memset(g_switch_ram, 0, g_memory_size);
+        g_memory_base = g_switch_ram;
+
+        g_switch_contig = (uint8_t *)memalign(4096, XBOX_CONTIG_SIZE);
+        if (g_switch_contig) memset(g_switch_contig, 0, XBOX_CONTIG_SIZE);
+        g_contig_memory = g_switch_contig;
+
+        g_switch_nv2a = (uint8_t *)memalign(4096, XBOX_NV2A_SIZE);
+        if (g_switch_nv2a) memset(g_switch_nv2a, 0, XBOX_NV2A_SIZE);
+        g_nv2a_memory = g_switch_nv2a;
+
+        g_switch_mcpx = (uint8_t *)memalign(4096, XBOX_MCPX_SIZE);
+        if (g_switch_mcpx) memset(g_switch_mcpx, 0, XBOX_MCPX_SIZE);
+        g_mcpx_memory = g_switch_mcpx;
+        g_mcpx_regs = g_mcpx_memory;
+
+        g_switch_flash = (uint8_t *)memalign(4096, XBOX_FLASH_SIZE);
+        if (g_switch_flash) memset(g_switch_flash, 0, XBOX_FLASH_SIZE);
+        g_flash_memory = g_switch_flash;
+
+        fprintf(stderr, "[MKSM-NX] All Xbox apertures allocated in RAM successfully!\n");
+        fprintf(stderr, "[MKSM-NX] RAM: %p, Contig: %p, NV2A: %p, MCPX: %p, Flash: %p\n",
+                g_switch_ram, g_switch_contig, g_switch_nv2a, g_switch_mcpx, g_switch_flash);
 #elif !defined(_WIN32)
         g_span_size = g_memory_size * (size_t)(1 + XBOX_NUM_MIRRORS);
         g_span_base = VirtualAlloc(NULL, g_span_size, MEM_RESERVE, PAGE_NOACCESS);
@@ -2281,23 +2300,9 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
         #undef XBOX_VA
     }
 
+#if !defined(__SWITCH__)
     /*
      * Contiguous / physical memory window at 0x80000000.
-     *
-     * MmAllocateContiguousMemory hands back addresses in this window: physical
-     * page P is visible at 0x80000000 + P. Titles that pin buffers at fixed
-     * physical addresses then use the whole range, so it has to be backed for
-     * its full length - Halo pins 3.4 MB at 0x61000 and 22 MB at 0x3A6000, and
-     * with only the fake kernel page mapped here a write walked off the end of
-     * it a few pages in.
-     *
-     * Deliberately NOT a view of the 64 MB RAM mapping. On hardware this window
-     * aliases physical RAM, but we load the XBE image into the low addresses of
-     * that same region, so aliasing would put a title's pinned pools on top of
-     * its own code. Separate storage costs an extra mapping and behaves
-     * correctly; nothing here depends on the aliasing.
-     *
-     * Reserved before the kernel page below, which lives inside it.
      */
     {
         uintptr_t contig_native = XBOX_CONTIG_BASE + g_memory_offset;
@@ -2327,22 +2332,6 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
 
     /*
      * NV2A hardware register aperture at 0xFD000000 (16 MB).
-     *
-     * The GPU's registers are memory-mapped here on real hardware. A title
-     * that only calls D3D never notices, but the D3D8 library is linked into
-     * the XBE rather than provided by the kernel, so once execution is inside
-     * it the register pokes are just loads and stores in recompiled code.
-     * Halo faults reading 0xFD001804 during rasterizer_preinitialize, a few
-     * instructions after Direct3DCreate8 returns.
-     *
-     * Backed as ordinary zeroed RAM. That is enough to get through
-     * initialisation, and reads returning zero are the benign answer for the
-     * status and capability registers touched here.
-     *
-     * ponytail: plain memory, no register semantics. A spin loop waiting for
-     * a bit to *set* would hang rather than fault -- if that shows up, the fix
-     * is to bridge the D3D8 entry point that owns the loop, not to start
-     * emulating NV2A. Nothing has needed that yet.
      */
     {
         uintptr_t nv2a_native = XBOX_NV2A_BASE + g_memory_offset;
@@ -2352,8 +2341,6 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
             MEM_RESERVE | MEM_COMMIT,
             PAGE_READWRITE
         );
-        /* The pushbuffer survey rides on the same poll, so either
-         * variable arms it. */
         s_nv2a_trace = getenv("RECOMP_NV2A_TRACE") != NULL
                     || getenv("RECOMP_PB_SCAN") != NULL
                     || getenv("RECOMP_PB_EXEC") != NULL;
@@ -2370,24 +2357,6 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
 
     /*
      * MCPX device apertures.
-     *
-     * The NV2A block above is not the only hardware the title touches
-     * directly. The southbridge devices live higher up:
-     *
-     *   0xFE800000  APU (audio processing unit)
-     *   0xFEC00000  AC97
-     *   0xFED00000  USB0 / USB1
-     *   0xFEF00000  NIC
-     *
-     * Halo faults reading 0xFED00000 during input initialisation -- the XDK's
-     * USB code talks to the host controller's registers rather than going
-     * through a driver. Back the whole span as plain RAM for the same reason
-     * the NV2A aperture is backed: a read of zero is survivable, a fault is
-     * not.
-     *
-     * ponytail: no register semantics anywhere in here. If something spins
-     * waiting for a bit to set, extend the NV2A ack thread's table rather than
-     * emulating the device.
      */
     {
         uintptr_t mcpx_native = XBOX_MCPX_BASE + g_memory_offset;
@@ -2399,76 +2368,6 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
         );
         g_mcpx_regs = g_mcpx_memory;
         if (g_mcpx_memory) {
-            /* AC'97 codec ready.
-             *
-             * DirectSound resets the codec by setting a bit in 0xFEC0012C and
-             * then polls 0xFEC00130 for bit 8 a thousand times waiting for the
-             * codec to come up. On zeroed registers that bit never appears, so
-             * the wait times out and DirectSoundCreate returns DSERR_NODRIVER
-             * (0x88780078).
-             *
-             * That failure is not confined to audio. Wreckless initialises its
-             * whole engine object behind `if (DirectSoundCreate() >= 0)`, so a
-             * failed create skips the initialisation, leaves the object's table
-             * pointer null, and the null propagates: a null-derived divisor
-             * produces a NaN transform matrix, which produces a garbage index,
-             * which crashes. Reporting the codec as present is what lets the
-             * engine initialise at all.
-             *
-             * The aperture is plain memory, so setting the bit once is enough:
-             * nothing clears it, and the poll reads it on the first pass. */
-            #define MCPX_AC97_CODEC_STATUS 0x00400130u   /* 0xFEC00130 */
-            #define MCPX_AC97_CODEC_READY  0x00000100u
-            /* Opt-in, and not because it is wrong.
-             *
-             * Reporting the codec is the correct answer -- DSERR_NODRIVER is
-             * not what hardware returns -- but it is only correct as far as it
-             * goes. DirectSound then hands the audio DSP a command block in
-             * RAM and spins until the DSP clears it, and there is no DSP here,
-             * so the title trades a late crash for an early hang: 44 assets
-             * loaded and then a fault, versus one asset and a stall in audio
-             * init. Until the DSP handshake is answered, the honest default is
-             * the failure that gets further, with the correct behaviour one
-             * variable away. */
-            if (getenv("RECOMP_AC97_READY")) {
-                /* The APU's registers have to fault so they can be routed to
-                 * the emulated APU, which is the half that answers the DSP
-                 * handshake. Backed as plain memory the guest's writes go
-                 * nowhere the APU can see, so it initialises and then waits
-                 * forever. Only the APU's own 512K is unmapped: AC'97 above it
-                 * stays plain memory, which is what the codec-ready bit needs.
-                 *
-                 * Enabled by the same variable, because neither half is any
-                 * use without the other. */
-                /* Registers and the VP only (0x00000-0x2FFFF). The GP and EP
-                 * windows above them (0x30000-0x7FFFF) are the DSPs' own
-                 * X/Y/P memories, which behave as RAM on hardware and which
-                 * the APU model does not implement -- it drops writes there
-                 * and reads back 0. Trapping them bought nothing, and cost a
-                 * fault on any access the MMIO decoder cannot emulate:
-                 * Burnout 3's DirectSound bulk-copies DSP memory with
-                 * rep movsd, which the lifter lowers to a host memcpy, and
-                 * that faulted at 0xFE830B78 with no way to resume. Plain
-                 * memory keeps what the title writes. */
-                enum { APU_TRAP_BYTES = 0x00030000 };
-                DWORD old_protect;
-                if (VirtualProtect((char *)g_mcpx_memory, APU_TRAP_BYTES,
-                                   PAGE_NOACCESS, &old_protect))
-                    g_apu_mmio_trapped = 1;
-                if (g_apu_mmio_trapped)
-                    fprintf(stderr, "  APU: 0x%08X..0x%08X trapped for MMIO"
-                                    " (GP/EP DSP memory left as RAM)\n",
-                            XBOX_MCPX_BASE, XBOX_MCPX_BASE + APU_TRAP_BYTES);
-                *(volatile uint32_t *)((char *)g_mcpx_memory
-                                       + MCPX_AC97_CODEC_STATUS)
-                    |= MCPX_AC97_CODEC_READY;
-                /* Before the trap is armed: this write would otherwise be
-                 * the first thing to fault. */
-                ac97_arm_write_trap();
-                fprintf(stderr, "  AC97: codec reported ready at 0x%08X"
-                                " (DirectSound will initialise)\n",
-                        XBOX_MCPX_BASE + MCPX_AC97_CODEC_STATUS);
-            }
             fprintf(stderr, "  MCPX device aperture: %u MB at Xbox VA "
                     "0x%08X (APU/AC97/USB/NIC, zeroed)\n",
                     XBOX_MCPX_SIZE / (1024 * 1024), XBOX_MCPX_BASE);
@@ -2479,10 +2378,9 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
         }
     }
 
-    /* Flash ROM aperture -- see XBOX_FLASH_BASE for why. */
+    /* Flash ROM aperture */
     {
         uintptr_t flash_native = XBOX_FLASH_BASE + g_memory_offset;
-
         g_flash_memory = VirtualAlloc(
             (LPVOID)flash_native,
             XBOX_FLASH_SIZE,
@@ -2499,6 +2397,7 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
                     XBOX_FLASH_BASE, GetLastError());
         }
     }
+#endif
 
     if (g_nv2a_memory) {
         xbox_Nv2aAckStart();
@@ -2506,28 +2405,20 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
 
     /*
      * Allocate a page at Xbox kernel address space (0x80010000).
-     *
-     * RenderWare's Xbox driver code (xbcache.c) reads MEM32(0x8001003C)
-     * to parse the Xbox kernel's PE header and find the INIT section for
-     * CPU cache line sizing. On PC, we provide a minimal fake PE header
-     * with 0 sections so the function gracefully skips the cache init.
-     *
-     * The actual native address is 0x80010000 + g_memory_offset.
      */
     {
         #define XBOX_KERNEL_BASE 0x80010000u
         #define KERNEL_PAGE_SIZE 4096
+#if defined(__SWITCH__)
+        g_kernel_memory = g_switch_contig ? (void *)(g_switch_contig + 0x10000) : NULL;
+#else
         uintptr_t kernel_native = XBOX_KERNEL_BASE + g_memory_offset;
-        /* Already committed if the contiguous window above succeeded -
-         * 0x80010000 sits inside it - so just use that storage. */
         g_kernel_memory = g_contig_memory
             ? (void *)kernel_native
             : VirtualAlloc((LPVOID)kernel_native, KERNEL_PAGE_SIZE,
                            MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
+#endif
         if (g_kernel_memory) {
-            /* Zero-fill then set e_lfanew = 0x80 (offset to PE header).
-             * With the rest zeroed, NumberOfSections = 0 and the INIT
-             * section search finds nothing, which is the safe path. */
             memset(g_kernel_memory, 0, KERNEL_PAGE_SIZE);
             *(uint32_t *)((uint8_t *)g_kernel_memory + 0x3C) = 0x80;  /* e_lfanew */
             fprintf(stderr, "  Kernel: fake PE header at Xbox VA 0x%08X (native %p)\n",
@@ -2575,6 +2466,7 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
         uint64_t tiled_lo = XBOX_TILED_BASE;
         uint64_t tiled_hi = tiled_lo + xbox_TiledApertureSize();
 
+#if !defined(__SWITCH__)
         for (int m = 0; m < XBOX_NUM_MIRRORS; m++) {
             uintptr_t mirror_base = (uintptr_t)g_memory_base +
                                     (uintptr_t)(m + 1) * g_memory_size;
@@ -2587,9 +2479,6 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
                         m + 1, (unsigned)XBOX_TILED_BASE);
                 continue;
             }
-            /* Inside the reservation this hands back the slice we are about
-             * to use; outside it (no reservation) this is a no-op on an
-             * address we never held. */
             if (g_span_base)
                 VirtualFree((LPVOID)mirror_base, g_memory_size, MEM_RELEASE);
             g_mirror_views[m] = MapViewOfFileEx(
@@ -2613,39 +2502,10 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
 
     /*
      * Tiled / write-combined aperture at 0xF0000000.
-     *
-     * The NV2A exposes physical RAM a second time here and titles render
-     * through it. Wreckless's first surface write goes to guest 0xF1954000 --
-     * the tiled alias of physical 0x01954000, already inside our RAM -- and
-     * faulted because nothing was mapped there.
-     *
-     * A view of the same section rather than fresh storage: the title writes a
-     * surface through the tiled address and reads it back through the normal
-     * one, so the two have to be the same bytes. That is the whole reason the
-     * RAM lives in a file mapping.
      */
     {
         uintptr_t tiled_native = XBOX_TILED_BASE + g_memory_offset;
         size_t tiled_size = xbox_TiledApertureSize();
-        /* A view of the CONTIGUOUS window, not of RAM.
-         *
-         * On hardware all three -- physical P, 0x80000000+P and 0xF0000000+P
-         * -- are one and the same memory. Here they cannot be: the XBE image
-         * is loaded at its own VA in the RAM mapping, so aliasing the
-         * contiguous window onto RAM would drop a title's pinned physical
-         * pools on top of its own code (Halo pins 3.4 MB at 0x61000, which is
-         * inside its image). The contiguous window therefore has separate
-         * storage, and the question becomes which of the two the tiled
-         * aperture should be a view of.
-         *
-         * It is the contiguous one. A tiled address is a GPU surface address
-         * by construction, and GPU surfaces come from
-         * MmAllocateContiguousMemory -- so the pairing that has to hold is
-         * tiled to contiguous. Against RAM instead, Half-Life 2's loader wrote
-         * every decoded video frame through 0xF1C63000 while D3D sampled the
-         * texture at 0x81C63000, and the sampler read zeros: 1.8 billion black
-         * pixels rasterised, perfectly, from an empty texture.
-         */
         if (tiled_size > XBOX_CONTIG_SIZE)
             tiled_size = XBOX_CONTIG_SIZE;
         g_tiled_view = g_contig_mapping
@@ -2657,12 +2517,6 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
                 (LPVOID)tiled_native)
             : NULL;
         if (g_tiled_view) {
-            /* Prove the alias rather than assert it. Everything the title
-             * renders goes through this window and is read back through the
-             * physical address, so if the two are not the same bytes the GPU
-             * sees empty buffers and the screen stays black -- with nothing
-             * anywhere to say why. One write and one read turns that into a
-             * startup line. */
             {
                 volatile uint32_t *via_tiled =
                     (volatile uint32_t *)((uintptr_t)(XBOX_TILED_BASE + 0x1000)
@@ -2694,6 +2548,9 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
                     XBOX_TILED_BASE, GetLastError());
         }
     }
+#else
+    }
+#endif
 
     xbox_WatchInit();
     fprintf(stderr, "xbox_MemoryLayoutInit: complete\n");

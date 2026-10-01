@@ -403,14 +403,33 @@ void recomp_trace_esp(const char *name, const char *tag);
  * Memory access helpers
  * ================================================================ */
 
-/**
- * Translate an Xbox VA to an actual pointer.
- * Mask to 32-bit first: Xbox addresses are 32-bit and arithmetic
- * in the recompiled code can overflow. Without the mask, a 64-bit
- * uintptr_t cast preserves the overflow bits, landing us 4GB+ past
- * our mapping and causing access violations.
- */
+#if defined(__SWITCH__)
+extern uint8_t *g_switch_ram;
+extern uint8_t *g_switch_contig;
+extern uint8_t *g_switch_nv2a;
+extern uint8_t *g_switch_mcpx;
+extern uint8_t *g_switch_flash;
+
+static inline __attribute__((always_inline)) uintptr_t xbox_ptr_switch(uint32_t addr) {
+    if (__builtin_expect(addr < 0x08000000u, 1)) {
+        return (uintptr_t)g_switch_ram + addr;
+    } else if (addr >= 0x80000000u && addr < 0x88000000u) {
+        return (uintptr_t)g_switch_contig + (addr - 0x80000000u);
+    } else if (addr >= 0xF0000000u && addr < 0xF8000000u) {
+        return (uintptr_t)g_switch_contig + (addr - 0xF0000000u);
+    } else if (addr >= 0xFD000000u && addr < 0xFE000000u) {
+        return (uintptr_t)g_switch_nv2a + (addr - 0xFD000000u);
+    } else if (addr >= 0xFE800000u && addr < 0xFF000000u) {
+        return (uintptr_t)g_switch_mcpx + (addr - 0xFE800000u);
+    } else if (addr >= 0xFF000000u) {
+        return (uintptr_t)g_switch_flash + (addr - 0xFF000000u);
+    }
+    return (uintptr_t)g_switch_ram + (addr & 0x03FFFFFFu);
+}
+#define XBOX_PTR(addr) xbox_ptr_switch((uint32_t)(addr))
+#else
 #define XBOX_PTR(addr) ((uintptr_t)(uint32_t)(addr) + g_xbox_mem_offset)
+#endif
 
 /** Read/write N bytes at a flat Xbox memory address. */
 #define MEM8(addr)   (*(volatile uint8_t  *)XBOX_PTR(addr))

@@ -45,100 +45,18 @@ static inline time_t timegm(struct tm *tm) {
     return mktime(tm);
 }
 
-/* Track which allocations were done via svcMapPhysicalMemory vs memalign
- * so munmap uses the right free path. */
-typedef struct NxMmapNode {
-    void *addr;
-    size_t size;
-    int is_physical;  /* 1 = svcMapPhysicalMemory, 0 = memalign */
-    struct NxMmapNode *next;
-} NxMmapNode;
-
-static NxMmapNode *s_nx_mmap_list = NULL;
-
-static void nx_mmap_track(void *addr, size_t size, int is_physical) {
-    NxMmapNode *node = (NxMmapNode *)malloc(sizeof(NxMmapNode));
-    if (node) {
-        node->addr = addr;
-        node->size = size;
-        node->is_physical = is_physical;
-        node->next = s_nx_mmap_list;
-        s_nx_mmap_list = node;
-    }
-}
-
 static inline void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset) {
-    (void)prot; (void)flags; (void)fd; (void)offset;
+    (void)addr; (void)prot; (void)flags; (void)fd; (void)offset;
     size_t aligned_len = (length + 0xFFF) & ~0xFFF;
     if (aligned_len == 0) return MAP_FAILED;
-
-    if (addr != NULL) {
-        /* Fixed address: map physical pages directly.
-         * This works for addresses in the process's alias region,
-         * which is where virtmemFindAslr returns addresses. */
-        Result rc = svcMapPhysicalMemory(addr, aligned_len);
-        if (R_SUCCEEDED(rc)) {
-            memset(addr, 0, length);
-            nx_mmap_track(addr, aligned_len, 1);
-            return addr;
-        }
-        fprintf(stderr, "[NX-MMAP] svcMapPhysicalMemory failed at %p (size %zu, err 0x%X)\n",
-                addr, aligned_len, rc);
-        return MAP_FAILED;
-    }
-
-    /* No fixed address: try ASLR reservation + physical mapping first,
-     * fall back to memalign. */
-    virtmemLock();
-    void *vaddr = virtmemFindAslr(aligned_len, 0x1000);
-    if (vaddr) {
-        virtmemAddReservation(vaddr, aligned_len);
-    }
-    virtmemUnlock();
-
-    if (vaddr) {
-        Result rc = svcMapPhysicalMemory(vaddr, aligned_len);
-        if (R_SUCCEEDED(rc)) {
-            memset(vaddr, 0, length);
-            nx_mmap_track(vaddr, aligned_len, 1);
-            return vaddr;
-        }
-        /* svcMapPhysicalMemory failed - remove reservation and fall through */
-        fprintf(stderr, "[NX-MMAP] svcMapPhysicalMemory ASLR failed at %p (size %zu, err 0x%X), "
-                "falling back to memalign\n", vaddr, aligned_len, rc);
-    }
-
-    /* Last resort: heap allocation */
     void *ptr = memalign(4096, aligned_len);
-    if (ptr) {
-        memset(ptr, 0, length);
-        nx_mmap_track(ptr, aligned_len, 0);
-        return ptr;
-    }
-
-    return MAP_FAILED;
+    if (ptr) memset(ptr, 0, length);
+    return ptr ? ptr : MAP_FAILED;
 }
 
 static inline int munmap(void *addr, size_t length) {
     (void)length;
-    NxMmapNode **curr = &s_nx_mmap_list;
-    while (*curr) {
-        if ((*curr)->addr == addr) {
-            NxMmapNode *node = *curr;
-            if (node->is_physical) {
-                svcUnmapPhysicalMemory(node->addr, node->size);
-            } else {
-                free(node->addr);
-            }
-            *curr = node->next;
-            free(node);
-            return 0;
-        }
-        curr = &(*curr)->next;
-    }
-    /* Not tracked - try svcUnmapPhysicalMemory as best effort */
-    size_t aligned_len = (length + 0xFFF) & ~0xFFF;
-    svcUnmapPhysicalMemory(addr, aligned_len);
+    if (addr && addr != MAP_FAILED) free(addr);
     return 0;
 }
 
