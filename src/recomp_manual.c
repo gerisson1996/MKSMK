@@ -91,12 +91,77 @@ void recomp_unimpl(const char *text, uint32_t va)
 
 /* ── Manual lookup table ───────────────────────────────────── */
 
+static void stub_empty_ret(void) { esp += 4; }
+static void stub_xor_eax_ret(void) { eax = 0; esp += 4; }
+static void stub_mov_eax_1_ret(void) { eax = 1; esp += 4; }
+
 recomp_func_t recomp_lookup_manual(uint32_t va)
 {
-    switch (va) {
-        case 0x000F0BB0: return sub_000F0BB0_manual; /* CRT memmove */
-        default:
-            return NULL;
+    if (va == 0x000F0BB0) return sub_000F0BB0_manual; /* CRT memmove */
+
+    /* Generic x86 thunk & instruction decoder for un-indexed jump thunks and small stubs */
+    if (va >= 0x00010000 && va < 0x008C0000 && g_xbox_mem_offset) {
+        const uint8_t *code = (const uint8_t *)XBOX_PTR(va);
+        
+        /* 0xE9 rel32 (jmp target) */
+        if (code[0] == 0xE9) {
+            int32_t rel = *(const int32_t *)(code + 1);
+            uint32_t target_va = (uint32_t)(va + 5 + rel);
+            recomp_func_t fn = recomp_lookup(target_va);
+            if (fn) return fn;
+            if (target_va >= 0x00010000 && target_va < 0x008C0000) {
+                const uint8_t *tcode = (const uint8_t *)XBOX_PTR(target_va);
+                if (tcode[0] == 0xE9) {
+                    int32_t trel = *(const int32_t *)(tcode + 1);
+                    uint32_t ttarget_va = (uint32_t)(target_va + 5 + trel);
+                    fn = recomp_lookup(ttarget_va);
+                    if (fn) return fn;
+                }
+            }
+        }
+        
+        /* 0xEB imm8 (short jmp) */
+        if (code[0] == 0xEB) {
+            int8_t rel = *(const int8_t *)(code + 1);
+            uint32_t target_va = (uint32_t)(va + 2 + rel);
+            recomp_func_t fn = recomp_lookup(target_va);
+            if (fn) return fn;
+        }
+
+        /* 0xFF 0x25 abs32 (jmp [import/thunk]) */
+        if (code[0] == 0xFF && code[1] == 0x25) {
+            uint32_t ptr_va = *(const uint32_t *)(code + 2);
+            uint32_t target_va = MEM32(ptr_va);
+            recomp_func_t fn = recomp_lookup_kernel(target_va);
+            if (!fn) fn = recomp_lookup(target_va);
+            if (fn) return fn;
+        }
+
+        /* 0xC3 (ret) */
+        if (code[0] == 0xC3) {
+            return stub_empty_ret;
+        }
+
+        /* 0xC2 imm16 (ret N) */
+        if (code[0] == 0xC2) {
+            return stub_empty_ret;
+        }
+        
+        /* 0x31 0xC0 0xC3 (xor eax, eax; ret) */
+        if (code[0] == 0x31 && code[1] == 0xC0 && code[2] == 0xC3) {
+            return stub_xor_eax_ret;
+        }
+        /* 0x33 0xC0 0xC3 (xor eax, eax; ret) */
+        if (code[0] == 0x33 && code[1] == 0xC0 && code[2] == 0xC3) {
+            return stub_xor_eax_ret;
+        }
+
+        /* 0xB8 0x01 0x00 0x00 0x00 0xC3 (mov eax, 1; ret) */
+        if (code[0] == 0xB8 && code[1] == 0x01 && code[2] == 0x00 && code[3] == 0x00 && code[4] == 0x00 && code[5] == 0xC3) {
+            return stub_mov_eax_1_ret;
+        }
     }
+
+    return NULL;
 }
 
