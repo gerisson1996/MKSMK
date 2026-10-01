@@ -800,25 +800,52 @@ NTSTATUS __stdcall xbox_NtCreateFile(
         return STATUS_OBJECT_PATH_NOT_FOUND;
     }
 
-    int fd;
-    if (CreateOptions & XBOX_FILE_DIRECTORY_FILE) {
-        if (CreateDisposition == XBOX_FILE_CREATE || CreateDisposition == XBOX_FILE_OPEN_IF)
-            mkdir(host_path, 0755);   /* EEXIST is fine */
-        fd = open(host_path, O_RDONLY | O_DIRECTORY);
-    } else {
-        fd = open(host_path, posix_open_flags(DesiredAccess, CreateDisposition), 0644);
+    struct stat st;
+    int is_dir = (CreateOptions & XBOX_FILE_DIRECTORY_FILE) != 0;
+    if (!is_dir && stat(host_path, &st) == 0 && S_ISDIR(st.st_mode)) {
+        is_dir = 1;
     }
 
-    if (fd < 0) {
-        int e = errno;
-        fprintf(stderr, "  [FILE] POSIX open FAILED: '%s' (errno=%d: %s)\n", host_path, e, strerror(e));
-        fflush(stderr);
-        XBOX_TRACE(XBOX_LOG_FILE, "NtCreateFile FAILED: %s (errno=%d)", host_path, e);
-        if (IoStatusBlock) {
-            IoStatusBlock->Status = STATUS_OBJECT_NAME_NOT_FOUND;
-            IoStatusBlock->Information = 0;
+    int fd = -1;
+    if (is_dir) {
+        if (CreateDisposition == XBOX_FILE_CREATE || CreateDisposition == XBOX_FILE_OPEN_IF)
+            mkdir(host_path, 0755);   /* EEXIST is fine */
+        
+        DIR* d = opendir(host_path);
+        if (!d) {
+            if (stat(host_path, &st) != 0 || !S_ISDIR(st.st_mode)) {
+                int e = errno;
+                fprintf(stderr, "  [FILE] POSIX opendir/stat FAILED: '%s' (errno=%d: %s)\n", host_path, e, strerror(e));
+                fflush(stderr);
+                XBOX_TRACE(XBOX_LOG_FILE, "NtCreateFile FAILED: %s (errno=%d)", host_path, e);
+                if (IoStatusBlock) {
+                    IoStatusBlock->Status = STATUS_OBJECT_NAME_NOT_FOUND;
+                    IoStatusBlock->Information = 0;
+                }
+                return errno_to_status(e);
+            }
+        } else {
+            closedir(d);
         }
-        return errno_to_status(e);
+        fd = -1;
+    } else {
+        fd = open(host_path, posix_open_flags(DesiredAccess, CreateDisposition), 0644);
+        if (fd < 0) {
+            if (stat(host_path, &st) == 0 && S_ISDIR(st.st_mode)) {
+                fd = -1;
+                is_dir = 1;
+            } else {
+                int e = errno;
+                fprintf(stderr, "  [FILE] POSIX open FAILED: '%s' (errno=%d: %s)\n", host_path, e, strerror(e));
+                fflush(stderr);
+                XBOX_TRACE(XBOX_LOG_FILE, "NtCreateFile FAILED: %s (errno=%d)", host_path, e);
+                if (IoStatusBlock) {
+                    IoStatusBlock->Status = STATUS_OBJECT_NAME_NOT_FOUND;
+                    IoStatusBlock->Information = 0;
+                }
+                return errno_to_status(e);
+            }
+        }
     }
 
     *FileHandle = w32_open_handle(fd, host_path);
@@ -826,6 +853,8 @@ NTSTATUS __stdcall xbox_NtCreateFile(
         IoStatusBlock->Status = STATUS_SUCCESS;
         IoStatusBlock->Information = (CreateDisposition == XBOX_FILE_CREATE) ? 2 : 1;
     }
+    fprintf(stderr, "  [FILE] NtCreateFile SUCCESS: '%s' (is_dir=%d) -> handle=%p\n", host_path, is_dir, *FileHandle);
+    fflush(stderr);
     XBOX_TRACE(XBOX_LOG_FILE, "NtCreateFile: %s -> handle=%p", host_path, *FileHandle);
     return STATUS_SUCCESS;
 }
@@ -929,13 +958,19 @@ NTSTATUS __stdcall xbox_NtQueryInformationFile(
         return STATUS_INVALID_PARAMETER;
 
     int fd = w32_handle_fd(FileHandle);
-    if (fd < 0)
+    const char* path = w32_handle_path(FileHandle);
+    if (fd < 0 && !path)
         return STATUS_INVALID_HANDLE;
 
     struct stat st;
     if (FileInformationClass != XboxFilePositionInformation) {
-        if (fstat(fd, &st) != 0)
-            return STATUS_UNSUCCESSFUL;
+        if (fd >= 0) {
+            if (fstat(fd, &st) != 0)
+                return STATUS_UNSUCCESSFUL;
+        } else {
+            if (stat(path, &st) != 0)
+                return STATUS_UNSUCCESSFUL;
+        }
     }
 
     switch (FileInformationClass) {
@@ -963,6 +998,12 @@ NTSTATUS __stdcall xbox_NtQueryInformationFile(
         }
         case XboxFilePositionInformation: {
             PXBOX_FILE_POSITION_INFORMATION info = (PXBOX_FILE_POSITION_INFORMATION)FileInformation;
+            if (fd < 0) {
+                info->CurrentByteOffset.QuadPart = 0;
+                IoStatusBlock->Status = STATUS_SUCCESS;
+                IoStatusBlock->Information = sizeof(XBOX_FILE_POSITION_INFORMATION);
+                return STATUS_SUCCESS;
+            }
             off_t pos = lseek(fd, 0, SEEK_CUR);
             if (pos < 0) return STATUS_UNSUCCESSFUL;
             info->CurrentByteOffset.QuadPart = pos;
@@ -999,45 +1040,42 @@ NTSTATUS __stdcall xbox_NtSetInformationFile(
         return STATUS_INVALID_PARAMETER;
 
     int fd = w32_handle_fd(FileHandle);
-    if (fd < 0)
+    const char* path = w32_handle_path(FileHandle);
+    if (fd < 0 && !path)
         return STATUS_INVALID_HANDLE;
 
     switch (FileInformationClass) {
         case XboxFilePositionInformation: {
             PXBOX_FILE_POSITION_INFORMATION info = (PXBOX_FILE_POSITION_INFORMATION)FileInformation;
-            if (lseek(fd, (off_t)info->CurrentByteOffset.QuadPart, SEEK_SET) < 0)
-                return STATUS_UNSUCCESSFUL;
+            if (fd >= 0) {
+                if (lseek(fd, (off_t)info->CurrentByteOffset.QuadPart, SEEK_SET) < 0)
+                    return STATUS_UNSUCCESSFUL;
+            }
             IoStatusBlock->Status = STATUS_SUCCESS;
             return STATUS_SUCCESS;
         }
         case XboxFileEndOfFileInformation: {
             PXBOX_FILE_END_OF_FILE_INFORMATION info = (PXBOX_FILE_END_OF_FILE_INFORMATION)FileInformation;
-            if (ftruncate(fd, (off_t)info->EndOfFile.QuadPart) != 0)
-                return STATUS_UNSUCCESSFUL;
+            if (fd >= 0) {
+                if (ftruncate(fd, (off_t)info->EndOfFile.QuadPart) != 0)
+                    return STATUS_UNSUCCESSFUL;
+            }
             IoStatusBlock->Status = STATUS_SUCCESS;
             return STATUS_SUCCESS;
         }
         case XboxFileDispositionInformation: {
             PXBOX_FILE_DISPOSITION_INFORMATION info = (PXBOX_FILE_DISPOSITION_INFORMATION)FileInformation;
-            /* POSIX: unlinking an open file removes it on last close -- this
-             * matches NT "delete on close" semantics exactly. */
-            if (info->DeleteFile) {
-                const char* p = w32_handle_path(FileHandle);
-                if (p) unlink(p);
+            if (info->DeleteFile && path) {
+                unlink(path);
+                rmdir(path);
             }
             IoStatusBlock->Status = STATUS_SUCCESS;
             return STATUS_SUCCESS;
         }
         case XboxFileBasicInformation:
-            /* Setting file times is non-essential for the game; accept it. */
             IoStatusBlock->Status = STATUS_SUCCESS;
             return STATUS_SUCCESS;
         default:
-            /* stderr, not xbox_log: WARN is filtered out by default, and an
-             * unimplemented info class is exactly the kind of silent gap that
-             * surfaces far away. Halo's save path hits one, gets
-             * STATUS_NOT_IMPLEMENTED, converts it to DOS error 317 and asserts
-             * "couldn't open or create saved game file". */
             fprintf(stderr, "  [FILE] NtSetInformationFile: unhandled class %d\n",
                     (int)FileInformationClass);
             fflush(stderr);
