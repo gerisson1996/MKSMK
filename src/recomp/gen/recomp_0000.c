@@ -1,6 +1,6 @@
 /**
- * MK: Shaolin Monks - Recompiled code chunk 0
- * Functions: 500 (0x0001101E - 0x00012068)
+ * MKSM - Recompiled code chunk 0
+ * Functions: 500 (0x0001101E - 0x00012081)
  */
 
 #define RECOMP_GENERATED_CODE
@@ -3415,25 +3415,6 @@ loc_00011681: ;
 }
 
 /**
- * sub_00011686
- * Original: 0x00011686 - 0x00011690 (10 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_00011686(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_00011686: ;
-    g_seh_ebp = ebp; sub_000B7340(); return; /* tail jmp 0x000B7340 */
-
-    g_seh_ebp = ebp; sub_000C41D0(); return; /* tail jmp 0x000C41D0 */
-
-}
-
-/**
  * sub_00011690
  * Original: 0x00011690 - 0x00011695 (5 bytes, 1 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -4416,23 +4397,6 @@ void sub_0001183E(void)
 loc_0001183E: ;
     g_seh_ebp = ebp; sub_000353F0(); return; /* tail jmp 0x000353F0 */
 
-    g_seh_ebp = ebp; sub_0003A290(); return; /* tail jmp 0x0003A290 */
-
-}
-
-/**
- * sub_00011843
- * Original: 0x00011843 - 0x00011848 (5 bytes, 1 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_00011843(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_00011843: ;
     g_seh_ebp = ebp; sub_0003A290(); return; /* tail jmp 0x0003A290 */
 
 }
@@ -8808,37 +8772,6 @@ loc_00012040: ;
 }
 
 /**
- * sub_00012045
- * Original: 0x00012045 - 0x0001206D (40 bytes, 8 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_00012045(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_00012045: ;
-    g_seh_ebp = ebp; sub_00092640(); return; /* tail jmp 0x00092640 */
-
-    g_seh_ebp = ebp; sub_00028BB0(); return; /* tail jmp 0x00028BB0 */
-
-    g_seh_ebp = ebp; sub_00066AC0(); return; /* tail jmp 0x00066AC0 */
-
-    g_seh_ebp = ebp; sub_000C8470(); return; /* tail jmp 0x000C8470 */
-
-    g_seh_ebp = ebp; sub_0007B6B0(); return; /* tail jmp 0x0007B6B0 */
-
-    g_seh_ebp = ebp; sub_00067A50(); return; /* tail jmp 0x00067A50 */
-
-    g_seh_ebp = ebp; sub_00093FC0(); return; /* tail jmp 0x00093FC0 */
-
-    g_seh_ebp = ebp; sub_000C2A80(); return; /* tail jmp 0x000C2A80 */
-
-}
-
-/**
  * sub_0001204F
  * Original: 0x0001204F - 0x0001206D (30 bytes, 6 insns)
  * Category: game_vtable
@@ -8889,18 +8822,69 @@ loc_0001205E: ;
 }
 
 /**
- * sub_00012068
- * Original: 0x00012068 - 0x0001206D (5 bytes, 1 insns)
+ * sub_0001206D
+ * Original: 0x0001206D - 0x00012072 (5 bytes, 1 insns)
  * CC: cdecl, 0 params, returns int_or_void
  * Frame: fpo_leaf
  */
-void sub_00012068(void)
+void sub_0001206D(void)
 {
     uint32_t ebp = 0;
     ebp = g_ebp;  /* frameless: caller's frame */
     ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
 
-loc_00012068: ;
-    g_seh_ebp = ebp; sub_000C2A80(); return; /* tail jmp 0x000C2A80 */
+loc_0001206D: ;
+    g_seh_ebp = ebp; sub_000C67B0(); return; /* tail jmp 0x000C67B0 */
+
+}
+
+/**
+ * sub_00012072
+ * Original: 0x00012072 - 0x00012077 (5 bytes, 1 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_00012072(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_00012072: ;
+    g_seh_ebp = ebp; sub_0007DC60(); return; /* tail jmp 0x0007DC60 */
+
+}
+
+/**
+ * sub_0001207C
+ * Original: 0x0001207C - 0x00012081 (5 bytes, 1 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_0001207C(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_0001207C: ;
+    g_seh_ebp = ebp; sub_0005D990(); return; /* tail jmp 0x0005D990 */
+
+}
+
+/**
+ * sub_00012081
+ * Original: 0x00012081 - 0x00012086 (5 bytes, 1 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_00012081(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_00012081: ;
+    g_seh_ebp = ebp; sub_0003DAC0(); return; /* tail jmp 0x0003DAC0 */
 
 }

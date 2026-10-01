@@ -1,11 +1,7547 @@
 /**
- * MK: Shaolin Monks - Recompiled code chunk 30
- * Functions: 500 (0x001D86A0 - 0x001E60F0)
+ * MKSM - Recompiled code chunk 30
+ * Functions: 500 (0x001D5060 - 0x001E2BF0)
  */
 
 #define RECOMP_GENERATED_CODE
 #include "recomp_funcs.h"
 #include <math.h>
+
+/**
+ * sub_001D5060
+ * Original: 0x001D5060 - 0x001D506C (12 bytes, 3 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5060(void)
+{
+
+loc_001D5060: ;
+    MEM8(ecx + 0x11) = 1;
+    MEM32(ecx + 0x18) = 0x3F800000;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D5070
+ * Original: 0x001D5070 - 0x001D5079 (9 bytes, 4 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5070(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D5070: ;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    MEM8(ecx + 0x11) = LO8(eax);
+    MEM32(ecx + 0x18) = eax;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D5080
+ * Original: 0x001D5080 - 0x001D5084 (4 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5080(void)
+{
+
+loc_001D5080: ;
+    SET_LO8(eax, MEM8(ecx + 0x10));
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D5090
+ * Original: 0x001D5090 - 0x001D509A (10 bytes, 3 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5090(void)
+{
+
+loc_001D5090: ;
+    SET_LO8(eax, MEM8(esp + 4));
+    MEM8(ecx + 0x10) = LO8(eax);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D50A0
+ * Original: 0x001D50A0 - 0x001D50A4 (4 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D50A0(void)
+{
+
+loc_001D50A0: ;
+    SET_LO8(eax, MEM8(ecx + 0x11));
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D50B0
+ * Original: 0x001D50B0 - 0x001D50B4 (4 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D50B0(void)
+{
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D50B0: ;
+    fp_push(MEMF(ecx + 0x14)); /* fld float */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D50C0
+ * Original: 0x001D50C0 - 0x001D50CA (10 bytes, 3 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D50C0(void)
+{
+
+loc_001D50C0: ;
+    eax = MEM32(esp + 4);
+    MEM32(ecx + 0x14) = eax;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D50D0
+ * Original: 0x001D50D0 - 0x001D50D4 (4 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D50D0(void)
+{
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D50D0: ;
+    fp_push(MEMF(ecx + 0x1C)); /* fld float */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D50E0
+ * Original: 0x001D50E0 - 0x001D50EA (10 bytes, 3 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D50E0(void)
+{
+
+loc_001D50E0: ;
+    eax = MEM32(esp + 4);
+    MEM32(ecx + 0x1C) = eax;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D50F0
+ * Original: 0x001D50F0 - 0x001D50F4 (4 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D50F0(void)
+{
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D50F0: ;
+    fp_push(MEMF(ecx + 0x24)); /* fld float */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5100
+ * Original: 0x001D5100 - 0x001D510A (10 bytes, 3 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5100(void)
+{
+
+loc_001D5100: ;
+    eax = MEM32(esp + 4);
+    MEM32(ecx + 0x24) = eax;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5110
+ * Original: 0x001D5110 - 0x001D511D (13 bytes, 3 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5110(void)
+{
+
+loc_001D5110: ;
+    SET_LO8(eax, MEM8(esp + 4));
+    MEM8(ecx + 0x94) = LO8(eax);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5120
+ * Original: 0x001D5120 - 0x001D5127 (7 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5120(void)
+{
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D5120: ;
+    fp_push(MEMF(ecx + 0xC4)); /* fld float */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5130
+ * Original: 0x001D5130 - 0x001D5179 (73 bytes, 17 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5130(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D5130: ;
+    fp_push(MEMF(esp + 4)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4964E8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4964e8] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D514E; /* jp: parity */
+
+loc_001D5141: ;
+    MEM32(ecx + 0xC4) = 0;
+    esp += 8; return; /* ret 4 */
+
+loc_001D514E: ;
+    fp_push(MEMF(esp + 4)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x496454)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x496454] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D516C; /* jne: not equal / not zero */
+
+loc_001D515F: ;
+    MEM32(ecx + 0xC4) = 0x3F800000;
+    esp += 8; return; /* ret 4 */
+
+loc_001D516C: ;
+    eax = MEM32(esp + 4);
+    MEM32(ecx + 0xC4) = eax;
+    esp += 8; return; /* ret 4 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5180
+ * Original: 0x001D5180 - 0x001D5187 (7 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5180(void)
+{
+
+loc_001D5180: ;
+    eax = MEM32(ecx + 0xC8);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D5190
+ * Original: 0x001D5190 - 0x001D519D (13 bytes, 3 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5190(void)
+{
+
+loc_001D5190: ;
+    eax = MEM32(esp + 4);
+    MEM32(ecx + 0xC8) = eax;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D51A0
+ * Original: 0x001D51A0 - 0x001D51AB (11 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D51A0(void)
+{
+
+loc_001D51A0: ;
+    MEM32(ecx + 0xC8) = 3;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D51B0
+ * Original: 0x001D51B0 - 0x001D51C9 (25 bytes, 8 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D51B0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D51B0: ;
+    eax = MEM32(esp + 4);
+    SET_LO8(edx, MEM8(eax + ecx + 0x38));
+    _fa = (uint32_t)(LO8(edx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(edx), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D51C2; /* jne: not equal / not zero */
+
+loc_001D51BC: ;
+    eax = eax | 0xFFFFFFFFu;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    esp += 8; return; /* ret 4 */
+
+loc_001D51C2: ;
+    eax = MEM32(ecx + eax * 4 + 0x44);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D51D0
+ * Original: 0x001D51D0 - 0x001D51F1 (33 bytes, 8 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D51D0(void)
+{
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D51D0: ;
+    fp_push(MEMF(esp + 4)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + fp_top()); /* fadd st(0), st(0) */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x496454)); /* fsub dword ptr [0x496454] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E2A8)); /* fmul dword ptr [0x49e2a8] */
+    fp_top() = sin(fp_top()); /* fsin */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x496454)); /* fadd dword ptr [0x496454] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x496B98)); /* fmul dword ptr [0x496b98] */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5200
+ * Original: 0x001D5200 - 0x001D5283 (131 bytes, 37 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5200(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D5200: ;
+    fp_push(MEMF(esp + 4)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A4)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4a08a4] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D5217; /* jne: not equal / not zero */
+
+loc_001D5211: ;
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x49E43C)); /* fsub dword ptr [0x49e43c] */
+
+loc_001D5217: ;
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A0)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4a08a0] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D522A; /* jp: parity */
+
+loc_001D5224: ;
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x49E43C)); /* fadd dword ptr [0x49e43c] */
+
+loc_001D522A: ;
+    fp_push(MEMF(esp + 8)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A4)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4a08a4] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D5241; /* jne: not equal / not zero */
+
+loc_001D523B: ;
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x49E43C)); /* fsub dword ptr [0x49e43c] */
+
+loc_001D5241: ;
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A0)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4a08a0] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D5254; /* jp: parity */
+
+loc_001D524E: ;
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x49E43C)); /* fadd dword ptr [0x49e43c] */
+
+loc_001D5254: ;
+    { double _t = fp_top(); fp_top() = fp_st1(); fp_st1() = _t; } /* fxch st(1) */
+    fp_top() = RECOMP_FP_PC(fp_top() - fp_st1()); /* fsub st(1) */
+    { double _t = fp_top(); fp_top() = fp_st1(); fp_st1() = _t; } /* fxch st(1) */
+    fp_pop(); /* fstp st(0) */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A4)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4a08a4] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D526F; /* jne: not equal / not zero */
+
+loc_001D5269: ;
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x49E43C)); /* fsub dword ptr [0x49e43c] */
+
+loc_001D526F: ;
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A0)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4a08a0] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D5282; /* jp: parity */
+
+loc_001D527C: ;
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x49E43C)); /* fadd dword ptr [0x49e43c] */
+
+loc_001D5282: ;
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5290
+ * Original: 0x001D5290 - 0x001D52BD (45 bytes, 14 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5290(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D5290: ;
+    eax = MEM32(esp + 8);
+    ecx = MEM32(esp + 4);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D529Fu); RECOMP_ABI_CALL(0x001D5200u, sub_001D5200); /* call 0x001D5200 */
+
+loc_001D529F: ;
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4964E8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4964e8] */
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D52B6; /* jp: parity */
+
+loc_001D52AF: ;
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x49E43C)); /* fadd dword ptr [0x49e43c] */
+    esp += 4; return; /* ret */
+
+loc_001D52B6: ;
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x49E43C)); /* fsub dword ptr [0x49e43c] */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D52C0
+ * Original: 0x001D52C0 - 0x001D52EE (46 bytes, 15 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D52C0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D52C0: ;
+    eax = MEM32(esp + 4);
+    SET_LO8(edx, MEM8(eax + ecx + 0x38));
+    _fa = (uint32_t)(LO8(edx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(edx), 0 (8-bit) */
+    edx = 0xFFFFFFFFu;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D52D5; /* je: equal / zero */
+
+loc_001D52D1: ;
+    edx = MEM32(ecx + eax * 4 + 0x44);
+
+loc_001D52D5: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D52E1; /* je: equal / zero */
+
+loc_001D52DC: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D52EB; /* jge: greater or equal (signed >=) */
+
+loc_001D52E1: ;
+    eax = MEM32(ecx + 0x68);
+    MEM32(ecx + eax * 4 + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D52EB: ;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D52F0
+ * Original: 0x001D52F0 - 0x001D5367 (119 bytes, 41 insns)
+ * CC: cdecl, 2 params, returns float_sse
+ * Frame: fpo_leaf
+ */
+void sub_001D52F0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D52F0: ;
+    eax = MEM32(esp + 8);
+    fp_push(MEMF(eax + 8)); /* fld float */
+    ecx = MEM32(esp + 4);
+    fp_push(MEMF(eax)); /* fld float */
+    fp_push(MEMF(eax + 4)); /* fld float */
+    { double _t = fp_st1(); fp_push(_t); } /* fld st(1) */
+    fp_top() = RECOMP_FP_PC(fp_top() * g_fp_stack[(g_fp_top + 2) & 7]); /* fmul st(2) */
+    { double _t = g_fp_stack[(g_fp_top + 3) & 7]; fp_push(_t); } /* fld st(3) */
+    fp_top() = RECOMP_FP_PC(fp_top() * g_fp_stack[(g_fp_top + 4) & 7]); /* fmul st(4) */
+    fp_st1() = RECOMP_FP_PC(fp_st1() + fp_top()); fp_pop(); /* faddp st(1) */
+    fp_top() = RECOMP_FP_PC(sqrt(fp_top())); /* fsqrt */
+    g_fp_stack[(g_fp_top + 3) & 7] = fp_top(); fp_pop(); /* fstp st(3) */
+    { double _t = fp_top(); fp_top() = fp_st1(); fp_st1() = _t; } /* fxch st(1) */
+    { double _t = fp_top(); fp_top() = g_fp_stack[(g_fp_top + 2) & 7]; g_fp_stack[(g_fp_top + 2) & 7] = _t; } /* fxch st(2) */
+    { fp_st1() = atan2(fp_st1(), fp_top()); fp_pop(); } /* fpatan */
+    fp_st1() = fp_top(); fp_pop(); /* fstp st(1) */
+    fp_top() = -fp_top(); /* fchs */
+    MEMF(ecx) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(eax)); /* fld float */
+    fp_push(MEMF(eax + 8)); /* fld float */
+    MEM32(ecx + 8) = 0;
+    { fp_st1() = atan2(fp_st1(), fp_top()); fp_pop(); } /* fpatan */
+    MEM32(ecx + 0xC) = 0x3F800000;
+    MEMF(ecx + 4) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(ecx)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x49E2A8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x49e2a8] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D534B; /* jne: not equal / not zero */
+
+loc_001D5341: ;
+    fp_push(MEMF(ecx)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x4A08A4)); /* fsub dword ptr [0x4a08a4] */
+    MEMF(ecx) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D534B: ;
+    fp_push(MEMF(ecx)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4ACA18)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4aca18] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D5364; /* jp: parity */
+
+loc_001D535A: ;
+    fp_push(MEMF(ecx)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x4A08A4)); /* fadd dword ptr [0x4a08a4] */
+    MEMF(ecx) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D5364: ;
+    esp += 12; return; /* ret 8 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5370
+ * Original: 0x001D5370 - 0x001D53DD (109 bytes, 25 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5370(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D5370: ;
+    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x20;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 0x2C);
+    eax = esp + 4;
+    PUSH32(esp, eax);
+    PUSH32(esp, esi);
+    MEM32(esp + 0xC) = 0;
+    MEM32(esp + 0x10) = 0;
+    MEM32(esp + 0x14) = 0;
+    MEM32(esp + 0x18) = 0;
+    MEM32(esp + 0x1C) = 0;
+    MEM32(esp + 0x20) = 0;
+    MEM32(esp + 0x24) = 0x3F800000;
+    MEM32(esp + 0x28) = 0;
+    PUSH32(esp, 0x001D53C3u); RECOMP_ABI_CALL(0x0015BBA0u, sub_0015BBA0); /* call 0x0015BBA0 */
+
+loc_001D53C3: ;
+    edx = MEM32(esp + 0x30);
+    ecx = esp + 0x1C;
+    PUSH32(esp, ecx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D53D3u); RECOMP_ABI_CALL(0x0015CC00u, sub_0015CC00); /* call 0x0015CC00 */
+
+loc_001D53D3: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, esi);
+    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x20;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 12; return; /* ret 8 */
+
+}
+
+/**
+ * sub_001D53E0
+ * Original: 0x001D53E0 - 0x001D5469 (137 bytes, 42 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D53E0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D53E0: ;
+    SET_LO8(eax, MEM8(ecx + 0x11));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = 0x3F800000;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5407; /* je: equal / zero */
+
+loc_001D53EC: ;
+    fp_push(MEMF(ecx + 0x1C)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(ecx + 0x18)); /* fadd dword ptr [ecx + 0x18] */
+    MEMF(ecx + 0x18) = (float)fp_top(); /* fst */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x496454)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x496454] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D5424; /* jne: not equal / not zero */
+
+loc_001D5402: ;
+    MEM32(ecx + 0x18) = edx;
+    goto loc_001D5424;
+
+loc_001D5407: ;
+    fp_push(MEMF(ecx + 0x18)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(ecx + 0x1C)); /* fsub dword ptr [ecx + 0x1c] */
+    MEMF(ecx + 0x18) = (float)fp_top(); /* fst */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x49F158)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x49f158] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D5424; /* jp: parity */
+
+loc_001D541D: ;
+    MEM32(ecx + 0x18) = 0;
+
+loc_001D5424: ;
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_push(MEMF(ecx + 0x18)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); fp_pop(); /* fucompp  */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x44) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x44 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D543D; /* jp: parity */
+
+loc_001D5436: ;
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    esp += 4; return; /* ret */
+
+loc_001D543D: ;
+    _fa = (uint32_t)(MEM32(ecx + 0x18)) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx + 0x18), edx (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D5446; /* jne: not equal / not zero */
+
+loc_001D5442: ;
+    fp_push(MEMF(ecx + 0x14)); /* fld float */
+    esp += 4; return; /* ret */
+
+loc_001D5446: ;
+    fp_push(MEMF(ecx + 0x18)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + fp_top()); /* fadd st(0), st(0) */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x496454)); /* fsub dword ptr [0x496454] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E2A8)); /* fmul dword ptr [0x49e2a8] */
+    fp_top() = sin(fp_top()); /* fsin */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x496454)); /* fadd dword ptr [0x496454] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x496B98)); /* fmul dword ptr [0x496b98] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 0x14)); /* fmul dword ptr [ecx + 0x14] */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5470
+ * Original: 0x001D5470 - 0x001D5494 (36 bytes, 15 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5470(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D5470: ;
+    eax = MEM32(ecx);
+    eax = MEM32(eax + 0x24);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D5488; /* jl: less (signed <) */
+
+loc_001D5479: ;
+    PUSH32(esp, eax);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D5484u); RECOMP_ABI_CALL(0x001A1B20u, sub_001A1B20); /* call 0x001A1B20 */
+
+loc_001D5484: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D548B; /* jne: not equal / not zero */
+
+loc_001D5488: ;
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    esp += 4; return; /* ret */
+
+loc_001D548B: ;
+    SET_LO8(ecx, MEM8(eax + 0x25));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    SET_LO8(eax, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D54A0
+ * Original: 0x001D54A0 - 0x001D553C (156 bytes, 52 insns)
+ * CC: cdecl, 3 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D54A0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D54A0: ;
+    fp_push(MEMF(esp + 4)); /* fld float */
+    ecx = MEM32(esp + 0xC);
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(esp + 8)); /* fsub dword ptr [esp + 8] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx)); /* fmul dword ptr [ecx] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 4)); /* fmul dword ptr [ecx + 4] */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4964E8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4964e8] */
+    fp_push(MEMF(ecx + 0x14)); /* fld float */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4964E8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4964e8] */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D5503; /* jne: not equal / not zero */
+
+loc_001D54C9: ;
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D54DF; /* jp: parity */
+
+loc_001D54CE: ;
+    fp_pop(); /* fstp st(0) */
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_push(MEMF(ecx + 0xC)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(ecx + 0x10)); /* fadd dword ptr [ecx + 0x10] */
+    MEMF(ecx + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D54DF: ;
+    fp_push(MEMF(ecx + 0xC)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(ecx + 0x10)); /* fadd dword ptr [ecx + 0x10] */
+    MEMF(ecx + 0x10) = (float)fp_top(); /* fst */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp st(1) */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D552B; /* jne: not equal / not zero */
+
+loc_001D54F1: ;
+    MEMF(ecx + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(ecx + 8)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 0x10)); /* fmul dword ptr [ecx + 0x10] */
+    MEMF(ecx + 0x10) = (float)fp_top(); /* fst */
+    MEMF(ecx + 0x14) = (float)fp_top(); /* fst */
+    esp += 16; return; /* ret 12 */
+
+loc_001D5503: ;
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D5519; /* jne: not equal / not zero */
+
+loc_001D5508: ;
+    fp_pop(); /* fstp st(0) */
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_push(MEMF(ecx + 0x10)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(ecx + 0xC)); /* fsub dword ptr [ecx + 0xc] */
+    MEMF(ecx + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D5519: ;
+    fp_push(MEMF(ecx + 0x10)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(ecx + 0xC)); /* fsub dword ptr [ecx + 0xc] */
+    MEMF(ecx + 0x10) = (float)fp_top(); /* fst */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp st(1) */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if ((!RECOMP_PARITY8((_fa) & (_fb)))) goto loc_001D54F1; /* jnp: not parity */
+
+loc_001D552B: ;
+    fp_pop(); /* fstp st(0) */
+    fp_push(MEMF(ecx + 8)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 0x10)); /* fmul dword ptr [ecx + 0x10] */
+    MEMF(ecx + 0x10) = (float)fp_top(); /* fst */
+    MEMF(ecx + 0x14) = (float)fp_top(); /* fst */
+    esp += 16; return; /* ret 12 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5540
+ * Original: 0x001D5540 - 0x001D55C9 (137 bytes, 46 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5540(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D5540: ;
+    PUSH32(esp, ecx);
+    ecx = MEM32(esp + 0xC);
+    edx = MEM32(ecx + 0x1C);
+    eax = MEM32(ecx + 0x18);
+    MEM32(esp) = edx;
+    fp_push(MEMF(esp)); /* fld float */
+    MEM32(esp + 0xC) = eax;
+    fp_top() = -fp_top(); /* fchs */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(esp + 8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [esp + 8] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D556F; /* jne: not equal / not zero */
+
+loc_001D5562: ;
+    fp_push(MEMF(0x4976B4)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 0x20)); /* fmul dword ptr [ecx + 0x20] */
+    POP32(esp, ecx);
+    esp += 12; return; /* ret 8 */
+
+loc_001D556F: ;
+    fp_push(MEMF(esp + 0xC)); /* fld float */
+    fp_top() = -fp_top(); /* fchs */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(esp + 8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [esp + 8] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D5592; /* jne: not equal / not zero */
+
+loc_001D5580: ;
+    fp_push(MEMF(esp + 0xC)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esp + 8)); /* fadd dword ptr [esp + 8] */
+    fp_top() = RECOMP_FP_PC(fp_top() / MEMF(esp)); /* fdiv dword ptr [esp] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 0x20)); /* fmul dword ptr [ecx + 0x20] */
+    POP32(esp, ecx);
+    esp += 12; return; /* ret 8 */
+
+loc_001D5592: ;
+    fp_push(MEMF(esp + 8)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(esp)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [esp] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D55AD; /* jne: not equal / not zero */
+
+loc_001D55A0: ;
+    fp_push(MEMF(0x496454)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 0x20)); /* fmul dword ptr [ecx + 0x20] */
+    POP32(esp, ecx);
+    esp += 12; return; /* ret 8 */
+
+loc_001D55AD: ;
+    fp_push(MEMF(esp + 8)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(esp + 0xC)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [esp + 0xc] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001D5580; /* je: equal / zero */
+
+loc_001D55BC: ;
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(ecx + 0x20)); /* fmul dword ptr [ecx + 0x20] */
+    POP32(esp, ecx);
+    esp += 12; return; /* ret 8 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D55D0
+ * Original: 0x001D55D0 - 0x001D5693 (195 bytes, 63 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D55D0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D55D0: ;
+    _fb = (uint32_t)(0xC0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0xC0;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebp);
+    ebp = MEM32(esp + 0xC8);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = ecx;
+    eax = MEM32(edi + 4);
+    edx = MEM32(eax + 0x28);
+    ecx = ebp;
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x390);
+    SET_LO8(eax, MEM8(edx + ecx + 0x210));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0xFF) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0xFF (8-bit) */
+    esi = edx + ecx;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5687; /* je: equal / zero */
+
+loc_001D5602: ;
+    PUSH32(esp, ebx);
+    ebx = MEM32(esp + 0xD8);
+    eax = MEM32(ebx);
+    PUSH32(esp, eax);
+    ecx = esp + 0x94;
+    PUSH32(esp, 0x510C28);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D561Fu); RECOMP_ABI_CALL(0x0015CFF0u, sub_0015CFF0); /* call 0x0015CFF0 */
+
+loc_001D561F: ;
+    edx = MEM32(ebx + 4);
+    PUSH32(esp, edx);
+    eax = esp + 0xA0;
+    PUSH32(esp, eax);
+    ecx = esp + 0x24;
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5635u); RECOMP_ABI_CALL(0x0015D040u, sub_0015D040); /* call 0x0015D040 */
+
+loc_001D5635: ;
+    edx = esi + 0x60;
+    PUSH32(esp, edx);
+    eax = esp + 0x6C;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D5643u); RECOMP_ABI_CALL(0x0010DD90u, sub_0010DD90); /* call 0x0010DD90 */
+
+loc_001D5643: ;
+    ecx = esp + 0x70;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5652u); RECOMP_ABI_CALL(0x0015BBA0u, sub_0015BBA0); /* call 0x0015BBA0 */
+
+loc_001D5652: ;
+    edx = esp + 0x78;
+    PUSH32(esp, edx);
+    eax = esp + 0x3C;
+    PUSH32(esp, eax);
+    ecx = eax;
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5664u); RECOMP_ABI_CALL(0x0015CC90u, sub_0015CC90); /* call 0x0015CC90 */
+
+loc_001D5664: ;
+    _fb = (uint32_t)(0xA0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0xA0;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edx = esp + 0x44;
+    PUSH32(esp, esi);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D5675u); RECOMP_ABI_CALL(0x0015BBA0u, sub_0015BBA0); /* call 0x0015BBA0 */
+
+loc_001D5675: ;
+    ecx = MEM32(edi);
+    PUSH32(esp, ebp);
+    eax = esp + 0x50;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5683u); RECOMP_ABI_CALL(0x00108410u, sub_00108410); /* call 0x00108410 */
+
+loc_001D5683: ;
+    _fb = (uint32_t)(0x48) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x48;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, ebx);
+
+loc_001D5687: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    _fb = (uint32_t)(0xC0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC0;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 12; return; /* ret 8 */
+
+}
+
+/**
+ * sub_001D56A0
+ * Original: 0x001D56A0 - 0x001D58E5 (581 bytes, 153 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D56A0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D56A0: ;
+    PUSH32(esp, 0xFFFFFFFFu);
+    PUSH32(esp, 0x3BCAA1);
+    eax = MEM32(XBOX_FS_BASE);
+    PUSH32(esp, eax);
+    MEM32(XBOX_FS_BASE) = esp;
+    _fb = (uint32_t)(0x110) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x110;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = MEM32(esp + 0x130);
+    edi = (uint32_t)((int32_t)edi * (int32_t)0x390);
+    ebx = ecx;
+    eax = MEM32(ebx + 4);
+    _fb = (uint32_t)(MEM32(eax + 0x28)) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + MEM32(eax + 0x28);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = MEM32(esp + 0x12C);
+    edx = MEM32(ecx);
+    MEM32(esp + 0xC) = edx;
+    fp_push(MEMF(esp + 0xC)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A4)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4a08a4] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D56FF; /* jne: not equal / not zero */
+
+loc_001D56F1: ;
+    fp_push(MEMF(esp + 0xC)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x49E43C)); /* fsub dword ptr [0x49e43c] */
+    MEMF(esp + 0xC) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D56FF: ;
+    fp_push(MEMF(esp + 0xC)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A0)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4a08a0] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D571E; /* jp: parity */
+
+loc_001D5710: ;
+    fp_push(MEMF(esp + 0xC)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x49E43C)); /* fadd dword ptr [0x49e43c] */
+    MEMF(esp + 0xC) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D571E: ;
+    eax = MEM32(ecx + 4);
+    MEM32(esp + 0x10) = eax;
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A4)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4a08a4] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D5744; /* jne: not equal / not zero */
+
+loc_001D5736: ;
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x49E43C)); /* fsub dword ptr [0x49e43c] */
+    MEMF(esp + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D5744: ;
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4A08A0)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4a08a0] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D5763; /* jp: parity */
+
+loc_001D5755: ;
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x49E43C)); /* fadd dword ptr [0x49e43c] */
+    MEMF(esp + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D5763: ;
+    ecx = MEM32(esp + 0xC);
+    PUSH32(esp, ecx);
+    edx = esp + 0xE0;
+    PUSH32(esp, 0x510C28);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D577Au); RECOMP_ABI_CALL(0x0015CFF0u, sub_0015CFF0); /* call 0x0015CFF0 */
+
+loc_001D577A: ;
+    eax = MEM32(esp + 0x1C);
+    PUSH32(esp, eax);
+    ecx = esp + 0xEC;
+    PUSH32(esp, ecx);
+    edx = esp + 0x70;
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D5791u); RECOMP_ABI_CALL(0x0015D040u, sub_0015D040); /* call 0x0015D040 */
+
+loc_001D5791: ;
+    esi = edi + 0x10;
+    eax = esp + 0x64;
+    PUSH32(esp, esi);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D579Fu); RECOMP_ABI_CALL(0x0010DD00u, sub_0010DD00); /* call 0x0010DD00 */
+
+loc_001D579F: ;
+    ecx = MEM32(ebx + 0xC);
+    edx = MEM32(ebx + 4);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x390);
+    eax = MEM32(edx + 0x28);
+    ecx = ecx + eax + 0x10;
+    PUSH32(esp, ecx);
+    edx = esp + 0xC0;
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D57C0u); RECOMP_ABI_CALL(0x0010DD90u, sub_0010DD90); /* call 0x0010DD90 */
+
+loc_001D57C0: ;
+    eax = esp + 0xC4;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D57D2u); RECOMP_ABI_CALL(0x0015BBA0u, sub_0015BBA0); /* call 0x0015BBA0 */
+
+loc_001D57D2: ;
+    ecx = esp + 0x8C;
+    PUSH32(esp, ecx);
+    edx = esp + 0xD0;
+    PUSH32(esp, edx);
+    eax = ecx;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D57EAu); RECOMP_ABI_CALL(0x0015CC90u, sub_0015CC90); /* call 0x0015CC90 */
+
+loc_001D57EA: ;
+    ecx = esp + 0x88;
+    PUSH32(esp, ecx);
+    edx = esp + 0x9C;
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D57FFu); RECOMP_ABI_CALL(0x0015BBA0u, sub_0015BBA0); /* call 0x0015BBA0 */
+
+loc_001D57FF: ;
+    _fb = (uint32_t)(0x44) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x44;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = esp + 0x1C;
+    PUSH32(esp, 0x001D580Bu); RECOMP_ABI_CALL(0x001BCAF0u, sub_001BCAF0); /* call 0x001BCAF0 */
+
+loc_001D580B: ;
+    ecx = esp + 0x2C;
+    MEM32(esp + 0x124) = 0;
+    PUSH32(esp, 0x001D581Fu); RECOMP_ABI_CALL(0x001BCAF0u, sub_001BCAF0); /* call 0x001BCAF0 */
+
+loc_001D581F: ;
+    ecx = esp + 0x3C;
+    MEM8(esp + 0x124) = 1;
+    PUSH32(esp, 0x001D5830u); RECOMP_ABI_CALL(0x001BCAF0u, sub_001BCAF0); /* call 0x001BCAF0 */
+
+loc_001D5830: ;
+    eax = esp + 0x1C;
+    PUSH32(esp, eax);
+    ecx = esp + 0x60;
+    PUSH32(esp, ecx);
+    MEM8(esp + 0x12C) = 2;
+    PUSH32(esp, 0x001D5847u); RECOMP_ABI_CALL(0x001BCE80u, sub_001BCE80); /* call 0x001BCE80 */
+
+loc_001D5847: ;
+    edx = esp + 0x34;
+    PUSH32(esp, edx);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D5852u); RECOMP_ABI_CALL(0x001BCE80u, sub_001BCE80); /* call 0x001BCE80 */
+
+loc_001D5852: ;
+    ecx = MEM32(0x706214);
+    eax = esp + 0x4C;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    edx = esp + 0x34;
+    PUSH32(esp, edx);
+    eax = esp + 0x48;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D586Du); RECOMP_ABI_CALL(0x001BD0C0u, sub_001BD0C0); /* call 0x001BD0C0 */
+
+loc_001D586D: ;
+    ecx = esp + 0x5C;
+    PUSH32(esp, esi);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5878u); RECOMP_ABI_CALL(0x001BCFD0u, sub_001BCFD0); /* call 0x001BCFD0 */
+
+loc_001D5878: ;
+    edx = esp + 0x74;
+    PUSH32(esp, edx);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D5883u); RECOMP_ABI_CALL(0x0010DD50u, sub_0010DD50); /* call 0x0010DD50 */
+
+loc_001D5883: ;
+    eax = edi + 0x50;
+    PUSH32(esp, esi);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D588Du); RECOMP_ABI_CALL(0x0010DD30u, sub_0010DD30); /* call 0x0010DD30 */
+
+loc_001D588D: ;
+    ebx = ebx | 0xFFFFFFFFu;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    _fb = (uint32_t)(0x38) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x38;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = esp + 0x3C;
+    MEM8(edi + 0x210) = LO8(ebx);
+    MEM8(esp + 0x124) = 1;
+    PUSH32(esp, 0x001D58AAu); RECOMP_ABI_CALL(0x001BCB00u, sub_001BCB00); /* call 0x001BCB00 */
+
+loc_001D58AA: ;
+    ecx = esp + 0x2C;
+    MEM8(esp + 0x124) = 0;
+    PUSH32(esp, 0x001D58BBu); RECOMP_ABI_CALL(0x001BCB00u, sub_001BCB00); /* call 0x001BCB00 */
+
+loc_001D58BB: ;
+    ecx = esp + 0x1C;
+    MEM32(esp + 0x124) = ebx;
+    PUSH32(esp, 0x001D58CBu); RECOMP_ABI_CALL(0x001BCB00u, sub_001BCB00); /* call 0x001BCB00 */
+
+loc_001D58CB: ;
+    ecx = MEM32(esp + 0x11C);
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    MEM32(XBOX_FS_BASE) = ecx;
+    _fb = (uint32_t)(0x11C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x11C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 12; return; /* ret 8 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D58F0
+ * Original: 0x001D58F0 - 0x001D59CC (220 bytes, 71 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D58F0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D58F0: ;
+    SET_LO8(eax, MEM8(ecx + 0x39));
+    _fb = (uint32_t)(0x90) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x90;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    eax = 0xFFFFFFFFu;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5905; /* je: equal / zero */
+
+loc_001D5902: ;
+    eax = MEM32(ecx + 0x48);
+
+loc_001D5905: ;
+    edx = MEM32(ecx + 4);
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    edx = MEM32(edx + 0x28);
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    esi = MEM32(ecx + 8);
+    esi = (uint32_t)((int32_t)esi * (int32_t)0x390);
+    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, edi);
+    edi = eax;
+    eax = esp + 0x1C;
+    PUSH32(esp, 0x510C28);
+    PUSH32(esp, eax);
+    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + edx;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, 0x001D5932u); RECOMP_ABI_CALL(0x0015C280u, sub_0015C280); /* call 0x0015C280 */
+
+loc_001D5932: ;
+    ecx = esi + 0xA0;
+    PUSH32(esp, ecx);
+    edx = esp + 0x28;
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D5943u); RECOMP_ABI_CALL(0x0015BBA0u, sub_0015BBA0); /* call 0x0015BBA0 */
+
+loc_001D5943: ;
+    eax = esp + 0x2C;
+    PUSH32(esp, eax);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x10;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = eax;
+    PUSH32(esp, edi);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5954u); RECOMP_ABI_CALL(0x0015CC90u, sub_0015CC90); /* call 0x0015CC90 */
+
+loc_001D5954: ;
+    edx = esp + 0x38;
+    PUSH32(esp, edx);
+    edi = esi + 0x50;
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D5962u); RECOMP_ABI_CALL(0x0015BBC0u, sub_0015BBC0); /* call 0x0015BBC0 */
+
+loc_001D5962: ;
+    ebx = esi + 0x10;
+    PUSH32(esp, edi);
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x001D596Cu); RECOMP_ABI_CALL(0x0010DD70u, sub_0010DD70); /* call 0x0010DD70 */
+
+loc_001D596C: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D5972u); RECOMP_ABI_CALL(0x0010EC20u, sub_0010EC20); /* call 0x0010EC20 */
+
+loc_001D5972: ;
+    eax = MEM32(esi);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x10;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    ecx = esp + 0x90;
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5985u); RECOMP_ABI_CALL(0x0010DB50u, sub_0010DB50); /* call 0x0010DB50 */
+
+loc_001D5985: ;
+    PUSH32(esp, ebx);
+    edx = esp + 0x98;
+    PUSH32(esp, edx);
+    eax = esi + 0x60;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D5997u); RECOMP_ABI_CALL(0x0015CC90u, sub_0015CC90); /* call 0x0015CC90 */
+
+loc_001D5997: ;
+    _fb = (uint32_t)(0x44) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x44;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, 1);
+    ecx = esp + 0x10;
+    PUSH32(esp, ecx);
+    PUSH32(esp, esi);
+    MEM32(esp + 0x20) = 0;
+    MEM32(esp + 0x1C) = 0;
+    MEM32(esp + 0x18) = 0;
+    PUSH32(esp, 0x001D59BFu); RECOMP_ABI_CALL(0x001ABA80u, sub_001ABA80); /* call 0x001ABA80 */
+
+loc_001D59BF: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x90) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x90;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D59D0
+ * Original: 0x001D59D0 - 0x001D5A24 (84 bytes, 23 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D59D0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D59D0: ;
+    eax = MEM32(esp + 4);
+    PUSH32(esp, ebx);
+    SET_LO8(ebx, MEM8(eax + ecx + 0x38));
+    edx = edx | 0xFFFFFFFFu;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D59E4; /* jne: not equal / not zero */
+
+loc_001D59E0: ;
+    eax = edx;
+    goto loc_001D59E8;
+
+loc_001D59E4: ;
+    eax = MEM32(ecx + eax * 4 + 0x44);
+
+loc_001D59E8: ;
+    _fa = (uint32_t)(MEM32(ecx + 0x98)) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx + 0x98), eax (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D59F6; /* jne: not equal / not zero */
+
+loc_001D59F0: ;
+    MEM32(ecx + 0x98) = edx;
+
+loc_001D59F6: ;
+    _fa = (uint32_t)(MEM32(ecx + 0x9C)) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx + 0x9C), eax (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D5A04; /* jne: not equal / not zero */
+
+loc_001D59FE: ;
+    MEM32(ecx + 0x9C) = edx;
+
+loc_001D5A04: ;
+    _fa = (uint32_t)(MEM32(ecx + 0xA0)) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx + 0xA0), eax (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D5A12; /* jne: not equal / not zero */
+
+loc_001D5A0C: ;
+    MEM32(ecx + 0xA0) = edx;
+
+loc_001D5A12: ;
+    _fa = (uint32_t)(MEM32(ecx + 0xA4)) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx + 0xA4), eax (32-bit) */
+    POP32(esp, ebx);
+    if (CMP_NE(_fa, _fb)) goto loc_001D5A21; /* jne: not equal / not zero */
+
+loc_001D5A1B: ;
+    MEM32(ecx + 0xA4) = edx;
+
+loc_001D5A21: ;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5A30
+ * Original: 0x001D5A30 - 0x001D5A67 (55 bytes, 19 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5A30(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D5A30: ;
+    eax = MEM32(esp + 4);
+    SET_LO8(edx, MEM8(eax + ecx + 0x38));
+    _fa = (uint32_t)(LO8(edx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(edx), 0 (8-bit) */
+    edx = 0xFFFFFFFFu;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5A45; /* je: equal / zero */
+
+loc_001D5A41: ;
+    edx = MEM32(ecx + eax * 4 + 0x44);
+
+loc_001D5A45: ;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fb = (uint32_t)(0x98) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 0x98;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    /* nop */
+
+loc_001D5A50: ;
+    _fa = (uint32_t)(MEM32(ecx)) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx), edx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5A62; /* je: equal / zero */
+
+loc_001D5A54: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 4;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(4) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 4 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D5A50; /* jl: less (signed <) */
+
+loc_001D5A5D: ;
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    esp += 8; return; /* ret 4 */
+
+loc_001D5A62: ;
+    SET_LO8(eax, 1);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5A70
+ * Original: 0x001D5A70 - 0x001D5BA4 (308 bytes, 69 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5A70(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D5A70: ;
+    _fb = (uint32_t)(0x200) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x200;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, esi);
+    esi = ecx;
+    eax = MEM32(esi + 0xC8);
+    _fb = (uint32_t)(2) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    eax = eax - 2;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, edi);
+    if ((_fa == 0)) goto loc_001D5AAE; /* je: equal / zero */
+
+loc_001D5A85: ;
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    if ((_fa != 0)) goto loc_001D5B34; /* jne: not equal / not zero */
+
+loc_001D5A8C: ;
+    eax = MEM32(0x699C58);
+    MEM32(esi + 0xCC) = eax;
+    ecx = MEM32(0x699C5C);
+    MEM32(esi + 0xD0) = ecx;
+    edx = MEM32(0x699C60);
+    goto loc_001D5B2E;
+
+loc_001D5AAE: ;
+    edi = MEM32(esi + 0xA8);
+    eax = (uint32_t)(int32_t)SMEM16(edi + 0x1DFE);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esi + 0xB0)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(esi + 0xB0) (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D5B97; /* jne: not equal / not zero */
+
+loc_001D5AC7: ;
+    SET_LO8(eax, MEM8(edi + 0x70));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D5B97; /* jne: not equal / not zero */
+
+loc_001D5AD2: ;
+    fp_push(MEMF(esi + 0xBC)); /* fld float */
+    PUSH32(esp, 1);
+    PUSH32(esp, 0x001D5ADFu); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001D5ADF: ;
+    fp_push(MEMF(esi + 0xB8)); /* fld float */
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D5AEBu); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001D5AEB: ;
+    fp_push(MEMF(esi + 0xB4)); /* fld float */
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D5AF7u); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001D5AF7: ;
+    ecx = MEM32(esi + 0xAC);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    edx = esp + 0x1C;
+    PUSH32(esp, edx);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D5B0Au); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
+
+loc_001D5B0A: ;
+    eax = MEM32(esp + 0xA4);
+    ecx = MEM32(esp + 0xA8);
+    edx = MEM32(esp + 0xAC);
+    _fb = (uint32_t)(0x1C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x1C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esi + 0xCC) = eax;
+    MEM32(esi + 0xD0) = ecx;
+
+loc_001D5B2E: ;
+    MEM32(esi + 0xD4) = edx;
+
+loc_001D5B34: ;
+    fp_push(MEMF(esi + 0xCC)); /* fld float */
+    POP32(esp, edi);
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(esi + 0xDC)); /* fsub dword ptr [esi + 0xdc] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(esi + 0xC4)); /* fmul dword ptr [esi + 0xc4] */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esi + 0xDC)); /* fadd dword ptr [esi + 0xdc] */
+    MEMF(esi + 0xDC) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(esi + 0xD0)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(esi + 0xE0)); /* fsub dword ptr [esi + 0xe0] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(esi + 0xC4)); /* fmul dword ptr [esi + 0xc4] */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esi + 0xE0)); /* fadd dword ptr [esi + 0xe0] */
+    MEMF(esi + 0xE0) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(esi + 0xD4)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(esi + 0xE4)); /* fsub dword ptr [esi + 0xe4] */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(esi + 0xC4)); /* fmul dword ptr [esi + 0xc4] */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esi + 0xE4)); /* fadd dword ptr [esi + 0xe4] */
+    MEMF(esi + 0xE4) = (float)fp_top(); fp_pop(); /* fstp */
+    POP32(esp, esi);
+    _fb = (uint32_t)(0x200) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x200;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+loc_001D5B97: ;
+    POP32(esp, edi);
+    MEM8(esi + 0x11) = 0;
+    POP32(esp, esi);
+    _fb = (uint32_t)(0x200) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x200;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5BB0
+ * Original: 0x001D5BB0 - 0x001D5BFC (76 bytes, 14 insns)
+ * CC: cdecl, 5 params, returns float_sse
+ * Frame: fpo_leaf
+ */
+void sub_001D5BB0(void)
+{
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D5BB0: ;
+    eax = MEM32(esp + 4);
+    fp_push((double)SMEM32(esp + 0xC)); /* fild */
+    edx = MEM32(esp + 8);
+    MEM32(ecx + 0xC8) = 2;
+    MEM32(ecx + 0xA8) = eax;
+    MEM32(ecx + 0xAC) = edx;
+    eax = (uint32_t)(int32_t)SMEM16(eax + 0x1DFE);
+    MEMF(ecx + 0xB4) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push((double)SMEM32(esp + 0x10)); /* fild */
+    MEM32(ecx + 0xB0) = eax;
+    MEMF(ecx + 0xB8) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push((double)SMEM32(esp + 0x14)); /* fild */
+    MEMF(ecx + 0xBC) = (float)fp_top(); fp_pop(); /* fstp */
+    esp += 24; return; /* ret 20 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D5C00
+ * Original: 0x001D5C00 - 0x001D5C25 (37 bytes, 10 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5C00(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D5C00: ;
+    eax = MEM32(ecx);
+    edx = MEM32(eax + 0x68);
+    eax = MEM32(esp + 8);
+    edx = (uint32_t)((int32_t)edx * (int32_t)0x43);
+    _fb = (uint32_t)(eax) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + eax;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edx = MEM32(edx * 4 + 0x62039C);
+    eax = MEM32(esp + 4);
+    MEM32(ecx + eax * 4 + 0x44) = edx;
+    MEM8(eax + ecx + 0x38) = 1;
+    esp += 12; return; /* ret 8 */
+
+}
+
+/**
+ * sub_001D5C30
+ * Original: 0x001D5C30 - 0x001D5C3C (12 bytes, 3 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5C30(void)
+{
+
+loc_001D5C30: ;
+    eax = MEM32(esp + 4);
+    MEM8(eax + ecx + 0x38) = 0;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5C40
+ * Original: 0x001D5C40 - 0x001D5EA6 (614 bytes, 126 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5C40(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D5C40: ;
+    eax = MEM32(esp + 4);
+    PUSH32(esp, esi);
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    MEM32(eax + 4) = edx;
+    esi = MEM32(ecx + 0xF0);
+    MEM32(eax + 0x34) = esi;
+    esi = MEM32(ecx + 0xF4);
+    MEM32(eax + 0x38) = esi;
+    esi = MEM32(ecx + 0x388);
+    MEM32(eax + 0x3C) = esi;
+    esi = MEM32(ecx + 0x3A8);
+    MEM32(eax + 0xCC) = esi;
+    esi = MEM32(ecx + 0x394);
+    MEM32(eax + 0x60) = esi;
+    esi = MEM32(ecx + 0x3A0);
+    MEM32(eax + 0x84) = esi;
+    esi = MEM32(ecx + 0x3A4);
+    MEM32(eax + 0xA8) = esi;
+    esi = MEM32(ecx + 0x3B0);
+    MEM32(eax + 0x40) = esi;
+    esi = MEM32(ecx + 0x3D0);
+    MEM32(eax + 0xD0) = esi;
+    esi = MEM32(ecx + 0x3BC);
+    MEM32(eax + 0x64) = esi;
+    esi = MEM32(ecx + 0x3C8);
+    MEM32(eax + 0x88) = esi;
+    esi = MEM32(ecx + 0x3CC);
+    MEM32(eax + 0xAC) = esi;
+    esi = MEM32(ecx + 0x3D8);
+    MEM32(eax + 0x44) = esi;
+    esi = MEM32(ecx + 0x3F8);
+    MEM32(eax + 0xD4) = esi;
+    esi = MEM32(ecx + 0x3E4);
+    MEM32(eax + 0x68) = esi;
+    esi = MEM32(ecx + 0x3F0);
+    MEM32(eax + 0x8C) = esi;
+    esi = MEM32(ecx + 0x3F4);
+    MEM32(eax + 0xB0) = esi;
+    esi = MEM32(ecx + 0x400);
+    MEM32(eax + 0x48) = esi;
+    esi = MEM32(ecx + 0x420);
+    MEM32(eax + 0xD8) = esi;
+    esi = MEM32(ecx + 0x40C);
+    MEM32(eax + 0x6C) = esi;
+    esi = MEM32(ecx + 0x418);
+    MEM32(eax + 0x90) = esi;
+    esi = MEM32(ecx + 0x41C);
+    MEM32(eax + 0xB4) = esi;
+    esi = MEM32(ecx + 0x428);
+    MEM32(eax + 0x4C) = esi;
+    esi = MEM32(ecx + 0x448);
+    MEM32(eax + 0xDC) = esi;
+    esi = MEM32(ecx + 0x434);
+    MEM32(eax + 0x70) = esi;
+    esi = MEM32(ecx + 0x440);
+    MEM32(eax + 0x94) = esi;
+    esi = MEM32(ecx + 0x444);
+    MEM32(eax + 0xB8) = esi;
+    esi = MEM32(ecx + 0x450);
+    MEM32(eax + 0x50) = esi;
+    esi = MEM32(ecx + 0x470);
+    MEM32(eax + 0xE0) = esi;
+    esi = MEM32(ecx + 0x45C);
+    MEM32(eax + 0x74) = esi;
+    esi = MEM32(ecx + 0x468);
+    MEM32(eax + 0x98) = esi;
+    esi = MEM32(ecx + 0x46C);
+    MEM32(eax + 0xBC) = esi;
+    esi = MEM32(ecx + 0x478);
+    MEM32(eax + 0x54) = esi;
+    esi = MEM32(ecx + 0x498);
+    MEM32(eax + 0xE4) = esi;
+    esi = MEM32(ecx + 0x484);
+    MEM32(eax + 0x78) = esi;
+    esi = MEM32(ecx + 0x490);
+    MEM32(eax + 0x9C) = esi;
+    esi = MEM32(ecx + 0x494);
+    MEM32(eax + 0xC0) = esi;
+    esi = MEM32(ecx + 0x4A0);
+    MEM32(eax + 0x58) = esi;
+    esi = MEM32(ecx + 0x4C0);
+    MEM32(eax + 0xE8) = esi;
+    esi = MEM32(ecx + 0x4AC);
+    MEM32(eax + 0x7C) = esi;
+    esi = MEM32(ecx + 0x4B8);
+    MEM32(eax + 0xA0) = esi;
+    esi = MEM32(ecx + 0x4BC);
+    MEM32(eax + 0xC4) = esi;
+    esi = MEM32(ecx + 0x4C8);
+    MEM32(eax + 0x5C) = esi;
+    esi = MEM32(ecx + 0x4E8);
+    MEM32(eax + 0xEC) = esi;
+    esi = MEM32(ecx + 0x4D4);
+    MEM32(eax + 0x80) = esi;
+    esi = MEM32(ecx + 0x4E0);
+    MEM32(eax + 0xA4) = esi;
+    esi = MEM32(ecx + 0x4E4);
+    MEM32(eax + 0xC8) = esi;
+    esi = ZX8(MEM8(ecx + 0xEC));
+    MEM32(eax + 0x14) = esi;
+    MEM32(eax + 0xC) = edx;
+    esi = ZX8(MEM8(ecx + 0x11));
+    MEM32(eax + 0x10) = esi;
+    esi = ZX8(MEM8(ecx + 0x10));
+    MEM32(eax) = esi;
+    esi = MEM32(ecx + 0x14);
+    MEM32(eax + 0x18) = esi;
+    esi = MEM32(ecx + 0x1C);
+    MEM32(eax + 0x1C) = esi;
+    esi = MEM32(ecx + 0x24);
+    MEM32(eax + 0x20) = esi;
+    esi = MEM32(ecx + 0xC4);
+    MEM32(eax + 0x30) = esi;
+    esi = MEM32(ecx + 0xC8);
+    MEM32(eax + 0x28) = esi;
+    esi = MEM32(ecx + 0xAC);
+    MEM32(eax + 0x2C) = esi;
+    _fa = (uint32_t)(MEM32(eax + 0x28)) & 0xFFFFFFFFu; _fb = (uint32_t)(2) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(eax + 0x28), 2 (32-bit) */
+    POP32(esp, esi);
+    if (CMP_NE(_fa, _fb)) goto loc_001D5EA3; /* jne: not equal / not zero */
+
+loc_001D5E93: ;
+    ecx = MEM32(ecx + 0xA8);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, edx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5EA3; /* je: equal / zero */
+
+loc_001D5E9D: ;
+    ecx = MEM32(ecx + 0x68);
+    MEM32(eax + 0x24) = ecx;
+
+loc_001D5EA3: ;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5EB0
+ * Original: 0x001D5EB0 - 0x001D5ED3 (35 bytes, 12 insns)
+ * Category: game_vtable
+ * CC: thiscall, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5EB0(void)
+{
+
+loc_001D5EB0: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x4B1DE8);
+    MEM8(esi + 8) = 0;
+    MEM32(esi) = 0x4B1DD8;
+    PUSH32(esp, 0x001D5EC8u); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
+
+loc_001D5EC8: ;
+    ecx = eax;
+    PUSH32(esp, 0x001D5ECFu); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
+
+loc_001D5ECF: ;
+    eax = esi;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D5EE0
+ * Original: 0x001D5EE0 - 0x001D5F4F (111 bytes, 38 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5EE0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D5EE0: ;
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 8);
+    PUSH32(esp, edi);
+    edi = ecx;
+    PUSH32(esp, esi);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001D5EF3u); RECOMP_ABI_CALL(0x001443F0u, sub_001443F0); /* call 0x001443F0 */
+
+loc_001D5EF3: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5F4A; /* je: equal / zero */
+
+loc_001D5EF7: ;
+    ecx = MEM32(edi + 0x2C);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5F4A; /* je: equal / zero */
+
+loc_001D5EFE: ;
+    edx = MEM32(eax + 0x1154);
+    edx = edx + edx * 4;
+    edx = edx << 4;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    PUSH32(esp, ebx);
+    SET_LO8(ebx, MEM8(edx + ecx + 1));
+    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 0 (8-bit) */
+    POP32(esp, ebx);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D5F4A; /* je: equal / zero */
+
+loc_001D5F14: ;
+    esi = (uint32_t)((int32_t)esi * (int32_t)0x3238);
+    MEM32(edi + 0x34) = 0x78;
+    MEM8(edi + 0x30) = 1;
+    eax = MEM32(eax + 0x1154);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0);
+    eax = eax + eax * 4;
+    eax = eax << 4;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    ecx = MEM32(eax + ecx + 4);
+    PUSH32(esp, 0);
+    PUSH32(esp, ecx);
+    _fb = (uint32_t)(0x5CE880) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x5CE880;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, esi);
+    ecx = edi;
+    PUSH32(esp, 0x001D5F4Au); RECOMP_ABI_CALL(0x001D5BB0u, sub_001D5BB0); /* call 0x001D5BB0 */
+
+loc_001D5F4A: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5F50
+ * Original: 0x001D5F50 - 0x001D5F61 (17 bytes, 5 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5F50(void)
+{
+
+loc_001D5F50: ;
+    eax = MEM32(esp + 8);
+    edx = MEM32(esp + 4);
+    MEM32(ecx + 0x28) = eax;
+    MEM32(ecx + 0x2C) = edx;
+    esp += 12; return; /* ret 8 */
+
+}
+
+/**
+ * sub_001D5F70
+ * Original: 0x001D5F70 - 0x001D5F9B (43 bytes, 9 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5F70(void)
+{
+
+loc_001D5F70: ;
+    eax = MEM32(esp + 4);
+    MEM32(ecx + 0xC8) = 1;
+    edx = MEM32(eax);
+    MEM32(ecx + 0xCC) = edx;
+    edx = MEM32(eax + 4);
+    MEM32(ecx + 0xD0) = edx;
+    eax = MEM32(eax + 8);
+    MEM32(ecx + 0xD4) = eax;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D5FA0
+ * Original: 0x001D5FA0 - 0x001D6150 (432 bytes, 97 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D5FA0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D5FA0: ;
+    PUSH32(esp, ecx);
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = ecx;
+    eax = edi + 0x108;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, eax);
+    MEM32(edi + 0xF0) = 0x3FACCCCD;
+    MEM32(edi + 0xF4) = 0x3ECCCCCD;
+    PUSH32(esp, 0x001D5FCCu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D5FCC: ;
+    ecx = edi + 0x118;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D5FDDu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D5FDD: ;
+    edx = edi + 0x128;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D5FEEu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D5FEE: ;
+    eax = edi + 0x138;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D5FFFu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D5FFF: ;
+    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x20;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esi = edi + 0x390;
+    ebp = edi + 0x1D8;
+    MEM32(esp + 0x10) = 9;
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    goto loc_001D6020;
+
+    /* nop */
+
+loc_001D6020: ;
+    ecx = ebp + -144;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D6031u); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D6031: ;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x001D603Cu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D603C: ;
+    edx = ebp + 0x90;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D604Du); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D604D: ;
+    eax = ebp + 0x120;
+    PUSH32(esp, 0x706200);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D605Eu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D605E: ;
+    eax = MEM32(esp + 0x30);
+    MEM32(esi + -8) = 0x3DCCCCCD;
+    MEM32(esi) = 0x3F800000;
+    MEM32(esi + -4) = 0x3F800000;
+    MEM32(esi + 4) = 0x3BA3D70A;
+    MEM32(esi + 8) = ebx;
+    MEM32(esi + 0xC) = ebx;
+    MEM32(esi + 0x10) = ebx;
+    MEM32(esi + 0x14) = ebx;
+    MEM8(esi + 0x1C) = LO8(ebx);
+    MEM32(esi + 0x18) = ebx;
+    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x20;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebp = ebp + 0x10;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(0x28) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x28;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esp + 0x10) = eax;
+    if ((_fa != 0)) goto loc_001D6020; /* jne: not equal / not zero */
+
+loc_001D609F: ;
+    MEM32(edi + 0x394) = 0x3CA3D70A;
+    ecx = MEM32(edi + 0xF0);
+    MEM32(edi + 0x3A8) = ecx;
+    SET_LO8(ecx, 1);
+    MEM8(edi + 0x3AC) = LO8(ecx);
+    MEM32(edi + 0x3F4) = 0x3FE66666;
+    MEM32(edi + 0x3F8) = 0x3E4CCCCD;
+    MEM8(edi + 0x3FC) = LO8(ecx);
+    eax = 0x3F800000;
+    MEM32(edi + 0x3DC) = eax;
+    edx = 0x3B03126F;
+    MEM32(edi + 0x3E4) = edx;
+    esi = 0x3FB33333;
+    MEM32(edi + 0x3F0) = esi;
+    MEM32(edi + 0x41C) = esi;
+    MEM32(edi + 0x404) = eax;
+    MEM32(edi + 0x40C) = edx;
+    MEM8(edi + 0x424) = LO8(ecx);
+    ebx = 0x3F99999A;
+    MEM32(edi + 0x418) = ebx;
+    esi = 0x3DCCCCCD;
+    MEM32(edi + 0x420) = esi;
+    MEM32(edi + 0x444) = ebx;
+    MEM32(edi + 0x448) = esi;
+    MEM32(edi + 0x42C) = eax;
+    MEM32(edi + 0x434) = edx;
+    MEM32(edi + 0x440) = eax;
+    MEM8(edi + 0x44C) = LO8(ecx);
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    POP32(esp, ebx);
+    POP32(esp, ecx);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D6150
+ * Original: 0x001D6150 - 0x001D6172 (34 bytes, 10 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6150(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D6150: ;
+    eax = MEM32(esp + 4);
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
+    ecx = MEM32(eax + 0x5CEA70);
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, eax (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6171; /* je: equal / zero */
+
+loc_001D6166: ;
+    MEM8(ecx + 0x11) = LO8(eax);
+    MEM32(ecx + 0x18) = eax;
+    g_seh_ebp = ebp; sub_001D5FA0(); return; /* tail jmp 0x001D5FA0 */
+
+loc_001D6171: ;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D6180
+ * Original: 0x001D6180 - 0x001D61C9 (73 bytes, 28 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6180(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D6180: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edi = 0; /* xor self */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    esi = 0x5CEA70;
+    /* nop */
+
+loc_001D6190: ;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D61B9; /* je: equal / zero */
+
+loc_001D6194: ;
+    _fa = (uint32_t)(MEM16(esi + 0x1C0E)) & 0xFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x1C0E), 0xFFFFFFFFu (16-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D61B9; /* je: equal / zero */
+
+loc_001D619E: ;
+    eax = MEM32(esi);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D61B9; /* je: equal / zero */
+
+loc_001D61A4: ;
+    MEM32(eax + 0xC8) = ebx;
+    eax = MEM32(esi);
+    MEM8(eax + 0x11) = LO8(ebx);
+    MEM32(eax + 0x18) = ebx;
+    ecx = MEM32(esi);
+    PUSH32(esp, 0x001D61B9u); RECOMP_ABI_CALL(0x001D5FA0u, sub_001D5FA0); /* call 0x001D5FA0 */
+
+loc_001D61B9: ;
+    edi++;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x3238) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x3238;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0x14) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0x14 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D6190; /* jl: less (signed <) */
+
+loc_001D61C5: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D61D0
+ * Original: 0x001D61D0 - 0x001D61D1 (1 bytes, 1 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D61D0(void)
+{
+
+loc_001D61D0: ;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D61E0
+ * Original: 0x001D61E0 - 0x001D6293 (179 bytes, 58 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D61E0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D61E0: ;
+    PUSH32(esp, ebx);
+    ebx = MEM32(esp + 0xC);
+    PUSH32(esp, esi);
+    esi = ecx;
+    eax = ebx + ebx * 4;
+    SET_LO8(ecx, MEM8(esi + eax * 8 + 0x3AC));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    eax = esi + eax * 8;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D628E; /* je: equal / zero */
+
+loc_001D61FD: ;
+    PUSH32(esp, edi);
+    ecx = ebx;
+    ecx = ecx << 4;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    edx = MEM32(ecx + esi + 0x26C);
+    _fb = (uint32_t)(0x388) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x388;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi = ecx + esi;
+    PUSH32(esp, eax);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    eax = MEM32(esp + 0x1C);
+    PUSH32(esp, eax);
+    ecx = esi;
+    PUSH32(esp, 0x001D6221u); RECOMP_ABI_CALL(0x001D5540u, sub_001D5540); /* call 0x001D5540 */
+
+loc_001D6221: ;
+    PUSH32(esp, ecx);
+    ecx = esi;
+    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
+    PUSH32(esp, 0x001D622Cu); RECOMP_ABI_CALL(0x001D54A0u, sub_001D54A0); /* call 0x001D54A0 */
+
+loc_001D622C: ;
+    fp_pop(); /* fstp st(0) */
+    ecx = ebx + ebx * 4 + 0x73;
+    fp_push(MEMF(esi + ecx * 8)); /* fld float */
+    eax = edi + 0x2F8;
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(edi + 0x2FC)); /* fadd dword ptr [edi + 0x2fc] */
+    MEM32(eax) = 0;
+    MEMF(edi + 0x2FC) = (float)fp_top(); /* fst */
+    fp_push(MEMF(0x706214)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x4964E8)); /* fmul dword ptr [0x4964e8] */
+    MEMF(eax) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x706214)); /* fmul dword ptr [0x706214] */
+    MEMF(edi + 0x2FC) = (float)fp_top(); fp_pop(); /* fstp */
+    SET_LO8(ecx, MEM8(ebx + esi + 0x38));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    POP32(esp, edi);
+    if (CMP_NE(_fa, _fb)) goto loc_001D6281; /* jne: not equal / not zero */
+
+loc_001D6270: ;
+    ebx = ebx | 0xFFFFFFFFu;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    PUSH32(esp, eax);
+    PUSH32(esp, ebx);
+    ecx = esi;
+    PUSH32(esp, 0x001D627Cu); RECOMP_ABI_CALL(0x001D55D0u, sub_001D55D0); /* call 0x001D55D0 */
+
+loc_001D627C: ;
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    esp += 12; return; /* ret 8 */
+
+loc_001D6281: ;
+    ebx = MEM32(esi + ebx * 4 + 0x44);
+    PUSH32(esp, eax);
+    PUSH32(esp, ebx);
+    ecx = esi;
+    PUSH32(esp, 0x001D628Eu); RECOMP_ABI_CALL(0x001D55D0u, sub_001D55D0); /* call 0x001D55D0 */
+
+loc_001D628E: ;
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    esp += 12; return; /* ret 8 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D62A0
+ * Original: 0x001D62A0 - 0x001D6308 (104 bytes, 46 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D62A0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D62A0: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    ebp = MEM32(esp + 0xC);
+    SET_LO8(ebx, MEM8(ecx + ebp + 0x38));
+    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 0 (8-bit) */
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    if (CMP_NE(_fa, _fb)) goto loc_001D62B5; /* jne: not equal / not zero */
+
+loc_001D62B0: ;
+    edi = edi | 0xFFFFFFFFu;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    goto loc_001D62B9;
+
+loc_001D62B5: ;
+    edi = MEM32(ecx + ebp * 4 + 0x44);
+
+loc_001D62B9: ;
+    esi = ecx + 0x98;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edx = esi;
+
+loc_001D62C3: ;
+    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx), edi (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D62FF; /* je: equal / zero */
+
+loc_001D62C7: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 4;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(4) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 4 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D62C3; /* jl: less (signed <) */
+
+loc_001D62D0: ;
+    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D62EF; /* je: equal / zero */
+
+loc_001D62D4: ;
+    edi = MEM32(ecx + ebp * 4 + 0x44);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0xFFFFFFFFu (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D62EF; /* je: equal / zero */
+
+loc_001D62DD: ;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edx = esi;
+
+loc_001D62E1: ;
+    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx), 0xFFFFFFFFu (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D62F8; /* je: equal / zero */
+
+loc_001D62E6: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 4;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(4) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 4 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D62E1; /* jl: less (signed <) */
+
+loc_001D62EF: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    POP32(esp, ebx);
+    esp += 8; return; /* ret 4 */
+
+loc_001D62F8: ;
+    MEM32(ecx + eax * 4 + 0x98) = edi;
+
+loc_001D62FF: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    SET_LO8(eax, 1);
+    POP32(esp, ebx);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D6310
+ * Original: 0x001D6310 - 0x001D665C (844 bytes, 188 insns)
+ * CC: cdecl, 1 params, returns float_sse
+ * Frame: fpo_leaf
+ */
+void sub_001D6310(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D6310: ;
+    SET_LO8(eax, MEM8(ecx + 0x11));
+    edx = MEM32(esp + 4);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 1 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6333; /* jne: not equal / not zero */
+
+loc_001D6321: ;
+    _fa = (uint32_t)(MEM32(edx + 0x10)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx + 0x10), ebx (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6351; /* jne: not equal / not zero */
+
+loc_001D6326: ;
+    _fa = (uint32_t)(MEM32(edx + 0xC)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx + 0xC), ebx (32-bit) */
+    MEM8(ecx + 0x11) = LO8(ebx);
+    if (CMP_NE(_fa, _fb)) goto loc_001D6351; /* jne: not equal / not zero */
+
+loc_001D632E: ;
+    MEM32(ecx + 0x18) = ebx;
+    goto loc_001D6351;
+
+loc_001D6333: ;
+    _fa = (uint32_t)(MEM32(edx + 0x10)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx + 0x10), ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6351; /* je: equal / zero */
+
+loc_001D6338: ;
+    _fa = (uint32_t)(MEM32(edx + 0xC)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx + 0xC), ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6346; /* je: equal / zero */
+
+loc_001D633D: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), LO8(ebx) (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6351; /* jne: not equal / not zero */
+
+loc_001D6341: ;
+    MEM32(ecx + 0x18) = ebx;
+    goto loc_001D634D;
+
+loc_001D6346: ;
+    MEM32(ecx + 0x18) = 0x3F800000;
+
+loc_001D634D: ;
+    MEM8(ecx + 0x11) = 1;
+
+loc_001D6351: ;
+    eax = MEM32(edx + 0x18);
+    MEM32(ecx + 0x14) = eax;
+    eax = MEM32(edx + 0x1C);
+    MEM32(ecx + 0x1C) = eax;
+    eax = MEM32(edx + 0x20);
+    MEM32(ecx + 0x24) = eax;
+    fp_push(MEMF(edx + 0x30)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4964E8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x4964e8] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D637D; /* jp: parity */
+
+loc_001D6373: ;
+    fp_pop(); /* fstp st(0) */
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    goto loc_001D6392;
+
+loc_001D637D: ;
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x496454)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); /* fcom dword ptr [0x496454] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D6392; /* jne: not equal / not zero */
+
+loc_001D638A: ;
+    fp_pop(); /* fstp st(0) */
+    fp_push(MEMF(0x496454)); /* fld float */
+
+loc_001D6392: ;
+    MEMF(ecx + 0xC4) = (float)fp_top(); fp_pop(); /* fstp */
+    eax = MEM32(edx);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    SET_LO8(eax, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
+    MEM8(ecx + 0x10) = LO8(eax);
+    eax = MEM32(edx + 0x34);
+    MEM32(ecx + 0xF0) = eax;
+    eax = MEM32(edx + 0x38);
+    MEM32(ecx + 0xF4) = eax;
+    _fa = (uint32_t)(MEM32(edx + 4)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx + 4), ebx (32-bit) */
+    SET_LO8(eax, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
+    MEM8(0x514E4C) = LO8(eax);
+    _fa = (uint32_t)(MEM32(edx + 0x14)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx + 0x14), ebx (32-bit) */
+    SET_LO8(eax, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
+    MEM8(ecx + 0xEC) = LO8(eax);
+    eax = MEM32(edx + 0x3C);
+    MEM32(ecx + 0x388) = eax;
+    eax = MEM32(edx + 0xCC);
+    MEM32(ecx + 0x3A8) = eax;
+    eax = MEM32(edx + 0x60);
+    MEM32(ecx + 0x394) = eax;
+    eax = MEM32(edx + 0x84);
+    MEM32(ecx + 0x3A0) = eax;
+    eax = MEM32(edx + 0xA8);
+    MEM32(ecx + 0x3A4) = eax;
+    eax = MEM32(edx + 0x40);
+    MEM32(ecx + 0x3B0) = eax;
+    eax = MEM32(edx + 0xD0);
+    MEM32(ecx + 0x3D0) = eax;
+    eax = MEM32(edx + 0x64);
+    MEM32(ecx + 0x3BC) = eax;
+    eax = MEM32(edx + 0x88);
+    MEM32(ecx + 0x3C8) = eax;
+    eax = MEM32(edx + 0xAC);
+    MEM32(ecx + 0x3CC) = eax;
+    eax = MEM32(edx + 0x44);
+    MEM32(ecx + 0x3D8) = eax;
+    eax = MEM32(edx + 0xD4);
+    MEM32(ecx + 0x3F8) = eax;
+    eax = MEM32(edx + 0x68);
+    MEM32(ecx + 0x3E4) = eax;
+    eax = MEM32(edx + 0x8C);
+    MEM32(ecx + 0x3F0) = eax;
+    eax = MEM32(edx + 0xB0);
+    MEM32(ecx + 0x3F4) = eax;
+    eax = MEM32(edx + 0x48);
+    MEM32(ecx + 0x400) = eax;
+    eax = MEM32(edx + 0xD8);
+    MEM32(ecx + 0x420) = eax;
+    eax = MEM32(edx + 0x6C);
+    MEM32(ecx + 0x40C) = eax;
+    eax = MEM32(edx + 0x90);
+    MEM32(ecx + 0x418) = eax;
+    eax = MEM32(edx + 0xB4);
+    MEM32(ecx + 0x41C) = eax;
+    eax = MEM32(edx + 0x4C);
+    MEM32(ecx + 0x428) = eax;
+    eax = MEM32(edx + 0xDC);
+    MEM32(ecx + 0x448) = eax;
+    eax = MEM32(edx + 0x70);
+    MEM32(ecx + 0x434) = eax;
+    eax = MEM32(edx + 0x94);
+    MEM32(ecx + 0x440) = eax;
+    eax = MEM32(edx + 0xB8);
+    MEM32(ecx + 0x444) = eax;
+    eax = MEM32(edx + 0x50);
+    MEM32(ecx + 0x450) = eax;
+    eax = MEM32(edx + 0xE0);
+    MEM32(ecx + 0x470) = eax;
+    eax = MEM32(edx + 0x74);
+    MEM32(ecx + 0x45C) = eax;
+    eax = MEM32(edx + 0x98);
+    MEM32(ecx + 0x468) = eax;
+    eax = MEM32(edx + 0xBC);
+    MEM32(ecx + 0x46C) = eax;
+    eax = MEM32(edx + 0x54);
+    MEM32(ecx + 0x478) = eax;
+    eax = MEM32(edx + 0xE4);
+    MEM32(ecx + 0x498) = eax;
+    eax = MEM32(edx + 0x78);
+    MEM32(ecx + 0x484) = eax;
+    eax = MEM32(edx + 0x9C);
+    MEM32(ecx + 0x490) = eax;
+    eax = MEM32(edx + 0xC0);
+    MEM32(ecx + 0x494) = eax;
+    eax = MEM32(edx + 0x58);
+    MEM32(ecx + 0x4A0) = eax;
+    eax = MEM32(edx + 0xE8);
+    MEM32(ecx + 0x4C0) = eax;
+    eax = MEM32(edx + 0x7C);
+    MEM32(ecx + 0x4AC) = eax;
+    eax = MEM32(edx + 0xA0);
+    MEM32(ecx + 0x4B8) = eax;
+    eax = MEM32(edx + 0xC4);
+    MEM32(ecx + 0x4BC) = eax;
+    eax = MEM32(edx + 0x5C);
+    MEM32(ecx + 0x4C8) = eax;
+    eax = MEM32(edx + 0xEC);
+    MEM32(ecx + 0x4E8) = eax;
+    eax = MEM32(edx + 0x80);
+    MEM32(ecx + 0x4D4) = eax;
+    eax = MEM32(edx + 0xA4);
+    MEM32(ecx + 0x4E0) = eax;
+    eax = MEM32(edx + 0xC8);
+    MEM32(ecx + 0x4E4) = eax;
+    eax = MEM32(edx + 0x28);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 3 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D65C9; /* jne: not equal / not zero */
+
+loc_001D65BC: ;
+    MEM32(ecx + 0xC8) = eax;
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 8; return; /* ret 4 */
+
+loc_001D65C9: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(2) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 2 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D661B; /* jne: not equal / not zero */
+
+loc_001D65CE: ;
+    eax = MEM32(edx + 0x24);
+    edx = MEM32(edx + 0x2C);
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
+    _fb = (uint32_t)(0x5CE880) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x5CE880;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(ecx + 0xC8) = 2;
+    MEM32(ecx + 0xA8) = eax;
+    MEM32(ecx + 0xAC) = edx;
+    edx = (uint32_t)(int32_t)SMEM16(eax + 0x1DFE);
+    MEM32(ecx + 0xB4) = ebx;
+    MEM32(ecx + 0xB8) = ebx;
+    MEM32(ecx + 0xBC) = ebx;
+    MEM32(ecx + 0xB0) = edx;
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 8; return; /* ret 4 */
+
+loc_001D661B: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(1) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 1 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6655; /* jne: not equal / not zero */
+
+loc_001D6620: ;
+    fp_push(MEMF(0x699C58)); /* fld float */
+    eax = MEM32(0x699C60);
+    fp_push(MEMF(0x699C5C)); /* fld float */
+    edx = eax;
+    { double _t = fp_top(); fp_top() = fp_st1(); fp_st1() = _t; } /* fxch st(1) */
+    MEM32(esp + 0xC) = eax;
+    MEMF(ecx + 0xCC) = (float)fp_top(); fp_pop(); /* fstp */
+    MEM32(ecx + 0xC8) = 1;
+    MEM32(ecx + 0xD4) = edx;
+    MEMF(ecx + 0xD0) = (float)fp_top(); fp_pop(); /* fstp */
+
+loc_001D6655: ;
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 8; return; /* ret 4 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D6660
+ * Original: 0x001D6660 - 0x001D6738 (216 bytes, 57 insns)
+ * CC: cdecl, 3 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6660(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D6660: ;
+    _fb = (uint32_t)(0x224) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x224;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = MEM32(esp + 0x238);
+    eax = MEM32(edi + 4);
+    edx = MEM32(edi + 0xC);
+    esi = ecx;
+    ecx = MEM32(edi + 8);
+    MEM32(esp + 8) = eax;
+    eax = MEM32(esp + 0x230);
+    MEM32(esp + 0xC) = ecx;
+    ecx = MEM32(eax + 8);
+    _fa = (uint32_t)(MEM32(ecx)) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx), 0 (32-bit) */
+    MEM32(esp + 0x10) = edx;
+    if (CMP_NE(_fa, _fb)) goto loc_001D66FE; /* jne: not equal / not zero */
+
+loc_001D6695: ;
+    edx = MEM32(esi + 0xC);
+    ecx = MEM32(esi);
+    PUSH32(esp, 1);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0);
+    PUSH32(esp, edx);
+    eax = esp + 0x40;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D66AEu); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
+
+loc_001D66AE: ;
+    fp_push(MEMF(esp + 0x24)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(esp + 0xC8)); /* fsub dword ptr [esp + 0xc8] */
+    edx = MEM32(edi + 0x10);
+    eax = esp + 0x38;
+    PUSH32(esp, eax);
+    MEMF(esp + 0x3C) = (float)fp_top(); fp_pop(); /* fstp */
+    MEM32(esp + 0x38) = edx;
+    fp_push(MEMF(esp + 0x2C)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(esp + 0xD0)); /* fsub dword ptr [esp + 0xd0] */
+    MEMF(esp + 0x40) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(esp + 0x30)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(esp + 0xD4)); /* fsub dword ptr [esp + 0xd4] */
+    MEMF(esp + 0x44) = (float)fp_top(); fp_pop(); /* fstp */
+    PUSH32(esp, 0x001D66ECu); RECOMP_ABI_CALL(0x0015C1D0u, sub_0015C1D0); /* call 0x0015C1D0 */
+
+loc_001D66EC: ;
+    fp_top() = RECOMP_FP_PC(MEMF(esp + 0x38) - fp_top()); /* fsubr dword ptr [esp + 0x38] */
+    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x20;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    fp_top() = RECOMP_FP_PC(MEMF(0x496454) - fp_top()); /* fsubr dword ptr [0x496454] */
+    MEMF(esi + 0x14) = (float)fp_top(); fp_pop(); /* fstp */
+    goto loc_001D6705;
+
+loc_001D66FE: ;
+    MEM32(esi + 0x14) = 0x3F800000;
+
+loc_001D6705: ;
+    ecx = MEM32(esp + 8);
+    edx = MEM32(esp + 0xC);
+    eax = MEM32(esp + 0x10);
+    POP32(esp, edi);
+    MEM32(esi + 0xC8) = 1;
+    MEM32(esi + 0xCC) = ecx;
+    MEM32(esi + 0xD0) = edx;
+    MEM32(esi + 0xD4) = eax;
+    POP32(esp, esi);
+    _fb = (uint32_t)(0x224) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x224;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 16; return; /* ret 12 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D6740
+ * Original: 0x001D6740 - 0x001D68D4 (404 bytes, 145 insns)
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6740(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D6740: ;
+    eax = MEM32(esp + 8);
+    PUSH32(esp, ebp);
+    ebp = ebp | 0xFFFFFFFFu;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    PUSH32(esp, esi);
+    if (CMP_LE(_fas, _fbs)) goto loc_001D6788; /* jle: less or equal (signed <=) */
+
+loc_001D674D: ;
+    edx = MEM32(esp + 0xC);
+    PUSH32(esp, edi);
+    edi = eax;
+
+loc_001D6754: ;
+    esi = MEM32(edx + 4);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, ebp (32-bit) */
+    eax = MEM32(edx);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D677C; /* je: equal / zero */
+
+loc_001D675D: ;
+    ebp = MEM32(ecx);
+    ebp = MEM32(ebp + 0x68);
+    ebp = (uint32_t)((int32_t)ebp * (int32_t)0x43);
+    _fb = (uint32_t)(esi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebp = ebp + esi;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esi = MEM32(ebp * 4 + 0x62039C);
+    MEM32(ecx + eax * 4 + 0x44) = esi;
+    MEM8(eax + ecx + 0x38) = 1;
+    ebp = ebp | 0xFFFFFFFFu;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    goto loc_001D6781;
+
+loc_001D677C: ;
+    MEM8(eax + ecx + 0x38) = 0;
+
+loc_001D6781: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 8;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi--;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    if ((_fa != 0)) goto loc_001D6754; /* jne: not equal / not zero */
+
+loc_001D6787: ;
+    POP32(esp, edi);
+
+loc_001D6788: ;
+    SET_LO8(eax, MEM8(ecx + 0x3C));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM32(ecx + 0x68) = 0;
+    eax = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D679B; /* je: equal / zero */
+
+loc_001D6798: ;
+    eax = MEM32(ecx + 0x54);
+
+loc_001D679B: ;
+    MEM32(ecx + 0xC) = eax;
+    SET_LO8(eax, MEM8(ecx + 0x38));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D67AA; /* je: equal / zero */
+
+loc_001D67A7: ;
+    edx = MEM32(ecx + 0x44);
+
+loc_001D67AA: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM32(ecx + 8) = edx;
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D67B6; /* je: equal / zero */
+
+loc_001D67B3: ;
+    edx = MEM32(ecx + 0x44);
+
+loc_001D67B6: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D67C2; /* je: equal / zero */
+
+loc_001D67BD: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D67C8; /* jge: greater or equal (signed >=) */
+
+loc_001D67C2: ;
+    MEM32(ecx + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D67C8: ;
+    SET_LO8(eax, MEM8(ecx + 0x39));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D67D4; /* je: equal / zero */
+
+loc_001D67D1: ;
+    edx = MEM32(ecx + 0x48);
+
+loc_001D67D4: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D67E0; /* je: equal / zero */
+
+loc_001D67DB: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D67EA; /* jge: greater or equal (signed >=) */
+
+loc_001D67E0: ;
+    eax = MEM32(ecx + 0x68);
+    MEM32(ecx + eax * 4 + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D67EA: ;
+    SET_LO8(eax, MEM8(ecx + 0x3A));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D67F6; /* je: equal / zero */
+
+loc_001D67F3: ;
+    edx = MEM32(ecx + 0x4C);
+
+loc_001D67F6: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6802; /* je: equal / zero */
+
+loc_001D67FD: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D680C; /* jge: greater or equal (signed >=) */
+
+loc_001D6802: ;
+    eax = MEM32(ecx + 0x68);
+    MEM32(ecx + eax * 4 + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D680C: ;
+    SET_LO8(eax, MEM8(ecx + 0x3B));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6818; /* je: equal / zero */
+
+loc_001D6815: ;
+    edx = MEM32(ecx + 0x50);
+
+loc_001D6818: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6824; /* je: equal / zero */
+
+loc_001D681F: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D682E; /* jge: greater or equal (signed >=) */
+
+loc_001D6824: ;
+    eax = MEM32(ecx + 0x68);
+    MEM32(ecx + eax * 4 + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D682E: ;
+    SET_LO8(eax, MEM8(ecx + 0x3C));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D683A; /* je: equal / zero */
+
+loc_001D6837: ;
+    edx = MEM32(ecx + 0x54);
+
+loc_001D683A: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6846; /* je: equal / zero */
+
+loc_001D6841: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6850; /* jge: greater or equal (signed >=) */
+
+loc_001D6846: ;
+    eax = MEM32(ecx + 0x68);
+    MEM32(ecx + eax * 4 + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6850: ;
+    SET_LO8(eax, MEM8(ecx + 0x3D));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D685C; /* je: equal / zero */
+
+loc_001D6859: ;
+    edx = MEM32(ecx + 0x58);
+
+loc_001D685C: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6868; /* je: equal / zero */
+
+loc_001D6863: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6872; /* jge: greater or equal (signed >=) */
+
+loc_001D6868: ;
+    eax = MEM32(ecx + 0x68);
+    MEM32(ecx + eax * 4 + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6872: ;
+    SET_LO8(eax, MEM8(ecx + 0x3E));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    edx = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D687E; /* je: equal / zero */
+
+loc_001D687B: ;
+    edx = MEM32(ecx + 0x5C);
+
+loc_001D687E: ;
+    eax = MEM32(ecx + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D688A; /* je: equal / zero */
+
+loc_001D6885: ;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6894; /* jge: greater or equal (signed >=) */
+
+loc_001D688A: ;
+    eax = MEM32(ecx + 0x68);
+    MEM32(ecx + eax * 4 + 0x6C) = edx;
+    MEM32(ecx + 0x68) = MEM32(ecx + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(ecx + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6894: ;
+    MEM32(ecx + 0x98) = ebp;
+    MEM32(ecx + 0x9C) = ebp;
+    MEM32(ecx + 0xA0) = ebp;
+    MEM32(ecx + 0xA4) = ebp;
+    PUSH32(esp, 7);
+    MEM8(ecx + 0x94) = 1;
+    PUSH32(esp, 0x001D68BAu); RECOMP_ABI_CALL(0x001D62A0u, sub_001D62A0); /* call 0x001D62A0 */
+
+loc_001D68BA: ;
+    PUSH32(esp, 8);
+    PUSH32(esp, 0x001D68C1u); RECOMP_ABI_CALL(0x001D62A0u, sub_001D62A0); /* call 0x001D62A0 */
+
+loc_001D68C1: ;
+    PUSH32(esp, 5);
+    PUSH32(esp, 0x001D68C8u); RECOMP_ABI_CALL(0x001D62A0u, sub_001D62A0); /* call 0x001D62A0 */
+
+loc_001D68C8: ;
+    PUSH32(esp, 6);
+    PUSH32(esp, 0x001D68CFu); RECOMP_ABI_CALL(0x001D62A0u, sub_001D62A0); /* call 0x001D62A0 */
+
+loc_001D68CF: ;
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    esp += 12; return; /* ret 8 */
+
+}
+
+/**
+ * sub_001D68E0
+ * Original: 0x001D68E0 - 0x001D6922 (66 bytes, 22 insns)
+ * Category: game_vtable
+ * CC: cdecl, 3 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D68E0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D68E0: ;
+    edx = MEM32(esp + 8);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = 0x496C80;
+    esi = edx;
+    ecx = 5;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _flags = ((_fa == 0)) ? 1 : 0; /* ZF in: a zero count keeps it */
+    { int32_t _st = RECOMP_DF_STEP(1);
+    while (ecx != 0) {
+        _flags = (MEM8(esi) == MEM8(edi));
+        esi += _st; edi += _st; ecx--;
+        if (!_flags) break;
+    } } /* repe cmpsb */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    if ((_flags == 0)) goto loc_001D691F; /* jne: not equal / not zero */
+
+loc_001D68FA: ;
+    eax = MEM32(edx + 0x10);
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
+    _fb = (uint32_t)(0x5D1AB8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x5D1AB8;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    if ((_fa == 0)) goto loc_001D691F; /* je: equal / zero */
+
+loc_001D690A: ;
+    eax = MEM32(eax + 0x1F0);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D691F; /* je: equal / zero */
+
+loc_001D6914: ;
+    MEM32(esp + 8) = edx;
+    ecx = eax;
+    g_seh_ebp = ebp; sub_001D6660(); return; /* tail jmp 0x001D6660 */
+
+loc_001D691F: ;
+    esp += 16; return; /* ret 12 */
+
+}
+
+/**
+ * sub_001D6930
+ * Original: 0x001D6930 - 0x001D6A0D (221 bytes, 86 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6930(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D6930: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    eax = MEM32(esi);
+    PUSH32(esp, eax);
+    ecx = 0x6997D8;
+    PUSH32(esp, 0x001D6940u); RECOMP_ABI_CALL(0x00197510u, sub_00197510); /* call 0x00197510 */
+
+loc_001D6940: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6957; /* je: equal / zero */
+
+loc_001D6944: ;
+    _fa = (uint32_t)(MEM32(esi + 0x34)) & 0xFFFFFFFFu; _fb = (uint32_t)(0x5A) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esi + 0x34), 0x5A (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D695B; /* jge: greater or equal (signed >=) */
+
+loc_001D694A: ;
+    ecx = MEM32(eax + 0x68);
+    PUSH32(esp, ecx);
+    ecx = esi;
+    PUSH32(esp, 0x001D6955u); RECOMP_ABI_CALL(0x001D5EE0u, sub_001D5EE0); /* call 0x001D5EE0 */
+
+loc_001D6955: ;
+    goto loc_001D695B;
+
+loc_001D6957: ;
+    MEM8(esi + 0x30) = 0;
+
+loc_001D695B: ;
+    eax = MEM32(esi + 0x34);
+    SET_LO8(ecx, 0); /* xor self */
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D696A; /* je: equal / zero */
+
+loc_001D6964: ;
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esi + 0x34) = eax;
+    SET_LO8(ecx, 1);
+
+loc_001D696A: ;
+    SET_LO8(eax, MEM8(esi + 0x11));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6983; /* jne: not equal / not zero */
+
+loc_001D6971: ;
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_push(MEMF(esi + 0x18)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); fp_pop(); /* fucompp  */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x44) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x44 (8-bit) */
+    if ((!RECOMP_PARITY8((_fa) & (_fb)))) goto loc_001D6995; /* jnp: not parity */
+
+loc_001D6983: ;
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_push(MEMF(esi + 0x14)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); fp_pop(); /* fucompp  */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x44) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x44 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D69E2; /* jp: parity */
+
+loc_001D6995: ;
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D69DE; /* je: equal / zero */
+
+loc_001D6999: ;
+    fp_push(MEMF(esi + 0x14)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4964E8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4964e8] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D69DE; /* jne: not equal / not zero */
+
+loc_001D69A9: ;
+    edx = MEM32(esi);
+    eax = MEM32(edx + 0x24);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D69DE; /* jl: less (signed <) */
+
+loc_001D69B2: ;
+    PUSH32(esp, eax);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D69BDu); RECOMP_ABI_CALL(0x001A1B20u, sub_001A1B20); /* call 0x001A1B20 */
+
+loc_001D69BD: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D69DE; /* je: equal / zero */
+
+loc_001D69C1: ;
+    SET_LO8(ecx, MEM8(eax + 0x25));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D69DE; /* je: equal / zero */
+
+loc_001D69C8: ;
+    SET_LO8(eax, MEM8(esi + 0x11));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6A09; /* jne: not equal / not zero */
+
+loc_001D69CF: ;
+    MEM8(esi + 0x11) = 1;
+    MEM32(esi + 0x18) = 0;
+    SET_LO8(eax, 1);
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+loc_001D69DE: ;
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+loc_001D69E2: ;
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6A05; /* je: equal / zero */
+
+loc_001D69E6: ;
+    eax = MEM32(esi);
+    eax = MEM32(eax + 0x24);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D6A05; /* jl: less (signed <) */
+
+loc_001D69EF: ;
+    PUSH32(esp, eax);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D69FAu); RECOMP_ABI_CALL(0x001A1B20u, sub_001A1B20); /* call 0x001A1B20 */
+
+loc_001D69FA: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6A05; /* je: equal / zero */
+
+loc_001D69FE: ;
+    SET_LO8(ecx, MEM8(eax + 0x25));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6A09; /* jne: not equal / not zero */
+
+loc_001D6A05: ;
+    MEM8(esi + 0x11) = 0;
+
+loc_001D6A09: ;
+    SET_LO8(eax, 1);
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D6A10
+ * Original: 0x001D6A10 - 0x001D6B45 (309 bytes, 109 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6A10(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D6A10: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    esi = ecx;
+    eax = MEM32(esi);
+    PUSH32(esp, eax);
+    ecx = 0x510040;
+    SET_LO8(ebx, 0); /* xor self */
+    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    PUSH32(esp, 0x001D6A23u); RECOMP_ABI_CALL(0x0016B2B0u, sub_0016B2B0); /* call 0x0016B2B0 */
+
+loc_001D6A23: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B40; /* je: equal / zero */
+
+loc_001D6A2B: ;
+    eax = MEM32(eax + 0xCC);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B40; /* je: equal / zero */
+
+loc_001D6A39: ;
+    ecx = MEM32(eax + 0xC4);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B40; /* je: equal / zero */
+
+loc_001D6A47: ;
+    SET_LO8(edx, MEM8(eax + 0xC0));
+    _fa = (uint32_t)(LO8(edx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(edx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B40; /* je: equal / zero */
+
+loc_001D6A55: ;
+    SET_LO16(ecx, MEM16(ecx + 0xD0));
+    _fa = (uint32_t)(LO16(ecx)) & 0xFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(ecx), 0xFFFFFFFFu (16-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B40; /* je: equal / zero */
+
+loc_001D6A66: ;
+    edx = SX16(LO16(ecx));
+    eax = edx;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
+    PUSH32(esp, edi);
+    edi = MEM32(eax + 0x5CEAF0);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6A96; /* jne: not equal / not zero */
+
+loc_001D6A7C: ;
+    eax = MEM32(eax + 0x5CEA80);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6A90; /* je: equal / zero */
+
+loc_001D6A86: ;
+    edi = MEM32(eax + 0xCC);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6A96; /* jne: not equal / not zero */
+
+loc_001D6A90: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    POP32(esp, ebx);
+    esp += 4; return; /* ret */
+
+loc_001D6A96: ;
+    _fa = (uint32_t)(LO16(ecx)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(ecx), 0 (16-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D6AA3; /* jle: less or equal (signed <=) */
+
+loc_001D6A9B: ;
+    PUSH32(esp, edx);
+    ecx = esi;
+    PUSH32(esp, 0x001D6AA3u); RECOMP_ABI_CALL(0x001D5EE0u, sub_001D5EE0); /* call 0x001D5EE0 */
+
+loc_001D6AA3: ;
+    eax = MEM32(esi + 0x34);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6AB0; /* je: equal / zero */
+
+loc_001D6AAA: ;
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esi + 0x34) = eax;
+    SET_LO8(ebx, 1);
+
+loc_001D6AB0: ;
+    SET_LO8(eax, MEM8(esi + 0x11));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6AC9; /* jne: not equal / not zero */
+
+loc_001D6AB7: ;
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_push(MEMF(esi + 0x18)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); fp_pop(); /* fucompp  */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x44) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x44 (8-bit) */
+    if ((!RECOMP_PARITY8((_fa) & (_fb)))) goto loc_001D6ADB; /* jnp: not parity */
+
+loc_001D6AC9: ;
+    fp_push(MEMF(0x4964E8)); /* fld float */
+    fp_push(MEMF(esi + 0x14)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); fp_pop(); /* fucompp  */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x44) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x44 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D6B07; /* jp: parity */
+
+loc_001D6ADB: ;
+    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6A90; /* je: equal / zero */
+
+loc_001D6ADF: ;
+    fp_push(MEMF(esi + 0x14)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x4964E8)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x4964e8] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D6A90; /* jne: not equal / not zero */
+
+loc_001D6AEF: ;
+    ecx = esi;
+    PUSH32(esp, 0x001D6AF6u); RECOMP_ABI_CALL(0x001D5470u, sub_001D5470); /* call 0x001D5470 */
+
+loc_001D6AF6: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 1 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6A90; /* jne: not equal / not zero */
+
+loc_001D6AFA: ;
+    ecx = esi;
+    PUSH32(esp, 0x001D6B01u); RECOMP_ABI_CALL(0x001D5030u, sub_001D5030); /* call 0x001D5030 */
+
+loc_001D6B01: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    SET_LO8(eax, 1);
+    POP32(esp, ebx);
+    esp += 4; return; /* ret */
+
+loc_001D6B07: ;
+    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B16; /* je: equal / zero */
+
+loc_001D6B0B: ;
+    ecx = esi;
+    PUSH32(esp, 0x001D6B12u); RECOMP_ABI_CALL(0x001D5470u, sub_001D5470); /* call 0x001D5470 */
+
+loc_001D6B12: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6B3A; /* jne: not equal / not zero */
+
+loc_001D6B16: ;
+    eax = MEM32(esi);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B36; /* je: equal / zero */
+
+loc_001D6B1C: ;
+    SET_LO16(eax, MEM16(eax + 0x1DFE));
+    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0x34) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0x34 (16-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B2F; /* je: equal / zero */
+
+loc_001D6B29: ;
+    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0x37) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0x37 (16-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6B36; /* jne: not equal / not zero */
+
+loc_001D6B2F: ;
+    MEM32(esi + 0x18) = 0;
+
+loc_001D6B36: ;
+    MEM8(esi + 0x11) = 0;
+
+loc_001D6B3A: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    SET_LO8(eax, 1);
+    POP32(esp, ebx);
+    esp += 4; return; /* ret */
+
+loc_001D6B40: ;
+    POP32(esp, esi);
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    POP32(esp, ebx);
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D6B50
+ * Original: 0x001D6B50 - 0x001D6B99 (73 bytes, 29 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6B50(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D6B50: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    eax = MEM32(esi);
+    ecx = MEM32(eax + 0x68);
+    PUSH32(esp, ecx);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001D6B63u); RECOMP_ABI_CALL(0x001443F0u, sub_001443F0); /* call 0x001443F0 */
+
+loc_001D6B63: ;
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ecx (32-bit) */
+    MEM32(esi + 4) = eax;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6B81; /* je: equal / zero */
+
+loc_001D6B6C: ;
+    eax = MEM32(eax + 0x1154);
+    edx = eax + eax * 4;
+    eax = MEM32(esi + 0x2C);
+    edx = edx << 4;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(MEM8(eax)) & 0xFFu; _fb = (uint32_t)(LO8(ecx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(eax), LO8(ecx) (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6B86; /* jne: not equal / not zero */
+
+loc_001D6B81: ;
+    MEM8(esi + 0x10) = LO8(ecx);
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+loc_001D6B86: ;
+    PUSH32(esp, 9);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 8;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    ecx = esi;
+    MEM8(esi + 0x10) = 1;
+    PUSH32(esp, 0x001D6B97u); RECOMP_ABI_CALL(0x001D6740u, sub_001D6740); /* call 0x001D6740 */
+
+loc_001D6B97: ;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D6BA0
+ * Original: 0x001D6BA0 - 0x001D6E67 (711 bytes, 216 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6BA0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D6BA0: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x3F800000);
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x706200);
+    esi = ecx;
+    PUSH32(esp, 0x001D6BB9u); RECOMP_ABI_CALL(0x0015BB60u, sub_0015BB60); /* call 0x0015BB60 */
+
+loc_001D6BB9: ;
+    eax = MEM32(esp + 0x24);
+    MEM32(esi) = eax;
+    eax = MEM32(eax + 0x68);
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001D6BD0u); RECOMP_ABI_CALL(0x001443F0u, sub_001443F0); /* call 0x001443F0 */
+
+loc_001D6BD0: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0xC3450000u);
+    PUSH32(esp, 0xC472C000u);
+    ecx = esi + 0xCC;
+    PUSH32(esp, 0x44440000);
+    edi = edi | 0xFFFFFFFFu;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    PUSH32(esp, ecx);
+    MEM32(esi + 4) = eax;
+    MEM32(esi + 0x20) = ebx;
+    MEM8(esi + 0x10) = LO8(ebx);
+    MEM32(esi + 0xAC) = 4;
+    MEM32(esi + 0xB0) = edi;
+    PUSH32(esp, 0x001D6C08u); RECOMP_ABI_CALL(0x0015BB60u, sub_0015BB60); /* call 0x0015BB60 */
+
+loc_001D6C08: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebx);
+    edx = esi + 0xDC;
+    PUSH32(esp, ebx);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D6C18u); RECOMP_ABI_CALL(0x0015BB60u, sub_0015BB60); /* call 0x0015BB60 */
+
+loc_001D6C18: ;
+    _fb = (uint32_t)(0x28) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x28;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = esi;
+    MEM32(esi + 0xC8) = ebx;
+    MEM32(esi + 0xC4) = 0x3DCCCCCD;
+    MEM8(esi + 0x11) = LO8(ebx);
+    MEM8(esi + 0x30) = LO8(ebx);
+    MEM32(esi + 0x14) = 0x3F800000;
+    MEM32(esi + 0x18) = ebx;
+    MEM32(esi + 0x1C) = 0x3D4CCCCD;
+    MEM32(esi + 0x24) = 0x3CF5C28F;
+    MEM8(esi + 0xEC) = 1;
+    PUSH32(esp, 0x001D6C57u); RECOMP_ABI_CALL(0x001D5FA0u, sub_001D5FA0); /* call 0x001D5FA0 */
+
+loc_001D6C57: ;
+    eax = MEM32(esi);
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203D8);
+    MEM32(esi + 0x44) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x38) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x62039C);
+    MEM32(esi + 0x54) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x3C) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203DC);
+    MEM32(esi + 0x48) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x39) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203BC);
+    MEM32(esi + 0x4C) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x3A) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203B8);
+    MEM32(esi + 0x50) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x3B) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203AC);
+    MEM32(esi + 0x58) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x3D) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203A0);
+    MEM32(esi + 0x5C) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x3E) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203B0);
+    MEM32(esi + 0x60) = edx;
+    eax = MEM32(esi);
+    MEM8(esi + 0x3F) = 1;
+    ecx = MEM32(eax + 0x68);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x10C);
+    edx = MEM32(ecx + 0x6203A4);
+    MEM32(esi + 0x64) = edx;
+    _fa = (uint32_t)(MEM8(esi + 0x3C)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x3C), LO8(ebx) (8-bit) */
+    MEM8(esi + 0x40) = 1;
+    MEM32(esi + 0x68) = ebx;
+    eax = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D3C; /* je: equal / zero */
+
+loc_001D6D39: ;
+    eax = MEM32(esi + 0x54);
+
+loc_001D6D3C: ;
+    MEM32(esi + 0xC) = eax;
+    SET_LO8(eax, MEM8(esi + 0x38));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), LO8(ebx) (8-bit) */
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D4B; /* je: equal / zero */
+
+loc_001D6D48: ;
+    ecx = MEM32(esi + 0x44);
+
+loc_001D6D4B: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), LO8(ebx) (8-bit) */
+    MEM32(esi + 8) = ecx;
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D57; /* je: equal / zero */
+
+loc_001D6D54: ;
+    ecx = MEM32(esi + 0x44);
+
+loc_001D6D57: ;
+    eax = MEM32(esi + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D63; /* je: equal / zero */
+
+loc_001D6D5E: ;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6D69; /* jge: greater or equal (signed >=) */
+
+loc_001D6D63: ;
+    MEM32(esi + 0x6C) = ecx;
+    MEM32(esi + 0x68) = MEM32(esi + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6D69: ;
+    _fa = (uint32_t)(MEM8(esi + 0x39)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x39), LO8(ebx) (8-bit) */
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D73; /* je: equal / zero */
+
+loc_001D6D70: ;
+    ecx = MEM32(esi + 0x48);
+
+loc_001D6D73: ;
+    eax = MEM32(esi + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D7F; /* je: equal / zero */
+
+loc_001D6D7A: ;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6D89; /* jge: greater or equal (signed >=) */
+
+loc_001D6D7F: ;
+    eax = MEM32(esi + 0x68);
+    MEM32(esi + eax * 4 + 0x6C) = ecx;
+    MEM32(esi + 0x68) = MEM32(esi + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6D89: ;
+    _fa = (uint32_t)(MEM8(esi + 0x3A)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x3A), LO8(ebx) (8-bit) */
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D93; /* je: equal / zero */
+
+loc_001D6D90: ;
+    ecx = MEM32(esi + 0x4C);
+
+loc_001D6D93: ;
+    eax = MEM32(esi + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6D9F; /* je: equal / zero */
+
+loc_001D6D9A: ;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6DA9; /* jge: greater or equal (signed >=) */
+
+loc_001D6D9F: ;
+    edx = MEM32(esi + 0x68);
+    MEM32(esi + edx * 4 + 0x6C) = ecx;
+    MEM32(esi + 0x68) = MEM32(esi + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6DA9: ;
+    _fa = (uint32_t)(MEM8(esi + 0x3B)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x3B), LO8(ebx) (8-bit) */
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6DB3; /* je: equal / zero */
+
+loc_001D6DB0: ;
+    ecx = MEM32(esi + 0x50);
+
+loc_001D6DB3: ;
+    eax = MEM32(esi + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6DBF; /* je: equal / zero */
+
+loc_001D6DBA: ;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6DC9; /* jge: greater or equal (signed >=) */
+
+loc_001D6DBF: ;
+    eax = MEM32(esi + 0x68);
+    MEM32(esi + eax * 4 + 0x6C) = ecx;
+    MEM32(esi + 0x68) = MEM32(esi + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6DC9: ;
+    _fa = (uint32_t)(MEM8(esi + 0x3C)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x3C), LO8(ebx) (8-bit) */
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6DD3; /* je: equal / zero */
+
+loc_001D6DD0: ;
+    ecx = MEM32(esi + 0x54);
+
+loc_001D6DD3: ;
+    eax = MEM32(esi + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6DDF; /* je: equal / zero */
+
+loc_001D6DDA: ;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6DE9; /* jge: greater or equal (signed >=) */
+
+loc_001D6DDF: ;
+    edx = MEM32(esi + 0x68);
+    MEM32(esi + edx * 4 + 0x6C) = ecx;
+    MEM32(esi + 0x68) = MEM32(esi + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6DE9: ;
+    _fa = (uint32_t)(MEM8(esi + 0x3D)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x3D), LO8(ebx) (8-bit) */
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6DF3; /* je: equal / zero */
+
+loc_001D6DF0: ;
+    ecx = MEM32(esi + 0x58);
+
+loc_001D6DF3: ;
+    eax = MEM32(esi + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6DFF; /* je: equal / zero */
+
+loc_001D6DFA: ;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6E09; /* jge: greater or equal (signed >=) */
+
+loc_001D6DFF: ;
+    eax = MEM32(esi + 0x68);
+    MEM32(esi + eax * 4 + 0x6C) = ecx;
+    MEM32(esi + 0x68) = MEM32(esi + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6E09: ;
+    _fa = (uint32_t)(MEM8(esi + 0x3E)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x3E), LO8(ebx) (8-bit) */
+    ecx = edi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6E13; /* je: equal / zero */
+
+loc_001D6E10: ;
+    ecx = MEM32(esi + 0x5C);
+
+loc_001D6E13: ;
+    eax = MEM32(esi + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6E1F; /* je: equal / zero */
+
+loc_001D6E1A: ;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x30) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D6E29; /* jge: greater or equal (signed >=) */
+
+loc_001D6E1F: ;
+    edx = MEM32(esi + 0x68);
+    MEM32(esi + edx * 4 + 0x6C) = ecx;
+    MEM32(esi + 0x68) = MEM32(esi + 0x68) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x68)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001D6E29: ;
+    MEM32(esi + 0x98) = edi;
+    MEM32(esi + 0x9C) = edi;
+    MEM32(esi + 0xA0) = edi;
+    MEM32(esi + 0xA4) = edi;
+    PUSH32(esp, 7);
+    ecx = esi;
+    MEM8(esi + 0x94) = 1;
+    PUSH32(esp, 0x001D6E51u); RECOMP_ABI_CALL(0x001D62A0u, sub_001D62A0); /* call 0x001D62A0 */
+
+loc_001D6E51: ;
+    PUSH32(esp, 8);
+    PUSH32(esp, 0x001D6E58u); RECOMP_ABI_CALL(0x001D62A0u, sub_001D62A0); /* call 0x001D62A0 */
+
+loc_001D6E58: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x001D6E5Eu); RECOMP_ABI_CALL(0x001504E0u, sub_001504E0); /* call 0x001504E0 */
+
+loc_001D6E5E: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D6E70
+ * Original: 0x001D6E70 - 0x001D6E89 (25 bytes, 7 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6E70(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D6E70: ;
+    eax = MEM32(ecx);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6E84; /* je: equal / zero */
+
+loc_001D6E76: ;
+    _fa = (uint32_t)(MEM32(eax + 0x270)) & 0xFFFFFFFFu; _fb = (uint32_t)(1) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(eax + 0x270), 1 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6E84; /* jne: not equal / not zero */
+
+loc_001D6E7F: ;
+    g_seh_ebp = ebp; sub_001D6930(); return; /* tail jmp 0x001D6930 */
+
+loc_001D6E84: ;
+    g_seh_ebp = ebp; sub_001D6A10(); return; /* tail jmp 0x001D6A10 */
+
+}
+
+/**
+ * sub_001D6E90
+ * Original: 0x001D6E90 - 0x001D6EA3 (19 bytes, 8 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6E90(void)
+{
+
+loc_001D6E90: ;
+    eax = MEM32(esp + 4);
+    PUSH32(esp, esi);
+    PUSH32(esp, eax);
+    esi = ecx;
+    PUSH32(esp, 0x001D6E9Du); RECOMP_ABI_CALL(0x001D6BA0u, sub_001D6BA0); /* call 0x001D6BA0 */
+
+loc_001D6E9D: ;
+    eax = esi;
+    POP32(esp, esi);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D6EB0
+ * Original: 0x001D6EB0 - 0x001D740D (1373 bytes, 398 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D6EB0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D6EB0: ;
+    _fb = (uint32_t)(0x29C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x29C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebp);
+    ebp = ecx;
+    ecx = MEM32(0x6CE60C);
+    eax = MEM32(ecx);
+    { uint32_t _icall_esp = g_esp;
+    { uint32_t _icall_target = MEM32(eax + 0x68); PUSH32(esp, 0x001D6EC4u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001D6EC1u); } /* indirect call */
+    }
+
+loc_001D6EC4: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7405; /* jne: not equal / not zero */
+
+loc_001D6ECC: ;
+    ecx = MEM32(ebp);
+    PUSH32(esp, 0x001D6ED4u); RECOMP_ABI_CALL(0x0015E1C0u, sub_0015E1C0); /* call 0x0015E1C0 */
+
+loc_001D6ED4: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7405; /* jne: not equal / not zero */
+
+loc_001D6EDC: ;
+    _fa = (uint32_t)(MEM8(0x706211)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(0x706211), 1 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6EE9: ;
+    _fa = (uint32_t)(MEM8(0x633040)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(0x633040), 1 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6EF6: ;
+    eax = MEM32(0x6C92EC);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7405; /* jne: not equal / not zero */
+
+loc_001D6F03: ;
+    SET_LO8(eax, MEM8(0x706210));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7405; /* jne: not equal / not zero */
+
+loc_001D6F10: ;
+    SET_LO8(eax, MEM8(ebp + 0x10));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6F1B: ;
+    ecx = MEM32(ebp);
+    PUSH32(esp, ecx);
+    ecx = 0x6330E1;
+    PUSH32(esp, 0x001D6F29u); RECOMP_ABI_CALL(0x0010AC30u, sub_0010AC30); /* call 0x0010AC30 */
+
+loc_001D6F29: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7405; /* jne: not equal / not zero */
+
+loc_001D6F31: ;
+    _fa = (uint32_t)(MEM8(0x58A614)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(0x58A614), 1 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D6F51; /* jne: not equal / not zero */
+
+loc_001D6F3A: ;
+    SET_LO8(eax, MEM8(ebp + 0x11));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6F45: ;
+    MEM8(ebp + 0x11) = 0;
+    POP32(esp, ebp);
+    _fb = (uint32_t)(0x29C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x29C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+loc_001D6F51: ;
+    ecx = ebp;
+    PUSH32(esp, 0x001D6F58u); RECOMP_ABI_CALL(0x001D6E70u, sub_001D6E70); /* call 0x001D6E70 */
+
+loc_001D6F58: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6F60: ;
+    eax = MEM32(ebp + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6F6B: ;
+    ecx = MEM32(eax + 0x28);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6F76: ;
+    ecx = MEM32(ebp + 0xC8);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7405; /* je: equal / zero */
+
+loc_001D6F84: ;
+    ecx = MEM32(eax + 0x30);
+    PUSH32(esp, ebx);
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ebx = ebx | 0xFFFFFFFFu;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    PUSH32(esp, esi);
+    if (CMP_LE(_fas, _fbs)) goto loc_001D6FCA; /* jle: less or equal (signed <=) */
+
+loc_001D6F92: ;
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    goto loc_001D6FA0;
+
+    /* nop */
+    /* nop */
+
+loc_001D6FA0: ;
+    eax = MEM32(ebp + 4);
+    eax = MEM32(eax + 0x28);
+    _fa = (uint32_t)(MEM8(eax + ecx + 0x210)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(eax + ecx + 0x210), LO8(ebx) (8-bit) */
+    eax = eax + ecx + 0x210;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6FB9; /* je: equal / zero */
+
+loc_001D6FB6: ;
+    MEM8(eax) = 0;
+
+loc_001D6FB9: ;
+    eax = MEM32(ebp + 4);
+    esi = MEM32(eax + 0x30);
+    edx++;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x390) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 0x390;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, esi (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D6FA0; /* jl: less (signed <) */
+
+loc_001D6FCA: ;
+    _fa = (uint32_t)(MEM8(ebp + 0x94)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ebp + 0x94), 1 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D708B; /* jne: not equal / not zero */
+
+loc_001D6FD7: ;
+    eax = MEM32(ebp + 0x98);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    ecx = MEM32(ebp + 4);
+    edx = MEM32(ecx + 0x28);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D6FF6; /* je: equal / zero */
+
+loc_001D6FE7: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = LO8(ebx);
+    goto loc_001D7004;
+
+loc_001D6FF6: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = 0;
+
+loc_001D7004: ;
+    eax = MEM32(ebp + 0x9C);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    ecx = MEM32(ebp + 4);
+    edx = MEM32(ecx + 0x28);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7023; /* je: equal / zero */
+
+loc_001D7014: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = LO8(ebx);
+    goto loc_001D7031;
+
+loc_001D7023: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = 0;
+
+loc_001D7031: ;
+    eax = MEM32(ebp + 0xA0);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    ecx = MEM32(ebp + 4);
+    edx = MEM32(ecx + 0x28);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7050; /* je: equal / zero */
+
+loc_001D7041: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = LO8(ebx);
+    goto loc_001D705E;
+
+loc_001D7050: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = 0;
+
+loc_001D705E: ;
+    eax = MEM32(ebp + 0xA4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    ecx = MEM32(ebp + 4);
+    edx = MEM32(ecx + 0x28);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D707D; /* je: equal / zero */
+
+loc_001D706E: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = LO8(ebx);
+    goto loc_001D708B;
+
+loc_001D707D: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x390);
+    MEM8(eax + edx + 0x210) = 0;
+
+loc_001D708B: ;
+    PUSH32(esp, edi);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7093u); RECOMP_ABI_CALL(0x001D5A70u, sub_001D5A70); /* call 0x001D5A70 */
+
+loc_001D7093: ;
+    esi = ebp + 0x148;
+    edi = 9;
+    edi = edi;
+
+loc_001D70A0: ;
+    eax = esi + 0x90;
+    PUSH32(esp, eax);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D70ADu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D70AD: ;
+    ecx = esi + 0x1B0;
+    PUSH32(esp, ecx);
+    edx = esi + 0x120;
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D70C0u); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D70C0: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x10;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi--;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    if ((_fa != 0)) goto loc_001D70A0; /* jne: not equal / not zero */
+
+loc_001D70C9: ;
+    eax = ebp + 0x118;
+    ecx = ebp + 0x108;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D70DCu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D70DC: ;
+    eax = ebp + 0x138;
+    PUSH32(esp, eax);
+    ecx = ebp + 0x128;
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D70EFu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001D70EF: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = ebp;
+    PUSH32(esp, 0x001D70F9u); RECOMP_ABI_CALL(0x001D53E0u, sub_001D53E0); /* call 0x001D53E0 */
+
+loc_001D70F9: ;
+    MEMF(0x706214) = (float)fp_top(); fp_pop(); /* fstp */
+    edx = MEM32(ebp + 8);
+    ecx = MEM32(ebp);
+    PUSH32(esp, 1);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0);
+    PUSH32(esp, edx);
+    eax = esp + 0xC0;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D711Cu); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
+
+loc_001D711C: ;
+    eax = MEM32(esp + 0x14C);
+    edx = MEM32(esp + 0x148);
+    ecx = MEM32(esp + 0x150);
+    MEM32(esp + 0x3C) = eax;
+    SET_LO8(eax, MEM8(ebp + 0xEC));
+    _fb = (uint32_t)(0x1C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x1C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM32(esp + 0x1C) = edx;
+    MEM32(esp + 0x24) = ecx;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D714F; /* je: equal / zero */
+
+loc_001D714A: ;
+    eax = MEM32(ebp + 0xC);
+    goto loc_001D7158;
+
+loc_001D714F: ;
+    PUSH32(esp, 2);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7158u); RECOMP_ABI_CALL(0x001D51B0u, sub_001D51B0); /* call 0x001D51B0 */
+
+loc_001D7158: ;
+    edx = MEM32(ebp);
+    PUSH32(esp, eax);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D7162u); RECOMP_ABI_CALL(0x00109240u, sub_00109240); /* call 0x00109240 */
+
+loc_001D7162: ;
+    esi = eax;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = 0x10;
+    edi = esp + 0x5C;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    eax = esp + 0x5C;
+    PUSH32(esp, eax);
+    ecx = esp + 0x30;
+    PUSH32(esp, ecx);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7183u); RECOMP_ABI_CALL(0x001D5370u, sub_001D5370); /* call 0x001D5370 */
+
+loc_001D7183: ;
+    edx = esp + 0x2C;
+    PUSH32(esp, edx);
+    ebx = ebp + 0xF8;
+    PUSH32(esp, ebx);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7196u); RECOMP_ABI_CALL(0x001D52F0u, sub_001D52F0); /* call 0x001D52F0 */
+
+loc_001D7196: ;
+    eax = MEM32(ebp + 8);
+    ecx = MEM32(ebp);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D71A3u); RECOMP_ABI_CALL(0x00109240u, sub_00109240); /* call 0x00109240 */
+
+loc_001D71A3: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esi = eax;
+    edx = esp + 0x5C;
+    ecx = 0x10;
+    edi = esp + 0x5C;
+    PUSH32(esp, edx);
+    eax = esp + 0x30;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    PUSH32(esp, eax);
+    ecx = ebp;
+    PUSH32(esp, 0x001D71C4u); RECOMP_ABI_CALL(0x001D5370u, sub_001D5370); /* call 0x001D5370 */
+
+loc_001D71C4: ;
+    ecx = esp + 0x2C;
+    PUSH32(esp, ecx);
+    edx = ebp + 0x1D8;
+    PUSH32(esp, edx);
+    ecx = ebp;
+    PUSH32(esp, 0x001D71D7u); RECOMP_ABI_CALL(0x001D52F0u, sub_001D52F0); /* call 0x001D52F0 */
+
+loc_001D71D7: ;
+    eax = ebp + 0x148;
+    PUSH32(esp, eax);
+    PUSH32(esp, edx);
+    edx = esp + 0x44;
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D71E9u); RECOMP_ABI_CALL(0x0015BD20u, sub_0015BD20); /* call 0x0015BD20 */
+
+loc_001D71E9: ;
+    fp_push(MEMF(esp + 0x4C)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x514E5C)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x514e5c] */
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001D73A0; /* je: equal / zero */
+
+loc_001D7201: ;
+    fp_push(MEMF(0x514E5C)); /* fld float */
+    fp_top() = -fp_top(); /* fchs */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(esp + 0x40)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [esp + 0x40] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001D73A0; /* je: equal / zero */
+
+loc_001D7218: ;
+    eax = ebp + 0xDC;
+    PUSH32(esp, eax);
+    ecx = esp + 0x20;
+    PUSH32(esp, ecx);
+    edx = esp + 0x54;
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D722Eu); RECOMP_ABI_CALL(0x0015BD20u, sub_0015BD20); /* call 0x0015BD20 */
+
+loc_001D722E: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = esp + 0x4C;
+    PUSH32(esp, eax);
+    esi = ebp + 0x118;
+    PUSH32(esp, esi);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7244u); RECOMP_ABI_CALL(0x001D52F0u, sub_001D52F0); /* call 0x001D52F0 */
+
+loc_001D7244: ;
+    eax = ebp + 0x108;
+    PUSH32(esp, eax);
+    ecx = esp + 0xA0;
+    PUSH32(esp, esi);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D7259u); RECOMP_ABI_CALL(0x0015BD20u, sub_0015BD20); /* call 0x0015BD20 */
+
+loc_001D7259: ;
+    edx = MEM32(ebx);
+    eax = MEM32(esi);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D7264u); RECOMP_ABI_CALL(0x001D5200u, sub_001D5200); /* call 0x001D5200 */
+
+loc_001D7264: ;
+    MEMF(esp + 0x24) = (float)fp_top(); fp_pop(); /* fstp */
+    ecx = MEM32(ebp + 0xFC);
+    edx = MEM32(ebp + 0x11C);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D727Bu); RECOMP_ABI_CALL(0x001D5200u, sub_001D5200); /* call 0x001D5200 */
+
+loc_001D727B: ;
+    MEMF(esp + 0x30) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(ebp + 0xF0)); /* fld float */
+    eax = MEM32(esp + 0x30);
+    fp_top() = -fp_top(); /* fchs */
+    MEM32(esp + 0x34) = eax;
+    fp_push(MEMF(esp + 0x30)); /* fld float */
+    _fb = (uint32_t)(0x1C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x1C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp st(1) */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D72A5; /* jp: parity */
+
+loc_001D729F: ;
+    MEMF(esp + 0x18) = (float)fp_top(); fp_pop(); /* fstp */
+    goto loc_001D72C2;
+
+loc_001D72A5: ;
+    fp_pop(); /* fstp st(0) */
+    fp_push(MEMF(esp + 0x14)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(ebp + 0xF0)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [ebp + 0xf0] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D72C2; /* jne: not equal / not zero */
+
+loc_001D72B8: ;
+    ecx = MEM32(ebp + 0xF0);
+    MEM32(esp + 0x18) = ecx;
+
+loc_001D72C2: ;
+    fp_push(MEMF(ebp + 0xF4)); /* fld float */
+    fp_top() = -fp_top(); /* fchs */
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp st(1) */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D72DD; /* jp: parity */
+
+loc_001D72D7: ;
+    MEMF(esp + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
+    goto loc_001D72FA;
+
+loc_001D72DD: ;
+    fp_pop(); /* fstp st(0) */
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(ebp + 0xF4)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [ebp + 0xf4] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D72FA; /* jne: not equal / not zero */
+
+loc_001D72F0: ;
+    edx = MEM32(ebp + 0xF4);
+    MEM32(esp + 0x10) = edx;
+
+loc_001D72FA: ;
+    ecx = MEM32(ebp + 0x26C);
+    edx = MEM32(esp + 0x18);
+    eax = ebp + 0x388;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7314u); RECOMP_ABI_CALL(0x001D54A0u, sub_001D54A0); /* call 0x001D54A0 */
+
+loc_001D7314: ;
+    fp_pop(); /* fstp st(0) */
+    ecx = MEM32(esp + 0x10);
+    edx = MEM32(ebp + 8);
+    eax = ebp + 0x2F8;
+    MEM32(eax) = ecx;
+    fp_push(MEMF(ebp + 0x398)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(ebp + 0x2FC)); /* fadd dword ptr [ebp + 0x2fc] */
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    ecx = ebp;
+    MEMF(ebp + 0x2FC) = (float)fp_top(); fp_pop(); /* fstp */
+    PUSH32(esp, 0x001D7340u); RECOMP_ABI_CALL(0x001D56A0u, sub_001D56A0); /* call 0x001D56A0 */
+
+loc_001D7340: ;
+    esi = MEM32(esp + 0x14);
+    PUSH32(esp, 2);
+    PUSH32(esp, esi);
+    ecx = ebp;
+    PUSH32(esp, 0x001D734Eu); RECOMP_ABI_CALL(0x001D61E0u, sub_001D61E0); /* call 0x001D61E0 */
+
+loc_001D734E: ;
+    PUSH32(esp, 3);
+    PUSH32(esp, esi);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7358u); RECOMP_ABI_CALL(0x001D61E0u, sub_001D61E0); /* call 0x001D61E0 */
+
+loc_001D7358: ;
+    PUSH32(esp, 4);
+    PUSH32(esp, esi);
+    ecx = ebp;
+    PUSH32(esp, 0x001D7362u); RECOMP_ABI_CALL(0x001D61E0u, sub_001D61E0); /* call 0x001D61E0 */
+
+loc_001D7362: ;
+    eax = MEM32(ebp + 4);
+    esi = 0; /* xor self */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    MEM32(eax + 0x1144) = esi;
+    ecx = MEM32(ebp + 4);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D7376u); RECOMP_ABI_CALL(0x00107880u, sub_00107880); /* call 0x00107880 */
+
+loc_001D7376: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = ebp;
+    PUSH32(esp, 0x001D7380u); RECOMP_ABI_CALL(0x001D58F0u, sub_001D58F0); /* call 0x001D58F0 */
+
+loc_001D7380: ;
+    edx = MEM32(ebp + 4);
+    MEM32(edx + 0x1144) = esi;
+    eax = MEM32(ebp + 4);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D7392u); RECOMP_ABI_CALL(0x00107880u, sub_00107880); /* call 0x00107880 */
+
+loc_001D7392: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    POP32(esp, ebp);
+    _fb = (uint32_t)(0x29C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x29C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+loc_001D73A0: ;
+    ecx = MEM32(ebp + 8);
+    PUSH32(esp, ecx);
+    edi = ebp + 0x268;
+    PUSH32(esp, edi);
+    ecx = ebp;
+    PUSH32(esp, 0x001D73B2u); RECOMP_ABI_CALL(0x001D56A0u, sub_001D56A0); /* call 0x001D56A0 */
+
+loc_001D73B2: ;
+    esi = 0; /* xor self */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ebx = ebp + 0x3AC;
+    /* nop */
+
+loc_001D73C0: ;
+    _fa = (uint32_t)(MEM8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ebx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D73D6; /* je: equal / zero */
+
+loc_001D73C5: ;
+    PUSH32(esp, edi);
+    PUSH32(esp, esi);
+    ecx = ebp;
+    PUSH32(esp, 0x001D73CEu); RECOMP_ABI_CALL(0x001D51B0u, sub_001D51B0); /* call 0x001D51B0 */
+
+loc_001D73CE: ;
+    PUSH32(esp, eax);
+    ecx = ebp;
+    PUSH32(esp, 0x001D73D6u); RECOMP_ABI_CALL(0x001D55D0u, sub_001D55D0); /* call 0x001D55D0 */
+
+loc_001D73D6: ;
+    esi++;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x28) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 0x28;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x10;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(9) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 9 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D73C0; /* jl: less (signed <) */
+
+loc_001D73E2: ;
+    edx = MEM32(ebp + 4);
+    MEM32(edx + 0x1144) = 0;
+    eax = MEM32(ebp + 4);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D73F8u); RECOMP_ABI_CALL(0x00107880u, sub_00107880); /* call 0x00107880 */
+
+loc_001D73F8: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = ebp;
+    PUSH32(esp, 0x001D7402u); RECOMP_ABI_CALL(0x001D58F0u, sub_001D58F0); /* call 0x001D58F0 */
+
+loc_001D7402: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+
+loc_001D7405: ;
+    POP32(esp, ebp);
+    _fb = (uint32_t)(0x29C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x29C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D7410
+ * Original: 0x001D7410 - 0x001D7439 (41 bytes, 14 insns)
+ * CC: cdecl, 0 params, returns int_zero
+ * Frame: fpo_leaf
+ */
+void sub_001D7410(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7410: ;
+    eax = MEM32(ecx + 0x21C);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7436; /* je: equal / zero */
+
+loc_001D741B: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x10C);
+    eax = eax + ecx + 4;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7436; /* je: equal / zero */
+
+loc_001D7429: ;
+    ecx = MEM32(eax + 0xC);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D7436; /* jle: less or equal (signed <=) */
+
+loc_001D7430: ;
+    eax = 1;
+    esp += 4; return; /* ret */
+
+loc_001D7436: ;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7440
+ * Original: 0x001D7440 - 0x001D7491 (81 bytes, 28 insns)
+ * Category: game_physics
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7440(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7440: ;
+    eax = MEM32(esp + 4);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x18);
+    PUSH32(esp, 0x4B1E34);
+    PUSH32(esp, 0x4B1E00);
+    esi = eax * 4;
+    PUSH32(esp, 1);
+    PUSH32(esp, esi);
+    ecx = 0x64D218;
+    MEM32(0x719258) = eax;
+    PUSH32(esp, 0x001D746Bu); RECOMP_ABI_CALL(0x00144580u, sub_00144580); /* call 0x00144580 */
+
+loc_001D746B: ;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D7471u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001D7471: ;
+    ecx = esi;
+    edx = ecx;
+    edi = eax;
+    ecx = ecx >> 2;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    MEM32(0x719254) = edi;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    { uint32_t _i; int32_t _st = RECOMP_DF_STEP(4); for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*_st) = eax; edi += ecx * _st; }
+    ecx = 0; /* rep stosd */
+    ecx = edx;
+    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x18;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = ecx & 3;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    if (!g_df) { memset((void*)XBOX_PTR(edi), (uint8_t)eax, ecx); edi += ecx; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM8(edi - _i) = LO8(eax); edi -= ecx; }
+    ecx = 0; /* rep stosb */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D74A0
+ * Original: 0x001D74A0 - 0x001D74F4 (84 bytes, 25 insns)
+ * Category: game_physics
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D74A0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D74A0: ;
+    edx = MEM32(0x719258);
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 8);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, edx (32-bit) */
+    SET_LO8(eax, (CMP_L(_fas, _fbs)) ? 1 : 0); /* setl */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D74E6; /* jne: not equal / not zero */
+
+loc_001D74B9: ;
+    PUSH32(esp, 0x1B);
+    PUSH32(esp, 0x4B1E70);
+    PUSH32(esp, 0x4B1E00);
+    PUSH32(esp, 0x4B1E58);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001D74D4u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D74D4: ;
+    eax = MEM32(esp + 0x20);
+    ecx = MEM32(0x719254);
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(ecx + esi * 4) = eax;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+loc_001D74E6: ;
+    edx = MEM32(esp + 0xC);
+    eax = MEM32(0x719254);
+    MEM32(eax + esi * 4) = edx;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7500
+ * Original: 0x001D7500 - 0x001D751C (28 bytes, 9 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7500(void)
+{
+
+loc_001D7500: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    PUSH32(esp, 0x001D7508u); RECOMP_ABI_CALL(0x001EB780u, sub_001EB780); /* call 0x001EB780 */
+
+loc_001D7508: ;
+    MEM32(esi) = 0x4B1E94;
+    MEM32(0x706304) = esi;
+    MEM8(esi + 4) = 0;
+    eax = esi;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7520
+ * Original: 0x001D7520 - 0x001D752B (11 bytes, 2 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7520(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D7520: ;
+    MEM32(ecx) = 0x4B1E94;
+    g_seh_ebp = ebp; sub_001EB790(); return; /* tail jmp 0x001EB790 */
+
+}
+
+/**
+ * sub_001D7530
+ * Original: 0x001D7530 - 0x001D7531 (1 bytes, 1 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7530(void)
+{
+
+loc_001D7530: ;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7540
+ * Original: 0x001D7540 - 0x001D7543 (3 bytes, 1 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7540(void)
+{
+
+loc_001D7540: ;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D7550
+ * Original: 0x001D7550 - 0x001D777C (556 bytes, 168 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7550(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7550: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    SET_LO8(eax, MEM8(esi + 4));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7778; /* je: equal / zero */
+
+loc_001D755E: ;
+    eax = MEM32(0x5AA32C);
+    PUSH32(esp, edi);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D756Au); RECOMP_ABI_CALL(0x00016A96u, sub_00016A96); /* call 0x00016A96 */
+
+loc_001D756A: ;
+    ecx = MEM32(esi + 0x28);
+    edx = MEM32(esi + 0xAC);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    ecx = 0x6996F4;
+    PUSH32(esp, 0x001D7582u); RECOMP_ABI_CALL(0x00195D10u, sub_00195D10); /* call 0x00195D10 */
+
+loc_001D7582: ;
+    eax = MEM32(esi + 8);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D758Bu); RECOMP_ABI_CALL(0x00112480u, sub_00112480); /* call 0x00112480 */
+
+loc_001D758B: ;
+    PUSH32(esp, 0x001D7590u); RECOMP_ABI_CALL(0x001DE310u, sub_001DE310); /* call 0x001DE310 */
+
+loc_001D7590: ;
+    ecx = MEM32(esi + 8);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D7599u); RECOMP_ABI_CALL(0x001DDB70u, sub_001DDB70); /* call 0x001DDB70 */
+
+loc_001D7599: ;
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D75A0u); RECOMP_ABI_CALL(0x0001427Du, sub_0001427D); /* call 0x0001427D */
+
+loc_001D75A0: ;
+    edx = MEM32(esi + 8);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x5CE880);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D75AFu); RECOMP_ABI_CALL(0x001E04F0u, sub_001E04F0); /* call 0x001E04F0 */
+
+loc_001D75AF: ;
+    MEM32(0x706300) = 1;
+    eax = MEM32(esi + 0xC);
+    ecx = MEM32(esi + 0x90);
+    edx = MEM32(esi + 0x14);
+    PUSH32(esp, eax);
+    eax = MEM32(esi + 0x98);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D75D4u); RECOMP_ABI_CALL(0x001DA3D0u, sub_001DA3D0); /* call 0x001DA3D0 */
+
+loc_001D75D4: ;
+    edi = MEM32(esp + 0x34);
+    MEM32(0x706300) = 0;
+    ecx = MEM32(esi + 0xC);
+    edx = MEM32(esi + 0x90);
+    eax = MEM32(esi + 0x84);
+    PUSH32(esp, edi);
+    PUSH32(esp, ecx);
+    ecx = MEM32(esi + 0x108);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D7601u); RECOMP_ABI_CALL(0x001E16D0u, sub_001E16D0); /* call 0x001E16D0 */
+
+loc_001D7601: ;
+    edx = MEM32(esi + 0x4C);
+    eax = MEM32(esi + 0xD0);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D7611u); RECOMP_ABI_CALL(0x001E08F0u, sub_001E08F0); /* call 0x001E08F0 */
+
+loc_001D7611: ;
+    ecx = MEM32(esi + 0x54);
+    edx = MEM32(esi + 0xD8);
+    _fb = (uint32_t)(0x44) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x44;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D7624u); RECOMP_ABI_CALL(0x001E08F0u, sub_001E08F0); /* call 0x001E08F0 */
+
+loc_001D7624: ;
+    eax = MEM32(esi + 0x58);
+    ecx = MEM32(esi + 0xDC);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D7634u); RECOMP_ABI_CALL(0x001E08F0u, sub_001E08F0); /* call 0x001E08F0 */
+
+loc_001D7634: ;
+    edx = MEM32(esi + 0x6C);
+    eax = MEM32(esi + 0xF0);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D7644u); RECOMP_ABI_CALL(0x001E08F0u, sub_001E08F0); /* call 0x001E08F0 */
+
+loc_001D7644: ;
+    ecx = MEM32(esi + 0x10);
+    edx = MEM32(esi + 0x94);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D7655u); RECOMP_ABI_CALL(0x001239C0u, sub_001239C0); /* call 0x001239C0 */
+
+loc_001D7655: ;
+    eax = MEM32(esi + 0x80);
+    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x24;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D76A3; /* je: equal / zero */
+
+loc_001D7662: ;
+    ecx = MEM32(0x70AB40);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7679; /* je: equal / zero */
+
+loc_001D766C: ;
+    PUSH32(esp, eax);
+    eax = MEM32(esi + 0x104);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D7679u); RECOMP_ABI_CALL(0x001DAF30u, sub_001DAF30); /* call 0x001DAF30 */
+
+loc_001D7679: ;
+    ecx = MEM32(0x713D28);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D76B2; /* je: equal / zero */
+
+loc_001D7683: ;
+    PUSH32(esp, 0x001D7688u); RECOMP_ABI_CALL(0x001E13E0u, sub_001E13E0); /* call 0x001E13E0 */
+
+loc_001D7688: ;
+    ecx = MEM32(esi + 0x80);
+    edx = MEM32(esi + 0x104);
+    PUSH32(esp, ecx);
+    ecx = MEM32(0x713D28);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D76A1u); RECOMP_ABI_CALL(0x001E1F40u, sub_001E1F40); /* call 0x001E1F40 */
+
+loc_001D76A1: ;
+    goto loc_001D76B2;
+
+loc_001D76A3: ;
+    ecx = MEM32(0x713D28);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D76B2; /* je: equal / zero */
+
+loc_001D76AD: ;
+    PUSH32(esp, 0x001D76B2u); RECOMP_ABI_CALL(0x001E13E0u, sub_001E13E0); /* call 0x001E13E0 */
+
+loc_001D76B2: ;
+    eax = MEM32(0x637AC4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7757; /* jne: not equal / not zero */
+
+loc_001D76BF: ;
+    eax = MEM32(0x67D13C);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D76EE; /* je: equal / zero */
+
+loc_001D76C9: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x10C);
+    eax = eax + 0x67CF24;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D76EE; /* je: equal / zero */
+
+loc_001D76D9: ;
+    ecx = MEM32(eax + 0xC);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D76EE; /* jle: less or equal (signed <=) */
+
+loc_001D76E0: ;
+    eax = MEM32(0x5AA32C);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D76EBu); RECOMP_ABI_CALL(0x001D7440u, sub_001D7440); /* call 0x001D7440 */
+
+loc_001D76EB: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D76EE: ;
+    ecx = 0x67CF20;
+    PUSH32(esp, 0x001D76F8u); RECOMP_ABI_CALL(0x00167BB0u, sub_00167BB0); /* call 0x00167BB0 */
+
+loc_001D76F8: ;
+    eax = MEM32(0x67D13C);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7757; /* je: equal / zero */
+
+loc_001D7702: ;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x10C);
+    eax = eax + 0x67CF24;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7757; /* je: equal / zero */
+
+loc_001D7712: ;
+    ecx = MEM32(eax + 0xC);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D7757; /* jle: less or equal (signed <=) */
+
+loc_001D7719: ;
+    eax = MEM32(0x5AA32C);
+    edi = 0; /* xor self */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D7757; /* jle: less or equal (signed <=) */
+
+loc_001D7724: ;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0x70) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0x70 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7729; /* jne: not equal / not zero */
+
+loc_001D7729: ;
+    PUSH32(esp, edi);
+    ecx = 0x67CF20;
+    PUSH32(esp, 0x001D7734u); RECOMP_ABI_CALL(0x00162490u, sub_00162490); /* call 0x00162490 */
+
+loc_001D7734: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7743; /* jne: not equal / not zero */
+
+loc_001D7738: ;
+    PUSH32(esp, edi);
+    ecx = 0x67CF20;
+    PUSH32(esp, 0x001D7743u); RECOMP_ABI_CALL(0x001624F0u, sub_001624F0); /* call 0x001624F0 */
+
+loc_001D7743: ;
+    PUSH32(esp, eax);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D774Au); RECOMP_ABI_CALL(0x001D74A0u, sub_001D74A0); /* call 0x001D74A0 */
+
+loc_001D774A: ;
+    eax = MEM32(0x5AA32C);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi++;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, eax (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D7724; /* jl: less (signed <) */
+
+loc_001D7757: ;
+    ecx = MEM32(esi + 8);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D7760u); RECOMP_ABI_CALL(0x001E4700u, sub_001E4700); /* call 0x001E4700 */
+
+loc_001D7760: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, 0x001D7768u); RECOMP_ABI_CALL(0x001E84A0u, sub_001E84A0); /* call 0x001E84A0 */
+
+loc_001D7768: ;
+    ecx = MEM32(0x70AB40);
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    POP32(esp, edi);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7778; /* je: equal / zero */
+
+loc_001D7773: ;
+    PUSH32(esp, 0x001D7778u); RECOMP_ABI_CALL(0x001DAE70u, sub_001DAE70); /* call 0x001DAE70 */
+
+loc_001D7778: ;
+    POP32(esp, esi);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D7780
+ * Original: 0x001D7780 - 0x001D7809 (137 bytes, 51 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7780(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D7780: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    SET_LO8(eax, MEM8(esi + 4));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7805; /* je: equal / zero */
+
+loc_001D778A: ;
+    eax = MEM32(esi + 8);
+    PUSH32(esp, edi);
+    edi = MEM32(esp + 0xC);
+    PUSH32(esp, eax);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D7799u); RECOMP_ABI_CALL(0x001110E0u, sub_001110E0); /* call 0x001110E0 */
+
+loc_001D7799: ;
+    ecx = MEM32(esi + 0xC);
+    edx = MEM32(esi + 0x90);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D77AAu); RECOMP_ABI_CALL(0x001110A0u, sub_001110A0); /* call 0x001110A0 */
+
+loc_001D77AA: ;
+    eax = MEM32(esi + 0x84);
+    ecx = MEM32(esi + 0x108);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D77BEu); RECOMP_ABI_CALL(0x001110C0u, sub_001110C0); /* call 0x001110C0 */
+
+loc_001D77BE: ;
+    edx = MEM32(esi + 0x30);
+    eax = MEM32(esi + 0xB4);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D77CFu); RECOMP_ABI_CALL(0x001110F0u, sub_001110F0); /* call 0x001110F0 */
+
+loc_001D77CF: ;
+    eax = MEM32(0x706308);
+    _fb = (uint32_t)(0x2C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x2C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    POP32(esp, edi);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D77E5; /* je: equal / zero */
+
+loc_001D77DC: ;
+    ecx = MEM32(esi + 8);
+    { uint32_t _icall_esp = g_esp;
+    PUSH32(esp, ecx);
+    { uint32_t _icall_target = eax; PUSH32(esp, 0x001D77E2u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001D77E0u); } /* indirect call */
+    }
+
+loc_001D77E2: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D77E5: ;
+    PUSH32(esp, 0x001D77EAu); RECOMP_ABI_CALL(0x00013BDEu, sub_00013BDE); /* call 0x00013BDE */
+
+loc_001D77EA: ;
+    edx = MEM32(eax);
+    ecx = eax;
+    { uint32_t _icall_esp = g_esp;
+    { uint32_t _icall_target = MEM32(edx + 0xC); PUSH32(esp, 0x001D77F1u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001D77EEu); } /* indirect call */
+    }
+
+loc_001D77F1: ;
+    PUSH32(esp, 0x001D77F6u); RECOMP_ABI_CALL(0x00016BA9u, sub_00016BA9); /* call 0x00016BA9 */
+
+loc_001D77F6: ;
+    ecx = MEM32(esi + 8);
+    edx = MEM32(eax);
+    POP32(esp, esi);
+    MEM32(esp + 4) = ecx;
+    ecx = eax;
+    g_seh_ebp = ebp; RECOMP_ITAIL(MEM32(edx + 8)); return; /* indirect tail jmp */
+
+loc_001D7805: ;
+    POP32(esp, esi);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D7810
+ * Original: 0x001D7810 - 0x001D782E (30 bytes, 11 insns)
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7810(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7810: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    PUSH32(esp, 0x001D7818u); RECOMP_ABI_CALL(0x001D7520u, sub_001D7520); /* call 0x001D7520 */
+
+loc_001D7818: ;
+    _fa = (uint32_t)(MEM8(esp + 8)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test MEM8(esp + 8), 1 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001D7828; /* je: equal / zero */
+
+loc_001D781F: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7825u); RECOMP_ABI_CALL(0x000EB425u, sub_000EB425); /* call 0x000EB425 */
+
+loc_001D7825: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D7828: ;
+    eax = esi;
+    POP32(esp, esi);
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D7830
+ * Original: 0x001D7830 - 0x001D7871 (65 bytes, 24 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7830(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7830: ;
+    eax = MEM32(esp + 0xC);
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 8);
+    ecx = MEM32(esi + 0x68);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7844u); RECOMP_ABI_CALL(0x00114730u, sub_00114730); /* call 0x00114730 */
+
+loc_001D7844: ;
+    eax = MEM32(esp + 0x20);
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(1) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 1 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7865; /* jne: not equal / not zero */
+
+loc_001D7850: ;
+    edx = MEM32(esi + 0x68);
+    edx--;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D785Au); RECOMP_ABI_CALL(0x0001651Eu, sub_0001651E); /* call 0x0001651E */
+
+loc_001D785A: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7860u); RECOMP_ABI_CALL(0x00013981u, sub_00013981); /* call 0x00013981 */
+
+loc_001D7860: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+loc_001D7865: ;
+    MEM32(esi + 0x1F0) = 0;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7880
+ * Original: 0x001D7880 - 0x001D7D17 (1175 bytes, 168 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7880(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+
+loc_001D7880: ;
+    _fb = (uint32_t)(0x16C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x16C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    MEM32(esp + 0xC) = 0x20004;
+    MEM32(esp + 0x10) = 0x20005;
+    MEM32(esp + 0x14) = 0x20006;
+    MEM32(esp + 0x18) = 0x20007;
+    MEM32(esp + 0x1C) = 0x20008;
+    MEM32(esp + 0x20) = 0x20009;
+    MEM32(esp + 0x24) = 0x2000A;
+    MEM32(esp + 0x28) = 0x2000B;
+    MEM32(esp + 0x2C) = 0x2000C;
+    MEM32(esp + 0x30) = 0x2000D;
+    MEM32(esp + 0x34) = 0x2000E;
+    MEM32(esp + 0x38) = 0x2000F;
+    MEM32(esp + 0x3C) = 0x20010;
+    MEM32(esp + 0x40) = 0x20011;
+    MEM32(esp + 0x44) = 0x20012;
+    MEM32(esp + 0x48) = 0x20013;
+    MEM32(esp + 0x4C) = 0x20014;
+    MEM32(esp + 0x50) = 0x20015;
+    MEM32(esp + 0x54) = 0x20016;
+    MEM32(esp + 0x58) = 0x20017;
+    MEM32(esp + 0x5C) = 0x20018;
+    MEM32(esp + 0x60) = 0x20019;
+    MEM32(esp + 0x64) = 0x2001A;
+    MEM32(esp + 0x68) = 0x2001B;
+    MEM32(esp + 0x6C) = 0x2001C;
+    MEM32(esp + 0x70) = 0x2001D;
+    MEM32(esp + 0x74) = 0x2001E;
+    MEM32(esp + 0x78) = 0x2001F;
+    MEM32(esp + 0x7C) = 0x20020;
+    MEM32(esp + 0x80) = 0x20021;
+    MEM32(esp + 0x84) = 0x20022;
+    MEM32(esp + 0x88) = 0x20023;
+    MEM32(esp + 0x8C) = 0x20024;
+    MEM32(esp + 0x90) = 0x20025;
+    MEM32(esp + 0x94) = 0x20026;
+    MEM32(esp + 0x98) = 0x20027;
+    MEM32(esp + 0x9C) = 0x20028;
+    MEM32(esp + 0xA0) = 0x20029;
+    MEM32(esp + 0xA4) = 0x2002A;
+    MEM32(esp + 0xA8) = 0x2002B;
+    MEM32(esp + 0xAC) = 0x2002C;
+    MEM32(esp + 0xB0) = 0x2002D;
+    MEM32(esp + 0xB4) = 0x2002E;
+    MEM32(esp + 0xB8) = 0x2002F;
+    MEM32(esp + 0xBC) = 0x20030;
+    MEM32(esp + 0xC0) = 0x20031;
+    MEM32(esp + 0xC4) = 0x20032;
+    MEM32(esp + 0xC8) = 0x20033;
+    MEM32(esp + 0xCC) = 0x20034;
+    MEM32(esp + 0xD0) = 0x20035;
+    MEM32(esp + 0xD4) = 0x20036;
+    MEM32(esp + 0xD8) = 0x20037;
+    MEM32(esp + 0xDC) = 0x20038;
+    MEM32(esp + 0xE0) = 0x20039;
+    MEM32(esp + 0xE4) = 0x2003A;
+    MEM32(esp + 0xE8) = 0x2003B;
+    MEM32(esp + 0xEC) = 0x2003C;
+    MEM32(esp + 0xF0) = 0x2003D;
+    MEM32(esp + 0xF4) = 0x2003E;
+    MEM32(esp + 0xF8) = 0x2003F;
+    MEM32(esp + 0xFC) = 0x20040;
+    MEM32(esp + 0x100) = 0x20041;
+    MEM32(esp + 0x104) = 0x20042;
+    MEM32(esp + 0x108) = 0x20043;
+    MEM32(esp + 0x10C) = 0x20044;
+    MEM32(esp + 0x110) = 0x20045;
+    MEM32(esp + 0x114) = 0x20046;
+    MEM32(esp + 0x118) = 0x20047;
+    MEM32(esp + 0x11C) = 0x20048;
+    MEM32(esp + 0x120) = 0x20049;
+    MEM32(esp + 0x124) = 0x2004A;
+    MEM32(esp + 0x128) = 0x2004B;
+    MEM32(esp + 0x12C) = 0x2004C;
+    MEM32(esp + 0x130) = 0x2004D;
+    MEM32(esp + 0x134) = 0x2004E;
+    MEM32(esp + 0x138) = 0x2004F;
+    MEM32(esp + 0x13C) = 0x20050;
+    MEM32(esp + 0x140) = 0x20051;
+    esi = MEM32(esp + 0x17C);
+    eax = MEM32(esi + 0x68);
+    PUSH32(esp, eax);
+    ecx = 0x64D218;
+    MEM32(esp + 0x148) = 0x20052;
+    MEM32(esp + 0x14C) = 0x20053;
+    MEM32(esp + 0x150) = 0x20054;
+    MEM32(esp + 0x154) = 0x20055;
+    MEM32(esp + 0x158) = 0x20056;
+    MEM32(esp + 0x15C) = 0x20057;
+    MEM32(esp + 0x160) = 0x20058;
+    MEM32(esp + 0x164) = 0x20059;
+    MEM32(esp + 0x168) = 0x2005A;
+    MEM32(esp + 0x16C) = 0x2005B;
+    MEM32(esp + 0x170) = 0x2005C;
+    MEM32(esp + 0x174) = 0x2005D;
+    MEM32(esp + 0x178) = 0x2005E;
+    PUSH32(esp, 0x001D7C30u); RECOMP_ABI_CALL(0x001444C0u, sub_001444C0); /* call 0x001444C0 */
+
+loc_001D7C30: ;
+    ebx = MEM32(esp + 0x184);
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x001D7C3Du); RECOMP_ABI_CALL(0x00015A56u, sub_00015A56); /* call 0x00015A56 */
+
+loc_001D7C3D: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi = eax;
+    PUSH32(esp, edi);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001D7C4Du); RECOMP_ABI_CALL(0x00144530u, sub_00144530); /* call 0x00144530 */
+
+loc_001D7C4D: ;
+    PUSH32(esp, edi);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001D7C58u); RECOMP_ABI_CALL(0x001444A0u, sub_001444A0); /* call 0x001444A0 */
+
+loc_001D7C58: ;
+    MEM32(0x50D86C) = edi;
+    edi = MEM32(esp + 0x180);
+    MEM16(esi + 0x1DFE) = LO16(edi);
+    ecx = MEM32(0x6CE60C);
+    edx = MEM32(ecx);
+    { uint32_t _icall_esp = g_esp;
+    PUSH32(esp, edi);
+    { uint32_t _icall_target = MEM32(edx + 0x74); PUSH32(esp, 0x001D7C78u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001D7C75u); } /* indirect call */
+    }
+
+loc_001D7C78: ;
+    ecx = MEM32(esp + edi * 4 + 0xC);
+    edx = MEM32(esi + 0x68);
+    MEM8(esi + 0x3216) = LO8(eax);
+    PUSH32(esp, ecx);
+    SET_LO8(eax, LO8(ebx));
+    PUSH32(esp, edx);
+    _fb = (uint32_t)(0xA) & 0xFFu; _fbs = (int32_t)(int8_t)(_fb); /* add source, before the write */
+    SET_LO8(eax, LO8(eax) + 0xA);
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* add result */
+    PUSH32(esp, esi);
+    MEM8(esi + 0x2429) = LO8(eax);
+    PUSH32(esp, 0x001D7C97u); RECOMP_ABI_CALL(0x00114730u, sub_00114730); /* call 0x00114730 */
+
+loc_001D7C97: ;
+    eax = MEM32(esi + 0x68);
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D7CA1u); RECOMP_ABI_CALL(0x0001651Eu, sub_0001651E); /* call 0x0001651E */
+
+loc_001D7CA1: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7CA7u); RECOMP_ABI_CALL(0x00013981u, sub_00013981); /* call 0x00013981 */
+
+loc_001D7CA7: ;
+    ecx = MEM32(esi + 0x68);
+    ecx--;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D7CB1u); RECOMP_ABI_CALL(0x0001174Eu, sub_0001174E); /* call 0x0001174E */
+
+loc_001D7CB1: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, edi);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7CB9u); RECOMP_ABI_CALL(0x00014CF0u, sub_00014CF0); /* call 0x00014CF0 */
+
+loc_001D7CB9: ;
+    edx = MEM32(ebx * 4 + 0x5062AC);
+    PUSH32(esp, edx);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7CC7u); RECOMP_ABI_CALL(0x0010EDF0u, sub_0010EDF0); /* call 0x0010EDF0 */
+
+loc_001D7CC7: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7CCDu); RECOMP_ABI_CALL(0x00185D20u, sub_00185D20); /* call 0x00185D20 */
+
+loc_001D7CCD: ;
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x4A4A2C)); /* fmul dword ptr [0x4a4a2c] */
+    PUSH32(esp, 0x001D7CD8u); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001D7CD8: ;
+    MEM32(edi * 4 + 0x6200E0) = eax;
+    PUSH32(esp, esi);
+    MEM32(esi + 0x2648) = 0xFFFFFFFFu;
+    PUSH32(esp, 0x001D7CEFu); RECOMP_ABI_CALL(0x000135D0u, sub_000135D0); /* call 0x000135D0 */
+
+loc_001D7CEF: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7CF5u); RECOMP_ABI_CALL(0x000143A4u, sub_000143A4); /* call 0x000143A4 */
+
+loc_001D7CF5: ;
+    _fb = (uint32_t)(2) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 2;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, edi);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D7D00u); RECOMP_ABI_CALL(0x00157560u, sub_00157560); /* call 0x00157560 */
+
+loc_001D7D00: ;
+    _fb = (uint32_t)(0x44) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x44;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    MEM32(0x713924) = 0xFFFFFFFFu;
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x16C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x16C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001D7D20
+ * Original: 0x001D7D20 - 0x001D7DE8 (200 bytes, 56 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7D20(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D7D20: ;
+    PUSH32(esp, ecx);
+    ecx = MEM32(esp + 0x10);
+    PUSH32(esp, ebx);
+    ebx = MEM32(esp + 0xC);
+    PUSH32(esp, ebp);
+    ebp = ebx;
+    ebp = (uint32_t)((int32_t)ebp * (int32_t)0x3238);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    PUSH32(esp, ecx);
+    eax = ebp + 0x5CE880;
+    PUSH32(esp, ebx);
+    PUSH32(esp, eax);
+    MEM32(esp + 0x1C) = eax;
+    PUSH32(esp, 0x001D7D47u); RECOMP_ABI_CALL(0x00114730u, sub_00114730); /* call 0x00114730 */
+
+loc_001D7D47: ;
+    esi = MEM32(esp + 0x28);
+    eax = esi;
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
+    SET_LO16(edx, MEM16(eax + 0x5D067E));
+    MEM32(esp + 0x24) = eax;
+    eax = ebx + -1;
+    PUSH32(esp, eax);
+    MEM16(ebp + 0x5D067E) = LO16(edx);
+    PUSH32(esp, 0x001D7D6Eu); RECOMP_ABI_CALL(0x0001174Eu, sub_0001174E); /* call 0x0001174E */
+
+loc_001D7D6E: ;
+    esi = (uint32_t)((int32_t)esi * (int32_t)0x2120);
+    eax = MEM32(esp + 0x2C);
+    edx = ebx;
+    edx = (uint32_t)((int32_t)edx * (int32_t)0x2120);
+    esi = esi + 0x698C00;
+    edi = edx + 0x698C00;
+    ecx = 0x848;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = eax;
+    eax = MEM32(eax * 4 + 0x7068B8);
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x54);
+    edx = ebx;
+    edx = (uint32_t)((int32_t)edx * (int32_t)0x54);
+    esi = ecx + 0x67BD5C;
+    edi = edx + 0x67BD5C;
+    ecx = 0x15;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    esi = MEM32(esp + 0x18);
+    edi = MEM32(esp + 0x10);
+    esi = esi + 0x5CE880;
+    ecx = 0xC8E;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    MEM32(ebp + 0x5CE8E8) = ebx;
+    MEM32(ebp + 0x5CE8EC) = ebx;
+    POP32(esp, ebp);
+    MEM32(ebx * 4 + 0x7068B8) = eax;
+    POP32(esp, ebx);
+    POP32(esp, ecx);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7DF0
+ * Original: 0x001D7DF0 - 0x001D7F06 (278 bytes, 79 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7DF0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D7DF0: ;
+    eax = MEM32(esp + 4);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebp);
+    ebp = MEM32(0x50B4EC);
+    ecx = eax + ebp;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, ecx (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D7EE4; /* jge: greater or equal (signed >=) */
+
+loc_001D7E09: ;
+    PUSH32(esp, ebx);
+    ebx = ebp;
+    ebx = (uint32_t)((int32_t)ebx * (int32_t)0x3238);
+    edx = ebp;
+    edx = (uint32_t)((int32_t)edx * (int32_t)0x54);
+    ecx = ebp;
+    _fb = (uint32_t)(0x5CE880) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 0x5CE880;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x2120);
+    eax = edx + 0x67BD5C;
+    PUSH32(esp, esi);
+    edx = ecx + 0x698C00;
+    PUSH32(esp, edi);
+    MEM32(esp + 0x14) = eax;
+    MEM32(esp + 0x10) = edx;
+    goto loc_001D7E40;
+
+    /* nop */
+
+loc_001D7E40: ;
+    eax = MEM32(esp + 0x20);
+    PUSH32(esp, eax);
+    PUSH32(esp, ebp);
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x001D7E4Cu); RECOMP_ABI_CALL(0x00114730u, sub_00114730); /* call 0x00114730 */
+
+loc_001D7E4C: ;
+    SET_LO16(ecx, MEM16(esp + 0x30));
+    edx = ebp + -1;
+    PUSH32(esp, edx);
+    MEM16(ebx + 0x1DFE) = LO16(ecx);
+    PUSH32(esp, 0x001D7E61u); RECOMP_ABI_CALL(0x0001174Eu, sub_0001174E); /* call 0x0001174E */
+
+loc_001D7E61: ;
+    eax = MEM32(0x50B4EC);
+    edi = MEM32(esp + 0x20);
+    edx = eax + -2;
+    esi = edx;
+    esi = (uint32_t)((int32_t)esi * (int32_t)0x2120);
+    _fb = (uint32_t)(0x69AD20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x69AD20;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = 0x848;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    esi = edx;
+    edx = MEM32(esp + 0x24);
+    esi = (uint32_t)((int32_t)esi * (int32_t)0x54);
+    _fb = (uint32_t)(0x67BDB0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x67BDB0;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi = edx;
+    ecx = 0x15;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    esi = eax;
+    esi = (uint32_t)((int32_t)esi * (int32_t)0x3238);
+    _fb = (uint32_t)(0x5CE880) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x5CE880;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi = ebx;
+    ecx = 0xC8E;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    edi = MEM32(esp + 0x20);
+    ecx = MEM32(esp + 0x2C);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(ebx + 0x68) = ebp;
+    ebp++;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x2120) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x2120;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(0x54) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 0x54;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + ecx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(0x3238) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 0x3238;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, eax (32-bit) */
+    MEM32(esp + 0x10) = edi;
+    MEM32(esp + 0x14) = edx;
+    if (CMP_L(_fas, _fbs)) goto loc_001D7E40; /* jl: less (signed <) */
+
+loc_001D7EE1: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+
+loc_001D7EE4: ;
+    eax = 0x69EF60;
+    POP32(esp, ebp);
+    /* nop */
+
+loc_001D7EF0: ;
+    MEM32(eax) = 1;
+    _fb = (uint32_t)(0x2120) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x2120;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0x6B7CE0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0x6B7CE0 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D7EF0; /* jl: less (signed <) */
+
+loc_001D7F02: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7F10
+ * Original: 0x001D7F10 - 0x001D7F11 (1 bytes, 1 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7F10(void)
+{
+
+loc_001D7F10: ;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7F20
+ * Original: 0x001D7F20 - 0x001D7F56 (54 bytes, 20 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7F20(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7F20: ;
+    PUSH32(esp, esi);
+    esi = 3;
+    goto loc_001D7F30;
+
+    /* nop */
+    /* nop */
+
+loc_001D7F30: ;
+    PUSH32(esp, esi);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001D7F3Bu); RECOMP_ABI_CALL(0x00144350u, sub_00144350); /* call 0x00144350 */
+
+loc_001D7F3B: ;
+    SET_LO8(ecx, MEM8(eax + 0x70));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D7F4C; /* je: equal / zero */
+
+loc_001D7F42: ;
+    SET_LO8(ecx, MEM8(eax + 0x2737));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7F54; /* jne: not equal / not zero */
+
+loc_001D7F4C: ;
+    esi++;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0xE) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0xE (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D7F30; /* jl: less (signed <) */
+
+loc_001D7F52: ;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+
+loc_001D7F54: ;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7F60
+ * Original: 0x001D7F60 - 0x001D7FB2 (82 bytes, 21 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7F60(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7F60: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, 0x001D7F68u); RECOMP_ABI_CALL(0x001D7F20u, sub_001D7F20); /* call 0x001D7F20 */
+
+loc_001D7F68: ;
+    eax = MEM32(esp + 0x14);
+    PUSH32(esp, 1);
+    PUSH32(esp, 0xFFFFFFFFu);
+    PUSH32(esp, eax);
+    ecx = esp + 0xC;
+    PUSH32(esp, ecx);
+    ecx = 0x510040;
+    MEM32(esp + 0x1C) = 0;
+    MEM32(esp + 0x18) = 0;
+    MEM32(esp + 0x14) = 0;
+    MEM32(esp + 0x10) = 0;
+    PUSH32(esp, 0x001D7FA0u); RECOMP_ABI_CALL(0x0016C550u, sub_0016C550); /* call 0x0016C550 */
+
+loc_001D7FA0: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D7FA8; /* jne: not equal / not zero */
+
+loc_001D7FA4: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+loc_001D7FA8: ;
+    eax = MEM32(eax + 0x31C);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7FC0
+ * Original: 0x001D7FC0 - 0x001D7FEB (43 bytes, 11 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7FC0(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7FC0: ;
+    eax = MEM32(esp + 4);
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    PUSH32(esp, eax);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001D7FD0u); RECOMP_ABI_CALL(0x00144350u, sub_00144350); /* call 0x00144350 */
+
+loc_001D7FD0: ;
+    ecx = (uint32_t)(int32_t)SMEM16(eax + 0x1DFE);
+    ecx = MEM32(ecx * 4 + 0x706698);
+    eax = MEM32(eax + 0x248);
+    edx = ecx + ecx * 8;
+    eax = eax + edx * 2;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D7FF0
+ * Original: 0x001D7FF0 - 0x001D801F (47 bytes, 12 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D7FF0(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D7FF0: ;
+    eax = MEM32(esp + 4);
+    ecx = MEM32(esp + 8);
+    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
+    _fb = (uint32_t)(0x5D1AB8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x5D1AB8;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edx = (uint32_t)(int32_t)SMEM16(eax + 0x1DFE);
+    PUSH32(esp, esi);
+    esi = MEM32(ecx);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 8;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(edx * 4 + 0x706698) = esi;
+    MEM32(eax + 0x248) = ecx;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8020
+ * Original: 0x001D8020 - 0x001D8042 (34 bytes, 11 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8020(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D8020: ;
+    PUSH32(esp, edi);
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ecx = 0x5F;
+    edi = 0x706398;
+    { uint32_t _i; int32_t _st = RECOMP_DF_STEP(4); for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*_st) = eax; edi += ecx * _st; }
+    ecx = 0; /* rep stosd */
+    ecx = 0x5F;
+    edi = 0x706518;
+    { uint32_t _i; int32_t _st = RECOMP_DF_STEP(4); for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*_st) = eax; edi += ecx * _st; }
+    ecx = 0; /* rep stosd */
+    MEM32(0x706388) = eax;
+    POP32(esp, edi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8050
+ * Original: 0x001D8050 - 0x001D8197 (327 bytes, 106 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8050(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D8050: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D805Au); RECOMP_ABI_CALL(0x00102CE0u, sub_00102CE0); /* call 0x00102CE0 */
+
+loc_001D805A: ;
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D8061u); RECOMP_ABI_CALL(0x00102D00u, sub_00102D00); /* call 0x00102D00 */
+
+loc_001D8061: ;
+    ebp = MEM32(esp + 0x1C);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0x5F) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0x5F (32-bit) */
+    SET_LO8(eax, (CMP_L(_fas, _fbs)) ? 1 : 0); /* setl */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D8098; /* jne: not equal / not zero */
+
+loc_001D8077: ;
+    PUSH32(esp, 0x96);
+    PUSH32(esp, 0x4B1EFC);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1EC0);
+    PUSH32(esp, 0x4B1E98);
+    PUSH32(esp, 0x001D8095u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D8095: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D8098: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001D809Fu); RECOMP_ABI_CALL(0x00102CA0u, sub_00102CA0); /* call 0x00102CA0 */
+
+loc_001D809F: ;
+    eax = esp + 0x10;
+    PUSH32(esp, eax);
+    ecx = esp + 0x18;
+    PUSH32(esp, ecx);
+    PUSH32(esp, ebp);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D80B4u); RECOMP_ABI_CALL(0x001A1B90u, sub_001A1B90); /* call 0x001A1B90 */
+
+loc_001D80B4: ;
+    edi = MEM32(esp + 0x10);
+    edx = MEM32(esp + 0x30);
+    edi--;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    PUSH32(esp, edx);
+    MEM32(esp + 0x14) = edi;
+    PUSH32(esp, 0x001D80C7u); RECOMP_ABI_CALL(0x001030C0u, sub_001030C0); /* call 0x001030C0 */
+
+loc_001D80C7: ;
+    esi = MEM32(esp + 0x18);
+    ebx = MEM32(esp + 0x30);
+    edi = eax;
+    eax = ebp * 4 + 0x706398;
+    MEM32(esp + 0x24) = eax;
+    MEM32(eax) = edi;
+    eax = MEM32(esp + 0x14);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, eax (32-bit) */
+    if (CMP_G(_fas, _fbs)) goto loc_001D810F; /* jg: greater (signed >) */
+
+loc_001D80E9: ;
+    /* nop */
+
+loc_001D80F0: ;
+    eax = MEM32(ebx);
+    eax = eax << 4;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + edi;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    PUSH32(esp, esi);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D8103u); RECOMP_ABI_CALL(0x001A1AC0u, sub_001A1AC0); /* call 0x001A1AC0 */
+
+loc_001D8103: ;
+    eax = MEM32(esp + 0x10);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 4;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esi++;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, eax (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D80F0; /* jle: less or equal (signed <=) */
+
+loc_001D810F: ;
+    PUSH32(esp, eax);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D811Au); RECOMP_ABI_CALL(0x001A1AE0u, sub_001A1AE0); /* call 0x001A1AE0 */
+
+loc_001D811A: ;
+    esi = MEM32(esp + 0x24);
+    ecx = eax;
+    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    ecx = ecx - edi;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    _fb = (uint32_t)(esi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + esi;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(MEM16(ecx + 2)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(ecx + 2), 0 (16-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D813A; /* je: equal / zero */
+
+loc_001D812B: ;
+    goto loc_001D8130;
+
+    /* nop */
+
+loc_001D8130: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 0x10;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(MEM16(ecx + 2)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(ecx + 2), 0 (16-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D8130; /* jne: not equal / not zero */
+
+loc_001D813A: ;
+    _fb = (uint32_t)(esi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    ecx = ecx - esi;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 0x10;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edx = ecx;
+    ecx = ecx >> 2;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    ecx = edx;
+    ecx = ecx & 3;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < _n; _i++) _d[_i] = _s[_i]; }
+      esi += ecx; edi += ecx; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM8(edi - _i) = MEM8(esi - _i); esi -= ecx; edi -= ecx; }
+    ecx = 0; /* rep movsb */
+    _fa = (uint32_t)(MEM16(eax + 2)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(eax + 2), 0 (16-bit) */
+    POP32(esp, edi);
+    POP32(esp, ebx);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D8160; /* je: equal / zero */
+
+loc_001D8156: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x10;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(MEM16(eax + 2)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(eax + 2), 0 (16-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D8156; /* jne: not equal / not zero */
+
+loc_001D8160: ;
+    ecx = MEM32(esp + 0x18);
+    esi = MEM32(ecx);
+    edx = MEM32(esp + 0x28);
+    PUSH32(esp, 0xDA);
+    PUSH32(esp, 0x4B1EFC);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x10;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, 0x4B1ED8);
+    MEM32(ebp * 4 + 0x706518) = eax;
+    PUSH32(esp, 1);
+    _fb = (uint32_t)(esi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    eax = eax - esi;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, eax);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D818Eu); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001D818E: ;
+    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x18;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D81A0
+ * Original: 0x001D81A0 - 0x001D820C (108 bytes, 26 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D81A0(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D81A0: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D81A6u); RECOMP_ABI_CALL(0x00102CE0u, sub_00102CE0); /* call 0x00102CE0 */
+
+loc_001D81A6: ;
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D81ADu); RECOMP_ABI_CALL(0x00102D00u, sub_00102D00); /* call 0x00102D00 */
+
+loc_001D81AD: ;
+    esi = MEM32(esp + 0xC);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0x5F) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0x5F (32-bit) */
+    SET_LO8(eax, (CMP_L(_fas, _fbs)) ? 1 : 0); /* setl */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D81E4; /* jne: not equal / not zero */
+
+loc_001D81C3: ;
+    PUSH32(esp, 0xE3);
+    PUSH32(esp, 0x4B1F08);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1EC0);
+    PUSH32(esp, 0x4B1E98);
+    PUSH32(esp, 0x001D81E1u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D81E1: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D81E4: ;
+    PUSH32(esp, 0x001D81E9u); RECOMP_ABI_CALL(0x00102CA0u, sub_00102CA0); /* call 0x00102CA0 */
+
+loc_001D81E9: ;
+    eax = MEM32(esi * 4 + 0x706398);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D820A; /* je: equal / zero */
+
+loc_001D81F4: ;
+    MEM32(esi * 4 + 0x706398) = 0;
+    MEM32(esi * 4 + 0x706518) = 0;
+
+loc_001D820A: ;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8210
+ * Original: 0x001D8210 - 0x001D8263 (83 bytes, 30 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8210(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D8210: ;
+    eax = MEM32(esp + 0x10);
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 0x10);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0xF1);
+    PUSH32(esp, 0x4B1F18);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 1);
+    PUSH32(esp, esi);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D8232u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001D8232: ;
+    ecx = esi;
+    esi = MEM32(esp + 0x28);
+    edx = ecx;
+    ecx = ecx >> 2;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    MEM32(0x5B04B8) = eax;
+    edi = eax;
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
+      esi += ecx * 4; edi += ecx * 4; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
+    ecx = 0; /* rep movsd */
+    ecx = edx;
+    ecx = ecx & 3;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx;
+      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
+      else { uint32_t _i; for (_i = 0; _i < _n; _i++) _d[_i] = _s[_i]; }
+      esi += ecx; edi += ecx; }
+    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM8(edi - _i) = MEM8(esi - _i); esi -= ecx; edi -= ecx; }
+    ecx = 0; /* rep movsb */
+    eax = MEM32(0x5B04B8);
+    ecx = MEM32(esp + 0x24);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D825Du); RECOMP_ABI_CALL(0x001D9DB0u, sub_001D9DB0); /* call 0x001D9DB0 */
+
+loc_001D825D: ;
+    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x20;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8270
+ * Original: 0x001D8270 - 0x001D8280 (16 bytes, 5 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8270(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D8270: ;
+    ecx = MEM32(esp + 8);
+    edx = MEM32(esp + 4);
+    eax = MEM32(ecx + edx * 4 + 4);
+    _fb = (uint32_t)(MEM32(ecx + edx * 4)) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    eax = eax - MEM32(ecx + edx * 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8280
+ * Original: 0x001D8280 - 0x001D82D8 (88 bytes, 35 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8280(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D8280: ;
+    edx = MEM32(esp + 4);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    eax = esp + 0x10;
+    PUSH32(esp, eax);
+    ecx = esp + 0x10;
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D829Fu); RECOMP_ABI_CALL(0x001A1B90u, sub_001A1B90); /* call 0x001A1B90 */
+
+loc_001D829F: ;
+    edi = MEM32(esp + 0x10);
+    ecx = MEM32(esp + 0xC);
+    eax = MEM32(esp + 0x1C);
+    ebx = MEM32(eax + 8);
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    edi = edi - ecx;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    esi = 0; /* xor self */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D82D1; /* jle: less or equal (signed <=) */
+
+loc_001D82B6: ;
+    ecx = MEM32(esp + 0xC);
+    edx = esi + ecx;
+    PUSH32(esp, ebx);
+    PUSH32(esp, edx);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D82C9u); RECOMP_ABI_CALL(0x001A1B00u, sub_001A1B00); /* call 0x001A1B00 */
+
+loc_001D82C9: ;
+    _fb = (uint32_t)(0x70) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 0x70;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esi++;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, edi (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D82B6; /* jl: less (signed <) */
+
+loc_001D82D1: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D82E0
+ * Original: 0x001D82E0 - 0x001D82EE (14 bytes, 4 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D82E0(void)
+{
+
+loc_001D82E0: ;
+    eax = MEM32(esp + 8);
+    ecx = MEM32(eax + 8);
+    MEM32(0x706390) = ecx;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D82F0
+ * Original: 0x001D82F0 - 0x001D83FD (269 bytes, 82 insns)
+ * Category: game_debug
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D82F0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D82F0: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x001D82F9u); RECOMP_ABI_CALL(0x00102CE0u, sub_00102CE0); /* call 0x00102CE0 */
+
+loc_001D82F9: ;
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D8300u); RECOMP_ABI_CALL(0x00102D00u, sub_00102D00); /* call 0x00102D00 */
+
+loc_001D8300: ;
+    ebp = MEM32(esp + 0x14);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0x5F) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0x5F (32-bit) */
+    SET_LO8(eax, (CMP_L(_fas, _fbs)) ? 1 : 0); /* setl */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D8337; /* jne: not equal / not zero */
+
+loc_001D8316: ;
+    PUSH32(esp, 0x158);
+    PUSH32(esp, 0x4B1F34);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1EC0);
+    PUSH32(esp, 0x4B1E98);
+    PUSH32(esp, 0x001D8334u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D8334: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D8337: ;
+    PUSH32(esp, 0x001D833Cu); RECOMP_ABI_CALL(0x00102CA0u, sub_00102CA0); /* call 0x00102CA0 */
+
+loc_001D833C: ;
+    eax = esp + 4;
+    PUSH32(esp, eax);
+    ecx = esp + 0xC;
+    PUSH32(esp, ecx);
+    PUSH32(esp, ebp);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D8351u); RECOMP_ABI_CALL(0x001A1B90u, sub_001A1B90); /* call 0x001A1B90 */
+
+loc_001D8351: ;
+    eax = MEM32(esp + 4);
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
+    SET_LO8(ecx, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
+    MEM32(esp + 4) = eax;
+    MEM8(0x50FF48) = LO8(ecx);
+    if (CMP_NE(_fa, _fb)) goto loc_001D838F; /* jne: not equal / not zero */
+
+loc_001D836A: ;
+    PUSH32(esp, 0x163);
+    PUSH32(esp, 0x4B1F34);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1F24);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001D8388u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D8388: ;
+    eax = MEM32(esp + 0x18);
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D838F: ;
+    edx = MEM32(esp + 0x14);
+    PUSH32(esp, ebx);
+    ebx = MEM32(0x706390);
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 0x10);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, eax (32-bit) */
+    PUSH32(esp, edi);
+    MEM32(ebp * 4 + 0x706398) = ebx;
+    edi = MEM32(edx + 8);
+    if (CMP_G(_fas, _fbs)) goto loc_001D83CF; /* jg: greater (signed >) */
+
+loc_001D83AE: ;
+    edi = edi;
+
+loc_001D83B0: ;
+    eax = MEM32(edi);
+    eax = eax << 4;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fb = (uint32_t)(ebx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + ebx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    PUSH32(esp, esi);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D83C3u); RECOMP_ABI_CALL(0x001A1AC0u, sub_001A1AC0); /* call 0x001A1AC0 */
+
+loc_001D83C3: ;
+    eax = MEM32(esp + 0x10);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 4;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esi++;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, eax (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D83B0; /* jle: less or equal (signed <=) */
+
+loc_001D83CF: ;
+    PUSH32(esp, eax);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D83DAu); RECOMP_ABI_CALL(0x001A1AE0u, sub_001A1AE0); /* call 0x001A1AE0 */
+
+loc_001D83DA: ;
+    _fa = (uint32_t)(MEM16(eax + 2)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(eax + 2), 0 (16-bit) */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D83EE; /* je: equal / zero */
+
+loc_001D83E4: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x10;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(MEM16(eax + 2)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(eax + 2), 0 (16-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D83E4; /* jne: not equal / not zero */
+
+loc_001D83EE: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x10;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(ebp * 4 + 0x706518) = eax;
+    POP32(esp, ebp);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8400
+ * Original: 0x001D8400 - 0x001D849D (157 bytes, 56 insns)
+ * Category: game_debug
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8400(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D8400: ;
+    eax = MEM32(esp + 0xC);
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    esi = MEM32(eax + 8);
+    _fa = (uint32_t)(MEM32(esi)) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esi), 3 (32-bit) */
+    SET_LO8(eax, (CMP_EQ(_fa, _fb)) ? 1 : 0); /* sete */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    PUSH32(esp, edi);
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D843B; /* jne: not equal / not zero */
+
+loc_001D841A: ;
+    PUSH32(esp, 0x190);
+    PUSH32(esp, 0x4B1F5C);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1F48);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001D8438u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D8438: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D843B: ;
+    ebx = MEM32(esp + 0x14);
+    ecx = MEM32(esi);
+    eax = MEM32(esi + 8);
+    edx = ebx;
+    edx = (uint32_t)((int32_t)edx * (int32_t)0x3238);
+    ebp = edx + 0x5D38B6;
+    edx = MEM32(esp + 0x18);
+    PUSH32(esp, edx);
+    edi = esi + ecx * 4 + 8;
+    ecx = MEM32(esi + 4);
+    edx = eax + edi;
+    PUSH32(esp, edx);
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    eax = eax - ecx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, eax);
+    eax = (uint32_t)(int32_t)SMEM16(ebp);
+    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + edi;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, ecx);
+    PUSH32(esp, eax);
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x001D8473u); RECOMP_ABI_CALL(0x001D8050u, sub_001D8050); /* call 0x001D8050 */
+
+loc_001D8473: ;
+    eax = MEM32(esi + 0xC);
+    ecx = MEM32(esp + 0x30);
+    edx = MEM32(esi + 0x10);
+    PUSH32(esp, ecx);
+    _fb = (uint32_t)(eax) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    edx = edx - eax;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, edx);
+    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + edi;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    eax = (uint32_t)(int32_t)SMEM16(ebp);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D848Eu); RECOMP_ABI_CALL(0x001D8210u, sub_001D8210); /* call 0x001D8210 */
+
+loc_001D848E: ;
+    _fb = (uint32_t)(0x28) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x28;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    MEM32(ebx * 8 + 0x70631C) = eax;
+    POP32(esp, ebx);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D84A0
+ * Original: 0x001D84A0 - 0x001D859D (253 bytes, 82 insns)
+ * Category: game_debug
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D84A0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D84A0: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    eax = MEM32(esp + 0x14);
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    esi = MEM32(eax + 8);
+    eax = MEM32(esi);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(2) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 2 (32-bit) */
+    PUSH32(esp, edi);
+    MEM32(esp + 0x14) = esi;
+    if (CMP_EQ(_fa, _fb)) goto loc_001D84C2; /* je: equal / zero */
+
+loc_001D84B9: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 3 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D84C2; /* je: equal / zero */
+
+loc_001D84BE: ;
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    goto loc_001D84C4;
+
+loc_001D84C2: ;
+    SET_LO8(eax, 1);
+
+loc_001D84C4: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D84EE; /* jne: not equal / not zero */
+
+loc_001D84CD: ;
+    PUSH32(esp, 0x1C4);
+    PUSH32(esp, 0x4B1F98);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1F70);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001D84EBu); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D84EB: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D84EE: ;
+    ebp = MEM32(esp + 0x20);
+    ecx = MEM32(esi);
+    ebp = (uint32_t)((int32_t)ebp * (int32_t)0x3238);
+    ebx = esi + ecx * 4 + 8;
+    ecx = (uint32_t)(int32_t)SMEM16(ebp + 0x5D38B6);
+    edx = esp + 0x10;
+    PUSH32(esp, edx);
+    eax = esp + 0x28;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    ecx = 0x6C03E0;
+    MEM32(esp + 0x24) = ebx;
+    PUSH32(esp, 0x001D851Eu); RECOMP_ABI_CALL(0x001A1B90u, sub_001A1B90); /* call 0x001A1B90 */
+
+loc_001D851E: ;
+    edx = MEM32(esp + 0x24);
+    esi = MEM32(esi + 4);
+    edi = MEM32(esp + 0x10);
+    _fb = (uint32_t)(ebx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + ebx;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    edi = edi - edx;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    edx = MEM32(esp + 0x20);
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    MEM32(edx * 8 + 0x706318) = esi;
+    if (CMP_LE(_fas, _fbs)) goto loc_001D855B; /* jle: less or equal (signed <=) */
+
+loc_001D853E: ;
+    edi = edi;
+
+loc_001D8540: ;
+    eax = MEM32(esp + 0x24);
+    ecx = ebx + eax;
+    PUSH32(esp, esi);
+    PUSH32(esp, ecx);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D8553u); RECOMP_ABI_CALL(0x001A1B00u, sub_001A1B00); /* call 0x001A1B00 */
+
+loc_001D8553: ;
+    _fb = (uint32_t)(0x70) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x70;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ebx++;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, edi (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D8540; /* jl: less (signed <) */
+
+loc_001D855B: ;
+    edx = MEM32(esp + 0x14);
+    eax = MEM32(edx + 8);
+    ecx = MEM32(esp + 0x18);
+    edi = MEM32(eax + ecx);
+    esi = (uint32_t)(int32_t)SMEM16(ebp + 0x5D38B6);
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + ecx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 8;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(ebp + 0x5D1D00) = eax;
+    eax = MEM32(esp + 0x20);
+    MEM32(esi * 4 + 0x706698) = edi;
+    edx = MEM32(edx + 0xC);
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + ecx;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D8592u); RECOMP_ABI_CALL(0x0019AD80u, sub_0019AD80); /* call 0x0019AD80 */
+
+loc_001D8592: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D85A0
+ * Original: 0x001D85A0 - 0x001D8674 (212 bytes, 73 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D85A0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D85A0: ;
+    PUSH32(esp, ecx);
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    ebp = MEM32(esp + 0x10);
+    ebx = ebp;
+    ebx = (uint32_t)((int32_t)ebx * (int32_t)0x3238);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = (uint32_t)(int32_t)SMEM16(ebx + 0x5D38B6);
+    eax = esp + 0x18;
+    PUSH32(esp, eax);
+    ecx = esp + 0x14;
+    PUSH32(esp, ecx);
+    PUSH32(esp, edi);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D85CDu); RECOMP_ABI_CALL(0x001A1B90u, sub_001A1B90); /* call 0x001A1B90 */
+
+loc_001D85CD: ;
+    esi = MEM32(esp + 0x10);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esp + 0x18)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, MEM32(esp + 0x18) (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001D85FA; /* jge: greater or equal (signed >=) */
+
+loc_001D85D7: ;
+    PUSH32(esp, 0);
+    PUSH32(esp, esi);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D85E4u); RECOMP_ABI_CALL(0x001A1B00u, sub_001A1B00); /* call 0x001A1B00 */
+
+loc_001D85E4: ;
+    PUSH32(esp, 0);
+    PUSH32(esp, esi);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D85F1u); RECOMP_ABI_CALL(0x001A1AC0u, sub_001A1AC0); /* call 0x001A1AC0 */
+
+loc_001D85F1: ;
+    eax = MEM32(esp + 0x18);
+    esi++;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, eax (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D85D7; /* jl: less (signed <) */
+
+loc_001D85FA: ;
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edi = (uint32_t)((int32_t)edi * (int32_t)0x6C);
+    _fb = (uint32_t)(0x599998) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x599998;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = edi;
+    MEM32(eax) = edx;
+    MEM32(eax + 4) = edx;
+    MEM32(eax + 8) = edx;
+    MEM32(eax + 0xC) = edx;
+    MEM32(eax + 0x10) = edx;
+    MEM32(eax + 0x14) = edx;
+    MEM32(eax + 0x18) = edx;
+    MEM32(eax + 0x1C) = edx;
+    MEM32(eax + 0x20) = edx;
+    MEM32(eax + 0x24) = edx;
+    MEM32(eax + 0x28) = edx;
+    MEM32(eax + 0x2C) = edx;
+    MEM32(eax + 0x30) = edx;
+    MEM32(eax + 0x34) = edx;
+    MEM32(eax + 0x38) = edx;
+    MEM32(eax + 0x3C) = edx;
+    MEM32(eax + 0x40) = edx;
+    MEM32(eax + 0x44) = edx;
+    MEM32(eax + 0x48) = edx;
+    MEM32(eax + 0x4C) = edx;
+    MEM32(eax + 0x50) = edx;
+    MEM32(eax + 0x54) = edx;
+    MEM32(eax + 0x58) = edx;
+    MEM32(eax + 0x5C) = edx;
+    MEM32(eax + 0x60) = edx;
+    MEM32(eax + 0x64) = edx;
+    ebp = ebp ^ 1;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    MEM32(eax + 0x68) = edx;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ebp = (uint32_t)((int32_t)ebp * (int32_t)0x3238);
+    POP32(esp, edi);
+    MEM32(ebx + 0x5D1CF4) = eax;
+    POP32(esp, esi);
+    MEM32(ebp + 0x5D1CF4) = eax;
+    POP32(esp, ebp);
+    POP32(esp, ebx);
+    POP32(esp, ecx);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8680
+ * Original: 0x001D8680 - 0x001D8699 (25 bytes, 3 insns)
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8680(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D8680: ;
+    MEM32(0x7094A0) = 0;
+    MEM32(0x5B22F0) = 0x4000;
+    g_seh_ebp = ebp; sub_001CD110(); return; /* tail jmp 0x001CD110 */
+
+}
 
 /**
  * sub_001D86A0
@@ -26,6 +7562,149 @@ loc_001D86A0: ;
     eax = eax + 4;
     _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
     MEM32(ecx * 8 + 0x69650C) = eax;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D86C0
+ * Original: 0x001D86C0 - 0x001D8791 (209 bytes, 73 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D86C0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D86C0: ;
+    eax = MEM32(esp + 0xC);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    ebp = MEM32(eax + 8);
+    eax = MEM32(ebp);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(2) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 2 (32-bit) */
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    if (CMP_EQ(_fa, _fb)) goto loc_001D86DF; /* je: equal / zero */
+
+loc_001D86D6: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 3 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D86DF; /* je: equal / zero */
+
+loc_001D86DB: ;
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    goto loc_001D86E1;
+
+loc_001D86DF: ;
+    SET_LO8(eax, 1);
+
+loc_001D86E1: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D870B; /* jne: not equal / not zero */
+
+loc_001D86EA: ;
+    PUSH32(esp, 0x23B);
+    PUSH32(esp, 0x4B1FA8);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1F70);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001D8708u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D8708: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D870B: ;
+    ecx = MEM32(ebp);
+    edx = esp + 0x10;
+    ebx = ebp + ecx * 4 + 8;
+    ecx = MEM32(esp + 0x20);
+    PUSH32(esp, edx);
+    eax = esp + 0x28;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    ecx = 0x6C03E0;
+    MEM32(esp + 0x20) = ebx;
+    PUSH32(esp, 0x001D872Fu); RECOMP_ABI_CALL(0x001A1B90u, sub_001A1B90); /* call 0x001A1B90 */
+
+loc_001D872F: ;
+    edi = MEM32(esp + 0x10);
+    edx = MEM32(esp + 0x24);
+    esi = MEM32(ebp + 4);
+    _fb = (uint32_t)(ebx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + ebx;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    edi = edi - edx;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D875F; /* jle: less or equal (signed <=) */
+
+loc_001D8744: ;
+    edx = MEM32(esp + 0x24);
+    PUSH32(esp, esi);
+    eax = ebx + edx;
+    PUSH32(esp, eax);
+    ecx = 0x6C03E0;
+    PUSH32(esp, 0x001D8757u); RECOMP_ABI_CALL(0x001A1B00u, sub_001A1B00); /* call 0x001A1B00 */
+
+loc_001D8757: ;
+    _fb = (uint32_t)(0x70) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x70;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ebx++;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, edi (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001D8744; /* jl: less (signed <) */
+
+loc_001D875F: ;
+    edx = MEM32(ebp + 8);
+    ecx = MEM32(esp + 0x14);
+    eax = MEM32(esp + 0x1C);
+    edx = edx + ecx + 4;
+    MEM32(eax * 8 + 0x69650C) = edx;
+    edx = MEM32(ebp + 0xC);
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + ecx;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = MEM32(esp + 0x20);
+    PUSH32(esp, edx);
+    PUSH32(esp, ecx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D8786u); RECOMP_ABI_CALL(0x0019AED0u, sub_0019AED0); /* call 0x0019AED0 */
+
+loc_001D8786: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
     esp += 4; return; /* ret */
 
 }
@@ -103,6 +7782,167 @@ loc_001D87F1: ;
 }
 
 /**
+ * sub_001D8800
+ * Original: 0x001D8800 - 0x001D887D (125 bytes, 49 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8800(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001D8800: ;
+    eax = MEM32(esp + 0xC);
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    esi = MEM32(eax + 8);
+    _fa = (uint32_t)(MEM32(esi)) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esi), 3 (32-bit) */
+    SET_LO8(eax, (CMP_EQ(_fa, _fb)) ? 1 : 0); /* sete */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    PUSH32(esp, edi);
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D883B; /* jne: not equal / not zero */
+
+loc_001D881A: ;
+    PUSH32(esp, 0x299);
+    PUSH32(esp, 0x4B1FB8);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1F48);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001D8838u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D8838: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D883B: ;
+    ecx = MEM32(esi);
+    eax = MEM32(esi + 8);
+    ebx = MEM32(esp + 0x18);
+    ebp = MEM32(esp + 0x14);
+    edi = esi + ecx * 4 + 8;
+    ecx = MEM32(esi + 4);
+    PUSH32(esp, ebx);
+    edx = eax + edi;
+    PUSH32(esp, edx);
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    eax = eax - ecx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, eax);
+    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + edi;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, ecx);
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0xFFFFFFFFu);
+    PUSH32(esp, 0x001D8862u); RECOMP_ABI_CALL(0x001D8050u, sub_001D8050); /* call 0x001D8050 */
+
+loc_001D8862: ;
+    eax = MEM32(esi + 0xC);
+    ecx = MEM32(esi + 0x10);
+    PUSH32(esp, ebx);
+    _fb = (uint32_t)(eax) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    ecx = ecx - eax;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ecx);
+    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + edi;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x001D8875u); RECOMP_ABI_CALL(0x001D8210u, sub_001D8210); /* call 0x001D8210 */
+
+loc_001D8875: ;
+    _fb = (uint32_t)(0x28) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x28;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    POP32(esp, ebx);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D8880
+ * Original: 0x001D8880 - 0x001D88EC (108 bytes, 26 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8880(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D8880: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001D8886u); RECOMP_ABI_CALL(0x00102CE0u, sub_00102CE0); /* call 0x00102CE0 */
+
+loc_001D8886: ;
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D888Du); RECOMP_ABI_CALL(0x00102D00u, sub_00102D00); /* call 0x00102D00 */
+
+loc_001D888D: ;
+    esi = MEM32(esp + 0xC);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0x5F) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0x5F (32-bit) */
+    SET_LO8(eax, (CMP_L(_fas, _fbs)) ? 1 : 0); /* setl */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001D88C4; /* jne: not equal / not zero */
+
+loc_001D88A3: ;
+    PUSH32(esp, 0x2C4);
+    PUSH32(esp, 0x4B1FCC);
+    PUSH32(esp, 0x4B1ED8);
+    PUSH32(esp, 0x4B1EC0);
+    PUSH32(esp, 0x4B1E98);
+    PUSH32(esp, 0x001D88C1u); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001D88C1: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001D88C4: ;
+    PUSH32(esp, 0x001D88C9u); RECOMP_ABI_CALL(0x00102CA0u, sub_00102CA0); /* call 0x00102CA0 */
+
+loc_001D88C9: ;
+    eax = MEM32(esi * 4 + 0x706398);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D88EA; /* je: equal / zero */
+
+loc_001D88D4: ;
+    MEM32(esi * 4 + 0x706398) = 0;
+    MEM32(esi * 4 + 0x706518) = 0;
+
+loc_001D88EA: ;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
  * sub_001D88F0
  * Original: 0x001D88F0 - 0x001D8AF3 (515 bytes, 178 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -129,298 +7969,6 @@ loc_001D88F0: ;
     PUSH32(esp, edi);
     eax = esp + 0x10;
     PUSH32(esp, eax);
-    ecx = esp + 0x1C;
-    PUSH32(esp, ecx);
-    PUSH32(esp, 3);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001D890Du); RECOMP_ABI_CALL(0x0011D970u, sub_0011D970); /* call 0x0011D970 */
-
-loc_001D890D: ;
-    edx = esp + 0x30;
-    PUSH32(esp, edx);
-    eax = esp + 0x28;
-    PUSH32(esp, eax);
-    PUSH32(esp, 4);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001D891Fu); RECOMP_ABI_CALL(0x0011D970u, sub_0011D970); /* call 0x0011D970 */
-
-loc_001D891F: ;
-    edi = MEM32(esp + 0x54);
-    ecx = MEM32(esp + 0x34);
-    edx = MEM32(esp + 0x30);
-    eax = MEM32(esp + 0x38);
-    esi = MEM32(esp + 0x50);
-    ebp = MEM32(esp + 0x4C);
-    PUSH32(esp, edi);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, esi);
-    PUSH32(esp, ebp);
-    PUSH32(esp, 0x001D8942u); RECOMP_ABI_CALL(0x001D8050u, sub_001D8050); /* call 0x001D8050 */
-
-loc_001D8942: ;
-    ecx = esp + 0x64;
-    PUSH32(esp, ecx);
-    edx = esp + 0x54;
-    PUSH32(esp, edx);
-    PUSH32(esp, 0);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001D8954u); RECOMP_ABI_CALL(0x0011D970u, sub_0011D970); /* call 0x0011D970 */
-
-loc_001D8954: ;
-    eax = MEM32(esp + 0x74);
-    ecx = MEM32(esp + 0x60);
-    _fb = (uint32_t)(0x48) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x48;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, edi);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x001D8968u); RECOMP_ABI_CALL(0x001D8210u, sub_001D8210); /* call 0x001D8210 */
-
-loc_001D8968: ;
-    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x10;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    edx = esp + 0x18;
-    MEM32(ebp * 8 + 0x70631C) = eax;
-    PUSH32(esp, edx);
-    eax = esp + 0x18;
-    PUSH32(esp, eax);
-    PUSH32(esp, esi);
-    ecx = 0x6C03E0;
-    PUSH32(esp, 0x001D8987u); RECOMP_ABI_CALL(0x001A1B90u, sub_001A1B90); /* call 0x001A1B90 */
-
-loc_001D8987: ;
-    eax = MEM32(esp + 0x18);
-    esi = MEM32(esp + 0x14);
-    ecx = esp + 0x10;
-    PUSH32(esp, ecx);
-    edx = esp + 0x20;
-    PUSH32(esp, edx);
-    _fb = (uint32_t)(esi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    eax = eax - esi;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, 2);
-    PUSH32(esp, ebx);
-    MEM32(esp + 0x30) = eax;
-    PUSH32(esp, 0x001D89A7u); RECOMP_ABI_CALL(0x0011D970u, sub_0011D970); /* call 0x0011D970 */
-
-loc_001D89A7: ;
-    eax = MEM32(esp + 0x20);
-    PUSH32(esp, 0x326);
-    PUSH32(esp, 0x4B1FE0);
-    PUSH32(esp, 0x4B1ED8);
-    PUSH32(esp, 1);
-    PUSH32(esp, eax);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001D89C3u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
-
-loc_001D89C3: ;
-    ecx = MEM32(esp + 0x38);
-    esi = MEM32(esp + 0x44);
-    _fb = (uint32_t)(0x28) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x28;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    MEM32(esp + 0x2C) = eax;
-    edi = eax;
-    edx = ecx;
-    ecx = ecx >> 2;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
-      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
-      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
-      esi += ecx * 4; edi += ecx * 4; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
-    ecx = 0; /* rep movsd */
-    ecx = edx;
-    ecx = ecx & 3;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0xFFFFFFFFu (32-bit) */
-    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx;
-      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
-      else { uint32_t _i; for (_i = 0; _i < _n; _i++) _d[_i] = _s[_i]; }
-      esi += ecx; edi += ecx; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM8(edi - _i) = MEM8(esi - _i); esi -= ecx; edi -= ecx; }
-    ecx = 0; /* rep movsb */
-    if (CMP_EQ(_fa, _fb)) goto loc_001D89EE; /* je: equal / zero */
-
-loc_001D89E7: ;
-    MEM32(ebp * 8 + 0x706318) = eax;
-
-loc_001D89EE: ;
-    edi = MEM32(esp + 0x20);
-    esi = 0; /* xor self */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001D8A23; /* jle: less or equal (signed <=) */
-
-loc_001D89F8: ;
-    goto loc_001D8A00;
-
-loc_001D89FA: ;
-    eax = MEM32(esp + 0x2C);
-    edi = edi;
-
-loc_001D8A00: ;
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0x18);
-    ecx = esi + eax;
-    PUSH32(esp, ecx);
-    ecx = 0x6C03E0;
-    PUSH32(esp, 0x001D8A13u); RECOMP_ABI_CALL(0x001A1B00u, sub_001A1B00); /* call 0x001A1B00 */
-
-loc_001D8A13: ;
-    edx = MEM32(esp + 0x2C);
-    _fb = (uint32_t)(0x70) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edx = edx + 0x70;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esi++;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, edi (32-bit) */
-    MEM32(esp + 0x2C) = edx;
-    if (CMP_L(_fas, _fbs)) goto loc_001D89FA; /* jl: less (signed <) */
-
-loc_001D8A23: ;
-    edx = esp + 0x2C;
-    PUSH32(esp, edx);
-    eax = esp + 0x24;
-    PUSH32(esp, eax);
-    PUSH32(esp, 5);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001D8A35u); RECOMP_ABI_CALL(0x0011D970u, sub_0011D970); /* call 0x0011D970 */
-
-loc_001D8A35: ;
-    ecx = MEM32(esp + 0x3C);
-    edx = MEM32(esp + 0x44);
-    PUSH32(esp, 0x345);
-    PUSH32(esp, 0x4B1FE0);
-    PUSH32(esp, 0x4B1ED8);
-    PUSH32(esp, 1);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001D8A55u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
-
-loc_001D8A55: ;
-    ecx = MEM32(esp + 0x54);
-    esi = MEM32(esp + 0x48);
-    edx = ecx;
-    ecx = ecx >> 2;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    edi = eax;
-    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
-      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
-      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
-      esi += ecx * 4; edi += ecx * 4; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
-    ecx = 0; /* rep movsd */
-    ecx = edx;
-    ecx = ecx & 3;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx;
-      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
-      else { uint32_t _i; for (_i = 0; _i < _n; _i++) _d[_i] = _s[_i]; }
-      esi += ecx; edi += ecx; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM8(edi - _i) = MEM8(esi - _i); esi -= ecx; edi -= ecx; }
-    ecx = 0; /* rep movsb */
-    esi = MEM32(eax);
-    ecx = ebp;
-    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x3238);
-    _fb = (uint32_t)(0x5D1AB8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ecx = ecx + 0x5D1AB8;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    edx = (uint32_t)(int32_t)SMEM16(ecx + 0x1DFE);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 8;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    MEM32(ecx + 0x248) = eax;
-    eax = esp + 0x54;
-    PUSH32(esp, eax);
-    ecx = esp + 0x4C;
-    PUSH32(esp, ecx);
-    PUSH32(esp, 1);
-    PUSH32(esp, ebx);
-    MEM32(edx * 4 + 0x706698) = esi;
-    PUSH32(esp, 0x001D8AA6u); RECOMP_ABI_CALL(0x0011D970u, sub_0011D970); /* call 0x0011D970 */
-
-loc_001D8AA6: ;
-    edx = MEM32(esp + 0x64);
-    eax = MEM32(esp + 0x6C);
-    PUSH32(esp, 0x35B);
-    PUSH32(esp, 0x4B1FE0);
-    PUSH32(esp, 0x4B1ED8);
-    PUSH32(esp, 1);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001D8AC6u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
-
-loc_001D8AC6: ;
-    ecx = MEM32(esp + 0x7C);
-    esi = MEM32(esp + 0x70);
-    edx = ecx;
-    ecx = ecx >> 2;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    edi = eax;
-    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
-      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
-      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
-      esi += ecx * 4; edi += ecx * 4; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
-    ecx = 0; /* rep movsd */
-    _fb = (uint32_t)(0x50) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x50;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ecx = edx;
-    PUSH32(esp, eax);
-    ecx = ecx & 3;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    PUSH32(esp, ebp);
-    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx;
-      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
-      else { uint32_t _i; for (_i = 0; _i < _n; _i++) _d[_i] = _s[_i]; }
-      esi += ecx; edi += ecx; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM8(edi - _i) = MEM8(esi - _i); esi -= ecx; edi -= ecx; }
-    ecx = 0; /* rep movsb */
-    PUSH32(esp, 0x001D8AE8u); RECOMP_ABI_CALL(0x0019AD80u, sub_0019AD80); /* call 0x0019AD80 */
-
-loc_001D8AE8: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ebx);
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001D8900
- * Original: 0x001D8900 - 0x001D8AF3 (499 bytes, 170 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001D8900(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001D8900: ;
     ecx = esp + 0x1C;
     PUSH32(esp, ecx);
     PUSH32(esp, 3);
@@ -1151,6 +8699,53 @@ loc_001D8DCF: ;
 }
 
 /**
+ * sub_001D8DF0
+ * Original: 0x001D8DF0 - 0x001D8E37 (71 bytes, 24 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D8DF0(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D8DF0: ;
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 8);
+    eax = MEM32(esi + 0x1C);
+    ecx = MEM32(eax + 4);
+    MEM32(0x50D86C) = ecx;
+    edx = MEM32(eax + 4);
+    eax = MEM32(eax);
+    ecx = MEM32(esi + 8);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D8E11u); RECOMP_ABI_CALL(0x001D8CD0u, sub_001D8CD0); /* call 0x001D8CD0 */
+
+loc_001D8E11: ;
+    edx = MEM32(esi + 0x10);
+    eax = MEM32(esi + 4);
+    PUSH32(esp, 0xA2);
+    PUSH32(esp, 0x4B2060);
+    PUSH32(esp, 0x4B2010);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D8E2Du); RECOMP_ABI_CALL(0x001031A0u, sub_001031A0); /* call 0x001031A0 */
+
+loc_001D8E2D: ;
+    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x20;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = 1;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
  * sub_001D8E40
  * Original: 0x001D8E40 - 0x001D8E8B (75 bytes, 20 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -1434,6 +9029,49 @@ loc_001D9030: ;
     eax = MEM32(esp + 4);
     eax = MEM32(ecx + eax * 4 + 4);
     esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001D9040
+ * Original: 0x001D9040 - 0x001D9071 (49 bytes, 16 insns)
+ * Category: game_render
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D9040(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D9040: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    _fa = (uint32_t)(MEM32(esi)) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esi), 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D906F; /* je: equal / zero */
+
+loc_001D9048: ;
+    eax = MEM32(esi + 4);
+    PUSH32(esp, 0x61);
+    PUSH32(esp, 0x4B20A4);
+    PUSH32(esp, 0x4B2078);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D905Fu); RECOMP_ABI_CALL(0x001031A0u, sub_001031A0); /* call 0x001031A0 */
+
+loc_001D905F: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esi) = 0;
+    MEM32(esi + 8) = 0;
+
+loc_001D906F: ;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
 
 }
 
@@ -2165,6 +9803,64 @@ loc_001D9390: ;
     { uint32_t _i; int32_t _st = RECOMP_DF_STEP(4); for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*_st) = eax; edi += ecx * _st; }
     ecx = 0; /* rep stosd */
     POP32(esp, edi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001D93B0
+ * Original: 0x001D93B0 - 0x001D940B (91 bytes, 31 insns)
+ * Category: game_io
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001D93B0(void)
+{
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001D93B0: ;
+    eax = MEM32(0x4A865C);
+    PUSH32(esp, esi);
+    esi = MEM32(esp + 8);
+    PUSH32(esp, edi);
+    PUSH32(esp, 1);
+    MEM32(0x50D86C) = eax;
+    ecx = MEM32(esi + 8);
+    edx = MEM32(esi);
+    PUSH32(esp, 3);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001D93D0u); RECOMP_ABI_CALL(0x00114A70u, sub_00114A70); /* call 0x00114A70 */
+
+loc_001D93D0: ;
+    ecx = MEM32(0x637AEC);
+    edi = MEM32(esi + 0x1C);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x10;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001D93E2u); RECOMP_ABI_CALL(0x001153F0u, sub_001153F0); /* call 0x001153F0 */
+
+loc_001D93E2: ;
+    PUSH32(esp, 0xAD);
+    PUSH32(esp, 0x4B20E8);
+    MEM32(edi) = eax;
+    eax = MEM32(esi + 0x10);
+    ecx = MEM32(esi + 4);
+    PUSH32(esp, 0x4B20BC);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001D9400u); RECOMP_ABI_CALL(0x001031A0u, sub_001031A0); /* call 0x001031A0 */
+
+loc_001D9400: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    POP32(esp, edi);
+    eax = 1;
+    POP32(esp, esi);
     esp += 4; return; /* ret */
 
 }
@@ -2947,70 +10643,312 @@ loc_001D9843: ;
 }
 
 /**
- * sub_001D980B
- * Original: 0x001D980B - 0x001D9851 (70 bytes, 30 insns)
- * Category: game_vtable
+ * sub_001D9860
+ * Original: 0x001D9860 - 0x001D9AB0 (592 bytes, 179 insns)
+ * Category: game_render
  * CC: cdecl, 0 params, returns int_or_void
  * Frame: fpo_leaf
  */
-void sub_001D980B(void)
+void sub_001D9860(void)
 {
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
     int _flags = 0; /* fallback flag var */
     uint32_t _fa = 0, _fb = 0;
     int32_t _fas = 0, _fbs = 0;
     (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
 
-loc_001D980B: ;
-    _fa = (uint32_t)(MEM8(esi + 1)) & 0xFFu; _fb = (uint32_t)(LO8(eax)) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 1), LO8(eax) (8-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001D9814; /* jl: less (signed <) */
+loc_001D9860: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    eax = MEM32(esp + 0x1C);
+    ecx = MEM32(eax + 0x10);
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D9873u); RECOMP_ABI_CALL(0x00115AD0u, sub_00115AD0); /* call 0x00115AD0 */
 
-loc_001D9810: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(6) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 6 (8-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001D9818; /* jl: less (signed <) */
+loc_001D9873: ;
+    esi = MEM32(esp + 0x28);
+    ecx = MEM32(esi + 0x10);
+    PUSH32(esp, 0);
+    PUSH32(esp, 0x001D9881u); RECOMP_ABI_CALL(0x00115AD0u, sub_00115AD0); /* call 0x00115AD0 */
 
-loc_001D9814: ;
-    SET_LO8(eax, 0); /* xor self */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
+loc_001D9881: ;
+    eax = MEM32(esi + 8);
+    MEM32(esp + 0x28) = eax;
+    fp_push((double)SMEM32(esp + 0x28)); /* fild */
+    ecx = MEM32(esi + 0xC);
+    MEM32(esp + 0x28) = ecx;
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    fp_top() = RECOMP_FP_PC(MEMF(0x496454) / fp_top()); /* fdivr dword ptr [0x496454] */
+    MEM32(esp + 0x10) = ebx;
+    MEMF(esp + 0x14) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push((double)SMEM32(esp + 0x28)); /* fild */
+    fp_top() = RECOMP_FP_PC(MEMF(0x496454) / fp_top()); /* fdivr dword ptr [0x496454] */
+    MEMF(esp + 0x18) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_push(MEMF(0x49CE34)); /* fld float */
+    if (CMP_LE(_fas, _fbs)) goto loc_001D9A95; /* jle: less or equal (signed <=) */
 
-loc_001D9818: ;
-    eax = MEM32(esp + 0x14);
+loc_001D98BF: ;
+    edx = MEM32(esp + 0x34);
+    PUSH32(esp, ebp);
     PUSH32(esp, edi);
-    edi = MEM32(esp + 0xC);
-    PUSH32(esp, eax);
-    ecx = esi;
-    PUSH32(esp, 0x001D9829u); RECOMP_ABI_CALL(0x001D9270u, sub_001D9270); /* call 0x001D9270 */
 
-loc_001D9829: ;
-    MEM32(edi + 8) = eax;
-    MEM8(esi) = MEM8(esi) + 1;
-    _fa = (uint32_t)(MEM8(esi)) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fb = (_fa == 0x80u); /* inc result/SF/OF; CF unchanged */
-    ecx = MEM32(edi + 8);
-    eax = MEM32(ecx * 4 + 0x709084);
+loc_001D98C5: ;
+    fp_push(MEMF(0x49CE34)); /* fld float */
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
     _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
     _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    MEM32(edi) = eax;
-    if (CMP_NE(_fa, _fb)) goto loc_001D9843; /* jne: not equal / not zero */
+    MEM32(esp + 0x10) = ecx;
+    if (CMP_LE(_fas, _fbs)) goto loc_001D9A7D; /* jle: less or equal (signed <=) */
 
-loc_001D983E: ;
+loc_001D98D9: ;
+    /* nop */
+
+loc_001D98E0: ;
+    { double _t = fp_top(); fp_push(_t); } /* fld st(0) */
+    SET_LO8(eax, MEM8(esp + 0x28));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(edx + 8)); /* fmul dword ptr [edx + 8] */
+    { double _t = g_fp_stack[(g_fp_top + 2) & 7]; fp_push(_t); } /* fld st(2) */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(edx + 0xC)); /* fmul dword ptr [edx + 0xc] */
+    fp_st1() = RECOMP_FP_PC(fp_st1() + fp_top()); fp_pop(); /* faddp st(1) */
+    { double _t = fp_st1(); fp_push(_t); } /* fld st(1) */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(edx + 0xC)); /* fmul dword ptr [edx + 0xc] */
+    { double _t = g_fp_stack[(g_fp_top + 3) & 7]; fp_push(_t); } /* fld st(3) */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(edx + 8)); /* fmul dword ptr [edx + 8] */
+    fp_st1() = RECOMP_FP_PC(fp_st1() - fp_top()); fp_pop(); /* fsubp st(1) */
+    { double _t = fp_st1(); fp_push(_t); } /* fld st(1) */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(edx + 0x10)); /* fmul dword ptr [edx + 0x10] */
+    fp_st1() = RECOMP_FP_PC(fp_st1() + fp_top()); fp_pop(); /* faddp st(1) */
+    MEMF(esp + 0x30) = (float)fp_top(); /* fst */
+    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(edx + 0x14)); /* fmul dword ptr [edx + 0x14] */
+    fp_top() = RECOMP_FP_PC(fp_top() + fp_st1()); /* fadd st(1) */
+    MEMF(esp + 0x14) = (float)fp_top(); fp_pop(); /* fstp */
+    fp_pop(); /* fstp st(0) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001D9933; /* je: equal / zero */
+
+loc_001D9916: ;
+    eax = ebx;
+    eax = eax & 1;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    if ((_fa == 0)) goto loc_001D9926; /* je: equal / zero */
+
+loc_001D991D: ;
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(ecx), 1 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001D9A65; /* je: equal / zero */
+
+loc_001D9926: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001D9933; /* jne: not equal / not zero */
+
+loc_001D992A: ;
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(ecx), 1 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D9A65; /* jne: not equal / not zero */
+
+loc_001D9933: ;
+    fp_push(MEMF(esp + 0x30)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x49CE34)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x49ce34] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 1 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D9A65; /* jne: not equal / not zero */
+
+loc_001D9948: ;
+    fp_push(MEMF(esp + 0x30)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x496B98)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x496b98] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D9A65; /* jp: parity */
+
+loc_001D995D: ;
+    fp_push(MEMF(esp + 0x14)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x49CE34)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x49ce34] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 1 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001D9A65; /* jne: not equal / not zero */
+
+loc_001D9972: ;
+    fp_push(MEMF(esp + 0x14)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x496B98)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x496b98] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001D9A65; /* jp: parity */
+
+loc_001D9987: ;
+    edi = MEM32(esi);
+    edx = MEM32(esp + 0x40);
+    eax = edi + ecx;
+    ecx = MEM32(esi + 4);
+    ebp = ecx + ebx;
+    ecx = MEM32(edx);
+    edx = MEM32(ecx);
+    ebx = MEM32(ecx + 8);
+    edx = (uint32_t)(((int32_t)(int32_t)(edx)) >> ((3) & 31u));
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
+    edx = (uint32_t)((int32_t)edx * (int32_t)ebp);
+    _fb = (uint32_t)(ebx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + ebx;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ebx = eax;
+    SET_LO8(eax, LO8(eax) & 7);
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* and result */
+    ebx = (uint32_t)(((int32_t)(int32_t)(ebx)) >> ((3) & 31u));
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
+    SET_LO8(ecx, 7);
+    _fb = (uint32_t)(LO8(eax)) & 0xFFu; _fbs = (int32_t)(int8_t)(_fb); /* sub source, before the write */
+    SET_LO8(ecx, LO8(ecx) - LO8(eax));
+    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* sub result */
+    SET_LO8(eax, MEM8(edx + ebx));
+    SET_LO8(eax, LO8(eax) >> LO8(ecx));
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* shift result */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 1 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001D9A5D; /* je: equal / zero */
+
+loc_001D99BD: ;
+    ebx = MEM32(esp + 0x2C);
+    fp_push((double)SMEM32(ebx + 0xC)); /* fild */
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x496454)); /* fsub dword ptr [0x496454] */
+    fp_push(MEMF(esp + 0x14)); /* fld float */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x496B98)); /* fadd dword ptr [0x496b98] */
+    fp_st1() = RECOMP_FP_PC(fp_st1() * fp_top()); fp_pop(); /* fmulp st(1) */
+    fp_top() = RECOMP_FP_PC(fp_top() + (double)SMEM32(ebx + 4)); /* fiadd dword ptr [ebx + 4] */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x496B98)); /* fadd dword ptr [0x496b98] */
+    PUSH32(esp, 0x001D99E4u); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001D99E4: ;
+    fp_push((double)SMEM32(ebx + 8)); /* fild */
+    ecx = eax;
+    eax = MEM32(ebx + 0x10);
+    fp_top() = RECOMP_FP_PC(fp_top() - MEMF(0x496454)); /* fsub dword ptr [0x496454] */
+    fp_push(MEMF(esp + 0x30)); /* fld float */
+    ecx = (uint32_t)((int32_t)ecx * (int32_t)MEM32(eax + 0x20));
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x496B98)); /* fadd dword ptr [0x496b98] */
+    fp_st1() = RECOMP_FP_PC(fp_st1() * fp_top()); fp_pop(); /* fmulp st(1) */
+    MEM32(esp + 0x30) = ecx;
+    fp_top() = RECOMP_FP_PC(fp_top() + (double)SMEM32(ebx)); /* fiadd dword ptr [ebx] */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(0x496B98)); /* fadd dword ptr [0x496b98] */
+    PUSH32(esp, 0x001D9A13u); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001D9A13: ;
+    ecx = MEM32(esp + 0x30);
+    _fb = (uint32_t)(eax) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + eax;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edx = ebx;
+    eax = MEM32(edx + 0x10);
+    eax = MEM32(eax + 0x40);
+    eax = MEM32(eax + ecx * 4);
+    ecx = eax;
+    ecx = ecx >> 0x10;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    ecx = ZX8(LO8(ecx));
+    edx = ZX8(HI8(eax));
+    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + edx;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edx = eax;
+    edx = edx & 0xFF;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + edx;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0x3C) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0x3C (32-bit) */
+    ecx = MEM32(esp + 0x10);
+    MEM32(esp + 0x30) = eax;
+    if (CMP_BE(_fa, _fb)) goto loc_001D9A61; /* jbe: below or equal (unsigned <=) */
+
+loc_001D9A48: ;
+    edx = MEM32(esi + 0x10);
+    ebx = MEM32(edx + 0x20);
+    edx = MEM32(edx + 0x40);
+    ebx = (uint32_t)((int32_t)ebx * (int32_t)ebp);
+    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + edi;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + ecx;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(edx + ebx * 4) = eax;
+    goto loc_001D9A61;
+
+loc_001D9A5D: ;
+    ecx = MEM32(esp + 0x10);
+
+loc_001D9A61: ;
+    edx = MEM32(esp + 0x3C);
+
+loc_001D9A65: ;
+    eax = MEM32(esi + 8);
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esp + 0x1C)); /* fadd dword ptr [esp + 0x1c] */
+    ebx = MEM32(esp + 0x18);
+    ecx++;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, eax (32-bit) */
+    MEM32(esp + 0x10) = ecx;
+    if (CMP_L(_fas, _fbs)) goto loc_001D98E0; /* jl: less (signed <) */
+
+loc_001D9A7D: ;
+    ecx = MEM32(esi + 0xC);
+    fp_pop(); /* fstp st(0) */
+    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esp + 0x20)); /* fadd dword ptr [esp + 0x20] */
+    ebx++;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, ecx (32-bit) */
+    MEM32(esp + 0x18) = ebx;
+    if (CMP_L(_fas, _fbs)) goto loc_001D98C5; /* jl: less (signed <) */
+
+loc_001D9A93: ;
     POP32(esp, edi);
-    SET_LO8(eax, 0); /* xor self */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
+    POP32(esp, ebp);
 
-loc_001D9843: ;
-    edx = MEM32(0x70907C);
-    MEM32(edi + 0xC) = edx;
-    POP32(esp, edi);
-    SET_LO8(eax, 1);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
+loc_001D9A95: ;
+    ecx = MEM32(esi + 0x10);
+    fp_pop(); /* fstp st(0) */
+    PUSH32(esp, 0x001D9A9Fu); RECOMP_ABI_CALL(0x00115B70u, sub_00115B70); /* call 0x00115B70 */
 
+loc_001D9A9F: ;
+    eax = MEM32(esp + 0x24);
+    ecx = MEM32(eax + 0x10);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    g_seh_ebp = ebp; sub_00115B70(); return; /* tail jmp 0x00115B70 */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
 }
 
 /**
@@ -3948,12 +11886,13 @@ loc_001DA0B3: ;
 }
 
 /**
- * sub_001DA2E8
- * Original: 0x001DA2E8 - 0x001DA341 (89 bytes, 40 insns)
+ * sub_001DA0C0
+ * Original: 0x001DA0C0 - 0x001DA291 (465 bytes, 129 insns)
+ * Category: game_debug
  * CC: cdecl, 0 params, returns int_or_void
  * Frame: fpo_leaf
  */
-void sub_001DA2E8(void)
+void sub_001DA0C0(void)
 {
     uint32_t ebp = 0;
     ebp = g_ebp;  /* frameless: caller's frame */
@@ -3963,61 +11902,233 @@ void sub_001DA2E8(void)
     (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
     ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
 
-loc_001DA2E8: ;
-    ecx = ecx | MEM32(ebx);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    ecx = ecx | MEM32(ebx);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    ecx = ecx | MEM32(ebx);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    ecx = ecx | MEM32(ebx);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(edx) = MEM32(edx) | ecx;
-    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    /* int3: debug-trap slide byte, stepped over */
-    eax = MEM32(esp + 0x14);
+loc_001DA0C0: ;
+    eax = MEM32(0x5CABAC);
     _fb = (uint32_t)(0xFC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
     esp = esp - 0xFC;
     _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
     PUSH32(esp, edi);
-    edi = MEM32(esp + 0x110);
-    PUSH32(esp, eax);
-    ecx = esp + 8;
-    PUSH32(esp, edi);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001DA31Eu); RECOMP_ABI_CALL(0x0015BCF0u, sub_0015BCF0); /* call 0x0015BCF0 */
+    ebp = 0; /* xor self */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edi = 0; /* xor self */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0x2D) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0x2D (32-bit) */
+    if (CMP_A(_fa, _fb)) goto loc_001DA177; /* ja: above (unsigned >) */
 
-loc_001DA31E: ;
-    eax = MEM32(esp + 0x110);
+loc_001DA0DC: ;
+    eax = ZX8(MEM8(eax + 0x1DA2C4));
+    { uint32_t _jt = MEM32(eax * 4 + 0x1DA294); /* switch: 12 entries, 12 targets */
+    if (_jt == 0x001DA0EAu) goto loc_001DA0EA;
+    if (_jt == 0x001DA0F9u) goto loc_001DA0F9;
+    if (_jt == 0x001DA108u) goto loc_001DA108;
+    if (_jt == 0x001DA117u) goto loc_001DA117;
+    if (_jt == 0x001DA123u) goto loc_001DA123;
+    if (_jt == 0x001DA12Fu) goto loc_001DA12F;
+    if (_jt == 0x001DA13Bu) goto loc_001DA13B;
+    if (_jt == 0x001DA147u) goto loc_001DA147;
+    if (_jt == 0x001DA153u) goto loc_001DA153;
+    if (_jt == 0x001DA15Fu) goto loc_001DA15F;
+    if (_jt == 0x001DA16Bu) goto loc_001DA16B;
+    if (_jt == 0x001DA177u) goto loc_001DA177;
+    g_seh_ebp = ebp; RECOMP_ITAIL(_jt); return; }
+
+loc_001DA0EA: ;
+    ebp = 1;
+    edi = 0x70A9D8;
+    goto loc_001DA19F;
+
+loc_001DA0F9: ;
+    ebp = 1;
+    edi = 0x70AA00;
+    goto loc_001DA19F;
+
+loc_001DA108: ;
+    ebp = 1;
+    edi = 0x70AA28;
+    goto loc_001DA19F;
+
+loc_001DA117: ;
+    ebp = 1;
+    edi = 0x70AA50;
+    goto loc_001DA19F;
+
+loc_001DA123: ;
+    ebp = 1;
+    edi = 0x70AA78;
+    goto loc_001DA19F;
+
+loc_001DA12F: ;
+    ebp = 1;
+    edi = 0x70AAA0;
+    goto loc_001DA19F;
+
+loc_001DA13B: ;
+    ebp = 1;
+    edi = 0x70AAC8;
+    goto loc_001DA19F;
+
+loc_001DA147: ;
+    ebp = 1;
+    edi = 0x70AAF0;
+    goto loc_001DA19F;
+
+loc_001DA153: ;
+    ebp = 1;
+    edi = 0x70AB18;
+    goto loc_001DA19F;
+
+loc_001DA15F: ;
+    ebp = 1;
+    edi = 0x514EB0;
+    goto loc_001DA19F;
+
+loc_001DA16B: ;
+    ebp = 1;
+    edi = 0x514ED8;
+    goto loc_001DA19F;
+
+loc_001DA177: ;
+    PUSH32(esp, 0x398);
+    PUSH32(esp, 0x4B2134);
+    PUSH32(esp, 0x4B2104);
+    PUSH32(esp, 0x497CF0);
+    PUSH32(esp, 0x49657C);
+    MEM8(0x50FF48) = 0;
+    PUSH32(esp, 0x001DA19Cu); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001DA19C: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001DA19F: ;
+    ecx = MEM32(esp + 0x118);
+    edx = MEM32(esp + 0x114);
+    PUSH32(esp, ecx);
+    PUSH32(esp, edx);
+    eax = esp + 0x18;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001DA1B9u); RECOMP_ABI_CALL(0x0015BCF0u, sub_0015BCF0); /* call 0x0015BCF0 */
+
+loc_001DA1B9: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001DA277; /* jle: less or equal (signed <=) */
+
+loc_001DA1C6: ;
+    goto loc_001DA1D0;
+
+    /* nop */
+    /* nop */
+
+loc_001DA1D0: ;
+    ecx = MEM32(esp + 0x110);
+    _fa = (uint32_t)(MEM32(edi)) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edi), ecx (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DA26B; /* jne: not equal / not zero */
+
+loc_001DA1DF: ;
+    eax = MEM32(edi + 4);
     edx = esp + 0x20;
     PUSH32(esp, edx);
     PUSH32(esp, eax);
     PUSH32(esp, 0);
-    PUSH32(esp, 0x001DA332u); RECOMP_ABI_CALL(0x001ADD80u, sub_001ADD80); /* call 0x001ADD80 */
+    PUSH32(esp, 0x001DA1EFu); RECOMP_ABI_CALL(0x001ADD80u, sub_001ADD80); /* call 0x001ADD80 */
 
-loc_001DA332: ;
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x18;
+loc_001DA1EF: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
     _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
     _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
     _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) { g_seh_ebp = ebp; sub_001DA341(); return; } /* jne: not equal / not zero */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DA284; /* je: equal / zero */
 
-loc_001DA339: ;
+loc_001DA1FA: ;
+    eax = MEM32(esp + 0x114);
+    ecx = esp + 0x20;
+    PUSH32(esp, ecx);
+    edx = esp + 0x14;
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001DA211u); RECOMP_ABI_CALL(0x001D9EC0u, sub_001D9EC0); /* call 0x001D9EC0 */
+
+loc_001DA211: ;
+    esi = eax;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DA284; /* je: equal / zero */
+
+loc_001DA21A: ;
+    edx = MEM32(esp + 0x120);
+    eax = MEM32(esp + 0x124);
+    ecx = MEM32(esp + 0x11C);
+    MEM32(esi + 0x28) = edx;
+    edx = MEM32(esp + 0x114);
+    MEM32(esi + 0x2C) = eax;
+    MEM32(esi + 0x24) = ecx;
+    ecx = MEM32(edi + 8);
+    PUSH32(esp, edx);
+    eax = esi + 0x10;
+    PUSH32(esp, eax);
+    MEM32(esi + 4) = ecx;
+    MEM32(esi + 8) = ebx;
+    MEM32(esi + 0xC) = edi;
+    PUSH32(esp, 0x001DA255u); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
+
+loc_001DA255: ;
+    eax = MEM32(0x706300);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DA26B; /* je: equal / zero */
+
+loc_001DA261: ;
+    ecx = MEM32(esi + 0x20);
+    MEM8(ecx + 0x13C) = 1;
+
+loc_001DA26B: ;
+    ebx++;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x28) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x28;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, ebp (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001DA1D0; /* jl: less (signed <) */
+
+loc_001DA277: ;
     POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    SET_LO8(eax, 1);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0xFC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xFC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+loc_001DA284: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    POP32(esp, ebx);
     _fb = (uint32_t)(0xFC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
     esp = esp + 0xFC;
     _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
@@ -4590,6 +12701,78 @@ void sub_001DA660(void)
 
 loc_001DA660: ;
     eax = 1;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001DA670
+ * Original: 0x001DA670 - 0x001DA6DE (110 bytes, 40 insns)
+ * Category: game_io
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001DA670(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001DA670: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = ecx;
+    ecx = MEM32(0x5062CC);
+    eax = MEM32(edi);
+    PUSH32(esp, ecx);
+    MEM32(0x50D86C) = eax;
+    PUSH32(esp, 0x001DA688u); RECOMP_ABI_CALL(0x00114A20u, sub_00114A20); /* call 0x00114A20 */
+
+loc_001DA688: ;
+    esi = MEM32(esp + 0x14);
+    edx = MEM32(esi + 0x20);
+    eax = MEM32(esi + 8);
+    ecx = MEM32(esi);
+    PUSH32(esp, 0);
+    edx = ~edx;
+    edx = edx & 1;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    PUSH32(esp, edx);
+    PUSH32(esp, 3);
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001DA6A5u); RECOMP_ABI_CALL(0x00114930u, sub_00114930); /* call 0x00114930 */
+
+loc_001DA6A5: ;
+    edx = MEM32(esi + 0x10);
+    PUSH32(esp, 0xDD);
+    PUSH32(esp, 0x4B2180);
+    PUSH32(esp, 0x4B2158);
+    ebx = eax;
+    eax = MEM32(esi + 4);
+    PUSH32(esp, edx);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001DA6C3u); RECOMP_ABI_CALL(0x001031A0u, sub_001031A0); /* call 0x001031A0 */
+
+loc_001DA6C3: ;
+    edi = MEM32(edi + 0x1C);
+    _fb = (uint32_t)(0x2C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x2C;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    eax = 1;
+    if (CMP_EQ(_fa, _fb)) goto loc_001DA6D8; /* je: equal / zero */
+
+loc_001DA6D2: ;
+    MEM32(edi + 0x128) = ebx;
+
+loc_001DA6D8: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
     esp += 8; return; /* ret 4 */
 
 }
@@ -9021,33 +17204,6 @@ loc_001DC086: ;
 }
 
 /**
- * sub_001DC080
- * Original: 0x001DC080 - 0x001DC091 (17 bytes, 7 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001DC080(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001DC080: ;
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001DC086u); RECOMP_ABI_CALL(0x001031A0u, sub_001031A0); /* call 0x001031A0 */
-
-loc_001DC086: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    POP32(esp, edi);
-    eax = 1;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
  * sub_001DC0A0
  * Original: 0x001DC0A0 - 0x001DC0DE (62 bytes, 24 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -9673,6 +17829,36 @@ loc_001DC426: ;
 loc_001DC42D: ;
     MEM32(esp + 4) = 0;
     g_seh_ebp = ebp; sub_001DC0E0(); return; /* tail jmp 0x001DC0E0 */
+
+}
+
+/**
+ * sub_001DC440
+ * Original: 0x001DC440 - 0x001DC463 (35 bytes, 12 insns)
+ * Category: game_vehicle
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001DC440(void)
+{
+
+loc_001DC440: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x4B22E4);
+    MEM8(esi + 8) = 0;
+    MEM32(esi) = 0x4B22D4;
+    PUSH32(esp, 0x001DC458u); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
+
+loc_001DC458: ;
+    ecx = eax;
+    PUSH32(esp, 0x001DC45Fu); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
+
+loc_001DC45F: ;
+    eax = esi;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
 
 }
 
@@ -11097,6 +19283,193 @@ loc_001DCCCC: ;
 }
 
 /**
+ * sub_001DCCD0
+ * Original: 0x001DCCD0 - 0x001DCE19 (329 bytes, 93 insns)
+ * Category: game_debug
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001DCCD0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001DCCD0: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    ebx = MEM32(esp + 0x14);
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DCE14; /* je: equal / zero */
+
+loc_001DCCE0: ;
+    eax = MEM32(esp + 0x18);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001DCE14; /* jle: less or equal (signed <=) */
+
+loc_001DCCEC: ;
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 8;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esp + 0x1C) = eax;
+    PUSH32(esp, edi);
+    goto loc_001DCD00;
+
+    /* nop */
+    /* nop */
+
+loc_001DCD00: ;
+    ebp = MEM32(ebx + -4);
+    ecx = MEM32(0x6CA5D8);
+    edx = MEM32(ecx + 0xC);
+    esi = MEM32(0x7139E4);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
+    eax = ebp + ebp * 2;
+    eax = edx + eax * 4;
+    MEM32(esp + 0x10) = eax;
+    if (CMP_EQ(_fa, _fb)) goto loc_001DCDFF; /* je: equal / zero */
+
+loc_001DCD25: ;
+    goto loc_001DCD30;
+
+    /* nop */
+    edi = edi;
+
+loc_001DCD30: ;
+    edi = MEM32(esi + 0x120);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DCDF1; /* je: equal / zero */
+
+loc_001DCD3E: ;
+    edi = edi;
+
+loc_001DCD40: ;
+    ecx = MEM32(esp + 0x10);
+    _fa = (uint32_t)(MEM32(edi + 0x6C)) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edi + 0x6C), ecx (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DCDE7; /* jne: not equal / not zero */
+
+loc_001DCD4D: ;
+    edx = MEM32(ebx);
+    MEM32(edi + 8) = edx;
+    eax = MEM32(ebx + 4);
+    MEM32(edi + 0xC) = eax;
+    ecx = MEM32(ebx);
+    edx = MEM32(ebx + 4);
+    eax = ecx;
+    MEM32(esp + 0x18) = edx;
+    eax = eax & 1;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001DCDE7; /* je: equal / zero */
+
+loc_001DCD6C: ;
+    ecx = ecx & 0x20;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ecx = ecx | eax;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001DCD7C; /* je: equal / zero */
+
+loc_001DCD75: ;
+    MEM32(esi + 0x12C) = MEM32(esi + 0x12C) | 1;
+    _fa = (uint32_t)(MEM32(esi + 0x12C)) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+
+loc_001DCD7C: ;
+    _fa = (uint32_t)(MEM32(esi + 0x98)) & 0xFFFFFFFFu; _fb = (uint32_t)(0x10) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esi + 0x98), 0x10 (32-bit) */
+    SET_LO8(eax, (CMP_L(_fas, _fbs)) ? 1 : 0); /* setl */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001DCDB0; /* jne: not equal / not zero */
+
+loc_001DCD8F: ;
+    PUSH32(esp, 0x34B);
+    PUSH32(esp, 0x4B242C);
+    PUSH32(esp, 0x4B2320);
+    PUSH32(esp, 0x4B23F4);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001DCDADu); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001DCDAD: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001DCDB0: ;
+    eax = MEM32(esi + 0x98);
+    MEM32(esi + eax * 4 + 0x18) = edi;
+    ecx = MEM32(esi + 0x98);
+    MEM32(esi + ecx * 4 + 0x58) = ebp;
+    MEM32(esi + 0x98) = MEM32(esi + 0x98) + 1;
+    _fa = (uint32_t)(MEM32(esi + 0x98)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    eax = MEM32(edi + 0x70);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DCDE7; /* je: equal / zero */
+
+loc_001DCDD1: ;
+    MEM32(esi + 0x124) = 3;
+    edx = MEM32(edi + 0x70);
+    eax = MEM32(edx + 4);
+    MEM32(esi + 0x9C) = eax;
+
+loc_001DCDE7: ;
+    edi = MEM32(edi);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DCD40; /* jne: not equal / not zero */
+
+loc_001DCDF1: ;
+    esi = MEM32(esi + 0x128);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DCD30; /* jne: not equal / not zero */
+
+loc_001DCDFF: ;
+    eax = MEM32(esp + 0x20);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 0x10;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esp + 0x20) = eax;
+    if ((_fa != 0)) goto loc_001DCD00; /* jne: not equal / not zero */
+
+loc_001DCE11: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+
+loc_001DCE14: ;
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+}
+
+/**
  * sub_001DCE20
  * Original: 0x001DCE20 - 0x001DCEDA (186 bytes, 64 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -11227,6 +19600,283 @@ loc_001DCED5: ;
     POP32(esp, ebx);
 
 loc_001DCED9: ;
+    esp += 4; return; /* ret */
+
+}
+
+/**
+ * sub_001DCEE0
+ * Original: 0x001DCEE0 - 0x001DD12F (591 bytes, 154 insns)
+ * Category: game_debug
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001DCEE0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001DCEE0: ;
+    _fb = (uint32_t)(0x208) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0x208;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    ebp = MEM32(esp + 0x214);
+    ebx = 0; /* xor self */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, ebx (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DCF24; /* jne: not equal / not zero */
+
+loc_001DCEF5: ;
+    eax = MEM32(esp + 0x218);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    ebp = MEM32(0x7139E4);
+    if (CMP_EQ(_fa, _fb)) goto loc_001DCF15; /* je: equal / zero */
+
+loc_001DCF06: ;
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DCF19; /* je: equal / zero */
+
+loc_001DCF0B: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
+    ebp = MEM32(ebp + 0x128);
+    if (CMP_NE(_fa, _fb)) goto loc_001DCF06; /* jne: not equal / not zero */
+
+loc_001DCF15: ;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, ebx (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DCF24; /* jne: not equal / not zero */
+
+loc_001DCF19: ;
+    POP32(esp, ebp);
+    SET_LO8(eax, 0); /* xor self */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x208) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x208;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+loc_001DCF24: ;
+    ecx = MEM32(ebp + 0x12C);
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    MEM32(ebp + 8) = ebx;
+    ecx = ecx & 0xFFFFFFF8u;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    MEM32(ebp + 0x12C) = ecx;
+    PUSH32(esp, esi);
+    esi = MEM32(ebp + 0x120);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, ebx (32-bit) */
+    MEM32(ebp + 0xA0) = eax;
+    MEM32(ebp + 0xA4) = eax;
+    MEM32(ebp + 0xA8) = eax;
+    MEM32(ebp + 0xAC) = eax;
+    MEM32(ebp + 0xB0) = eax;
+    MEM32(ebp + 0xB4) = eax;
+    MEM32(ebp + 0xB8) = eax;
+    MEM32(ebp + 0xBC) = eax;
+    MEM32(ebp + 0xC0) = eax;
+    MEM32(ebp + 0xC4) = eax;
+    MEM32(ebp + 0xC8) = eax;
+    MEM32(ebp + 0xCC) = eax;
+    MEM32(ebp + 0xD0) = eax;
+    MEM32(ebp + 0xD4) = eax;
+    MEM32(ebp + 0xD8) = eax;
+    MEM32(ebp + 0xDC) = eax;
+    MEM32(ebp + 0xE0) = eax;
+    MEM32(ebp + 0xE4) = eax;
+    MEM32(ebp + 0xE8) = eax;
+    MEM32(ebp + 0xEC) = eax;
+    MEM32(ebp + 0xF0) = eax;
+    MEM32(ebp + 0xF4) = eax;
+    MEM32(ebp + 0xF8) = eax;
+    MEM32(ebp + 0xFC) = eax;
+    MEM32(ebp + 0x100) = eax;
+    MEM32(ebp + 0x104) = eax;
+    MEM32(ebp + 0x108) = eax;
+    MEM32(ebp + 0x10C) = eax;
+    MEM32(ebp + 0x110) = eax;
+    MEM32(ebp + 0x114) = eax;
+    MEM32(ebp + 0x118) = eax;
+    MEM32(ebp + 0x11C) = eax;
+    if (CMP_EQ(_fa, _fb)) goto loc_001DD123; /* je: equal / zero */
+
+loc_001DD007: ;
+    PUSH32(esp, edi);
+
+loc_001DD008: ;
+    eax = MEM32(esi + 8);
+    eax = eax & 0x20;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    eax = eax | ecx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    MEM8(esi + 4) = LO8(ebx);
+    MEM32(esi + 0x28) = ebx;
+    if ((_fa == 0)) goto loc_001DD021; /* je: equal / zero */
+
+loc_001DD01A: ;
+    MEM32(ebp + 0x12C) = MEM32(ebp + 0x12C) | 1;
+    _fa = (uint32_t)(MEM32(ebp + 0x12C)) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+
+loc_001DD021: ;
+    ecx = MEM32(esi + 0x6C);
+    edi = MEM32(ecx + 4);
+    ecx = MEM32(0x6CA5D8);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001DD033u); RECOMP_ABI_CALL(0x001B7EA0u, sub_001B7EA0); /* call 0x001B7EA0 */
+
+loc_001DD033: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 1 (8-bit) */
+    PUSH32(esp, edi);
+    if (CMP_NE(_fa, _fb)) goto loc_001DD079; /* jne: not equal / not zero */
+
+loc_001DD038: ;
+    PUSH32(esp, 0x001DD03Du); RECOMP_ABI_CALL(0x001BB4A0u, sub_001BB4A0); /* call 0x001BB4A0 */
+
+loc_001DD03D: ;
+    edi = eax;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, ebx (32-bit) */
+    SET_LO8(eax, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), LO8(ebx) (8-bit) */
+    MEM8(0x50FF48) = LO8(eax);
+    if (CMP_NE(_fa, _fb)) goto loc_001DD071; /* jne: not equal / not zero */
+
+loc_001DD050: ;
+    PUSH32(esp, 0x3F1);
+    PUSH32(esp, 0x4B2460);
+    PUSH32(esp, 0x4B2320);
+    PUSH32(esp, 0x4B2450);
+    PUSH32(esp, 0x49657C);
+    PUSH32(esp, 0x001DD06Eu); RECOMP_ABI_CALL(0x0014E700u, sub_0014E700); /* call 0x0014E700 */
+
+loc_001DD06E: ;
+    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x14;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001DD071: ;
+    MEM32(edi + 8) = ebx;
+    goto loc_001DD118;
+
+loc_001DD079: ;
+    ecx = MEM32(0x6CA5D8);
+    PUSH32(esp, 0x001DD084u); RECOMP_ABI_CALL(0x001B7F90u, sub_001B7F90); /* call 0x001B7F90 */
+
+loc_001DD084: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DD118; /* jne: not equal / not zero */
+
+loc_001DD08C: ;
+    ecx = MEM32(0x6CA5D8);
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001DD098u); RECOMP_ABI_CALL(0x001B7ED0u, sub_001B7ED0); /* call 0x001B7ED0 */
+
+loc_001DD098: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DD118; /* jne: not equal / not zero */
+
+loc_001DD09C: ;
+    edx = MEM32(esi + 0x4C);
+    MEM32(esp + 0x98) = edx;
+    eax = MEM32(esi + 0x50);
+    MEM32(esp + 0x9C) = eax;
+    ecx = MEM32(esi + 0x54);
+    MEM32(esp + 0xA0) = ecx;
+    edx = MEM32(esi + 0x5C);
+    MEM32(esp + 0xA8) = edx;
+    eax = MEM32(esi + 0x60);
+    PUSH32(esp, edi);
+    edx = esp + 0x1C;
+    MEM32(esp + 0xB0) = eax;
+    ecx = MEM32(esi + 0x64);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x5CE880);
+    MEM32(esp + 0xBC) = ecx;
+    PUSH32(esp, 0x001DD0E8u); RECOMP_ABI_CALL(0x00108890u, sub_00108890); /* call 0x00108890 */
+
+loc_001DD0E8: ;
+    eax = MEM32(esi + 0x14);
+    ecx = MEM32(esi + 0x10);
+    MEM32(esp + 0x20) = eax;
+    eax = ecx;
+    eax = eax & 1;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001DD104; /* je: equal / zero */
+
+loc_001DD100: ;
+    PUSH32(esp, 0x10);
+    goto loc_001DD10F;
+
+loc_001DD104: ;
+    ecx = ecx & 2;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ecx = ecx | eax;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001DD118; /* je: equal / zero */
+
+loc_001DD10D: ;
+    PUSH32(esp, 0xFFFFFFE7u);
+
+loc_001DD10F: ;
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001DD115u); RECOMP_ABI_CALL(0x00011645u, sub_00011645); /* call 0x00011645 */
+
+loc_001DD115: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001DD118: ;
+    esi = MEM32(esi);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, ebx (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DD008; /* jne: not equal / not zero */
+
+loc_001DD122: ;
+    POP32(esp, edi);
+
+loc_001DD123: ;
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    SET_LO8(eax, 1);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0x208) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x208;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
     esp += 4; return; /* ret */
 
 }
@@ -13068,6 +21718,108 @@ loc_001DDAF0: ;
 }
 
 /**
+ * sub_001DDB00
+ * Original: 0x001DDB00 - 0x001DDB6C (108 bytes, 42 insns)
+ * Category: game_camera
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001DDB00(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001DDB00: ;
+    PUSH32(esp, esi);
+    esi = MEM32(0x7139E4);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DDB6A; /* je: equal / zero */
+
+loc_001DDB0B: ;
+    PUSH32(esp, ebx);
+    ebx = MEM32(esp + 0xC);
+    PUSH32(esp, ebp);
+    PUSH32(esp, edi);
+
+loc_001DDB12: ;
+    eax = MEM32(esi + 0x98);
+    ebp = 0; /* xor self */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001DDB5D; /* jle: less or equal (signed <=) */
+
+loc_001DDB1E: ;
+    edi = esi + 0x58;
+
+loc_001DDB21: ;
+    eax = MEM32(edi);
+    PUSH32(esp, eax);
+    ecx = ebx;
+    PUSH32(esp, 0x001DDB2Bu); RECOMP_ABI_CALL(0x001BAD70u, sub_001BAD70); /* call 0x001BAD70 */
+
+loc_001DDB2B: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DDB4F; /* je: equal / zero */
+
+loc_001DDB2F: ;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x49DEBC);
+    ecx = ebx;
+    PUSH32(esp, 0x001DDB3Cu); RECOMP_ABI_CALL(0x001B9EF0u, sub_001B9EF0); /* call 0x001B9EF0 */
+
+loc_001DDB3C: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001DDB4F; /* je: equal / zero */
+
+loc_001DDB40: ;
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001DDB46u); RECOMP_ABI_CALL(0x000EBE27u, sub_000EBE27); /* call 0x000EBE27 */
+
+loc_001DDB46: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esi + 0xA0) = eax;
+
+loc_001DDB4F: ;
+    eax = MEM32(esi + 0x98);
+    ebp++;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 4;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, eax (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001DDB21; /* jl: less (signed <) */
+
+loc_001DDB5D: ;
+    esi = MEM32(esi + 0x128);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001DDB12; /* jne: not equal / not zero */
+
+loc_001DDB67: ;
+    POP32(esp, edi);
+    POP32(esp, ebp);
+    POP32(esp, ebx);
+
+loc_001DDB6A: ;
+    POP32(esp, esi);
+    esp += 4; return; /* ret */
+
+}
+
+/**
  * sub_001DDB70
  * Original: 0x001DDB70 - 0x001DDB75 (5 bytes, 1 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -14075,1089 +22827,6 @@ loc_001DE218: ;
     #undef fp_top
     #undef fp_st
     #undef fp_st1
-}
-
-/**
- * sub_001DDC8E
- * Original: 0x001DDC8E - 0x001DE21F (1425 bytes, 445 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001DDC8E(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001DDC8E: ;
-    eax = MEM32(esp + 0x14);
-    MEM32(edi + 0x84) = ecx;
-    edx = MEM32(esi + 0x44);
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0x20);
-    MEM32(edi + 0x88) = edx;
-    ecx = MEM32(esi + 0x1C);
-    edx = MEM32(esi + 0x18);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, ebp);
-    PUSH32(esp, 0x001DDCB5u); RECOMP_ABI_CALL(0x001BC490u, sub_001BC490); /* call 0x001BC490 */
-
-loc_001DDCB5: ;
-    ecx = MEM32(edi + 0x80);
-    MEM32(esi + 0x3C) = ecx;
-    edx = MEM32(edi + 0x84);
-    ecx = MEM32(esi + 0x2C);
-    ebp = eax;
-    MEM32(esi + 0x40) = edx;
-    eax = MEM32(edi + 0x88);
-    MEM32(esi + 0x44) = eax;
-    eax = MEM32(0x6CA628);
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ecx (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDD52; /* je: equal / zero */
-
-loc_001DDCE1: ;
-    MEM32(esi + 0x2C) = eax;
-    eax = MEM32(0x6CA628);
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ecx (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDCF3; /* je: equal / zero */
-
-loc_001DDCEF: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(ebx)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(ebx) (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001DDD20; /* jl: less (signed <) */
-
-loc_001DDCF3: ;
-    MEM32(0x6CA620) = ecx;
-    MEM32(esi + 0x2C) = ecx;
-    ecx = MEM32(ebx + 0x1C);
-    edx = MEM32(ecx);
-    MEM32(esi + 0x3C) = edx;
-    eax = MEM32(ebx + 0x1C);
-    ecx = MEM32(eax + 4);
-    MEM32(esi + 0x40) = ecx;
-    edx = MEM32(ebx + 0x1C);
-    eax = MEM32(edx + 8);
-    MEM32(esi + 0x44) = eax;
-    eax = MEM32(0x6CA628);
-    ebp = 3;
-
-loc_001DDD20: ;
-    ecx = eax + 1;
-    PUSH32(esp, ecx);
-    PUSH32(esp, eax);
-    PUSH32(esp, edi);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001DDD2Cu); RECOMP_ABI_CALL(0x001BC030u, sub_001BC030); /* call 0x001BC030 */
-
-loc_001DDD2C: ;
-    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x10;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    goto loc_001DDD52;
-
-    eax = MEM32(ebx + 4);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDD6B; /* je: equal / zero */
-
-loc_001DDD39: ;
-    edx = MEM32(esp + 0x14);
-    ecx = MEM32(esi + 0x1C);
-    PUSH32(esp, edx);
-    edx = MEM32(esi + 0x18);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, edi);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DDD4Du); RECOMP_ABI_CALL(0x001BC0A0u, sub_001BC0A0); /* call 0x001BC0A0 */
-
-loc_001DDD4D: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ebp = eax;
-
-loc_001DDD52: ;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDD6B; /* je: equal / zero */
-
-loc_001DDD56: ;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 3 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DDD6F; /* jne: not equal / not zero */
-
-loc_001DDD5B: ;
-    eax = MEM32(0x6CA620);
-    MEM32(esp + 0x14) = eax;
-    MEM8(esp + 0x11) = 1;
-    goto loc_001DDD6F;
-
-loc_001DDD6B: ;
-    MEM32(esp + 0x20) = MEM32(esp + 0x20) + 1;
-    _fa = (uint32_t)(MEM32(esp + 0x20)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001DDD6F: ;
-    ecx = MEM32(esp + 0x14);
-    MEM32(esi + 0x28) = ecx;
-    esi = MEM32(esi);
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) { g_seh_ebp = ebp; sub_001DDBD0(); return; } /* jne: not equal / not zero */
-
-loc_001DDD80: ;
-    ecx = MEM32(0x706218);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001DDD9F; /* jle: less or equal (signed <=) */
-
-loc_001DDD8A: ;
-    edx = ecx;
-    ecx = ecx >> 2;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    edi = 0x7139A8;
-    { uint32_t _i; int32_t _st = RECOMP_DF_STEP(4); for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*_st) = eax; edi += ecx * _st; }
-    ecx = 0; /* rep stosd */
-    ecx = edx;
-    ecx = ecx & 3;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if (!g_df) { memset((void*)XBOX_PTR(edi), (uint8_t)eax, ecx); edi += ecx; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM8(edi - _i) = LO8(eax); edi -= ecx; }
-    ecx = 0; /* rep stosb */
-
-loc_001DDD9F: ;
-    eax = MEM32(esp + 0xB0);
-    ebp = MEM32(eax + 0x120);
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDFC0; /* je: equal / zero */
-
-loc_001DDDB4: ;
-    ecx = eax;
-    _fb = (uint32_t)(0xA0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ecx = ecx + 0xA0;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    MEM32(esp + 0x1C) = ecx;
-
-loc_001DDDC0: ;
-    edi = MEM32(ebp + 0x6C);
-    _fa = (uint32_t)(MEM32(edi)) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edi), 3 (32-bit) */
-    edx = MEM32(ebp + 0x14);
-    esi = MEM32(ebp + 0x10);
-    MEM32(esp + 0x28) = edx;
-    if (CMP_NE(_fa, _fb)) goto loc_001DDFB2; /* jne: not equal / not zero */
-
-loc_001DDDD6: ;
-    ebx = MEM32(edi + 8);
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDFB2; /* je: equal / zero */
-
-loc_001DDDE1: ;
-    eax = esi;
-    eax = eax & 0x40;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(esp + 0x14) = 0;
-    if ((_fa == 0)) goto loc_001DDDFE; /* je: equal / zero */
-
-loc_001DDDF4: ;
-    MEM32(esp + 0x14) = 0x3D000000;
-    goto loc_001DDE41;
-
-loc_001DDDFE: ;
-    eax = esi;
-    eax = eax & 0x80;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DDE15; /* je: equal / zero */
-
-loc_001DDE0B: ;
-    MEM32(esp + 0x14) = 0x3D800000;
-    goto loc_001DDE41;
-
-loc_001DDE15: ;
-    eax = esi;
-    eax = eax & 0x100;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DDE2C; /* je: equal / zero */
-
-loc_001DDE22: ;
-    MEM32(esp + 0x14) = 0x3E000000;
-    goto loc_001DDE41;
-
-loc_001DDE2C: ;
-    eax = esi;
-    eax = eax & 0x200;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DDE41; /* je: equal / zero */
-
-loc_001DDE39: ;
-    MEM32(esp + 0x14) = 0x3E800000;
-
-loc_001DDE41: ;
-    eax = MEM32(ebp + 0x10);
-    eax = eax & 0x400;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DDEEC; /* je: equal / zero */
-
-loc_001DDE53: ;
-    _fa = (uint32_t)(MEM32(esp + 0x18)) & 0xFFFFFFFFu; _fb = (uint32_t)(0x20) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esp + 0x18), 0x20 (32-bit) */
-    if (CMP_GE(_fas, _fbs)) goto loc_001DDED3; /* jge: greater or equal (signed >=) */
-
-loc_001DDE5A: ;
-    eax = MEM32(edi + 4);
-    ecx = MEM32(0x5CADB4);
-    _fa = (uint32_t)(MEM8(ecx + eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ecx + eax), 0 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DDED3; /* jne: not equal / not zero */
-
-loc_001DDE69: ;
-    eax = MEM32(ebp + 0x18);
-    ecx = MEM32(esp + 0x1C);
-    edx = MEM32(ecx);
-    eax = (uint32_t)(((int32_t)(int32_t)(eax)) >> ((0x12) & 31u));
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
-    eax = eax & 0x3FF;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    edx++;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    MEM32(ecx) = edx;
-    ecx = edx;
-    edx = eax + eax * 4;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, edx (32-bit) */
-    MEM8(esp + 0x11) = 1;
-    if (CMP_L(_fas, _fbs)) goto loc_001DDED3; /* jl: less (signed <) */
-
-loc_001DDE8B: ;
-    eax = MEM32(edi + 4);
-    PUSH32(esp, 0x20);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DDE96u); RECOMP_ABI_CALL(0x00011645u, sub_00011645); /* call 0x00011645 */
-
-loc_001DDE96: ;
-    ecx = MEM32(esp + 0x24);
-    MEM32(ecx) = 0;
-    eax = MEM32(ebx + 4);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DDEC8; /* jne: not equal / not zero */
-
-loc_001DDEAB: ;
-    edx = MEM32(esp + 0xB0);
-    PUSH32(esp, edi);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001DDEB9u); RECOMP_ABI_CALL(0x001DD960u, sub_001DD960); /* call 0x001DD960 */
-
-loc_001DDEB9: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDED3; /* je: equal / zero */
-
-loc_001DDEC0: ;
-    eax = MEM32(eax + 4);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDED3; /* je: equal / zero */
-
-loc_001DDEC8: ;
-    PUSH32(esp, 0xFFFFFFE7u);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DDED0u); RECOMP_ABI_CALL(0x00011645u, sub_00011645); /* call 0x00011645 */
-
-loc_001DDED0: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001DDED3: ;
-    ecx = MEM32(esp + 0x18);
-    eax = MEM32(esp + 0x1C);
-    ecx++;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 4;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    MEM32(esp + 0x18) = ecx;
-    MEM32(esp + 0x1C) = eax;
-    goto loc_001DDFB2;
-
-loc_001DDEEC: ;
-    eax = MEM32(ebx + 4);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DDF6D; /* je: equal / zero */
-
-loc_001DDEF4: ;
-    ecx = MEM32(0x6CA5D8);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DDF00u); RECOMP_ABI_CALL(0x001B7E80u, sub_001B7E80); /* call 0x001B7E80 */
-
-loc_001DDF00: ;
-    ecx = eax;
-    _fa = (uint32_t)(MEM32(ecx)) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx), 3 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DDFB2; /* jne: not equal / not zero */
-
-loc_001DDF0B: ;
-    fp_push(MEMF(0x4964E8)); /* fld float */
-    fp_push(MEMF(esp + 0x14)); /* fld float */
-    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); fp_pop(); /* fucompp  */
-    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
-    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x44) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x44 (8-bit) */
-    eax = MEM32(ecx + 4);
-    PUSH32(esp, eax);
-    if ((!RECOMP_PARITY8((_fa) & (_fb)))) goto loc_001DDF5F; /* jnp: not parity */
-
-loc_001DDF22: ;
-    ecx = esp + 0x30;
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x5CE880);
-    PUSH32(esp, 0x001DDF31u); RECOMP_ABI_CALL(0x00108320u, sub_00108320); /* call 0x00108320 */
-
-loc_001DDF31: ;
-    eax = MEM32(esp + 0xBC);
-    edx = MEM32(esp + 0x34);
-    fp_push((double)SMEM32(eax + 8)); /* fild */
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, edx);
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(esp + 0x18)); /* fmul dword ptr [esp + 0x18] */
-    PUSH32(esp, esi);
-    PUSH32(esp, ecx);
-    ecx = MEM32(edi + 4);
-    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, ecx);
-    edx = esp + 0x3C;
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001DDF5Au); RECOMP_ABI_CALL(0x001DD3F0u, sub_001DD3F0); /* call 0x001DD3F0 */
-
-loc_001DDF5A: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    goto loc_001DDFB2;
-
-loc_001DDF5F: ;
-    ecx = MEM32(edi + 4);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001DDF68u); RECOMP_ABI_CALL(0x001DD520u, sub_001DD520); /* call 0x001DD520 */
-
-loc_001DDF68: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    goto loc_001DDFB2;
-
-loc_001DDF6D: ;
-    fp_push(MEMF(0x4964E8)); /* fld float */
-    fp_push(MEMF(esp + 0x14)); /* fld float */
-    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); fp_pop(); /* fucompp  */
-    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
-    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x44) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x44 (8-bit) */
-    if ((!RECOMP_PARITY8((_fa) & (_fb)))) goto loc_001DDFB2; /* jnp: not parity */
-
-loc_001DDF80: ;
-    edx = MEM32(edi + 4);
-    PUSH32(esp, edx);
-    eax = esp + 0x70;
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x5CE880);
-    PUSH32(esp, 0x001DDF93u); RECOMP_ABI_CALL(0x00108320u, sub_00108320); /* call 0x00108320 */
-
-loc_001DDF93: ;
-    ecx = MEM32(esp + 0x34);
-    edx = MEM32(esp + 0x20);
-    eax = MEM32(edi + 4);
-    PUSH32(esp, ecx);
-    PUSH32(esp, esi);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    ecx = esp + 0x88;
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001DDFAFu); RECOMP_ABI_CALL(0x001DD3F0u, sub_001DD3F0); /* call 0x001DD3F0 */
-
-loc_001DDFAF: ;
-    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x20;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001DDFB2: ;
-    MEM32(ebp + 0x28) = MEM32(ebp + 0x28) + 1;
-    _fa = (uint32_t)(MEM32(ebp + 0x28)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    ebp = MEM32(ebp);
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DDDC0; /* jne: not equal / not zero */
-
-loc_001DDFC0: ;
-    edx = MEM32(esp + 0xB0);
-    eax = MEM32(edx + 0x98);
-    ebx = 0; /* xor self */
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(1) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 1 (32-bit) */
-    MEM32(esp + 0x18) = ebx;
-    if (CMP_LE(_fas, _fbs)) goto loc_001DE03B; /* jle: less or equal (signed <=) */
-
-loc_001DDFD8: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebx (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001DE03B; /* jle: less or equal (signed <=) */
-
-loc_001DDFDC: ;
-    ebp = edx;
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ebp = ebp + 0x18;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001DDFE1: ;
-    ecx = MEM32(ebp);
-    edx = MEM32(ecx + 8);
-    edi = MEM32(ecx + 0xC);
-    eax = edx;
-    eax = eax & 0x40;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    esi = 0; /* xor self */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | esi;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM8(esp + 0x13) = 0;
-    MEM8(esp + 0x12) = 0;
-    if ((_fa == 0)) goto loc_001DE01F; /* je: equal / zero */
-
-loc_001DDFFF: ;
-    ecx = MEM32(ecx + 0x6C);
-    eax = esp + 0x12;
-    PUSH32(esp, eax);
-    eax = esp + 0x17;
-    PUSH32(esp, eax);
-    PUSH32(esp, edi);
-    PUSH32(esp, edx);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001DE014u); RECOMP_ABI_CALL(0x001DD9B0u, sub_001DD9B0); /* call 0x001DD9B0 */
-
-loc_001DE014: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE01F; /* je: equal / zero */
-
-loc_001DE01B: ;
-    MEM32(esp + 0x18) = MEM32(esp + 0x18) + 1;
-    _fa = (uint32_t)(MEM32(esp + 0x18)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001DE01F: ;
-    _fa = (uint32_t)(MEM32(esp + 0x18)) & 0xFFFFFFFFu; _fb = (uint32_t)(2) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esp + 0x18), 2 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE03B; /* je: equal / zero */
-
-loc_001DE026: ;
-    edx = MEM32(esp + 0xB0);
-    eax = MEM32(edx + 0x98);
-    ebx++;
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ebp = ebp + 4;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, eax (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001DDFE1; /* jl: less (signed <) */
-
-loc_001DE03B: ;
-    eax = MEM32(esp + 0xB0);
-    eax = MEM32(eax + 0x98);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001DE1E3; /* jle: less or equal (signed <=) */
-
-loc_001DE050: ;
-    ecx = MEM32(esp + 0xB0);
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ecx = ecx + 0x18;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    MEM32(esp + 0x1C) = 0;
-    MEM32(esp + 0x18) = ecx;
-
-loc_001DE066: ;
-    edx = MEM32(esp + 0x18);
-    edi = MEM32(edx);
-    esi = MEM32(edi + 8);
-    ebx = MEM32(edi + 0xC);
-    eax = esi;
-    eax = eax & 0x300;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM8(esp + 0x13) = 0;
-    MEM8(esp + 0x12) = 0;
-    if ((_fa == 0)) goto loc_001DE097; /* je: equal / zero */
-
-loc_001DE089: ;
-    MEM16(0x5D44F4) = LO16(ecx);
-    MEM16(0x5D772C) = LO16(ecx);
-
-loc_001DE097: ;
-    _fa = (uint32_t)(MEM32(0x514F28)) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(0x514F28), ecx (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE0EB; /* je: equal / zero */
-
-loc_001DE09F: ;
-    eax = MEM32(edi + 0x6C);
-    _fa = (uint32_t)(MEM32(eax)) & 0xFFFFFFFFu; _fb = (uint32_t)(0x11) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(eax), 0x11 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DE0EB; /* jne: not equal / not zero */
-
-loc_001DE0A7: ;
-    eax = esi;
-    eax = eax & 0x400;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE0EB; /* je: equal / zero */
-
-loc_001DE0B2: ;
-    eax = MEM32(0x706218);
-    ebp = 0; /* xor self */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ecx (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001DE0EB; /* jle: less or equal (signed <=) */
-
-loc_001DE0BD: ;
-    /* nop */
-
-loc_001DE0C0: ;
-    ecx = MEM32(edi + 0x6C);
-    edx = MEM32(ecx + 4);
-    eax = MEM32(ebp * 4 + 0x706220);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DE0D4u); RECOMP_ABI_CALL(0x001BB5C0u, sub_001BB5C0); /* call 0x001BB5C0 */
-
-loc_001DE0D4: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 1 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DE0E1; /* jne: not equal / not zero */
-
-loc_001DE0DB: ;
-    MEM8(ebp + 0x7139A8) = LO8(eax);
-
-loc_001DE0E1: ;
-    eax = MEM32(0x706218);
-    ebp++;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, eax (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001DE0C0; /* jl: less (signed <) */
-
-loc_001DE0EB: ;
-    edx = MEM32(edi + 0x6C);
-    eax = esp + 0x12;
-    PUSH32(esp, eax);
-    ecx = esp + 0x17;
-    PUSH32(esp, ecx);
-    PUSH32(esp, ebx);
-    PUSH32(esp, esi);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001DE100u); RECOMP_ABI_CALL(0x001DD9B0u, sub_001DD9B0); /* call 0x001DD9B0 */
-
-loc_001DE100: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE160; /* je: equal / zero */
-
-loc_001DE107: ;
-    eax = esi;
-    eax = eax & 0x80;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM8(esp + 0x11) = 1;
-    if ((_fa != 0)) goto loc_001DE11D; /* jne: not equal / not zero */
-
-loc_001DE119: ;
-    MEM8(esp + 0x11) = LO8(ecx);
-
-loc_001DE11D: ;
-    eax = esi;
-    eax = eax & 0x200;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE131; /* je: equal / zero */
-
-loc_001DE12A: ;
-    eax = 2;
-    goto loc_001DE142;
-
-loc_001DE131: ;
-    esi = esi & 0x100;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    esi = esi | eax;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE17E; /* je: equal / zero */
-
-loc_001DE13D: ;
-    eax = 1;
-
-loc_001DE142: ;
-    SET_LO8(ecx, MEM8(esp + 0x13));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE150; /* je: equal / zero */
-
-loc_001DE14A: ;
-    MEM16(0x5D44F4) = LO16(eax);
-
-loc_001DE150: ;
-    SET_LO8(ecx, MEM8(esp + 0x12));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE17E; /* je: equal / zero */
-
-loc_001DE158: ;
-    MEM16(0x5D772C) = LO16(eax);
-    goto loc_001DE17E;
-
-loc_001DE160: ;
-    esi = esi & 0x80;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    esi = esi | eax;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE17E; /* je: equal / zero */
-
-loc_001DE16C: ;
-    MEM8(esp + 0x11) = LO8(eax);
-    eax = MEM32(esp + 0xB0);
-    MEM32(eax + 0x12C) = MEM32(eax + 0x12C) | 8;
-    _fa = (uint32_t)(MEM32(eax + 0x12C)) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-
-loc_001DE17E: ;
-    eax = MEM32(esp + 0x1C);
-    esi = MEM32(esp + 0x18);
-    ecx = MEM32(esp + 0xB0);
-    edx = MEM32(ecx + 0x98);
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 4;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, edx (32-bit) */
-    MEM32(esp + 0x1C) = eax;
-    MEM32(esp + 0x18) = esi;
-    if (CMP_L(_fas, _fbs)) goto loc_001DE066; /* jl: less (signed <) */
-
-loc_001DE1A7: ;
-    eax = MEM32(0x706218);
-    esi = 0; /* xor self */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001DE1E3; /* jle: less or equal (signed <=) */
-
-loc_001DE1B2: ;
-    goto loc_001DE1C0;
-
-    /* nop */
-    goto loc_001DE1C0;
-
-    /* nop */
-
-loc_001DE1C0: ;
-    eax = MEM32(esi * 4 + 0x706220);
-    edx = 0; /* xor self */
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    SET_LO8(edx, MEM8(esi + 0x7139A8));
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DE1D6u); RECOMP_ABI_CALL(0x001DD160u, sub_001DD160); /* call 0x001DD160 */
-
-loc_001DE1D6: ;
-    eax = MEM32(0x706218);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esi++;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, eax (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001DE1C0; /* jl: less (signed <) */
-
-loc_001DE1E3: ;
-    SET_LO8(eax, MEM8(esp + 0x11));
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ebx);
-    if (CMP_NE(_fa, _fb)) goto loc_001DE20E; /* jne: not equal / not zero */
-
-loc_001DE1EF: ;
-    eax = MEM32(esp + 0x10);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DE20E; /* jne: not equal / not zero */
-
-loc_001DE1F7: ;
-    ecx = MEM32(esp + 0xA0);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001DE204u); RECOMP_ABI_CALL(0x001DD8B0u, sub_001DD8B0); /* call 0x001DD8B0 */
-
-loc_001DE204: ;
-    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 4;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fb = (uint32_t)(0x9C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x9C;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001DE20E: ;
-    eax = MEM32(esp + 0xA0);
-    MEM32(eax + 8) = MEM32(eax + 8) + 1;
-    _fa = (uint32_t)(MEM32(eax + 8)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x9C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x9C;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001DE0AE
- * Original: 0x001DE0AE - 0x001DE21F (369 bytes, 117 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001DE0AE(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001DE0AE: ;
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE0EB; /* je: equal / zero */
-
-loc_001DE0B2: ;
-    eax = MEM32(0x706218);
-    ebp = 0; /* xor self */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ecx (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001DE0EB; /* jle: less or equal (signed <=) */
-
-loc_001DE0BD: ;
-    /* nop */
-
-loc_001DE0C0: ;
-    ecx = MEM32(edi + 0x6C);
-    edx = MEM32(ecx + 4);
-    eax = MEM32(ebp * 4 + 0x706220);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DE0D4u); RECOMP_ABI_CALL(0x001BB5C0u, sub_001BB5C0); /* call 0x001BB5C0 */
-
-loc_001DE0D4: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 1 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DE0E1; /* jne: not equal / not zero */
-
-loc_001DE0DB: ;
-    MEM8(ebp + 0x7139A8) = LO8(eax);
-
-loc_001DE0E1: ;
-    eax = MEM32(0x706218);
-    ebp++;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, eax (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001DE0C0; /* jl: less (signed <) */
-
-loc_001DE0EB: ;
-    edx = MEM32(edi + 0x6C);
-    eax = esp + 0x12;
-    PUSH32(esp, eax);
-    ecx = esp + 0x17;
-    PUSH32(esp, ecx);
-    PUSH32(esp, ebx);
-    PUSH32(esp, esi);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001DE100u); RECOMP_ABI_CALL(0x001DD9B0u, sub_001DD9B0); /* call 0x001DD9B0 */
-
-loc_001DE100: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE160; /* je: equal / zero */
-
-loc_001DE107: ;
-    eax = esi;
-    eax = eax & 0x80;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM8(esp + 0x11) = 1;
-    if ((_fa != 0)) goto loc_001DE11D; /* jne: not equal / not zero */
-
-loc_001DE119: ;
-    MEM8(esp + 0x11) = LO8(ecx);
-
-loc_001DE11D: ;
-    eax = esi;
-    eax = eax & 0x200;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = eax | ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE131; /* je: equal / zero */
-
-loc_001DE12A: ;
-    eax = 2;
-    goto loc_001DE142;
-
-loc_001DE131: ;
-    esi = esi & 0x100;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    esi = esi | eax;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE17E; /* je: equal / zero */
-
-loc_001DE13D: ;
-    eax = 1;
-
-loc_001DE142: ;
-    SET_LO8(ecx, MEM8(esp + 0x13));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE150; /* je: equal / zero */
-
-loc_001DE14A: ;
-    MEM16(0x5D44F4) = LO16(eax);
-
-loc_001DE150: ;
-    SET_LO8(ecx, MEM8(esp + 0x12));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001DE17E; /* je: equal / zero */
-
-loc_001DE158: ;
-    MEM16(0x5D772C) = LO16(eax);
-    goto loc_001DE17E;
-
-loc_001DE160: ;
-    esi = esi & 0x80;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    esi = esi | eax;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001DE17E; /* je: equal / zero */
-
-loc_001DE16C: ;
-    MEM8(esp + 0x11) = LO8(eax);
-    eax = MEM32(esp + 0xB0);
-    MEM32(eax + 0x12C) = MEM32(eax + 0x12C) | 8;
-    _fa = (uint32_t)(MEM32(eax + 0x12C)) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-
-loc_001DE17E: ;
-    eax = MEM32(esp + 0x1C);
-    esi = MEM32(esp + 0x18);
-    ecx = MEM32(esp + 0xB0);
-    edx = MEM32(ecx + 0x98);
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 4;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, edx (32-bit) */
-    MEM32(esp + 0x1C) = eax;
-    MEM32(esp + 0x18) = esi;
-    if (CMP_L(_fas, _fbs)) { g_seh_ebp = ebp; sub_001DE066(); return; } /* jl: less (signed <) */
-
-loc_001DE1A7: ;
-    eax = MEM32(0x706218);
-    esi = 0; /* xor self */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001DE1E3; /* jle: less or equal (signed <=) */
-
-loc_001DE1B2: ;
-    goto loc_001DE1C0;
-
-    /* nop */
-    goto loc_001DE1C0;
-
-    /* nop */
-
-loc_001DE1C0: ;
-    eax = MEM32(esi * 4 + 0x706220);
-    edx = 0; /* xor self */
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    SET_LO8(edx, MEM8(esi + 0x7139A8));
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001DE1D6u); RECOMP_ABI_CALL(0x001DD160u, sub_001DD160); /* call 0x001DD160 */
-
-loc_001DE1D6: ;
-    eax = MEM32(0x706218);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esi++;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, eax (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001DE1C0; /* jl: less (signed <) */
-
-loc_001DE1E3: ;
-    SET_LO8(eax, MEM8(esp + 0x11));
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ebx);
-    if (CMP_NE(_fa, _fb)) goto loc_001DE20E; /* jne: not equal / not zero */
-
-loc_001DE1EF: ;
-    eax = MEM32(esp + 0x10);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001DE20E; /* jne: not equal / not zero */
-
-loc_001DE1F7: ;
-    ecx = MEM32(esp + 0xA0);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001DE204u); RECOMP_ABI_CALL(0x001DD8B0u, sub_001DD8B0); /* call 0x001DD8B0 */
-
-loc_001DE204: ;
-    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 4;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fb = (uint32_t)(0x9C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x9C;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001DE20E: ;
-    eax = MEM32(esp + 0xA0);
-    MEM32(eax + 8) = MEM32(eax + 8) + 1;
-    _fa = (uint32_t)(MEM32(eax + 8)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x9C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x9C;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
 }
 
 /**
@@ -20669,103 +28338,6 @@ loc_001E0080: ;
 }
 
 /**
- * sub_001E0014
- * Original: 0x001E0014 - 0x001E0082 (110 bytes, 37 insns)
- * Category: game_vtable
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E0014(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-
-loc_001E0014: ;
-    PUSH32(esp, 0x001E0019u); RECOMP_ABI_CALL(0x000EC0BCu, sub_000EC0BC); /* call 0x000EC0BC */
-
-loc_001E0019: ;
-    ecx = MEM32(esi + 0x14);
-    eax = eax & 0xFFFF;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x64);
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    edx = edx & 0xFFFF;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + edx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = (uint32_t)(((int32_t)(int32_t)(eax)) >> ((0x10) & 31u));
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, eax (32-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001E0063; /* jle: less or equal (signed <=) */
-
-loc_001E0034: ;
-    PUSH32(esp, edi);
-    edi = MEM32(esi + 0xC);
-    PUSH32(esp, 0x001E003Du); RECOMP_ABI_CALL(0x000EC0BCu, sub_000EC0BC); /* call 0x000EC0BC */
-
-loc_001E003D: ;
-    ecx = eax;
-    ecx = ecx & 0xFFFF;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    ecx = (uint32_t)((int32_t)ecx * (int32_t)edi);
-    ecx = ecx << 1;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    eax = 0x80008001u;
-    { int64_t _r = (int64_t)(int32_t)eax * (int64_t)(int32_t)ecx;
-      eax = (uint32_t)_r; edx = (uint32_t)(_r >> 32); }
-    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edx = edx + ecx;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    edx = (uint32_t)(((int32_t)(int32_t)(edx)) >> ((0xF) & 31u));
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
-    eax = edx;
-    eax = eax >> 0x1F;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + edx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fb = (uint32_t)(edi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    eax = eax - edi;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    MEM32(esi + 0x18) = eax;
-    POP32(esp, edi);
-
-loc_001E0063: ;
-    fp_push((double)SMEM32(esi + 0x18)); /* fild */
-    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esi + 0x1C)); /* fadd dword ptr [esi + 0x1c] */
-    MEMF(esi + 0x1C) = (float)fp_top(); /* fst */
-    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(0x496454)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [0x496454] */
-    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
-    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
-    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001E0080; /* jp: parity */
-
-loc_001E0079: ;
-    MEM32(esi + 0x1C) = 0x3F800000;
-
-loc_001E0080: ;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
  * sub_001E0090
  * Original: 0x001E0090 - 0x001E0116 (134 bytes, 55 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -20999,6 +28571,522 @@ loc_001E0180: ;
     MEM32(ecx + 0x14) = eax;
     MEM32(ecx + 0x18) = edx;
     esp += 28; return; /* ret 24 */
+
+}
+
+/**
+ * sub_001E01B0
+ * Original: 0x001E01B0 - 0x001E04E9 (825 bytes, 277 insns)
+ * Category: game_vehicle
+ * CC: cdecl, 3 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001E01B0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001E01B0: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    eax = MEM32(esp + 0x14);
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    esi = ecx;
+    PUSH32(esp, eax);
+    MEM32(esi + 0x2C) = 0;
+    PUSH32(esp, 0x001E01C9u); RECOMP_ABI_CALL(0x001030C0u, sub_001030C0); /* call 0x001030C0 */
+
+loc_001E01C9: ;
+    edi = MEM32(esp + 0x1C);
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    PUSH32(esp, 0);
+    PUSH32(esp, 0);
+    ecx = edi;
+    MEM32(esi + 0x28) = eax;
+    PUSH32(esp, 0x001E01DEu); RECOMP_ABI_CALL(0x001BA610u, sub_001BA610); /* call 0x001BA610 */
+
+loc_001E01DE: ;
+    ebp = eax;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
+    MEM32(esp + 0x10) = ebp;
+    if (CMP_EQ(_fa, _fb)) goto loc_001E047D; /* je: equal / zero */
+
+loc_001E01EC: ;
+    PUSH32(esp, ebx);
+    goto loc_001E01F7;
+
+loc_001E01EF: ;
+    ebp = MEM32(esp + 0x14);
+    edi = MEM32(esp + 0x1C);
+
+loc_001E01F7: ;
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x4B2754);
+    ecx = edi;
+    PUSH32(esp, 0x001E0204u); RECOMP_ABI_CALL(0x001B9EF0u, sub_001B9EF0); /* call 0x001B9EF0 */
+
+loc_001E0204: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    MEM32(esp + 0x10) = eax;
+    if (CMP_EQ(_fa, _fb)) goto loc_001E0274; /* je: equal / zero */
+
+loc_001E020C: ;
+    PUSH32(esp, ebp);
+    ecx = edi;
+    PUSH32(esp, 0x001E0214u); RECOMP_ABI_CALL(0x001BAD00u, sub_001BAD00); /* call 0x001BAD00 */
+
+loc_001E0214: ;
+    ecx = MEM32(esi + 0x2C);
+    ebx = eax;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E0235; /* jle: less or equal (signed <=) */
+
+loc_001E021F: ;
+    edi = MEM32(esi + 0x28);
+    edx = edi;
+
+loc_001E0224: ;
+    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx), ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E04B2; /* je: equal / zero */
+
+loc_001E022C: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 0x24;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esi + 0x2C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(esi + 0x2C) (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E0224; /* jl: less (signed <) */
+
+loc_001E0235: ;
+    eax = MEM32(esi + 0x28);
+    edx = ecx + ecx * 8;
+    MEM32(eax + edx * 4) = ebx;
+    eax = MEM32(esi + 0x2C);
+    edx = MEM32(esi + 0x28);
+    ecx = eax + eax * 8;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    edi = edx + ecx * 4;
+    MEM32(esi + 0x2C) = eax;
+
+loc_001E024E: ;
+    eax = MEM32(esp + 0x10);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001E0258u); RECOMP_ABI_CALL(0x000EBE27u, sub_000EBE27); /* call 0x000EBE27 */
+
+loc_001E0258: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x5CE880);
+    MEM32(edi + 4) = eax;
+    MEM32(edi + 0x20) = 0;
+    PUSH32(esp, 0x001E026Du); RECOMP_ABI_CALL(0x00123AE0u, sub_00123AE0); /* call 0x00123AE0 */
+
+loc_001E026D: ;
+    edi = MEM32(esp + 0x28);
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001E0274: ;
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x4B2748);
+    ecx = edi;
+    PUSH32(esp, 0x001E0281u); RECOMP_ABI_CALL(0x001B9EF0u, sub_001B9EF0); /* call 0x001B9EF0 */
+
+loc_001E0281: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    MEM32(esp + 0x10) = eax;
+    if (CMP_EQ(_fa, _fb)) goto loc_001E02F1; /* je: equal / zero */
+
+loc_001E0289: ;
+    PUSH32(esp, ebp);
+    ecx = edi;
+    PUSH32(esp, 0x001E0291u); RECOMP_ABI_CALL(0x001BAD00u, sub_001BAD00); /* call 0x001BAD00 */
+
+loc_001E0291: ;
+    ecx = MEM32(esi + 0x2C);
+    ebx = eax;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E02B2; /* jle: less or equal (signed <=) */
+
+loc_001E029C: ;
+    edi = MEM32(esi + 0x28);
+    edx = edi;
+
+loc_001E02A1: ;
+    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx), ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E04BD; /* je: equal / zero */
+
+loc_001E02A9: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 0x24;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esi + 0x2C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(esi + 0x2C) (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E02A1; /* jl: less (signed <) */
+
+loc_001E02B2: ;
+    eax = MEM32(esi + 0x28);
+    edx = ecx + ecx * 8;
+    MEM32(eax + edx * 4) = ebx;
+    eax = MEM32(esi + 0x2C);
+    edx = MEM32(esi + 0x28);
+    ecx = eax + eax * 8;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    edi = edx + ecx * 4;
+    MEM32(esi + 0x2C) = eax;
+
+loc_001E02CB: ;
+    eax = MEM32(esp + 0x10);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001E02D5u); RECOMP_ABI_CALL(0x000EBE27u, sub_000EBE27); /* call 0x000EBE27 */
+
+loc_001E02D5: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x5CE880);
+    MEM32(edi + 8) = eax;
+    MEM32(edi + 0x20) = 0;
+    PUSH32(esp, 0x001E02EAu); RECOMP_ABI_CALL(0x00123AE0u, sub_00123AE0); /* call 0x00123AE0 */
+
+loc_001E02EA: ;
+    edi = MEM32(esp + 0x28);
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001E02F1: ;
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x4B2738);
+    ecx = edi;
+    PUSH32(esp, 0x001E02FEu); RECOMP_ABI_CALL(0x001B9EF0u, sub_001B9EF0); /* call 0x001B9EF0 */
+
+loc_001E02FE: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    MEM32(esp + 0x10) = eax;
+    if (CMP_EQ(_fa, _fb)) goto loc_001E0370; /* je: equal / zero */
+
+loc_001E0306: ;
+    PUSH32(esp, ebp);
+    ecx = edi;
+    PUSH32(esp, 0x001E030Eu); RECOMP_ABI_CALL(0x001BAD00u, sub_001BAD00); /* call 0x001BAD00 */
+
+loc_001E030E: ;
+    ecx = MEM32(esi + 0x2C);
+    ebx = eax;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E0331; /* jle: less or equal (signed <=) */
+
+loc_001E0319: ;
+    edi = MEM32(esi + 0x28);
+    edx = edi;
+    edi = edi;
+
+loc_001E0320: ;
+    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx), ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E04C8; /* je: equal / zero */
+
+loc_001E0328: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 0x24;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esi + 0x2C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(esi + 0x2C) (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E0320; /* jl: less (signed <) */
+
+loc_001E0331: ;
+    eax = MEM32(esi + 0x28);
+    edx = ecx + ecx * 8;
+    MEM32(eax + edx * 4) = ebx;
+    eax = MEM32(esi + 0x2C);
+    edx = MEM32(esi + 0x28);
+    ecx = eax + eax * 8;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    edi = edx + ecx * 4;
+    MEM32(esi + 0x2C) = eax;
+
+loc_001E034A: ;
+    eax = MEM32(esp + 0x10);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001E0354u); RECOMP_ABI_CALL(0x000EBE27u, sub_000EBE27); /* call 0x000EBE27 */
+
+loc_001E0354: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x5CE880);
+    MEM32(edi + 0x10) = eax;
+    MEM32(edi + 0x20) = 0;
+    PUSH32(esp, 0x001E0369u); RECOMP_ABI_CALL(0x00123AE0u, sub_00123AE0); /* call 0x00123AE0 */
+
+loc_001E0369: ;
+    edi = MEM32(esp + 0x28);
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001E0370: ;
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x4B2728);
+    ecx = edi;
+    PUSH32(esp, 0x001E037Du); RECOMP_ABI_CALL(0x001B9EF0u, sub_001B9EF0); /* call 0x001B9EF0 */
+
+loc_001E037D: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    MEM32(esp + 0x10) = eax;
+    if (CMP_EQ(_fa, _fb)) goto loc_001E03F1; /* je: equal / zero */
+
+loc_001E0385: ;
+    PUSH32(esp, ebp);
+    ecx = edi;
+    PUSH32(esp, 0x001E038Du); RECOMP_ABI_CALL(0x001BAD00u, sub_001BAD00); /* call 0x001BAD00 */
+
+loc_001E038D: ;
+    ecx = MEM32(esi + 0x2C);
+    ebx = eax;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E03B1; /* jle: less or equal (signed <=) */
+
+loc_001E0398: ;
+    edi = MEM32(esi + 0x28);
+    edx = edi;
+    /* nop */
+
+loc_001E03A0: ;
+    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx), ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E04D3; /* je: equal / zero */
+
+loc_001E03A8: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 0x24;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esi + 0x2C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(esi + 0x2C) (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E03A0; /* jl: less (signed <) */
+
+loc_001E03B1: ;
+    eax = MEM32(esi + 0x28);
+    edx = ecx + ecx * 8;
+    MEM32(eax + edx * 4) = ebx;
+    eax = MEM32(esi + 0x2C);
+    edx = MEM32(esi + 0x28);
+    ecx = eax + eax * 8;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    edi = edx + ecx * 4;
+    MEM32(esi + 0x2C) = eax;
+
+loc_001E03CA: ;
+    eax = MEM32(esp + 0x10);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001E03D4u); RECOMP_ABI_CALL(0x000EBE27u, sub_000EBE27); /* call 0x000EBE27 */
+
+loc_001E03D4: ;
+    MEM32(edi + 0xC) = eax;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x5CE880);
+    MEM32(edi + 0x18) = eax;
+    MEM32(edi + 0x20) = eax;
+    PUSH32(esp, 0x001E03EAu); RECOMP_ABI_CALL(0x00123AE0u, sub_00123AE0); /* call 0x00123AE0 */
+
+loc_001E03EA: ;
+    edi = MEM32(esp + 0x28);
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001E03F1: ;
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x4B2718);
+    ecx = edi;
+    PUSH32(esp, 0x001E03FEu); RECOMP_ABI_CALL(0x001B9EF0u, sub_001B9EF0); /* call 0x001B9EF0 */
+
+loc_001E03FE: ;
+    ebp = eax;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E046A; /* je: equal / zero */
+
+loc_001E0404: ;
+    ecx = MEM32(esp + 0x14);
+    PUSH32(esp, ecx);
+    ecx = MEM32(esp + 0x20);
+    PUSH32(esp, 0x001E0412u); RECOMP_ABI_CALL(0x001BAD00u, sub_001BAD00); /* call 0x001BAD00 */
+
+loc_001E0412: ;
+    ecx = MEM32(esi + 0x2C);
+    ebx = eax;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E0433; /* jle: less or equal (signed <=) */
+
+loc_001E041D: ;
+    edi = MEM32(esi + 0x28);
+    edx = edi;
+
+loc_001E0422: ;
+    _fa = (uint32_t)(MEM32(edx)) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx), ebx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E04DE; /* je: equal / zero */
+
+loc_001E042A: ;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 0x24;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esi + 0x2C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(esi + 0x2C) (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E0422; /* jl: less (signed <) */
+
+loc_001E0433: ;
+    eax = ecx + ecx * 8;
+    ecx = MEM32(esi + 0x28);
+    MEM32(ecx + eax * 4) = ebx;
+    eax = MEM32(esi + 0x2C);
+    ecx = MEM32(esi + 0x28);
+    edx = eax + eax * 8;
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    edi = ecx + edx * 4;
+    MEM32(esi + 0x2C) = eax;
+
+loc_001E044C: ;
+    PUSH32(esp, ebp);
+    PUSH32(esp, 0x001E0452u); RECOMP_ABI_CALL(0x000EBE27u, sub_000EBE27); /* call 0x000EBE27 */
+
+loc_001E0452: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x5CE880);
+    MEM32(edi + 0x14) = eax;
+    MEM32(edi + 0x18) = 0;
+    PUSH32(esp, 0x001E0467u); RECOMP_ABI_CALL(0x00123AE0u, sub_00123AE0); /* call 0x00123AE0 */
+
+loc_001E0467: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001E046A: ;
+    edx = MEM32(esp + 0x14);
+    eax = MEM32(edx);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    MEM32(esp + 0x14) = eax;
+    if (CMP_NE(_fa, _fb)) goto loc_001E01EF; /* jne: not equal / not zero */
+
+loc_001E047C: ;
+    POP32(esp, ebx);
+
+loc_001E047D: ;
+    esi = MEM32(esi + 0x2C);
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E04A9; /* je: equal / zero */
+
+loc_001E0484: ;
+    ecx = MEM32(esp + 0x20);
+    PUSH32(esp, 0xAE);
+    PUSH32(esp, 0x4B26EC);
+    PUSH32(esp, 0x4B26BC);
+    eax = esi + esi * 8;
+    PUSH32(esp, 1);
+    eax = eax << 2;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001E04A6u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001E04A6: ;
+    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x18;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001E04A9: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 16; return; /* ret 12 */
+
+loc_001E04B2: ;
+    ecx = eax + eax * 8;
+    edi = edi + ecx * 4;
+    goto loc_001E024E;
+
+loc_001E04BD: ;
+    ecx = eax + eax * 8;
+    edi = edi + ecx * 4;
+    goto loc_001E02CB;
+
+loc_001E04C8: ;
+    ecx = eax + eax * 8;
+    edi = edi + ecx * 4;
+    goto loc_001E034A;
+
+loc_001E04D3: ;
+    ecx = eax + eax * 8;
+    edi = edi + ecx * 4;
+    goto loc_001E03CA;
+
+loc_001E04DE: ;
+    edx = eax + eax * 8;
+    edi = edi + edx * 4;
+    goto loc_001E044C;
 
 }
 
@@ -23330,36 +31418,6 @@ loc_001E128F: ;
 }
 
 /**
- * sub_001E1288
- * Original: 0x001E1288 - 0x001E1293 (11 bytes, 7 insns)
- * CC: cdecl, 3 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E1288(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E1288: ;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, ebp (32-bit) */
-    if (CMP_L(_fas, _fbs)) { g_seh_ebp = ebp; sub_001E1250(); return; } /* jl: less (signed <) */
-
-loc_001E128C: ;
-    POP32(esp, edi);
-    POP32(esp, ebx);
-    POP32(esp, ebp);
-    POP32(esp, esi);
-    esp += 16; return; /* ret 12 */
-
-}
-
-/**
  * sub_001E12A0
  * Original: 0x001E12A0 - 0x001E12AD (13 bytes, 4 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -23578,6 +31636,50 @@ loc_001E13D3: ;
 }
 
 /**
+ * sub_001E13E0
+ * Original: 0x001E13E0 - 0x001E1430 (80 bytes, 18 insns)
+ * Category: game_physics
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001E13E0(void)
+{
+
+loc_001E13E0: ;
+    PUSH32(esp, 0x515038);
+    PUSH32(esp, 0x4AF1B0);
+    MEM32(ecx + 4) = 0;
+    MEM32(ecx) = 0;
+    PUSH32(esp, 0x001E13FCu); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
+
+loc_001E13FC: ;
+    ecx = eax;
+    PUSH32(esp, 0x001E1403u); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
+
+loc_001E1403: ;
+    PUSH32(esp, 0x51744C);
+    PUSH32(esp, 0x4B27B8);
+    PUSH32(esp, 0x001E1412u); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
+
+loc_001E1412: ;
+    ecx = eax;
+    PUSH32(esp, 0x001E1419u); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
+
+loc_001E1419: ;
+    PUSH32(esp, 0x517440);
+    PUSH32(esp, 0x4B27A8);
+    PUSH32(esp, 0x001E1428u); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
+
+loc_001E1428: ;
+    ecx = eax;
+    PUSH32(esp, 0x001E142Fu); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
+
+loc_001E142F: ;
+    esp += 4; return; /* ret */
+
+}
+
+/**
  * sub_001E1430
  * Original: 0x001E1430 - 0x001E144D (29 bytes, 11 insns)
  * CC: cdecl, 0 params, returns int_or_void
@@ -23670,6 +31772,70 @@ loc_001E147B: ;
     _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
 
 loc_001E147D: ;
+    esp += 8; return; /* ret 4 */
+
+}
+
+/**
+ * sub_001E1480
+ * Original: 0x001E1480 - 0x001E14DB (91 bytes, 32 insns)
+ * Category: game_audio
+ * CC: cdecl, 1 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001E1480(void)
+{
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+
+loc_001E1480: ;
+    PUSH32(esp, esi);
+    esi = ecx;
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001E148Du); RECOMP_ABI_CALL(0x00144580u, sub_00144580); /* call 0x00144580 */
+
+loc_001E148D: ;
+    PUSH32(esp, 0x910);
+    PUSH32(esp, 0x4B27EC);
+    PUSH32(esp, 0x4B27C4);
+    PUSH32(esp, 1);
+    PUSH32(esp, 0x18);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001E14A6u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001E14A6: ;
+    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x18;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001E14B1; /* jne: not equal / not zero */
+
+loc_001E14AD: ;
+    POP32(esp, esi);
+    esp += 8; return; /* ret 4 */
+
+loc_001E14B1: ;
+    MEM32(esi) = MEM32(esi) + 1;
+    _fa = (uint32_t)(MEM32(esi)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edx = eax;
+    MEM32(edx) = ecx;
+    MEM32(edx + 4) = ecx;
+    MEM32(edx + 8) = ecx;
+    MEM32(edx + 0xC) = ecx;
+    MEM32(edx + 0x10) = ecx;
+    MEM32(edx + 0x14) = ecx;
+    ecx = MEM32(esi + 4);
+    edx = MEM32(esp + 8);
+    MEM32(eax + 0x10) = ecx;
+    MEM32(eax) = edx;
+    MEM32(esi + 4) = eax;
+    POP32(esp, esi);
     esp += 8; return; /* ret 4 */
 
 }
@@ -23942,6 +32108,925 @@ loc_001E16BD: ;
     POP32(esp, esi);
     _fb = (uint32_t)(0x210) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
     esp = esp + 0x210;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+    #undef fp_push
+    #undef fp_pop
+    #undef fp_top
+    #undef fp_st
+    #undef fp_st1
+}
+
+/**
+ * sub_001E16D0
+ * Original: 0x001E16D0 - 0x001E1CF2 (1570 bytes, 454 insns)
+ * Category: game_debug
+ * CC: cdecl, 0 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001E16D0(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    #define fp_push(v) do { double _fp_value = (v); \
+        g_fp_top = (g_fp_top + 7u) & 7u; \
+        g_fp_stack[g_fp_top] = _fp_value; } while (0)
+    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
+    #define fp_top() g_fp_stack[g_fp_top]
+    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
+    #define fp_st1() fp_st(1)
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001E16D0: ;
+    _fb = (uint32_t)(0xA0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
+    esp = esp - 0xA0;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
+    PUSH32(esp, ebx);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001E16E3u); RECOMP_ABI_CALL(0x00144580u, sub_00144580); /* call 0x00144580 */
+
+loc_001E16E3: ;
+    ecx = 0x64D218;
+    MEM32(esp + 0xC) = eax;
+    PUSH32(esp, 0x001E16F1u); RECOMP_ABI_CALL(0x00144620u, sub_00144620); /* call 0x00144620 */
+
+loc_001E16F1: ;
+    esi = MEM32(esp + 0xBC);
+    edi = MEM32(esp + 0xB8);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    MEM32(esp + 0x28) = eax;
+    PUSH32(esp, 0x001E170Au); RECOMP_ABI_CALL(0x001E1080u, sub_001E1080); /* call 0x001E1080 */
+
+loc_001E170A: ;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    MEM32(0x713C18) = eax;
+    MEM32(0x713C1C) = eax;
+    MEM32(0x713C20) = eax;
+    MEM32(0x713C24) = eax;
+    MEM32(0x713C28) = eax;
+    MEM32(0x713C2C) = eax;
+    MEM32(0x713C30) = eax;
+    MEM32(0x713C34) = eax;
+    MEM32(0x713C38) = eax;
+    MEM32(0x713C3C) = eax;
+    MEM32(0x713C40) = eax;
+    MEM32(0x713C44) = eax;
+    MEM32(0x713C48) = eax;
+    MEM32(0x713C4C) = eax;
+    MEM32(0x713C50) = eax;
+    MEM32(0x713C54) = eax;
+    MEM32(0x713C58) = eax;
+    MEM32(0x713C5C) = eax;
+    MEM32(0x713C60) = eax;
+    ebx = MEM32(esp + 0xB8);
+    MEM32(0x713C64) = eax;
+    MEM32(0x713C68) = eax;
+    MEM32(0x713C6C) = eax;
+    MEM32(0x713C70) = eax;
+    MEM32(0x713C74) = eax;
+    MEM32(0x713C78) = eax;
+    MEM32(0x713C7C) = eax;
+    MEM32(0x713C80) = eax;
+    MEM32(0x713C84) = eax;
+    MEM32(0x713C88) = eax;
+    MEM32(0x713C8C) = eax;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, 0 (32-bit) */
+    MEM32(0x713C90) = eax;
+    MEM16(0x713C9C) = 0;
+    MEM32(0x713C94) = eax;
+    if (CMP_NE(_fa, _fb)) goto loc_001E17CB; /* jne: not equal / not zero */
+
+loc_001E17C3: ;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E1CE8; /* je: equal / zero */
+
+loc_001E17CB: ;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
+    PUSH32(esp, ebp);
+    ebp = MEM32(esp + 0xB8);
+    if (CMP_LE(_fas, _fbs)) goto loc_001E18D9; /* jle: less or equal (signed <=) */
+
+loc_001E17DB: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 8;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esp + 0x14) = esi;
+
+loc_001E17E2: ;
+    ecx = MEM32(edi);
+    edx = MEM32(edi + 4);
+    eax = ecx;
+    MEM32(esp + 0x20) = edx;
+    eax = eax & 0x400;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa != 0)) goto loc_001E1808; /* jne: not equal / not zero */
+
+loc_001E17F8: ;
+    ecx = ecx & 0x20000;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ecx = ecx | eax;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001E18C7; /* je: equal / zero */
+
+loc_001E1808: ;
+    MEM16(0x713C9C) = MEM16(0x713C9C) + 1;
+    _fa = (uint32_t)(MEM16(0x713C9C)) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fb = (_fa == 0x8000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E186A; /* je: equal / zero */
+
+loc_001E1813: ;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
+    ecx = ebx;
+    if (CMP_LE(_fas, _fbs)) goto loc_001E182C; /* jle: less or equal (signed <=) */
+
+loc_001E181B: ;
+    edx = MEM32(edi + -8);
+    edi = edi;
+
+loc_001E1820: ;
+    _fa = (uint32_t)(MEM32(ecx)) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx), edx (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E182C; /* je: equal / zero */
+
+loc_001E1824: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 0x10;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebp (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E1820; /* jl: less (signed <) */
+
+loc_001E182C: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebp (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001E1846; /* jne: not equal / not zero */
+
+loc_001E1830: ;
+    eax = MEM32(edi + -8);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x4B2830);
+    esi = esi | 0xFFFFFFFFu;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    PUSH32(esp, 0x001E1841u); RECOMP_ABI_CALL(0x00106EB0u, sub_00106EB0); /* call 0x00106EB0 */
+
+loc_001E1841: ;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 8;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    goto loc_001E1849;
+
+loc_001E1846: ;
+    esi = MEM32(ecx + 8);
+
+loc_001E1849: ;
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    goto loc_001E1850;
+
+    /* nop */
+
+loc_001E1850: ;
+    edx = 1;
+    edx = edx << LO8(ecx);
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test esi, edx (32-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1862; /* je: equal / zero */
+
+loc_001E185B: ;
+    MEM32(ecx * 4 + 0x713C18) = MEM32(ecx * 4 + 0x713C18) + 1;
+    _fa = (uint32_t)(MEM32(ecx * 4 + 0x713C18)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1862: ;
+    ecx++;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0x20) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0x20 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E1850; /* jl: less (signed <) */
+
+loc_001E1868: ;
+    goto loc_001E18C7;
+
+loc_001E186A: ;
+    eax = MEM32(edi);
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 1 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1876; /* je: equal / zero */
+
+loc_001E1870: ;
+    MEM32(0x713C18) = MEM32(0x713C18) + 1;
+    _fa = (uint32_t)(MEM32(0x713C18)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1876: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(2) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 2 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1880; /* je: equal / zero */
+
+loc_001E187A: ;
+    MEM32(0x713C1C) = MEM32(0x713C1C) + 1;
+    _fa = (uint32_t)(MEM32(0x713C1C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1880: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(4) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 4 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E188A; /* je: equal / zero */
+
+loc_001E1884: ;
+    MEM32(0x713C20) = MEM32(0x713C20) + 1;
+    _fa = (uint32_t)(MEM32(0x713C20)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E188A: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(8) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 8 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1894; /* je: equal / zero */
+
+loc_001E188E: ;
+    MEM32(0x713C24) = MEM32(0x713C24) + 1;
+    _fa = (uint32_t)(MEM32(0x713C24)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1894: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0x10) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 0x10 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E189E; /* je: equal / zero */
+
+loc_001E1898: ;
+    MEM32(0x713C28) = MEM32(0x713C28) + 1;
+    _fa = (uint32_t)(MEM32(0x713C28)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E189E: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0x20) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 0x20 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E18A8; /* je: equal / zero */
+
+loc_001E18A2: ;
+    MEM32(0x713C2C) = MEM32(0x713C2C) + 1;
+    _fa = (uint32_t)(MEM32(0x713C2C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E18A8: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0x40) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test LO8(eax), 0x40 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E18B2; /* je: equal / zero */
+
+loc_001E18AC: ;
+    MEM32(0x713C30) = MEM32(0x713C30) + 1;
+    _fa = (uint32_t)(MEM32(0x713C30)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E18B2: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if ((((uint8_t)((uint8_t)(_fa) - (uint8_t)(_fb)) >> 7) == 0)) goto loc_001E18BC; /* jns: not sign (positive) */
+
+loc_001E18B6: ;
+    MEM32(0x713C34) = MEM32(0x713C34) + 1;
+    _fa = (uint32_t)(MEM32(0x713C34)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E18BC: ;
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 1 (8-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E18C7; /* je: equal / zero */
+
+loc_001E18C1: ;
+    MEM32(0x713C38) = MEM32(0x713C38) + 1;
+    _fa = (uint32_t)(MEM32(0x713C38)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E18C7: ;
+    eax = MEM32(esp + 0x14);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x10;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esp + 0x14) = eax;
+    if ((_fa != 0)) goto loc_001E17E2; /* jne: not equal / not zero */
+
+loc_001E18D9: ;
+    PUSH32(esp, 0x001E18DEu); RECOMP_ABI_CALL(0x001A6290u, sub_001A6290); /* call 0x001A6290 */
+
+loc_001E18DE: ;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
+    SET_LO16(eax, MEM16(0x713C9C));
+    if (CMP_NE(_fa, _fb)) goto loc_001E18FE; /* jne: not equal / not zero */
+
+loc_001E18E8: ;
+    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0 (16-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001E1903; /* jne: not equal / not zero */
+
+loc_001E18ED: ;
+    MEM32(0x713CA0) = ebp;
+    POP32(esp, ebp);
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0xA0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xA0;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esp += 4; return; /* ret */
+
+loc_001E18FE: ;
+    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
+    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0 (16-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E192F; /* je: equal / zero */
+
+loc_001E1903: ;
+    ebx = MEM32(esp + 0x10);
+    eax = ZX16(LO16(eax));
+    PUSH32(esp, 0x179);
+    eax = (uint32_t)((int32_t)eax * (int32_t)0xB4);
+    PUSH32(esp, 0x4B2818);
+    PUSH32(esp, 0x4B27C4);
+    PUSH32(esp, 1);
+    PUSH32(esp, eax);
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x001E1928u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001E1928: ;
+    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x18;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    esi = eax;
+    goto loc_001E1935;
+
+loc_001E192F: ;
+    ebx = MEM32(esp + 0x10);
+    esi = 0; /* xor self */
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+
+loc_001E1935: ;
+    edi = 0; /* xor self */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    goto loc_001E1940;
+
+    /* nop */
+
+loc_001E1940: ;
+    eax = MEM32(edi + 0x713C18);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E197C; /* je: equal / zero */
+
+loc_001E194A: ;
+    PUSH32(esp, 0x188);
+    PUSH32(esp, 0x4B2818);
+    PUSH32(esp, 0x4B27C4);
+    PUSH32(esp, 1);
+    ecx = eax * 4;
+    PUSH32(esp, ecx);
+    PUSH32(esp, ebx);
+    PUSH32(esp, 0x001E1969u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001E1969: ;
+    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x18;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(edi + 0x713CA8) = eax;
+    MEM32(edi + 0x713C18) = 0;
+
+loc_001E197C: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 4;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0x80) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0x80 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E1940; /* jl: less (signed <) */
+
+loc_001E1987: ;
+    eax = MEM32(esp + 0xC0);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    MEM32(0x713CA0) = esi;
+    if (CMP_LE(_fas, _fbs)) goto loc_001E1BE2; /* jle: less or equal (signed <=) */
+
+loc_001E199C: ;
+    ebx = MEM32(esp + 0xBC);
+    edx = eax;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 8;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esp + 0x1C) = edx;
+    /* nop */
+
+loc_001E19B0: ;
+    edi = ebx + -8;
+    PUSH32(esp, edi);
+    PUSH32(esp, 0x001E19B9u); RECOMP_ABI_CALL(0x001A6340u, sub_001A6340); /* call 0x001A6340 */
+
+loc_001E19B9: ;
+    eax = MEM32(ebx + 4);
+    ecx = MEM32(ebx);
+    MEM32(esp + 0x30) = eax;
+    eax = ecx;
+    eax = eax & 0x400;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa != 0)) goto loc_001E19E2; /* jne: not equal / not zero */
+
+loc_001E19D2: ;
+    ecx = ecx & 0x20000;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ecx = ecx | eax;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001E1BD0; /* je: equal / zero */
+
+loc_001E19E2: ;
+    SET_LO16(ecx, MEM16(edi));
+    MEM16(esi) = LO16(ecx);
+    edx = MEM32(ebx);
+    ecx = MEM32(esp + 0xB4);
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, eax (32-bit) */
+    MEM32(esi + 8) = edx;
+    MEM16(esi + 0x98) = LO16(eax);
+    if (CMP_EQ(_fa, _fb)) goto loc_001E1A28; /* je: equal / zero */
+
+loc_001E1A01: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebp (32-bit) */
+    if (CMP_GE(_fas, _fbs)) goto loc_001E1A15; /* jge: greater or equal (signed >=) */
+
+loc_001E1A05: ;
+    edi = MEM32(edi);
+
+loc_001E1A07: ;
+    _fa = (uint32_t)(MEM32(ecx)) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(ecx), edi (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E1A13; /* je: equal / zero */
+
+loc_001E1A0B: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 0x10;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax++;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebp (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E1A07; /* jl: less (signed <) */
+
+loc_001E1A13: ;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ebp (32-bit) */
+
+loc_001E1A15: ;
+    if (CMP_NE(_fa, _fb)) goto loc_001E1A20; /* jne: not equal / not zero */
+
+loc_001E1A17: ;
+    MEM32(esi + 0xC) = 0xFFFFFFFFu;
+    goto loc_001E1A33;
+
+loc_001E1A20: ;
+    eax = MEM32(ecx + 8);
+    MEM32(esi + 0xC) = eax;
+    goto loc_001E1A33;
+
+loc_001E1A28: ;
+    ecx = MEM32(ebx);
+    ecx = ecx & 0x1FF;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    MEM32(esi + 0xC) = ecx;
+
+loc_001E1A33: ;
+    edx = (uint32_t)(int32_t)SMEM16(esi);
+    ecx = MEM32(esp + 0x24);
+    PUSH32(esp, edx);
+    eax = esp + 0x34;
+    PUSH32(esp, eax);
+    PUSH32(esp, ecx);
+    PUSH32(esp, 0x001E1A46u); RECOMP_ABI_CALL(0x001ABBE0u, sub_001ABBE0); /* call 0x001ABBE0 */
+
+loc_001E1A46: ;
+    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xC;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esp + 0x14) = 0;
+    MEM32(esp + 0x18) = 0;
+    MEM32(esp + 0x10) = 0;
+    edi = esp + 0x34;
+    ebp = 8;
+    /* nop */
+
+loc_001E1A70: ;
+    fp_push(MEMF(esp + 0x18)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(edi)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [edi] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
+    if (TEST_NZ(_fa, _fb)) goto loc_001E1A83; /* jne: not equal / not zero */
+
+loc_001E1A7D: ;
+    edx = MEM32(edi);
+    MEM32(esp + 0x18) = edx;
+
+loc_001E1A83: ;
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(edi)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [edi] */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001E1A96; /* jp: parity */
+
+loc_001E1A90: ;
+    eax = MEM32(edi);
+    MEM32(esp + 0x10) = eax;
+
+loc_001E1A96: ;
+    ecx = edi + -4;
+    PUSH32(esp, ecx);
+    MEM32(edi) = 0;
+    PUSH32(esp, 0x001E1AA5u); RECOMP_ABI_CALL(0x0015C1D0u, sub_0015C1D0); /* call 0x0015C1D0 */
+
+loc_001E1AA5: ;
+    fp_push(MEMF(esp + 0x18)); /* fld float */
+    g_fp_cmp = RECOMP_FCMP(fp_top(), fp_st1()); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp st(1) */
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
+    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(5) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 5 (8-bit) */
+    if (RECOMP_PARITY8((_fa) & (_fb))) goto loc_001E1ABB; /* jp: parity */
+
+loc_001E1AB5: ;
+    MEMF(esp + 0x14) = (float)fp_top(); fp_pop(); /* fstp */
+    goto loc_001E1ABD;
+
+loc_001E1ABB: ;
+    fp_pop(); /* fstp st(0) */
+
+loc_001E1ABD: ;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x10;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ebp--;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    if ((_fa != 0)) goto loc_001E1A70; /* jne: not equal / not zero */
+
+loc_001E1AC3: ;
+    fp_push(MEMF(esp + 0x18)); /* fld float */
+    PUSH32(esp, 0x001E1ACCu); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001E1ACC: ;
+    fp_push(MEMF(esp + 0x10)); /* fld float */
+    MEM16(esi + 4) = LO16(eax);
+    PUSH32(esp, 0x001E1AD9u); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001E1AD9: ;
+    fp_push(MEMF(esp + 0x14)); /* fld float */
+    MEM16(esi + 6) = LO16(eax);
+    PUSH32(esp, 0x001E1AE6u); RECOMP_ABI_CALL(0x000EB38Cu, sub_000EB38C); /* call 0x000EB38C */
+
+loc_001E1AE6: ;
+    edi = 0; /* xor self */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    MEM16(esi + 2) = LO16(eax);
+    MEM16(esi + 0x9A) = LO16(edi);
+    MEM32(esi + 0xAC) = edi;
+    MEM32(esi + 0xB0) = edi;
+    MEM8(esi + 0x11) = 0;
+    MEM8(esi + 0x13) = 0;
+    eax = esi + 0x1C;
+    ecx = 0x10;
+    /* nop */
+
+loc_001E1B10: ;
+    MEM32(eax + -4) = edi;
+    MEM32(eax) = edi;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 8;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx--;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    if ((_fa != 0)) goto loc_001E1B10; /* jne: not equal / not zero */
+
+loc_001E1B1B: ;
+    edx = 2;
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+
+loc_001E1B22: ;
+    ecx = edx + -2;
+    edi = 1;
+    edi = edi << LO8(ecx);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fa = (uint32_t)(MEM32(esi + 0xC)) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test MEM32(esi + 0xC), edi (32-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1B46; /* je: equal / zero */
+
+loc_001E1B31: ;
+    ecx = MEM32(eax + 0x713C18);
+    edi = MEM32(eax + 0x713CA8);
+    MEM32(edi + ecx * 4) = esi;
+    MEM32(eax + 0x713C18) = MEM32(eax + 0x713C18) + 1;
+    _fa = (uint32_t)(MEM32(eax + 0x713C18)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1B46: ;
+    ecx = edx + -1;
+    edi = 1;
+    edi = edi << LO8(ecx);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fa = (uint32_t)(MEM32(esi + 0xC)) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test MEM32(esi + 0xC), edi (32-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1B6A; /* je: equal / zero */
+
+loc_001E1B55: ;
+    ecx = MEM32(eax + 0x713C1C);
+    edi = MEM32(eax + 0x713CAC);
+    MEM32(edi + ecx * 4) = esi;
+    MEM32(eax + 0x713C1C) = MEM32(eax + 0x713C1C) + 1;
+    _fa = (uint32_t)(MEM32(eax + 0x713C1C)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1B6A: ;
+    ecx = edx;
+    edi = 1;
+    edi = edi << LO8(ecx);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fa = (uint32_t)(MEM32(esi + 0xC)) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test MEM32(esi + 0xC), edi (32-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1B8D; /* je: equal / zero */
+
+loc_001E1B78: ;
+    ecx = MEM32(eax + 0x713C20);
+    edi = MEM32(eax + 0x713CB0);
+    MEM32(edi + ecx * 4) = esi;
+    MEM32(eax + 0x713C20) = MEM32(eax + 0x713C20) + 1;
+    _fa = (uint32_t)(MEM32(eax + 0x713C20)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1B8D: ;
+    ecx = edx + 1;
+    edi = 1;
+    edi = edi << LO8(ecx);
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
+    _fa = (uint32_t)(MEM32(esi + 0xC)) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test MEM32(esi + 0xC), edi (32-bit) */
+    if (TEST_Z(_fa, _fb)) goto loc_001E1BB1; /* je: equal / zero */
+
+loc_001E1B9C: ;
+    ecx = MEM32(eax + 0x713C24);
+    edi = MEM32(eax + 0x713CB4);
+    MEM32(edi + ecx * 4) = esi;
+    MEM32(eax + 0x713C24) = MEM32(eax + 0x713C24) + 1;
+    _fa = (uint32_t)(MEM32(eax + 0x713C24)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+
+loc_001E1BB1: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 4;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx = edx + -2;
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    eax = eax + 0x10;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0x20) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0x20 (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E1B22; /* jl: less (signed <) */
+
+loc_001E1BC3: ;
+    ebp = MEM32(esp + 0xB8);
+    _fb = (uint32_t)(0xB4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0xB4;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+
+loc_001E1BD0: ;
+    eax = MEM32(esp + 0x1C);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebx = ebx + 0x10;
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esp + 0x1C) = eax;
+    if ((_fa != 0)) goto loc_001E19B0; /* jne: not equal / not zero */
+
+loc_001E1BE2: ;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
+    esi = MEM32(esp + 0xB4);
+    if (CMP_LE(_fas, _fbs)) goto loc_001E1BFF; /* jle: less or equal (signed <=) */
+
+loc_001E1BED: ;
+    edi = ebp;
+    /* nop */
+
+loc_001E1BF0: ;
+    PUSH32(esp, esi);
+    PUSH32(esp, 0x001E1BF6u); RECOMP_ABI_CALL(0x001A64A0u, sub_001A64A0); /* call 0x001A64A0 */
+
+loc_001E1BF6: ;
+    _fb = (uint32_t)(4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 4;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0x10;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    edi--;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    if ((_fa != 0)) goto loc_001E1BF0; /* jne: not equal / not zero */
+
+loc_001E1BFF: ;
+    eax = MEM32(esp + 0xC0);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E1CE7; /* jle: less or equal (signed <=) */
+
+loc_001E1C0E: ;
+    ebp = MEM32(esp + 0xBC);
+    edx = eax;
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebp = ebp + 8;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    MEM32(esp + 0x1C) = edx;
+    edi = edi;
+
+loc_001E1C20: ;
+    eax = MEM32(ebp + 4);
+    ecx = MEM32(ebp);
+    MEM32(esp + 0x2C) = eax;
+    eax = ecx;
+    eax = eax & 0x10000;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa != 0)) goto loc_001E1C47; /* jne: not equal / not zero */
+
+loc_001E1C37: ;
+    ecx = ecx & 0x40000;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = 0; /* xor self */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    ecx = ecx | eax;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001E1CD5; /* je: equal / zero */
+
+loc_001E1C47: ;
+    ecx = MEM32(ebp + -4);
+    PUSH32(esp, ecx);
+    ecx = MEM32(0x6CA5D8);
+    PUSH32(esp, 0x001E1C56u); RECOMP_ABI_CALL(0x001B7EA0u, sub_001B7EA0); /* call 0x001B7EA0 */
+
+loc_001E1C56: ;
+    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
+    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E1CD5; /* je: equal / zero */
+
+loc_001E1C5A: ;
+    edx = MEM32(ebp + -4);
+    ecx = MEM32(0x6CA5D8);
+    PUSH32(esp, edx);
+    PUSH32(esp, 0x001E1C69u); RECOMP_ABI_CALL(0x001B7E80u, sub_001B7E80); /* call 0x001B7E80 */
+
+loc_001E1C69: ;
+    edx = ZX16(MEM16(0x713C9C));
+    eax = MEM32(eax + 8);
+    edi = MEM32(eax + 4);
+    esi = MEM32(0x713CA0);
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E1CD5; /* jle: less or equal (signed <=) */
+
+loc_001E1C82: ;
+    ebx = (uint32_t)(int32_t)SMEM16(esi);
+    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, edi (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E1C96; /* je: equal / zero */
+
+loc_001E1C89: ;
+    _fb = (uint32_t)(0xB4) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esi = esi + 0xB4;
+    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    ecx++;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, edx (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E1C82; /* jl: less (signed <) */
+
+loc_001E1C94: ;
+    goto loc_001E1CD5;
+
+loc_001E1C96: ;
+    MEM8(esi + 0x11) = 1;
+    SET_LO8(ecx, MEM8(eax));
+    MEM8(esi + 0x13) = LO8(ecx);
+    ecx = MEM32(eax);
+    edi = 0; /* xor self */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
+    if (CMP_LE(_fas, _fbs)) goto loc_001E1CCF; /* jle: less or equal (signed <=) */
+
+loc_001E1CA7: ;
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edx = esi + 0x1C;
+    /* nop */
+
+loc_001E1CB0: ;
+    ebx = MEM32(eax + 0x1C);
+    ebx = MEM32(ecx + ebx);
+    MEM32(edx + -4) = ebx;
+    ebx = MEM32(eax + 0x1C);
+    ebx = MEM32(ecx + ebx + 8);
+    MEM32(edx) = ebx;
+    ebx = MEM32(eax);
+    edi++;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ecx = ecx + 0x10;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edx = edx + 8;
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, ebx (32-bit) */
+    if (CMP_L(_fas, _fbs)) goto loc_001E1CB0; /* jl: less (signed <) */
+
+loc_001E1CCF: ;
+    edx = MEM32(ebp);
+    MEM32(esi + 0x14) = edx;
+
+loc_001E1CD5: ;
+    eax = MEM32(esp + 0x1C);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    ebp = ebp + 0x10;
+    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esp + 0x1C) = eax;
+    if ((_fa != 0)) goto loc_001E1C20; /* jne: not equal / not zero */
+
+loc_001E1CE7: ;
+    POP32(esp, ebp);
+
+loc_001E1CE8: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebx);
+    _fb = (uint32_t)(0xA0) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0xA0;
     _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
     esp += 4; return; /* ret */
 
@@ -24290,6 +33375,169 @@ loc_001E1F1C: ;
 
 loc_001E1F33: ;
     esp += 20; return; /* ret 16 */
+
+}
+
+/**
+ * sub_001E1F40
+ * Original: 0x001E1F40 - 0x001E202B (235 bytes, 86 insns)
+ * Category: game_audio
+ * CC: cdecl, 2 params, returns int_or_void
+ * Frame: fpo_leaf
+ */
+void sub_001E1F40(void)
+{
+    uint32_t ebp = 0;
+    ebp = g_ebp;  /* frameless: caller's frame */
+    int _flags = 0; /* fallback flag var */
+    uint32_t _fa = 0, _fb = 0;
+    int32_t _fas = 0, _fbs = 0;
+    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
+    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
+
+loc_001E1F40: ;
+    PUSH32(esp, ecx);
+    eax = MEM32(esp + 0xC);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    MEM32(esp) = ecx;
+    if (CMP_LE(_fas, _fbs)) goto loc_001E2027; /* jle: less or equal (signed <=) */
+
+loc_001E1F50: ;
+    PUSH32(esp, ebx);
+    PUSH32(esp, ebp);
+    PUSH32(esp, esi);
+    PUSH32(esp, edi);
+    edi = MEM32(esp + 0x18);
+    MEM32(esp + 0x1C) = eax;
+    /* nop */
+
+loc_001E1F60: ;
+    ecx = MEM32(edi + 8);
+    esi = MEM32(edi + 0xC);
+    eax = ecx;
+    eax = eax & 1;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    edx = 0; /* xor self */
+    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa != 0)) goto loc_001E1F92; /* jne: not equal / not zero */
+
+loc_001E1F71: ;
+    eax = ecx;
+    eax = eax & 2;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa != 0)) goto loc_001E1F92; /* jne: not equal / not zero */
+
+loc_001E1F7A: ;
+    eax = ecx;
+    eax = eax & 4;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa != 0)) goto loc_001E1F92; /* jne: not equal / not zero */
+
+loc_001E1F83: ;
+    eax = ecx;
+    eax = eax & 0x4000;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
+    eax = eax | edx;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    if ((_fa == 0)) goto loc_001E2011; /* je: equal / zero */
+
+loc_001E1F92: ;
+    eax = MEM32(esp + 0x10);
+    eax = MEM32(eax + 4);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    ebp = esi;
+    esi = MEM32(edi);
+    ebx = ecx;
+    if (CMP_EQ(_fa, _fb)) goto loc_001E1FAE; /* je: equal / zero */
+
+loc_001E1FA3: ;
+    _fa = (uint32_t)(MEM32(eax)) & 0xFFFFFFFFu; _fb = (uint32_t)(esi) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(eax), esi (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E2002; /* je: equal / zero */
+
+loc_001E1FA7: ;
+    eax = MEM32(eax + 0x10);
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_NE(_fa, _fb)) goto loc_001E1FA3; /* jne: not equal / not zero */
+
+loc_001E1FAE: ;
+    ecx = 0x64D218;
+    PUSH32(esp, 0x001E1FB8u); RECOMP_ABI_CALL(0x00144580u, sub_00144580); /* call 0x00144580 */
+
+loc_001E1FB8: ;
+    PUSH32(esp, 0x910);
+    PUSH32(esp, 0x4B27EC);
+    PUSH32(esp, 0x4B27C4);
+    PUSH32(esp, 1);
+    PUSH32(esp, 0x18);
+    PUSH32(esp, eax);
+    PUSH32(esp, 0x001E1FD1u); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
+
+loc_001E1FD1: ;
+    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    esp = esp + 0x18;
+    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
+    if (CMP_EQ(_fa, _fb)) goto loc_001E2011; /* je: equal / zero */
+
+loc_001E1FD8: ;
+    ecx = MEM32(esp + 0x10);
+    MEM32(ecx) = MEM32(ecx) + 1;
+    _fa = (uint32_t)(MEM32(ecx)) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
+    ecx = 0; /* xor self */
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
+    edx = eax;
+    MEM32(edx) = ecx;
+    MEM32(edx + 4) = ecx;
+    MEM32(edx + 8) = ecx;
+    MEM32(edx + 0xC) = ecx;
+    MEM32(edx + 0x10) = ecx;
+    MEM32(edx + 0x14) = ecx;
+    ecx = MEM32(esp + 0x10);
+    edx = MEM32(ecx + 4);
+    MEM32(eax + 0x10) = edx;
+    MEM32(eax) = esi;
+    MEM32(ecx + 4) = eax;
+
+loc_001E2002: ;
+    ecx = MEM32(eax + 4);
+    ecx = ecx | 1;
+    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
+    MEM32(eax + 8) = ebx;
+    MEM32(eax + 0xC) = ebp;
+    MEM32(eax + 4) = ecx;
+
+loc_001E2011: ;
+    eax = MEM32(esp + 0x1C);
+    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
+    edi = edi + 0x10;
+    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
+    eax--;
+    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
+    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
+    MEM32(esp + 0x1C) = eax;
+    if ((_fa != 0)) goto loc_001E1F60; /* jne: not equal / not zero */
+
+loc_001E2023: ;
+    POP32(esp, edi);
+    POP32(esp, esi);
+    POP32(esp, ebp);
+    POP32(esp, ebx);
+
+loc_001E2027: ;
+    POP32(esp, ecx);
+    esp += 12; return; /* ret 8 */
 
 }
 
@@ -25762,20 +35010,6 @@ loc_001E261F: ;
 }
 
 /**
- * sub_001E2627
- * Original: 0x001E2627 - 0x001E262A (3 bytes, 1 insns)
- * CC: cdecl, 3 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E2627(void)
-{
-
-loc_001E2627: ;
-    esp += 16; return; /* ret 12 */
-
-}
-
-/**
  * sub_001E2630
  * Original: 0x001E2630 - 0x001E2693 (99 bytes, 37 insns)
  * CC: cdecl, 2 params, returns float_sse
@@ -27017,5685 +36251,4 @@ loc_001E2E68: ;
     #undef fp_top
     #undef fp_st
     #undef fp_st1
-}
-
-/**
- * sub_001E2ED0
- * Original: 0x001E2ED0 - 0x001E2EE6 (22 bytes, 8 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E2ED0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E2ED0: ;
-    eax = MEM32(0x713D48);
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fas >= 0)) goto loc_001E2EDB; /* jns: not sign (positive) */
-
-loc_001E2ED8: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    esp += 4; return; /* ret */
-
-loc_001E2EDB: ;
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x878);
-    eax = eax + ecx + 0xC;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E2EF0
- * Original: 0x001E2EF0 - 0x001E2F22 (50 bytes, 16 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E2EF0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    int _cf = 0; /* carry flag */
-
-loc_001E2EF0: ;
-    _fa = (uint32_t)(MEM8(ecx + 8)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ecx + 8), 1 (8-bit) */
-    _cf = (int)(_fa < _fb);
-    SET_LO16(eax, MEM16(ecx + 6));
-    if (CMP_NE(_fa, _fb)) goto loc_001E2EFE; /* jne: not equal / not zero */
-
-loc_001E2EFA: ;
-    SET_LO16(eax, MEM16(ecx + 4));
-
-loc_001E2EFE: ;
-    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0 (16-bit) */
-    _cf = 0; /* nothing borrows from zero */
-    if (CMP_G(_fas, _fbs)) goto loc_001E2F06; /* jg: greater (signed >) */
-
-loc_001E2F03: ;
-    _cf = 0; /* xor clears CF */
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    esp += 4; return; /* ret */
-
-loc_001E2F06: ;
-    eax = SX16(LO16(eax));
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x878);
-    SET_LO8(ecx, MEM8(eax + 0x7134F4));
-    eax = eax + 0x7134D4;
-    _cf = (int)((LO8(ecx)) != 0);
-    SET_LO8(ecx, (uint32_t)(-(int32_t)LO8(ecx)));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* neg result */
-    ecx = _cf ? 0xFFFFFFFF : 0; /* sbb self (CF extend) */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sbb result */
-    _cf = 0; /* logical op clears CF */
-    eax = eax & ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E2F30
- * Original: 0x001E2F30 - 0x001E2F7F (79 bytes, 26 insns)
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E2F30(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E2F30: ;
-    edx = MEM32(esp + 4);
-    PUSH32(esp, ebx);
-    SET_LO8(ebx, MEM8(ecx + 8));
-    edx++;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 1 (8-bit) */
-    MEM16(ecx + 6) = LO16(edx);
-    eax = edx;
-    if (CMP_NE(_fa, _fb)) goto loc_001E2F48; /* jne: not equal / not zero */
-
-loc_001E2F44: ;
-    SET_LO16(eax, MEM16(ecx + 4));
-
-loc_001E2F48: ;
-    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0 (16-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001E2F7B; /* jle: less or equal (signed <=) */
-
-loc_001E2F4D: ;
-    eax = SX16(LO16(eax));
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x878);
-    SET_LO8(ebx, MEM8(eax + 0x7134F4));
-    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ebx), 0 (8-bit) */
-    eax = eax + 0x7134D4;
-    if (CMP_EQ(_fa, _fb)) goto loc_001E2F7B; /* je: equal / zero */
-
-loc_001E2F66: ;
-    SET_LO16(eax, MEM16(eax + 4));
-    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0 (16-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E2F77; /* je: equal / zero */
-
-loc_001E2F6F: ;
-    MEM16(ecx + 4) = LO16(eax);
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-loc_001E2F77: ;
-    MEM16(ecx + 4) = LO16(edx);
-
-loc_001E2F7B: ;
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-}
-
-/**
- * sub_001E2F80
- * Original: 0x001E2F80 - 0x001E2FA3 (35 bytes, 12 insns)
- * Category: game_vtable
- * CC: thiscall, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E2F80(void)
-{
-
-loc_001E2F80: ;
-    PUSH32(esp, esi);
-    esi = ecx;
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x4B2914);
-    MEM8(esi + 8) = 0;
-    MEM32(esi) = 0x4B2904;
-    PUSH32(esp, 0x001E2F98u); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
-
-loc_001E2F98: ;
-    ecx = eax;
-    PUSH32(esp, 0x001E2F9Fu); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
-
-loc_001E2F9F: ;
-    eax = esi;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E2FB0
- * Original: 0x001E2FB0 - 0x001E2FCF (31 bytes, 9 insns)
- * CC: cdecl, 4 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E2FB0(void)
-{
-
-loc_001E2FB0: ;
-    eax = MEM32(esp + 4);
-    edx = MEM32(esp + 8);
-    MEM32(ecx + 0xC) = eax;
-    eax = MEM32(esp + 0xC);
-    MEM32(ecx + 0x10) = edx;
-    edx = MEM32(esp + 0x10);
-    MEM32(ecx + 0x14) = eax;
-    MEM32(ecx + 0x18) = edx;
-    esp += 20; return; /* ret 16 */
-
-}
-
-/**
- * sub_001E2FD0
- * Original: 0x001E2FD0 - 0x001E2FF3 (35 bytes, 10 insns)
- * CC: cdecl, 2 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E2FD0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E2FD0: ;
-    eax = (uint32_t)(int32_t)SMEM16(esp + 4);
-    edx = MEM32(esp + 8);
-    eax = eax + eax * 2;
-    eax = eax << 5;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    ecx = eax + ecx + 0xB4;
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E2FEDu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
-
-loc_001E2FED: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 12; return; /* ret 8 */
-
-}
-
-/**
- * sub_001E3000
- * Original: 0x001E3000 - 0x001E301F (31 bytes, 9 insns)
- * CC: cdecl, 4 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3000(void)
-{
-
-loc_001E3000: ;
-    eax = MEM32(esp + 4);
-    edx = MEM32(esp + 8);
-    MEM32(ecx + 0x24) = eax;
-    eax = MEM32(esp + 0xC);
-    MEM32(ecx + 0x28) = edx;
-    edx = MEM32(esp + 0x10);
-    MEM32(ecx + 0x2C) = eax;
-    MEM32(ecx + 0x30) = edx;
-    esp += 20; return; /* ret 16 */
-
-}
-
-/**
- * sub_001E3020
- * Original: 0x001E3020 - 0x001E30AE (142 bytes, 45 insns)
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3020(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3020: ;
-    eax = MEM32(esp + 4);
-    MEM8(ecx + 0x1C) = 1;
-    edx = MEM32(eax + 0xC);
-    PUSH32(esp, ebx);
-    ebx = MEM32(eax);
-    PUSH32(esp, esi);
-    esi = MEM32(eax + 8);
-    PUSH32(esp, edi);
-    edi = MEM32(eax + 4);
-    MEM32(ecx + 0xC) = ebx;
-    MEM32(ecx + 0x10) = edi;
-    MEM32(ecx + 0x14) = esi;
-    MEM32(ecx + 0x18) = edx;
-    SET_LO16(edx, MEM16(eax + 0x10));
-    MEM16(ecx + 0x36) = LO16(edx);
-    edx = MEM32(eax + 0x20);
-    esi = MEM32(eax + 0x1C);
-    edi = MEM32(eax + 0x18);
-    ebx = MEM32(eax + 0x14);
-    MEM32(ecx + 0x24) = ebx;
-    MEM32(ecx + 0x28) = edi;
-    MEM32(ecx + 0x2C) = esi;
-    MEM32(ecx + 0x30) = edx;
-    SET_LO16(edx, MEM16(eax + 0x24));
-    MEM16(ecx + 0x3A) = LO16(edx);
-    SET_LO16(edx, MEM16(eax + 0x2C));
-    SET_LO16(esi, MEM16(eax + 0x28));
-    MEM16(ecx + 0x3C) = LO16(esi);
-    MEM16(ecx + 0x3E) = LO16(edx);
-    MEM16(ecx + 0x40) = LO16(edx);
-    SET_LO16(edx, MEM16(eax + 0x34));
-    SET_LO16(esi, MEM16(eax + 0x30));
-    MEM16(ecx + 0x44) = LO16(esi);
-    MEM16(ecx + 0x46) = LO16(edx);
-    MEM16(ecx + 0x48) = LO16(edx);
-    SET_LO16(edx, MEM16(eax + 0x38));
-    MEM16(ecx + 0x34) = LO16(edx);
-    edx = MEM32(eax + 0x3C);
-    POP32(esp, edi);
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, 0 (32-bit) */
-    SET_LO8(eax, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
-    POP32(esp, esi);
-    MEM8(ecx + 0x834) = LO8(eax);
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-}
-
-/**
- * sub_001E30B0
- * Original: 0x001E30B0 - 0x001E30C8 (24 bytes, 8 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E30B0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E30B0: ;
-    eax = ecx + 0xC;
-    edx = 0xA;
-
-loc_001E30B8: ;
-    ecx = eax;
-    PUSH32(esp, 0x001E30BFu); RECOMP_ABI_CALL(0x001E2850u, sub_001E2850); /* call 0x001E2850 */
-
-loc_001E30BF: ;
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x878;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    edx--;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fa != 0)) goto loc_001E30B8; /* jne: not equal / not zero */
-
-loc_001E30C7: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E30D0
- * Original: 0x001E30D0 - 0x001E3122 (82 bytes, 24 insns)
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E30D0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E30D0: ;
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    edi = MEM32(esp + 0xC);
-    edx = ecx + 0x840;
-    esi = 0xA;
-
-loc_001E30E1: ;
-    _fa = (uint32_t)(MEM8(edx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(edx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3114; /* je: equal / zero */
-
-loc_001E30E6: ;
-    _fa = (uint32_t)(MEM32(edx + -1996)) & 0xFFFFFFFFu; _fb = (uint32_t)(1) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(edx + -1996), 1 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E30F3; /* je: equal / zero */
-
-loc_001E30EF: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    goto loc_001E3105;
-
-loc_001E30F3: ;
-    eax = (uint32_t)(int32_t)SMEM16(edx + -2000);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
-    _fb = (uint32_t)(0x5D1AB8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x5D1AB8;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001E3105: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, edi (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3114; /* jne: not equal / not zero */
-
-loc_001E3109: ;
-    ecx = edx + -2100;
-    PUSH32(esp, 0x001E3114u); RECOMP_ABI_CALL(0x001E2850u, sub_001E2850); /* call 0x001E2850 */
-
-loc_001E3114: ;
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edx = edx + 0x878;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esi--;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fa != 0)) goto loc_001E30E1; /* jne: not equal / not zero */
-
-loc_001E311D: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    esp += 8; return; /* ret 4 */
-
-}
-
-/**
- * sub_001E3130
- * Original: 0x001E3130 - 0x001E316E (62 bytes, 26 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3130(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3130: ;
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    edi = ecx;
-    _fa = (uint32_t)(MEM16(edi)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(edi), 0 (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E313F; /* jg: greater (signed >) */
-
-loc_001E313A: ;
-    MEM16(edi) = 1;
-
-loc_001E313F: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x001E3146u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E3146: ;
-    ecx = (uint32_t)(int32_t)SMEM16(edi);
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    { int64_t _dividend = ((int64_t)(int32_t)edx << 32) | eax;
-      eax = (uint32_t)((int32_t)(_dividend / (int32_t)ecx));
-      edx = (uint32_t)((int32_t)(_dividend % (int32_t)ecx)); }
-    PUSH32(esp, 0);
-    esi = edx;
-    PUSH32(esp, 0x001E3155u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E3155: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E3164; /* jns: not sign (positive) */
-
-loc_001E315F: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E3164: ;
-    if ((eax != 0)) goto loc_001E3168; /* jne: not equal / not zero */
-
-loc_001E3166: ;
-    esi = (uint32_t)(-(int32_t)esi);
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* neg result */
-
-loc_001E3168: ;
-    MEM32(edi + 0x10) = esi;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E3170
- * Original: 0x001E3170 - 0x001E31AE (62 bytes, 26 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3170(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3170: ;
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    edi = ecx;
-    _fa = (uint32_t)(MEM16(edi)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(edi), 0 (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E317F; /* jg: greater (signed >) */
-
-loc_001E317A: ;
-    MEM16(edi) = 1;
-
-loc_001E317F: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x001E3186u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E3186: ;
-    ecx = (uint32_t)(int32_t)SMEM16(edi);
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    { int64_t _dividend = ((int64_t)(int32_t)edx << 32) | eax;
-      eax = (uint32_t)((int32_t)(_dividend / (int32_t)ecx));
-      edx = (uint32_t)((int32_t)(_dividend % (int32_t)ecx)); }
-    PUSH32(esp, 0);
-    esi = edx;
-    PUSH32(esp, 0x001E3195u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E3195: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E31A4; /* jns: not sign (positive) */
-
-loc_001E319F: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E31A4: ;
-    if ((eax != 0)) goto loc_001E31A8; /* jne: not equal / not zero */
-
-loc_001E31A6: ;
-    esi = (uint32_t)(-(int32_t)esi);
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* neg result */
-
-loc_001E31A8: ;
-    MEM32(edi + 0x14) = esi;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E31B0
- * Original: 0x001E31B0 - 0x001E31BA (10 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E31B0(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E31B0: ;
-    ecx = 0x713D40;
-    g_seh_ebp = ebp; sub_001E30D0(); return; /* tail jmp 0x001E30D0 */
-
-}
-
-/**
- * sub_001E31C0
- * Original: 0x001E31C0 - 0x001E31D9 (25 bytes, 7 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E31C0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E31C0: ;
-    eax = 0x713D4C;
-
-loc_001E31C5: ;
-    ecx = eax;
-    PUSH32(esp, 0x001E31CCu); RECOMP_ABI_CALL(0x001E2850u, sub_001E2850); /* call 0x001E2850 */
-
-loc_001E31CC: ;
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x878;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0x7191FC) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0x7191FC (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E31C5; /* jl: less (signed <) */
-
-loc_001E31D8: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E31E0
- * Original: 0x001E31E0 - 0x001E3439 (601 bytes, 198 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E31E0(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E31E0: ;
-    _fb = (uint32_t)(0x88) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0x88;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, ebx);
-    PUSH32(esp, esi);
-    esi = ecx;
-    eax = (uint32_t)(int32_t)SMEM16(esi + 0x38);
-    SET_LO8(ecx, MEM8(esi + 8));
-    ebx = 1;
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), LO8(ebx) (8-bit) */
-    MEM32(esi + 0x50) = eax;
-    SET_LO16(eax, MEM16(esi + 6));
-    PUSH32(esp, edi);
-    if (CMP_NE(_fa, _fb)) goto loc_001E3206; /* jne: not equal / not zero */
-
-loc_001E3202: ;
-    SET_LO16(eax, MEM16(esi + 4));
-
-loc_001E3206: ;
-    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0 (16-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001E3228; /* jle: less or equal (signed <=) */
-
-loc_001E320B: ;
-    eax = SX16(LO16(eax));
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x878);
-    SET_LO8(ecx, MEM8(eax + 0x7134F4));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    eax = eax + 0x7134D4;
-    if (CMP_NE(_fa, _fb)) goto loc_001E3306; /* jne: not equal / not zero */
-
-loc_001E3228: ;
-    _fa = (uint32_t)(MEM16(esi + 0x44)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x44), 0 (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E3233; /* jg: greater (signed >) */
-
-loc_001E322F: ;
-    MEM16(esi + 0x44) = LO16(ebx);
-
-loc_001E3233: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x001E323Au); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E323A: ;
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 0x44);
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    { int64_t _dividend = ((int64_t)(int32_t)edx << 32) | eax;
-      eax = (uint32_t)((int32_t)(_dividend / (int32_t)ecx));
-      edx = (uint32_t)((int32_t)(_dividend % (int32_t)ecx)); }
-    PUSH32(esp, 0);
-    edi = edx;
-    PUSH32(esp, 0x001E324Au); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E324A: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E3259; /* jns: not sign (positive) */
-
-loc_001E3254: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E3259: ;
-    if ((eax != 0)) goto loc_001E325D; /* jne: not equal / not zero */
-
-loc_001E325B: ;
-    edi = (uint32_t)(-(int32_t)edi);
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* neg result */
-
-loc_001E325D: ;
-    MEM32(esi + 0x54) = edi;
-    _fa = (uint32_t)(MEM16(esi + 0x44)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x44), 0 (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E326B; /* jg: greater (signed >) */
-
-loc_001E3267: ;
-    MEM16(esi + 0x44) = LO16(ebx);
-
-loc_001E326B: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x001E3272u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E3272: ;
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 0x44);
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    { int64_t _dividend = ((int64_t)(int32_t)edx << 32) | eax;
-      eax = (uint32_t)((int32_t)(_dividend / (int32_t)ecx));
-      edx = (uint32_t)((int32_t)(_dividend % (int32_t)ecx)); }
-    PUSH32(esp, 0);
-    edi = edx;
-    PUSH32(esp, 0x001E3282u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E3282: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E3291; /* jns: not sign (positive) */
-
-loc_001E328C: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E3291: ;
-    if ((eax != 0)) goto loc_001E3295; /* jne: not equal / not zero */
-
-loc_001E3293: ;
-    edi = (uint32_t)(-(int32_t)edi);
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* neg result */
-
-loc_001E3295: ;
-    PUSH32(esp, 0);
-    MEM32(esi + 0x58) = edi;
-    MEM32(esp + 0x10) = 0x40490FDB;
-    MEM32(esp + 0x14) = 0x40C90FDB;
-    PUSH32(esp, 0x001E32AFu); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E32AF: ;
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E32BB; /* jns: not sign (positive) */
-
-loc_001E32B6: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E32BB: ;
-    edx = MEM32(esp + eax * 4 + 0x10);
-    PUSH32(esp, 0);
-    MEM32(esi + 0x5C) = edx;
-    PUSH32(esp, 0x001E32C9u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E32C9: ;
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    ecx = 0x13A;
-    { int64_t _dividend = ((int64_t)(int32_t)edx << 32) | eax;
-      eax = (uint32_t)((int32_t)(_dividend / (int32_t)ecx));
-      edx = (uint32_t)((int32_t)(_dividend % (int32_t)ecx)); }
-    PUSH32(esp, 0);
-    MEM32(esp + 0x18) = edx;
-    fp_push((double)SMEM32(esp + 0x18)); /* fild */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49D538)); /* fmul dword ptr [0x49d538] */
-    MEMF(esp + 0x18) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, 0x001E32EAu); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E32EA: ;
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E32F9; /* jns: not sign (positive) */
-
-loc_001E32F4: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E32F9: ;
-    fp_push(MEMF(esp + 0xC)); /* fld float */
-    if ((eax == 0)) goto loc_001E3301; /* je: equal / zero */
-
-loc_001E32FF: ;
-    fp_top() = -fp_top(); /* fchs */
-
-loc_001E3301: ;
-    MEMF(esi + 0x60) = (float)fp_top(); fp_pop(); /* fstp */
-    goto loc_001E3318;
-
-loc_001E3306: ;
-    edx = MEM32(eax + 0x54);
-    MEM32(esi + 0x54) = edx;
-    ecx = MEM32(eax + 0x58);
-    MEM32(esi + 0x58) = ecx;
-    edx = MEM32(eax + 0x5C);
-    MEM32(esi + 0x5C) = edx;
-
-loc_001E3318: ;
-    _fa = (uint32_t)(MEM16(esi + 0x38)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x38), 0 (16-bit) */
-    MEM32(esp + 0xC) = 0;
-    if (CMP_LE(_fas, _fbs)) goto loc_001E3427; /* jle: less or equal (signed <=) */
-
-loc_001E332B: ;
-    edi = esi + 0xF8;
-    PUSH32(esp, ebp);
-
-loc_001E3332: ;
-    eax = MEM32(esp + 0x10);
-    MEM32(esi + 0x4C) = eax;
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    ebx = edi + -4;
-    edx = ebx;
-    MEM32(edx) = ecx;
-    MEM32(edx + 4) = ecx;
-    MEM32(edx + 8) = ecx;
-    MEM32(edx + 0xC) = ecx;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    ebp = edi + 0xC;
-    ecx = ebp;
-    MEM32(ecx) = eax;
-    MEM32(ecx + 4) = eax;
-    MEM32(ecx + 8) = eax;
-    MEM32(ecx + 0xC) = eax;
-    fp_push((double)SMEM32(esi + 0x4C)); /* fild */
-    edx = esp + 0x18;
-    PUSH32(esp, edx);
-    fp_top() = RECOMP_FP_PC(fp_top() / (double)SMEM32(esi + 0x50)); /* fidiv dword ptr [esi + 0x50] */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(esi + 0x5C)); /* fmul dword ptr [esi + 0x5c] */
-    fp_top() = sin(fp_top()); /* fsin */
-    fp_push((double)SMEM32(esi + 0x54)); /* fild */
-    fp_st1() = RECOMP_FP_PC(fp_st1() * fp_top()); fp_pop(); /* fmulp st(1) */
-    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(edi)); /* fadd dword ptr [edi] */
-    MEMF(edi) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, 0x001E337Bu); RECOMP_ABI_CALL(0x0015BE90u, sub_0015BE90); /* call 0x0015BE90 */
-
-loc_001E337B: ;
-    eax = MEM32(esi + 0x60);
-    PUSH32(esp, eax);
-    ecx = esp + 0x20;
-    PUSH32(esp, ecx);
-    edx = ecx;
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E338Cu); RECOMP_ABI_CALL(0x0015CFA0u, sub_0015CFA0); /* call 0x0015CFA0 */
-
-loc_001E338C: ;
-    eax = esp + 0x28;
-    PUSH32(esp, eax);
-    eax = esi + 0x838;
-    PUSH32(esp, eax);
-    ecx = esp + 0x30;
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E33A2u); RECOMP_ABI_CALL(0x0015CC90u, sub_0015CC90); /* call 0x0015CC90 */
-
-loc_001E33A2: ;
-    PUSH32(esp, ebx);
-    edx = esp + 0x38;
-    PUSH32(esp, edx);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001E33AEu); RECOMP_ABI_CALL(0x0015CC00u, sub_0015CC00); /* call 0x0015CC00 */
-
-loc_001E33AE: ;
-    fp_push((double)SMEM32(esi + 0x4C)); /* fild */
-    eax = esp + 0x80;
-    PUSH32(esp, eax);
-    fp_top() = RECOMP_FP_PC(fp_top() / (double)SMEM32(esi + 0x50)); /* fidiv dword ptr [esi + 0x50] */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(esi + 0x5C)); /* fmul dword ptr [esi + 0x5c] */
-    fp_top() = sin(fp_top()); /* fsin */
-    fp_push((double)SMEM32(esi + 0x58)); /* fild */
-    fp_st1() = RECOMP_FP_PC(fp_st1() * fp_top()); fp_pop(); /* fmulp st(1) */
-    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(edi + 0x10)); /* fadd dword ptr [edi + 0x10] */
-    MEMF(edi + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, 0x001E33D1u); RECOMP_ABI_CALL(0x0015BE90u, sub_0015BE90); /* call 0x0015BE90 */
-
-loc_001E33D1: ;
-    ecx = MEM32(esi + 0x60);
-    PUSH32(esp, ecx);
-    edx = esp + 0x88;
-    PUSH32(esp, edx);
-    eax = edx;
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E33E5u); RECOMP_ABI_CALL(0x0015CFA0u, sub_0015CFA0); /* call 0x0015CFA0 */
-
-loc_001E33E5: ;
-    ecx = esp + 0x90;
-    PUSH32(esp, ecx);
-    eax = esi + 0x838;
-    PUSH32(esp, eax);
-    edx = ecx;
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E33FCu); RECOMP_ABI_CALL(0x0015CC90u, sub_0015CC90); /* call 0x0015CC90 */
-
-loc_001E33FC: ;
-    _fb = (uint32_t)(0x44) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x44;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, ebp);
-    eax = esp + 0x5C;
-    PUSH32(esp, eax);
-    PUSH32(esp, ebp);
-    PUSH32(esp, 0x001E340Bu); RECOMP_ABI_CALL(0x0015CC00u, sub_0015CC00); /* call 0x0015CC00 */
-
-loc_001E340B: ;
-    eax = MEM32(esp + 0x1C);
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 0x38);
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x60) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edi = edi + 0x60;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, ecx (32-bit) */
-    MEM32(esp + 0x10) = eax;
-    if (CMP_L(_fas, _fbs)) goto loc_001E3332; /* jl: less (signed <) */
-
-loc_001E3426: ;
-    POP32(esp, ebp);
-
-loc_001E3427: ;
-    SET_LO16(edx, MEM16(esi + 0x46));
-    POP32(esp, edi);
-    MEM16(esi + 0x48) = LO16(edx);
-    POP32(esp, esi);
-    POP32(esp, ebx);
-    _fb = (uint32_t)(0x88) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x88;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E3440
- * Original: 0x001E3440 - 0x001E3547 (263 bytes, 92 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3440(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3440: ;
-    PUSH32(esp, ecx);
-    PUSH32(esp, ebp);
-    PUSH32(esp, esi);
-    esi = ecx;
-    ebp = 0; /* xor self */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(MEM16(esi + 0x38)) & 0xFFFFu; _fb = (uint32_t)(LO16(ebp)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x38), LO16(ebp) (16-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001E353B; /* jle: less or equal (signed <=) */
-
-loc_001E3451: ;
-    PUSH32(esp, ebx);
-    PUSH32(esp, edi);
-    edi = esi + 0xD8;
-    /* nop */
-
-loc_001E3460: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    ecx = edi + -4;
-    MEM32(ecx) = eax;
-    MEM32(ecx + 4) = eax;
-    MEM32(ecx + 8) = eax;
-    MEM32(ecx + 0xC) = eax;
-    edx = 0; /* xor self */
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = edi + 0xC;
-    MEM32(eax) = edx;
-    MEM32(eax + 4) = edx;
-    MEM32(eax + 8) = edx;
-    MEM32(eax + 0xC) = edx;
-    _fa = (uint32_t)(MEM16(esi + 0x3C)) & 0xFFFFu; _fb = (uint32_t)(LO16(edx)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x3C), LO16(edx) (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E348C; /* jg: greater (signed >) */
-
-loc_001E3486: ;
-    MEM16(esi + 0x3C) = 1;
-
-loc_001E348C: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x001E3493u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E3493: ;
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 0x3C);
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    { int64_t _dividend = ((int64_t)(int32_t)edx << 32) | eax;
-      eax = (uint32_t)((int32_t)(_dividend / (int32_t)ecx));
-      edx = (uint32_t)((int32_t)(_dividend % (int32_t)ecx)); }
-    PUSH32(esp, 0);
-    ebx = edx;
-    MEM32(esp + 0x18) = ebx;
-    PUSH32(esp, 0x001E34A7u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E34A7: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E34B6; /* jns: not sign (positive) */
-
-loc_001E34B1: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E34B6: ;
-    if ((eax != 0)) goto loc_001E34BE; /* jne: not equal / not zero */
-
-loc_001E34B8: ;
-    ebx = (uint32_t)(-(int32_t)ebx);
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* neg result */
-    MEM32(esp + 0x10) = ebx;
-
-loc_001E34BE: ;
-    fp_push((double)SMEM32(esp + 0x10)); /* fild */
-    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(edi)); /* fadd dword ptr [edi] */
-    MEMF(edi) = (float)fp_top(); fp_pop(); /* fstp */
-    _fa = (uint32_t)(MEM16(esi + 0x3C)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x3C), 0 (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E34D3; /* jg: greater (signed >) */
-
-loc_001E34CD: ;
-    MEM16(esi + 0x3C) = 1;
-
-loc_001E34D3: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x001E34DAu); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E34DA: ;
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 0x3C);
-    edx = ((int32_t)eax < 0) ? 0xFFFFFFFF : 0; /* cdq */
-    { int64_t _dividend = ((int64_t)(int32_t)edx << 32) | eax;
-      eax = (uint32_t)((int32_t)(_dividend / (int32_t)ecx));
-      edx = (uint32_t)((int32_t)(_dividend % (int32_t)ecx)); }
-    PUSH32(esp, 0);
-    ebx = edx;
-    MEM32(esp + 0x18) = ebx;
-    PUSH32(esp, 0x001E34EEu); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E34EE: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = eax & 0x80000001u;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E34FD; /* jns: not sign (positive) */
-
-loc_001E34F8: ;
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    eax = eax | 0xFFFFFFFEu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E34FD: ;
-    if ((eax != 0)) goto loc_001E3505; /* jne: not equal / not zero */
-
-loc_001E34FF: ;
-    ebx = (uint32_t)(-(int32_t)ebx);
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* neg result */
-    MEM32(esp + 0x10) = ebx;
-
-loc_001E3505: ;
-    fp_push((double)SMEM32(esp + 0x10)); /* fild */
-    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(edi + 0x10)); /* fadd dword ptr [edi + 0x10] */
-    MEMF(edi + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
-    eax = MEM32(esi + 0x68);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 3 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3529; /* jne: not equal / not zero */
-
-loc_001E3517: ;
-    SET_LO8(eax, MEM8(esi + 0x80));
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3529; /* je: equal / zero */
-
-loc_001E3521: ;
-    ecx = esi + 0x64;
-    PUSH32(esp, 0x001E3529u); RECOMP_ABI_CALL(0x001E27F0u, sub_001E27F0); /* call 0x001E27F0 */
-
-loc_001E3529: ;
-    edx = (uint32_t)(int32_t)SMEM16(esi + 0x38);
-    ebp++;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x60) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edi = edi + 0x60;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(edx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, edx (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E3460; /* jl: less (signed <) */
-
-loc_001E3539: ;
-    POP32(esp, edi);
-    POP32(esp, ebx);
-
-loc_001E353B: ;
-    SET_LO16(eax, MEM16(esi + 0x3E));
-    MEM16(esi + 0x40) = LO16(eax);
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ecx);
-    esp += 4; return; /* ret */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E3550
- * Original: 0x001E3550 - 0x001E35DB (139 bytes, 51 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3550(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3550: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, ebx);
-    PUSH32(esp, edi);
-    edi = ecx;
-    eax = (uint32_t)(int32_t)SMEM16(edi + 0x38);
-    ebx = 0; /* xor self */
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    MEM32(esp + 8) = ebx;
-    MEM32(esp + 0xC) = eax;
-    if (CMP_LE(_fas, _fbs)) goto loc_001E35B3; /* jle: less or equal (signed <=) */
-
-loc_001E3569: ;
-    PUSH32(esp, ebp);
-    PUSH32(esp, esi);
-    ebp = edi + 0x98;
-    esi = edi + 0xB4;
-
-loc_001E3577: ;
-    fp_push((double)SMEM32(esp + 0x10)); /* fild */
-    PUSH32(esp, ecx);
-    eax = edi + 0x70;
-    fp_top() = RECOMP_FP_PC(fp_top() / (double)SMEM32(esp + 0x18)); /* fidiv dword ptr [esp + 0x18] */
-    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, ebp);
-    PUSH32(esp, eax);
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x001E358Eu); RECOMP_ABI_CALL(0x00171660u, sub_00171660); /* call 0x00171660 */
-
-loc_001E358E: ;
-    fp_pop(); /* fstp st(0) */
-    eax = esi + 0x10;
-    PUSH32(esp, esi);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E359Au); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
-
-loc_001E359A: ;
-    eax = (uint32_t)(int32_t)SMEM16(edi + 0x38);
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x18;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ebx++;
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x60) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0x60;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fb = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebx, eax (32-bit) */
-    MEM32(esp + 0x10) = ebx;
-    MEM32(esp + 0x14) = eax;
-    if (CMP_L(_fas, _fbs)) goto loc_001E3577; /* jl: less (signed <) */
-
-loc_001E35B1: ;
-    POP32(esp, esi);
-    POP32(esp, ebp);
-
-loc_001E35B3: ;
-    _fa = (uint32_t)(MEM16(edi + 0x48)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(edi + 0x48), 0 (16-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E35C1; /* jne: not equal / not zero */
-
-loc_001E35BA: ;
-    ecx = edi;
-    PUSH32(esp, 0x001E35C1u); RECOMP_ABI_CALL(0x001E31E0u, sub_001E31E0); /* call 0x001E31E0 */
-
-loc_001E35C1: ;
-    _fa = (uint32_t)(MEM16(edi + 0x40)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(edi + 0x40), 0 (16-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E35CF; /* jne: not equal / not zero */
-
-loc_001E35C8: ;
-    ecx = edi;
-    PUSH32(esp, 0x001E35CFu); RECOMP_ABI_CALL(0x001E3440u, sub_001E3440); /* call 0x001E3440 */
-
-loc_001E35CF: ;
-    ecx = edi;
-    POP32(esp, edi);
-    POP32(esp, ebx);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    g_seh_ebp = ebp; sub_001E26A0(); return; /* tail jmp 0x001E26A0 */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E35E0
- * Original: 0x001E35E0 - 0x001E374C (364 bytes, 126 insns)
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E35E0(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E35E0: ;
-    PUSH32(esp, ebx);
-    PUSH32(esp, esi);
-    esi = ecx;
-    eax = MEM32(esi + 4);
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(4) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 4 (32-bit) */
-    PUSH32(esp, edi);
-    SET_LO8(ebx, 1);
-    if (CMP_A(_fa, _fb)) goto loc_001E3742; /* ja: above (unsigned >) */
-
-loc_001E35F4: ;
-    { uint32_t _jt = MEM32(eax * 4 + 0x1E374C); /* switch: 5 entries, 5 targets */
-    if (_jt == 0x001E35FBu) goto loc_001E35FB;
-    if (_jt == 0x001E3671u) goto loc_001E3671;
-    if (_jt == 0x001E36BAu) goto loc_001E36BA;
-    if (_jt == 0x001E3706u) goto loc_001E3706;
-    if (_jt == 0x001E3744u) goto loc_001E3744;
-    g_seh_ebp = ebp; RECOMP_ITAIL(_jt); return; }
-
-loc_001E35FB: ;
-    edi = (uint32_t)(int32_t)SMEM16(esi);
-    edi = (uint32_t)((int32_t)edi * (int32_t)0x3238);
-    _fb = (uint32_t)(0x5D1AB8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edi = edi + 0x5D1AB8;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, edi);
-    ecx = 0x699E20;
-    PUSH32(esp, 0x001E3615u); RECOMP_ABI_CALL(0x0019A440u, sub_0019A440); /* call 0x0019A440 */
-
-loc_001E3615: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3742; /* je: equal / zero */
-
-loc_001E361D: ;
-    eax = (uint32_t)(int32_t)SMEM16(esi);
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 8);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x43);
-    PUSH32(esp, 1);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + ecx;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    edx = MEM32(eax * 4 + 0x6204A8);
-    PUSH32(esp, 0);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x5CABB0);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E3644u); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
-
-loc_001E3644: ;
-    eax = MEM32(0x5CAC38);
-    ecx = MEM32(0x5CAC34);
-    edx = MEM32(0x5CAC30);
-    PUSH32(esp, 0x3F800000);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0xC;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x001E3666u); RECOMP_ABI_CALL(0x0015BB60u, sub_0015BB60); /* call 0x0015BB60 */
-
-loc_001E3666: ;
-    _fb = (uint32_t)(0x30) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x30;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    SET_LO8(eax, LO8(ebx));
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-loc_001E3671: ;
-    eax = (uint32_t)(int32_t)SMEM16(esi + 8);
-    PUSH32(esp, 1);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x5CABB0);
-    PUSH32(esp, 0x5CE880);
-    PUSH32(esp, 0x001E368Du); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
-
-loc_001E368D: ;
-    ecx = MEM32(0x5CAC38);
-    edx = MEM32(0x5CAC34);
-    eax = MEM32(0x5CAC30);
-    PUSH32(esp, 0x3F800000);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0xC;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x001E36AFu); RECOMP_ABI_CALL(0x0015BB60u, sub_0015BB60); /* call 0x0015BB60 */
-
-loc_001E36AF: ;
-    _fb = (uint32_t)(0x30) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x30;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    SET_LO8(eax, LO8(ebx));
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-loc_001E36BA: ;
-    edx = MEM32(esp + 0x10);
-    ecx = edx;
-    PUSH32(esp, 0x001E36C5u); RECOMP_ABI_CALL(0x001E2EF0u, sub_001E2EF0); /* call 0x001E2EF0 */
-
-loc_001E36C5: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E36D0; /* jne: not equal / not zero */
-
-loc_001E36C9: ;
-    ecx = edx;
-    PUSH32(esp, 0x001E36D0u); RECOMP_ABI_CALL(0x001E2850u, sub_001E2850); /* call 0x001E2850 */
-
-loc_001E36D0: ;
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 8);
-    ecx = ecx + ecx * 2;
-    ecx = ecx << 5;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    edx = ecx + eax + 0xB4;
-    PUSH32(esp, edx);
-    eax = esi + 0xC;
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E36EBu); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
-
-loc_001E36EB: ;
-    SET_LO8(eax, MEM8(esi + 0x1C));
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3744; /* je: equal / zero */
-
-loc_001E36F5: ;
-    fp_push(MEMF(esi + 0x20)); /* fld float */
-    POP32(esp, edi);
-    fp_top() = RECOMP_FP_PC(fp_top() + MEMF(esi + 0x10)); /* fadd dword ptr [esi + 0x10] */
-    SET_LO8(eax, LO8(ebx));
-    MEMF(esi + 0x10) = (float)fp_top(); fp_pop(); /* fstp */
-    POP32(esp, esi);
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-loc_001E3706: ;
-    edx = MEM32(esp + 0x10);
-    ecx = edx;
-    PUSH32(esp, 0x001E3711u); RECOMP_ABI_CALL(0x001E2EF0u, sub_001E2EF0); /* call 0x001E2EF0 */
-
-loc_001E3711: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E371C; /* jne: not equal / not zero */
-
-loc_001E3715: ;
-    ecx = edx;
-    PUSH32(esp, 0x001E371Cu); RECOMP_ABI_CALL(0x001E2850u, sub_001E2850); /* call 0x001E2850 */
-
-loc_001E371C: ;
-    ecx = (uint32_t)(int32_t)SMEM16(esi + 8);
-    ecx = ecx + ecx * 2;
-    ecx = ecx << 5;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    edx = ecx + eax + 0xB4;
-    PUSH32(esp, edx);
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0xC;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x001E3737u); RECOMP_ABI_CALL(0x0015BDF0u, sub_0015BDF0); /* call 0x0015BDF0 */
-
-loc_001E3737: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    SET_LO8(eax, LO8(ebx));
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-loc_001E3742: ;
-    SET_LO8(ebx, 0); /* xor self */
-    _fa = (uint32_t)(LO8(ebx)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
-
-loc_001E3744: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    SET_LO8(eax, LO8(ebx));
-    POP32(esp, ebx);
-    esp += 8; return; /* ret 4 */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E3760
- * Original: 0x001E3760 - 0x001E37E2 (130 bytes, 28 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3760(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3760: ;
-    MEM16(ecx + 0x34) = 0x1F4;
-    eax = 1;
-    MEM8(ecx + 0x20) = LO8(eax);
-    MEM8(0x50FF48) = LO8(eax);
-    MEM16(ecx + 0x38) = 8;
-    MEM16(ecx + 0x3A) = 0x320;
-    MEM16(ecx + 0x36) = 0x2C;
-    MEM32(ecx + 0x30) = 0x69;
-    edx = 0xFF;
-    MEM32(ecx + 0x24) = edx;
-    MEM32(ecx + 0x28) = edx;
-    MEM32(ecx + 0x2C) = edx;
-    MEM16(ecx + 0x3C) = 0x64;
-    edx = 3;
-    MEM16(ecx + 0x3E) = LO16(edx);
-    MEM16(ecx + 0x40) = LO16(edx);
-    edx = 0x32;
-    MEM16(ecx + 0x46) = LO16(edx);
-    MEM16(ecx + 0x48) = LO16(edx);
-    MEM16(ecx + 0x44) = 0x190;
-    edx = 0; /* xor self */
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    MEM16(ecx + 0x64) = LO16(edx);
-    MEM32(ecx + 0x68) = eax;
-    MEM16(ecx + 0x6C) = LO16(edx);
-    MEM16(ecx + 0x8C) = LO16(eax);
-    MEM32(ecx + 0x90) = eax;
-    MEM16(ecx + 0x94) = LO16(edx);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E37F0
- * Original: 0x001E37F0 - 0x001E382D (61 bytes, 19 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E37F0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E37F0: ;
-    eax = MEM32(0x713D44);
-    eax--;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fas < 0)) goto loc_001E382C; /* js: sign (negative) */
-
-loc_001E37F8: ;
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E37FEu); RECOMP_ABI_CALL(0x001E2F30u, sub_001E2F30); /* call 0x001E2F30 */
-
-loc_001E37FE: ;
-    _fa = (uint32_t)(MEM8(ecx + 8)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ecx + 8), 1 (8-bit) */
-    SET_LO16(eax, MEM16(ecx + 6));
-    if (CMP_NE(_fa, _fb)) goto loc_001E380C; /* jne: not equal / not zero */
-
-loc_001E3808: ;
-    SET_LO16(eax, MEM16(ecx + 4));
-
-loc_001E380C: ;
-    _fa = (uint32_t)(LO16(eax)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp LO16(eax), 0 (16-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001E382C; /* jle: less or equal (signed <=) */
-
-loc_001E3811: ;
-    eax = SX16(LO16(eax));
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x878);
-    SET_LO8(edx, MEM8(eax + 0x7134F4));
-    _fa = (uint32_t)(LO8(edx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(edx), 0 (8-bit) */
-    eax = eax + 0x7134D4;
-    if (CMP_EQ(_fa, _fb)) goto loc_001E382C; /* je: equal / zero */
-
-loc_001E382A: ;
-    MEM32(eax) = ecx;
-
-loc_001E382C: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E3830
- * Original: 0x001E3830 - 0x001E3867 (55 bytes, 19 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3830(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3830: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    edx = ecx + 0x2C;
-
-loc_001E3835: ;
-    _fa = (uint32_t)(MEM8(edx)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(edx), 1 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3849; /* jne: not equal / not zero */
-
-loc_001E383A: ;
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edx = edx + 0x878;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E3835; /* jl: less (signed <) */
-
-loc_001E3846: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    esp += 4; return; /* ret */
-
-loc_001E3849: ;
-    edx = MEM32(ecx + 8);
-    MEM32(ecx + 4) = edx;
-    edx = eax + 1;
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x878);
-    MEM32(ecx + 8) = edx;
-    ecx = eax + ecx + 0xC;
-    PUSH32(esp, 0x001E3864u); RECOMP_ABI_CALL(0x001E3760u, sub_001E3760); /* call 0x001E3760 */
-
-loc_001E3864: ;
-    eax = ecx;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E3870
- * Original: 0x001E3870 - 0x001E395E (238 bytes, 73 insns)
- * CC: cdecl, 2 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3870(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3870: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, ebx);
-    PUSH32(esp, ebp);
-    PUSH32(esp, esi);
-    ebx = ecx;
-    esi = ebx + 0x840;
-    PUSH32(esp, edi);
-    MEM32(esp + 0x10) = 0;
-    MEM32(esp + 0x14) = esi;
-    goto loc_001E3890;
-
-    /* nop */
-
-loc_001E3890: ;
-    _fa = (uint32_t)(MEM8(esi)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3938; /* je: equal / zero */
-
-loc_001E3899: ;
-    _fa = (uint32_t)(MEM32(esi + -1996)) & 0xFFFFFFFFu; _fb = (uint32_t)(1) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp MEM32(esi + -1996), 1 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E38A6; /* je: equal / zero */
-
-loc_001E38A2: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    goto loc_001E38B8;
-
-loc_001E38A6: ;
-    eax = (uint32_t)(int32_t)SMEM16(esi + -2000);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
-    _fb = (uint32_t)(0x5D1AB8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x5D1AB8;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001E38B8: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(esp + 0x1C)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, MEM32(esp + 0x1C) (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3938; /* jne: not equal / not zero */
-
-loc_001E38BE: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    ecx = ebx + 0x2C;
-
-loc_001E38C3: ;
-    _fa = (uint32_t)(MEM8(ecx)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ecx), 1 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E38DE; /* jne: not equal / not zero */
-
-loc_001E38C8: ;
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ecx = ecx + 0x878;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E38C3; /* jl: less (signed <) */
-
-loc_001E38D4: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ebx);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 12; return; /* ret 8 */
-
-loc_001E38DE: ;
-    ecx = MEM32(ebx + 8);
-    edx = eax + 1;
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x878);
-    ebp = eax + ebx + 0xC;
-    MEM32(ebx + 4) = ecx;
-    ecx = ebp;
-    MEM32(ebx + 8) = edx;
-    PUSH32(esp, 0x001E38FBu); RECOMP_ABI_CALL(0x001E3760u, sub_001E3760); /* call 0x001E3760 */
-
-loc_001E38FB: ;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3954; /* je: equal / zero */
-
-loc_001E38FF: ;
-    eax = MEM32(esp + 0x20);
-    _fb = (uint32_t)(0xFFFFF7CCu) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0xFFFFF7CCu;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ecx = 0x21E;
-    edi = ebp;
-    if (!g_df) { uint8_t *_d = (uint8_t*)XBOX_PTR(edi), *_s = (uint8_t*)XBOX_PTR(esi); uint32_t _n = ecx * 4;
-      if (_d + _n <= _s || _s + _n <= _d) memcpy(_d, _s, _n);
-      else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*4) = MEM32(esi + _i*4); }
-      esi += ecx * 4; edi += ecx * 4; }
-    else { uint32_t _i; for (_i = 0; _i < ecx; _i++) MEM32(edi - _i*4) = MEM32(esi - _i*4); esi -= ecx * 4; edi -= ecx * 4; }
-    ecx = 0; /* rep movsd */
-    SET_LO16(ecx, MEM16(eax + 0x68));
-    SET_LO16(ecx, LO16(ecx) - 1);
-    _fa = (uint32_t)(LO16(ecx)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fb = (_fa == 0x7FFFu); /* dec result/SF/OF; CF unchanged */
-    MEM16(ebp + 0x8C) = LO16(ecx);
-    ecx = ebp;
-    MEM8(ebp + 0x834) = 0;
-    PUSH32(esp, 0x001E392Du); RECOMP_ABI_CALL(0x001E31E0u, sub_001E31E0); /* call 0x001E31E0 */
-
-loc_001E392D: ;
-    ecx = ebp;
-    PUSH32(esp, 0x001E3934u); RECOMP_ABI_CALL(0x001E3440u, sub_001E3440); /* call 0x001E3440 */
-
-loc_001E3934: ;
-    esi = MEM32(esp + 0x14);
-
-loc_001E3938: ;
-    eax = MEM32(esp + 0x10);
-    eax++;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0x878;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    MEM32(esp + 0x10) = eax;
-    MEM32(esp + 0x14) = esi;
-    if (CMP_L(_fas, _fbs)) goto loc_001E3890; /* jl: less (signed <) */
-
-loc_001E3954: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ebx);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 12; return; /* ret 8 */
-
-}
-
-/**
- * sub_001E3960
- * Original: 0x001E3960 - 0x001E39DE (126 bytes, 46 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3960(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3960: ;
-    PUSH32(esp, ebx);
-    PUSH32(esp, esi);
-    esi = ecx;
-    PUSH32(esp, esi);
-    ecx = esi + 0x64;
-    PUSH32(esp, 0x001E396Du); RECOMP_ABI_CALL(0x001E35E0u, sub_001E35E0); /* call 0x001E35E0 */
-
-loc_001E396D: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E39D2; /* je: equal / zero */
-
-loc_001E3971: ;
-    ebx = 0; /* xor self */
-    _fa = (uint32_t)(ebx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-
-loc_001E3973: ;
-    PUSH32(esp, esi);
-    ecx = esi + 0x8C;
-    PUSH32(esp, 0x001E397Fu); RECOMP_ABI_CALL(0x001E35E0u, sub_001E35E0); /* call 0x001E35E0 */
-
-loc_001E397F: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E39D2; /* je: equal / zero */
-
-loc_001E3983: ;
-    _fa = (uint32_t)(MEM8(esi + 0x834)) & 0xFFu; _fb = (uint32_t)(LO8(ebx)) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi + 0x834), LO8(ebx) (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E39DB; /* jne: not equal / not zero */
-
-loc_001E398B: ;
-    ecx = esi;
-    PUSH32(esp, 0x001E3992u); RECOMP_ABI_CALL(0x001E3550u, sub_001E3550); /* call 0x001E3550 */
-
-loc_001E3992: ;
-    ecx = esi;
-    PUSH32(esp, 0x001E3999u); RECOMP_ABI_CALL(0x001E2BF0u, sub_001E2BF0); /* call 0x001E2BF0 */
-
-loc_001E3999: ;
-    MEM16(esi + 0x34) = MEM16(esi + 0x34) - 1;
-    _fa = (uint32_t)(MEM16(esi + 0x34)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fb = (_fa == 0x7FFFu); /* dec result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(MEM16(esi + 0x34)) & 0xFFFFu; _fb = (uint32_t)(LO16(ebx)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x34), LO16(ebx) (16-bit) */
-    if (CMP_LE(_fas, _fbs)) goto loc_001E39D2; /* jle: less or equal (signed <=) */
-
-loc_001E39A3: ;
-    MEM16(esi + 0x40) = MEM16(esi + 0x40) - 1;
-    _fa = (uint32_t)(MEM16(esi + 0x40)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fb = (_fa == 0x7FFFu); /* dec result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(MEM16(esi + 0x40)) & 0xFFFFu; _fb = (uint32_t)(LO16(ebx)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x40), LO16(ebx) (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E39B1; /* jg: greater (signed >) */
-
-loc_001E39AD: ;
-    MEM16(esi + 0x40) = LO16(ebx);
-
-loc_001E39B1: ;
-    MEM16(esi + 0x48) = MEM16(esi + 0x48) - 1;
-    _fa = (uint32_t)(MEM16(esi + 0x48)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fb = (_fa == 0x7FFFu); /* dec result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(MEM16(esi + 0x48)) & 0xFFFFu; _fb = (uint32_t)(LO16(ebx)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi + 0x48), LO16(ebx) (16-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E39BF; /* jg: greater (signed >) */
-
-loc_001E39BB: ;
-    MEM16(esi + 0x48) = LO16(ebx);
-
-loc_001E39BF: ;
-    esi = MEM32(esi);
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(ebx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, ebx (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E39DB; /* je: equal / zero */
-
-loc_001E39C5: ;
-    PUSH32(esp, esi);
-    ecx = esi + 0x64;
-    PUSH32(esp, 0x001E39CEu); RECOMP_ABI_CALL(0x001E35E0u, sub_001E35E0); /* call 0x001E35E0 */
-
-loc_001E39CE: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3973; /* jne: not equal / not zero */
-
-loc_001E39D2: ;
-    ecx = esi;
-    POP32(esp, esi);
-    POP32(esp, ebx);
-    g_seh_ebp = ebp; sub_001E2850(); return; /* tail jmp 0x001E2850 */
-
-loc_001E39DB: ;
-    POP32(esp, esi);
-    POP32(esp, ebx);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E39E0
- * Original: 0x001E39E0 - 0x001E3A31 (81 bytes, 29 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E39E0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E39E0: ;
-    eax = ecx;
-    _fa = (uint32_t)(MEM8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(eax), 1 (8-bit) */
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    if (CMP_NE(_fa, _fb)) goto loc_001E3A04; /* jne: not equal / not zero */
-
-loc_001E39E9: ;
-    MEM8(eax) = 0;
-    edx = eax + 0xC;
-    esi = 0xA;
-
-loc_001E39F4: ;
-    ecx = edx;
-    PUSH32(esp, 0x001E39FBu); RECOMP_ABI_CALL(0x001E2850u, sub_001E2850); /* call 0x001E2850 */
-
-loc_001E39FB: ;
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edx = edx + 0x878;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esi--;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fa != 0)) goto loc_001E39F4; /* jne: not equal / not zero */
-
-loc_001E3A04: ;
-    esi = eax + 0x12;
-    edi = 0xA;
-    /* nop */
-
-loc_001E3A10: ;
-    SET_LO8(eax, MEM8(esi + 0x1A));
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3A25; /* je: equal / zero */
-
-loc_001E3A17: ;
-    _fa = (uint32_t)(MEM16(esi)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(esi), 0 (16-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3A25; /* jne: not equal / not zero */
-
-loc_001E3A1D: ;
-    ecx = esi + -6;
-    PUSH32(esp, 0x001E3A25u); RECOMP_ABI_CALL(0x001E3960u, sub_001E3960); /* call 0x001E3960 */
-
-loc_001E3A25: ;
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0x878;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    edi--;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fa != 0)) goto loc_001E3A10; /* jne: not equal / not zero */
-
-loc_001E3A2E: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E3A40
- * Original: 0x001E3A40 - 0x001E3E8C (1100 bytes, 325 insns)
- * Category: game_vtable
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3A40(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3A40: ;
-    eax = MEM32(esp + 8);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, esi);
-    esi = 0; /* xor self */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0x1C2) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0x1C2 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3A73; /* je: equal / zero */
-
-loc_001E3A54: ;
-    esi = MEM32(0x713D48);
-    esi--;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fas < 0)) goto loc_001E3E84; /* js: sign (negative) */
-
-loc_001E3A61: ;
-    esi = (uint32_t)((int32_t)esi * (int32_t)0x878);
-    _fb = (uint32_t)(0x713D4C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + 0x713D4C;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    if ((_fa == 0)) goto loc_001E3E84; /* je: equal / zero */
-
-loc_001E3A73: ;
-    _fb = (uint32_t)(0xFFFFFE3Eu) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0xFFFFFE3Eu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xB) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xB (32-bit) */
-    if (CMP_A(_fa, _fb)) goto loc_001E3E84; /* ja: above (unsigned >) */
-
-loc_001E3A81: ;
-    PUSH32(esp, edi);
-    { uint32_t _jt = MEM32(eax * 4 + 0x1E3E8C); /* switch: 12 entries, 12 targets */
-    if (_jt == 0x001E3A89u) goto loc_001E3A89;
-    if (_jt == 0x001E3B29u) goto loc_001E3B29;
-    if (_jt == 0x001E3C3Bu) goto loc_001E3C3B;
-    if (_jt == 0x001E3C94u) goto loc_001E3C94;
-    if (_jt == 0x001E3CACu) goto loc_001E3CAC;
-    if (_jt == 0x001E3CC1u) goto loc_001E3CC1;
-    if (_jt == 0x001E3D14u) goto loc_001E3D14;
-    if (_jt == 0x001E3D57u) goto loc_001E3D57;
-    if (_jt == 0x001E3D9Au) goto loc_001E3D9A;
-    if (_jt == 0x001E3DC2u) goto loc_001E3DC2;
-    if (_jt == 0x001E3E20u) goto loc_001E3E20;
-    if (_jt == 0x001E3E35u) goto loc_001E3E35;
-    g_seh_ebp = ebp; RECOMP_ITAIL(_jt); return; }
-
-loc_001E3A89: ;
-    ecx = 0x713D40;
-    PUSH32(esp, 0x001E3A93u); RECOMP_ABI_CALL(0x001E3830u, sub_001E3830); /* call 0x001E3830 */
-
-loc_001E3A93: ;
-    esi = eax;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3E83; /* je: equal / zero */
-
-loc_001E3A9D: ;
-    eax = esp + 0x20;
-    PUSH32(esp, eax);
-    ecx = esp + 0x1C;
-    PUSH32(esp, ecx);
-    ecx = MEM32(esp + 0xA0);
-    edx = esp + 0x18;
-    PUSH32(esp, edx);
-    edx = MEM32(esp + 0xA0);
-    eax = esp + 0x14;
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3ACBu); RECOMP_ABI_CALL(0x00011825u, sub_00011825); /* call 0x00011825 */
-
-loc_001E3ACB: ;
-    eax = MEM32(esp + 0x8C);
-    edi = MEM32(eax + 0x68);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, eax);
-    ecx = 0x59C1AC;
-    edi--;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    PUSH32(esp, 0x001E3AE5u); RECOMP_ABI_CALL(0x00016442u, sub_00016442); /* call 0x00016442 */
-
-loc_001E3AE5: ;
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3AEF; /* je: equal / zero */
-
-loc_001E3AEB: ;
-    ecx = MEM32(eax + 0x68);
-    ecx--;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-
-loc_001E3AEF: ;
-    eax = MEM32(esp + 8);
-    SET_LO16(edx, MEM16(esp + 0x10));
-    MEM16(esi + 0x64) = LO16(edi);
-    MEM32(esi + 0x68) = eax;
-    eax = MEM32(esp + 0x18);
-    MEM16(esi + 0x6C) = LO16(edx);
-    MEM16(esi + 0x8C) = LO16(ecx);
-    SET_LO16(ecx, MEM16(esp + 0x20));
-    POP32(esp, edi);
-    MEM32(esi + 0x90) = eax;
-    MEM16(esi + 0x94) = LO16(ecx);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3B29: ;
-    edx = esp + 0x20;
-    PUSH32(esp, edx);
-    edx = MEM32(esp + 0x9C);
-    eax = esp + 0x1C;
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0x9C);
-    ecx = esp + 0x18;
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3B52u); RECOMP_ABI_CALL(0x0017BEB0u, sub_0017BEB0); /* call 0x0017BEB0 */
-
-loc_001E3B52: ;
-    ecx = esi + 0x64;
-    MEM32(esi + 0x90) = 5;
-    PUSH32(esp, 0x001E3B64u); RECOMP_ABI_CALL(0x001E28F0u, sub_001E28F0); /* call 0x001E28F0 */
-
-loc_001E3B64: ;
-    edi = eax;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edi, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3B81; /* jne: not equal / not zero */
-
-loc_001E3B6A: ;
-    PUSH32(esp, eax);
-    PUSH32(esp, eax);
-    PUSH32(esp, eax);
-    ecx = esi + 0x8C;
-    PUSH32(esp, 0x001E3B78u); RECOMP_ABI_CALL(0x001E2340u, sub_001E2340); /* call 0x001E2340 */
-
-loc_001E3B78: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3B81: ;
-    ecx = MEM32(edi + 0x94);
-    edx = esp + 0x48;
-    PUSH32(esp, edx);
-    MEM32(esp + 0xC) = ecx;
-    PUSH32(esp, 0x001E3B95u); RECOMP_ABI_CALL(0x0015BE90u, sub_0015BE90); /* call 0x0015BE90 */
-
-loc_001E3B95: ;
-    fp_push(MEMF(esp + 0xC)); /* fld float */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E43C)); /* fmul dword ptr [0x49e43c] */
-    eax = esp + 0x4C;
-    ecx = eax;
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E438)); /* fmul dword ptr [0x49e438] */
-    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E3BB5u); RECOMP_ABI_CALL(0x0015D040u, sub_0015D040); /* call 0x0015D040 */
-
-loc_001E3BB5: ;
-    fp_push((double)SMEM64(esp + 0x2C)); /* fild */
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, 0x3F800000);
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    MEMF(esp + 8) = (float)fp_top(); fp_pop(); /* fstp */
-    edx = esp + 0x38;
-    fp_push((double)SMEM64(esp + 0x28)); /* fild */
-    MEMF(esp + 4) = (float)fp_top(); fp_pop(); /* fstp */
-    fp_push((double)SMEM64(esp + 0x20)); /* fild */
-    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E3BE1u); RECOMP_ABI_CALL(0x0015BB60u, sub_0015BB60); /* call 0x0015BB60 */
-
-loc_001E3BE1: ;
-    eax = esp + 0x3C;
-    PUSH32(esp, eax);
-    ecx = esp + 0x60;
-    PUSH32(esp, ecx);
-    edx = eax;
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E3BF3u); RECOMP_ABI_CALL(0x0015CC00u, sub_0015CC00); /* call 0x0015CC00 */
-
-loc_001E3BF3: ;
-    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x20;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, edi);
-    eax = esp + 0x3C;
-    PUSH32(esp, eax);
-    ecx = 0x699E20;
-    PUSH32(esp, 0x001E3C06u); RECOMP_ABI_CALL(0x0019A0C0u, sub_0019A0C0); /* call 0x0019A0C0 */
-
-loc_001E3C06: ;
-    ecx = esp + 0x38;
-    PUSH32(esp, ecx);
-    edx = esp + 0x2C;
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E3C15u); RECOMP_ABI_CALL(0x0010DE70u, sub_0010DE70); /* call 0x0010DE70 */
-
-loc_001E3C15: ;
-    eax = MEM32(esp + 0x38);
-    ecx = MEM32(esp + 0x34);
-    edx = MEM32(esp + 0x30);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    ecx = esi + 0x8C;
-    PUSH32(esp, 0x001E3C32u); RECOMP_ABI_CALL(0x001E2340u, sub_001E2340); /* call 0x001E2340 */
-
-loc_001E3C32: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3C3B: ;
-    edx = MEM32(esp + 0x98);
-    eax = esp + 8;
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0x98);
-    ecx = esp + 0x24;
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3C5Fu); RECOMP_ABI_CALL(0x0001584Eu, sub_0001584E); /* call 0x0001584E */
-
-loc_001E3C5F: ;
-    edx = MEM32(esp + 8);
-    edx = edx | MEM32(esp + 0xC);
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    SET_LO16(ecx, MEM16(esp + 0x20));
-    MEM16(esi + 0x34) = LO16(ecx);
-    if ((_fa == 0)) goto loc_001E3C83; /* je: equal / zero */
-
-loc_001E3C72: ;
-    SET_LO8(eax, 1);
-    POP32(esp, edi);
-    MEM8(esi + 0x834) = LO8(eax);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3C83: ;
-    SET_LO8(eax, 0); /* xor self */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
-    POP32(esp, edi);
-    MEM8(esi + 0x834) = LO8(eax);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3C94: ;
-    eax = MEM32(esp + 0x94);
-    PUSH32(esp, eax);
-    ecx = esi;
-    PUSH32(esp, 0x001E3CA3u); RECOMP_ABI_CALL(0x001E2E80u, sub_001E2E80); /* call 0x001E2E80 */
-
-loc_001E3CA3: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3CAC: ;
-    SET_LO16(ecx, MEM16(esp + 0x94));
-    POP32(esp, edi);
-    MEM16(esi + 0x3A) = LO16(ecx);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3CC1: ;
-    edx = esp + 8;
-    PUSH32(esp, edx);
-    eax = esp + 0x14;
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0xA0);
-    ecx = esp + 0x20;
-    PUSH32(esp, ecx);
-    ecx = MEM32(esp + 0xA0);
-    edx = esp + 0x2C;
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3CEFu); RECOMP_ABI_CALL(0x00011825u, sub_00011825); /* call 0x00011825 */
-
-loc_001E3CEF: ;
-    edx = MEM32(esp + 0x20);
-    eax = MEM32(esp + 0x18);
-    ecx = MEM32(esp + 0x10);
-    MEM32(esi + 0x24) = edx;
-    edx = MEM32(esp + 8);
-    POP32(esp, edi);
-    MEM32(esi + 0x28) = eax;
-    MEM32(esi + 0x2C) = ecx;
-    MEM32(esi + 0x30) = edx;
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3D14: ;
-    edx = MEM32(esp + 0x98);
-    eax = esp + 0x18;
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0x98);
-    ecx = esp + 0x24;
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3D38u); RECOMP_ABI_CALL(0x0001584Eu, sub_0001584E); /* call 0x0001584E */
-
-loc_001E3D38: ;
-    SET_LO16(eax, MEM16(esp + 0x18));
-    SET_LO16(ecx, MEM16(esp + 0x20));
-    POP32(esp, edi);
-    MEM16(esi + 0x3C) = LO16(ecx);
-    MEM16(esi + 0x3E) = LO16(eax);
-    MEM16(esi + 0x40) = LO16(eax);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3D57: ;
-    ecx = MEM32(esp + 0x98);
-    edx = esp + 0x18;
-    PUSH32(esp, edx);
-    edx = MEM32(esp + 0x98);
-    eax = esp + 0x24;
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3D7Bu); RECOMP_ABI_CALL(0x0001584Eu, sub_0001584E); /* call 0x0001584E */
-
-loc_001E3D7B: ;
-    SET_LO16(eax, MEM16(esp + 0x20));
-    MEM16(esi + 0x44) = LO16(eax);
-    SET_LO16(eax, MEM16(esp + 0x18));
-    POP32(esp, edi);
-    MEM16(esi + 0x46) = LO16(eax);
-    MEM16(esi + 0x48) = LO16(eax);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3D9A: ;
-    ecx = esi;
-    PUSH32(esp, 0x001E3DA1u); RECOMP_ABI_CALL(0x001E37F0u, sub_001E37F0); /* call 0x001E37F0 */
-
-loc_001E3DA1: ;
-    ecx = MEM32(esp + 0x94);
-    ecx = ecx | MEM32(esp + 0x98);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001E3E83; /* je: equal / zero */
-
-loc_001E3DB5: ;
-    POP32(esp, edi);
-    MEM8(esi + 8) = 1;
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3DC2: ;
-    edx = esp + 8;
-    PUSH32(esp, edx);
-    eax = esp + 0x24;
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0xA0);
-    ecx = esp + 0x20;
-    PUSH32(esp, ecx);
-    ecx = MEM32(esp + 0xA0);
-    edx = esp + 0x1C;
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3DF0u); RECOMP_ABI_CALL(0x00011825u, sub_00011825); /* call 0x00011825 */
-
-loc_001E3DF0: ;
-    edx = MEM32(esp + 0x20);
-    eax = MEM32(esp + 0x18);
-    ecx = MEM32(esp + 0x10);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    ecx = esi;
-    PUSH32(esp, 0x001E3E06u); RECOMP_ABI_CALL(0x001E27B0u, sub_001E27B0); /* call 0x001E27B0 */
-
-loc_001E3E06: ;
-    edx = MEM32(esp + 8);
-    edx = edx | MEM32(esp + 0xC);
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    if ((_fa == 0)) goto loc_001E3E83; /* je: equal / zero */
-
-loc_001E3E10: ;
-    POP32(esp, edi);
-    MEM8(esi + 0x80) = 1;
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3E20: ;
-    SET_LO16(eax, MEM16(esp + 0x94));
-    POP32(esp, edi);
-    MEM16(esi + 0x36) = LO16(eax);
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-loc_001E3E35: ;
-    ecx = esp + 8;
-    PUSH32(esp, ecx);
-    edx = esp + 0x14;
-    PUSH32(esp, edx);
-    edx = MEM32(esp + 0xA0);
-    eax = esp + 0x20;
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0xA0);
-    ecx = esp + 0x2C;
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    ecx = 0x6CE738;
-    PUSH32(esp, 0x001E3E63u); RECOMP_ABI_CALL(0x00011825u, sub_00011825); /* call 0x00011825 */
-
-loc_001E3E63: ;
-    ecx = MEM32(esp + 0x20);
-    edx = MEM32(esp + 0x18);
-    eax = MEM32(esp + 0x10);
-    MEM32(esi + 0xC) = ecx;
-    ecx = MEM32(esp + 8);
-    MEM8(esi + 0x1C) = 1;
-    MEM32(esi + 0x10) = edx;
-    MEM32(esi + 0x14) = eax;
-    MEM32(esi + 0x18) = ecx;
-
-loc_001E3E83: ;
-    POP32(esp, edi);
-
-loc_001E3E84: ;
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x80) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x80;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E3EC0
- * Original: 0x001E3EC0 - 0x001E3F80 (192 bytes, 63 insns)
- * Category: game_vtable
- * CC: cdecl, 3 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3EC0(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3EC0: ;
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    eax = 0x713D6C;
-
-loc_001E3EC7: ;
-    _fa = (uint32_t)(MEM8(eax)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(eax), 1 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3EDC; /* jne: not equal / not zero */
-
-loc_001E3ECC: ;
-    _fb = (uint32_t)(0x878) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x878;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ecx++;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0x71921C) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0x71921C (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E3EC7; /* jl: less (signed <) */
-
-loc_001E3ED9: ;
-    esp += 16; return; /* ret 12 */
-
-loc_001E3EDC: ;
-    eax = MEM32(0x713D48);
-    edx = ecx + 1;
-    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x878);
-    ecx = ecx + 0x713D4C;
-    MEM32(0x713D44) = eax;
-    MEM32(0x713D48) = edx;
-    PUSH32(esp, 0x001E3F00u); RECOMP_ABI_CALL(0x001E3760u, sub_001E3760); /* call 0x001E3760 */
-
-loc_001E3F00: ;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3F75; /* je: equal / zero */
-
-loc_001E3F04: ;
-    PUSH32(esp, ebx);
-    PUSH32(esp, ebp);
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    edi = MEM32(esp + 0x14);
-    eax = MEM32(edi + 8);
-    ebp = MEM32(eax + 8);
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ebp, 0 (32-bit) */
-    esi = MEM32(eax);
-    ebx = MEM32(eax + 4);
-    edx = 2;
-    if (CMP_EQ(_fa, _fb)) goto loc_001E3F27; /* je: equal / zero */
-
-loc_001E3F20: ;
-    edx = 1;
-    esi = 0; /* xor self */
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-
-loc_001E3F27: ;
-    eax = MEM32(esp + 0x18);
-    SET_LO16(eax, MEM16(eax + 0x10));
-    MEM16(ecx + 0x6C) = LO16(esi);
-    MEM16(ecx + 0x64) = LO16(eax);
-    MEM32(ecx + 0x68) = edx;
-    MEM16(ecx + 0x94) = LO16(ebx);
-    MEM16(ecx + 0x8C) = 0;
-    MEM32(ecx + 0x90) = 2;
-    edx = MEM32(edi + 8);
-    eax = MEM32(edx + 0xC);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ebx);
-    if (CMP_L(_fas, _fbs)) goto loc_001E3F75; /* jl: less (signed <) */
-
-loc_001E3F62: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(2) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 2 (32-bit) */
-    if (CMP_GE(_fas, _fbs)) goto loc_001E3F75; /* jge: greater or equal (signed >=) */
-
-loc_001E3F67: ;
-    eax = eax << 6;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    _fb = (uint32_t)(0x517458) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x517458;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E3F75u); RECOMP_ABI_CALL(0x001E3020u, sub_001E3020); /* call 0x001E3020 */
-
-loc_001E3F75: ;
-    esp += 16; return; /* ret 12 */
-
-}
-
-/**
- * sub_001E3F80
- * Original: 0x001E3F80 - 0x001E3F8A (10 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3F80(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3F80: ;
-    ecx = 0x713D40;
-    g_seh_ebp = ebp; sub_001E39E0(); return; /* tail jmp 0x001E39E0 */
-
-}
-
-/**
- * sub_001E3F90
- * Original: 0x001E3F90 - 0x001E3F9A (10 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3F90(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E3F90: ;
-    ecx = 0x713D40;
-    g_seh_ebp = ebp; sub_001E3870(); return; /* tail jmp 0x001E3870 */
-
-}
-
-/**
- * sub_001E3FA0
- * Original: 0x001E3FA0 - 0x001E3FBC (28 bytes, 10 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3FA0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3FA0: ;
-    eax = MEM32(0x4A8660);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x44);
-    PUSH32(esp, 0xA);
-    PUSH32(esp, 0x719200);
-    PUSH32(esp, 0x001E3FB8u); RECOMP_ABI_CALL(0x00105A50u, sub_00105A50); /* call 0x00105A50 */
-
-loc_001E3FB8: ;
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x18;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E3FC0
- * Original: 0x001E3FC0 - 0x001E3FCC (12 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3FC0(void)
-{
-
-loc_001E3FC0: ;
-    PUSH32(esp, 0x719200);
-    PUSH32(esp, 0x001E3FCAu); RECOMP_ABI_CALL(0x00105D60u, sub_00105D60); /* call 0x00105D60 */
-
-loc_001E3FCA: ;
-    POP32(esp, ecx);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E3FD0
- * Original: 0x001E3FD0 - 0x001E3FEC (28 bytes, 11 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E3FD0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3FD0: ;
-    PUSH32(esp, 2);
-    PUSH32(esp, 0);
-    PUSH32(esp, 3);
-    PUSH32(esp, 0x719200);
-    PUSH32(esp, 0x001E3FE0u); RECOMP_ABI_CALL(0x00105E10u, sub_00105E10); /* call 0x00105E10 */
-
-loc_001E3FE0: ;
-    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x10;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E3FE8; /* jne: not equal / not zero */
-
-loc_001E3FE7: ;
-    esp += 4; return; /* ret */
-
-loc_001E3FE8: ;
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x18;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E3FF0
- * Original: 0x001E3FF0 - 0x001E4011 (33 bytes, 13 insns)
- * CC: cdecl, 0 params, returns int_zero
- * Frame: fpo_leaf
- */
-void sub_001E3FF0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E3FF0: ;
-    eax = MEM32(0x719204);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E400E; /* je: equal / zero */
-
-loc_001E3FF9: ;
-    ecx = MEM32(esp + 4);
-    /* nop */
-
-loc_001E4000: ;
-    edx = eax + 0x18;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, ecx (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4010; /* je: equal / zero */
-
-loc_001E4007: ;
-    eax = MEM32(eax + 8);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E4000; /* jne: not equal / not zero */
-
-loc_001E400E: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-
-loc_001E4010: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4020
- * Original: 0x001E4020 - 0x001E404A (42 bytes, 16 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4020(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4020: ;
-    eax = MEM32(0x719204);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4049; /* je: equal / zero */
-
-loc_001E4029: ;
-    ecx = MEM32(esp + 4);
-    /* nop */
-
-loc_001E4030: ;
-    edx = eax + 0x18;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, ecx (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E403F; /* je: equal / zero */
-
-loc_001E4037: ;
-    eax = MEM32(eax + 8);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E4030; /* jne: not equal / not zero */
-
-loc_001E403E: ;
-    esp += 4; return; /* ret */
-
-loc_001E403F: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4049; /* je: equal / zero */
-
-loc_001E4043: ;
-    MEM16(eax + 0x10) = 1;
-
-loc_001E4049: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4050
- * Original: 0x001E4050 - 0x001E4068 (24 bytes, 11 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4050(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4050: ;
-    eax = MEM32(esp + 4);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4065; /* je: equal / zero */
-
-loc_001E4059: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4065; /* jl: less (signed <) */
-
-loc_001E405D: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    if (CMP_GE(_fas, _fbs)) goto loc_001E4065; /* jge: greater or equal (signed >=) */
-
-loc_001E4062: ;
-    SET_LO8(eax, 1);
-    esp += 4; return; /* ret */
-
-loc_001E4065: ;
-    SET_LO8(eax, 0); /* xor self */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4070
- * Original: 0x001E4070 - 0x001E4095 (37 bytes, 10 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4070(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4070: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
-    SET_LO8(ecx, MEM8(eax + 0x5D1B29));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4090; /* je: equal / zero */
-
-loc_001E4084: ;
-    ecx = MEM32(esp + 8);
-    eax = MEM32(ecx * 4 + 0x514C58);
-    esp += 4; return; /* ret */
-
-loc_001E4090: ;
-    eax = MEM32(esp + 8);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E40A0
- * Original: 0x001E40A0 - 0x001E40D8 (56 bytes, 19 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E40A0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E40A0: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
-    ecx = MEM32(eax + 0x5D42F8);
-    eax = MEM32(ecx + 0x20);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E40C1; /* je: equal / zero */
-
-loc_001E40B8: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E40C1; /* jl: less (signed <) */
-
-loc_001E40BC: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E40D7; /* jl: less (signed <) */
-
-loc_001E40C1: ;
-    eax = MEM32(0x5174E8);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E40D4; /* je: equal / zero */
-
-loc_001E40CB: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E40D4; /* jl: less (signed <) */
-
-loc_001E40CF: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E40D7; /* jl: less (signed <) */
-
-loc_001E40D4: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-
-loc_001E40D7: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E40E0
- * Original: 0x001E40E0 - 0x001E410B (43 bytes, 13 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E40E0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E40E0: ;
-    eax = MEM32(esp + 4);
-    ecx = ecx | 0xFFFFFFFFu;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(eax) = ecx;
-    MEM32(eax + 0x10) = ecx;
-    MEM32(eax + 0x20) = ecx;
-    MEM32(eax + 0x30) = ecx;
-    MEM32(eax + 0x40) = ecx;
-    MEM32(eax + 0x50) = ecx;
-    MEM32(eax + 0x60) = ecx;
-    MEM32(eax + 0x70) = ecx;
-    MEM32(eax + 0x80) = ecx;
-    MEM32(eax + 0x90) = ecx;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4110
- * Original: 0x001E4110 - 0x001E4153 (67 bytes, 23 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4110(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4110: ;
-    eax = MEM32(esp + 4);
-    ecx = ecx | 0xFFFFFFFFu;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(eax) = ecx;
-    MEM32(eax + 4) = ecx;
-    MEM32(eax + 8) = ecx;
-    MEM32(eax + 0xC) = ecx;
-    MEM32(eax + 0x10) = ecx;
-    MEM32(eax + 0x14) = ecx;
-    MEM32(eax + 0x18) = ecx;
-    MEM32(eax + 0x1C) = ecx;
-    MEM32(eax + 0x20) = ecx;
-    MEM32(eax + 0x24) = ecx;
-    MEM32(eax + 0x28) = ecx;
-    MEM32(eax + 0x2C) = ecx;
-    MEM32(eax + 0x30) = ecx;
-    MEM32(eax + 0x34) = ecx;
-    MEM32(eax + 0x38) = ecx;
-    MEM32(eax + 0x3C) = ecx;
-    MEM32(eax + 0x40) = ecx;
-    MEM32(eax + 0x44) = ecx;
-    MEM32(eax + 0x48) = ecx;
-    MEM32(eax + 0x4C) = ecx;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4250
- * Original: 0x001E4250 - 0x001E437D (301 bytes, 87 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4250(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-
-loc_001E4250: ;
-    ecx = MEM32(esp + 4);
-    eax = ecx;
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x3238);
-    edx = MEM32(eax + 0x5D42F8);
-    _fb = (uint32_t)(0x210) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0x210;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, esi);
-    esi = MEM32(edx + 0x20);
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E427A; /* je: equal / zero */
-
-loc_001E4271: ;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E427A; /* jl: less (signed <) */
-
-loc_001E4275: ;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0xA (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E429A; /* jl: less (signed <) */
-
-loc_001E427A: ;
-    esi = MEM32(0x5174E8);
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4375; /* je: equal / zero */
-
-loc_001E4289: ;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4375; /* jl: less (signed <) */
-
-loc_001E4291: ;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0xA (32-bit) */
-    if (CMP_GE(_fas, _fbs)) goto loc_001E4375; /* jge: greater or equal (signed >=) */
-
-loc_001E429A: ;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp esi, 0 (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4375; /* jl: less (signed <) */
-
-loc_001E42A2: ;
-    SET_LO8(edx, MEM8(eax + 0x5D1B29));
-    _fa = (uint32_t)(LO8(edx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(edx), 0 (8-bit) */
-    edx = MEM32(esp + 0x21C);
-    if (CMP_EQ(_fa, _fb)) goto loc_001E42BA; /* je: equal / zero */
-
-loc_001E42B3: ;
-    edx = MEM32(edx * 4 + 0x514C58);
-
-loc_001E42BA: ;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, 0 (32-bit) */
-    if (CMP_GE(_fas, _fbs)) goto loc_001E42C3; /* jge: greater or equal (signed >=) */
-
-loc_001E42BE: ;
-    edx = 3;
-
-loc_001E42C3: ;
-    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x43);
-    PUSH32(esp, 1);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ecx = ecx + edx;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ecx = MEM32(ecx * 4 + 0x6204A8);
-    PUSH32(esp, 0);
-    PUSH32(esp, ecx);
-    edx = esp + 0x28;
-    PUSH32(esp, edx);
-    eax = eax + 0x5D1AB8;
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E42E9u); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
-
-loc_001E42E9: ;
-    eax = MEM32(esp + 0xB8);
-    ecx = MEM32(esp + 0xB0);
-    edx = MEM32(esp + 0xB4);
-    MEM32(esp + 0x28) = eax;
-    eax = MEM32(esp + 0x23C);
-    _fb = (uint32_t)(0x1C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x1C;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    MEM32(esp + 4) = ecx;
-    MEM32(esp + 8) = edx;
-    MEM32(esp + 0x10) = 0x3F800000;
-    if (CMP_EQ(_fa, _fb)) goto loc_001E433E; /* je: equal / zero */
-
-loc_001E4320: ;
-    ecx = MEM32(eax + esi * 8);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E433E; /* je: equal / zero */
-
-loc_001E4328: ;
-    fp_push((double)SMEM32(eax + esi * 8 + 4)); /* fild */
-    PUSH32(esp, ecx);
-    edx = esp + 8;
-    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, edx);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E433Bu); RECOMP_ABI_CALL(0x00157C50u, sub_00157C50); /* call 0x00157C50 */
-
-loc_001E433B: ;
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001E433E: ;
-    eax = MEM32(esp + 0x224);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4375; /* je: equal / zero */
-
-loc_001E4349: ;
-    esi = esi << 4;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    ecx = MEM32(eax + esi);
-    _fb = (uint32_t)(esi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + esi;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4375; /* je: equal / zero */
-
-loc_001E4356: ;
-    eax = MEM32(eax + 0xC);
-    edx = esp + 4;
-    PUSH32(esp, edx);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x3F800000);
-    PUSH32(esp, ecx);
-    PUSH32(esp, eax);
-    ecx = 0x653BC0;
-    PUSH32(esp, 0x001E4375u); RECOMP_ABI_CALL(0x00151B90u, sub_00151B90); /* call 0x00151B90 */
-
-loc_001E4375: ;
-    POP32(esp, esi);
-    _fb = (uint32_t)(0x210) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x210;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E4500
- * Original: 0x001E4500 - 0x001E452F (47 bytes, 16 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4500(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4500: ;
-    PUSH32(esp, esi);
-    edx = 0x71A18C;
-    esi = esi | 0xFFFFFFFFu;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    /* nop */
-
-loc_001E4510: ;
-    eax = edx;
-    ecx = 0xA;
-
-loc_001E4517: ;
-    MEM32(eax + -4) = esi;
-    MEM32(eax) = esi;
-    _fb = (uint32_t)(0x60) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x60;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ecx--;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fa != 0)) goto loc_001E4517; /* jne: not equal / not zero */
-
-loc_001E4522: ;
-    _fb = (uint32_t)(0x20) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edx = edx + 0x20;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(0x71A1EC) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, 0x71A1EC (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4510; /* jl: less (signed <) */
-
-loc_001E452D: ;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4530
- * Original: 0x001E4530 - 0x001E4562 (50 bytes, 17 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4530(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4530: ;
-    PUSH32(esp, esi);
-    edx = 0x71A54C;
-    esi = esi | 0xFFFFFFFFu;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    /* nop */
-
-loc_001E4540: ;
-    eax = edx;
-    ecx = 0xA;
-
-loc_001E4547: ;
-    MEM32(eax + -4) = esi;
-    MEM32(eax) = esi;
-    MEM32(eax + 4) = esi;
-    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x24;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ecx--;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    if ((_fa != 0)) goto loc_001E4547; /* jne: not equal / not zero */
-
-loc_001E4555: ;
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    edx = edx + 0xC;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(0x71A570) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, 0x71A570 (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4540; /* jl: less (signed <) */
-
-loc_001E4560: ;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E45D0
- * Original: 0x001E45D0 - 0x001E45DB (11 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E45D0(void)
-{
-
-loc_001E45D0: ;
-    MEM32(0x5174E4) = 0xFFFFFFFFu;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4920
- * Original: 0x001E4920 - 0x001E4943 (35 bytes, 12 insns)
- * Category: game_vtable
- * CC: thiscall, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4920(void)
-{
-
-loc_001E4920: ;
-    PUSH32(esp, esi);
-    esi = ecx;
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x4B2CE4);
-    MEM8(esi + 8) = 0;
-    MEM32(esi) = 0x4B2CD4;
-    PUSH32(esp, 0x001E4938u); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
-
-loc_001E4938: ;
-    ecx = eax;
-    PUSH32(esp, 0x001E493Fu); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
-
-loc_001E493F: ;
-    eax = esi;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E49E0
- * Original: 0x001E49E0 - 0x001E4A03 (35 bytes, 12 insns)
- * Category: game_vtable
- * CC: thiscall, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E49E0(void)
-{
-
-loc_001E49E0: ;
-    PUSH32(esp, esi);
-    esi = ecx;
-    PUSH32(esp, esi);
-    PUSH32(esp, 0x4B2D44);
-    MEM8(esi + 8) = 0;
-    MEM32(esi) = 0x4B2D34;
-    PUSH32(esp, 0x001E49F8u); RECOMP_ABI_CALL(0x0016F970u, sub_0016F970); /* call 0x0016F970 */
-
-loc_001E49F8: ;
-    ecx = eax;
-    PUSH32(esp, 0x001E49FFu); RECOMP_ABI_CALL(0x0016D710u, sub_0016D710); /* call 0x0016D710 */
-
-loc_001E49FF: ;
-    eax = esi;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4AA0
- * Original: 0x001E4AA0 - 0x001E4DAC (780 bytes, 228 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4AA0(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E4AA0: ;
-    eax = MEM32(0x71A750);
-    _fb = (uint32_t)(0x430) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0x430;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, edi);
-    edi = 0; /* xor self */
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, edi (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E4DA4; /* jne: not equal / not zero */
-
-loc_001E4AB6: ;
-    ecx = MEM32(esp + 0x438);
-    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x3238);
-    eax = MEM32(ecx + 0x5D42F8);
-    eax = MEM32(eax + 0x20);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    MEM32(esp + 8) = ecx;
-    MEM32(esp + 0xC) = eax;
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4AE2; /* je: equal / zero */
-
-loc_001E4AD9: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, edi (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4AE2; /* jl: less (signed <) */
-
-loc_001E4ADD: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4B05; /* jl: less (signed <) */
-
-loc_001E4AE2: ;
-    eax = MEM32(0x5174E8);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4DA4; /* je: equal / zero */
-
-loc_001E4AF0: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, edi (32-bit) */
-    if (CMP_L(_fas, _fbs)) goto loc_001E4DA4; /* jl: less (signed <) */
-
-loc_001E4AF8: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xA) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xA (32-bit) */
-    if (CMP_GE(_fas, _fbs)) goto loc_001E4DA4; /* jge: greater or equal (signed >=) */
-
-loc_001E4B01: ;
-    MEM32(esp + 0xC) = eax;
-
-loc_001E4B05: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4DA4; /* je: equal / zero */
-
-loc_001E4B0E: ;
-    PUSH32(esp, ebx);
-    ebx = MEM32(esp + 0x444);
-    PUSH32(esp, ebp);
-    PUSH32(esp, esi);
-    esi = MEM32(esp + 0x450);
-    edx = ebx;
-    SET_LO8(eax, 0); /* xor self */
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fas = (int32_t)(int8_t)(_fa); /* xor result */
-    ebp = 0; /* xor self */
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    edx = edx | esi;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM8(esp + 0x13) = 0;
-    MEM32(esp + 0x2C) = edi;
-    MEM8(esp + 0x12) = 0;
-    if ((_fa != 0)) goto loc_001E4B3E; /* jne: not equal / not zero */
-
-loc_001E4B37: ;
-    MEM8(esp + 0x12) = 1;
-    goto loc_001E4B71;
-
-loc_001E4B3E: ;
-    eax = esi;
-    ecx = esi;
-    eax = (uint32_t)(((int32_t)(int32_t)(eax)) >> ((0x1F) & 31u));
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
-    ecx = (uint32_t)(((int32_t)(int32_t)(ecx)) >> ((0x1F) & 31u));
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
-    edi = esi;
-    eax = ebx;
-    edx = esi;
-    SET_LO8(ecx, 0x10);
-    edi = (uint32_t)(((int32_t)(int32_t)(edi)) >> ((0x10) & 31u));
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sar result */
-    ebp = esi;
-    PUSH32(esp, 0x001E4B5Au); RECOMP_ABI_CALL(0x000EBFD0u, sub_000EBFD0); /* call 0x000EBFD0 */
-
-loc_001E4B5A: ;
-    MEM32(esp + 0x2C) = eax;
-    eax = ebx;
-    edx = esi;
-    SET_LO8(ecx, 8);
-    PUSH32(esp, 0x001E4B69u); RECOMP_ABI_CALL(0x000EBFD0u, sub_000EBFD0); /* call 0x000EBFD0 */
-
-loc_001E4B69: ;
-    ecx = MEM32(esp + 0x14);
-    MEM8(esp + 0x13) = LO8(ebx);
-
-loc_001E4B71: ;
-    ebx = ecx + 0x5D1AB8;
-    SET_LO8(ecx, MEM8(esp + 0x12));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    MEM32(esp + 0x28) = 0x3F800000;
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4C04; /* je: equal / zero */
-
-loc_001E4B87: ;
-    MEM32(esp + 0x1C) = 0;
-    MEM32(esp + 0x20) = 0;
-    MEM32(esp + 0x24) = 0;
-
-loc_001E4B9F: ;
-    esi = MEM32(esp + 0x444);
-    esi = (uint32_t)((int32_t)esi * (int32_t)0x10C);
-    ecx = MEM32(esi + 0x6204C0);
-    PUSH32(esp, 1);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, ecx);
-    edx = esp + 0x54;
-    PUSH32(esp, edx);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001E4BC6u); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
-
-loc_001E4BC6: ;
-    eax = MEM32(esi + 0x6204B4);
-    PUSH32(esp, 1);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, eax);
-    ecx = esp + 0x270;
-    PUSH32(esp, ecx);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001E4BE3u); RECOMP_ABI_CALL(0x001086C0u, sub_001086C0); /* call 0x001086C0 */
-
-loc_001E4BE3: ;
-    fp_push(MEMF(esp + 0xFC)); /* fld float */
-    _fb = (uint32_t)(0x38) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x38;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    g_fp_cmp = RECOMP_FCMP(fp_top(), MEMF(esp + 0x2C4)); g_fp_cc = RECOMP_FCMP_CC(g_fp_cmp); fp_pop(); /* fcomp dword ptr [esp + 0x2c4] */
-    eax = (eax & 0xFFFF0000u) | (uint32_t)(uint16_t)(((g_fp_top & 7u) << 11) | g_fp_cc); /* fnstsw ax <- fpu status */
-    _fa = (uint32_t)(HI8(eax)) & 0xFFu; _fb = (uint32_t)(0x41) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test HI8(eax), 0x41 (8-bit) */
-    if (TEST_NZ(_fa, _fb)) goto loc_001E4C6E; /* jne: not equal / not zero */
-
-loc_001E4BFB: ;
-    edx = MEM32(esi + 0x6204C0);
-    PUSH32(esp, edx);
-    goto loc_001E4C75;
-
-loc_001E4C04: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0xFF) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0xFF (8-bit) */
-    edx = SX16(LO16(edi));
-    MEM32(esp + 0x14) = edx;
-    edx = (uint32_t)(int32_t)SMEM16(esp + 0x2C);
-    fp_push((double)SMEM32(esp + 0x14)); /* fild */
-    ecx = LO16(ebp);
-    MEMF(esp + 0x1C) = (float)fp_top(); fp_pop(); /* fstp */
-    MEM32(esp + 0x14) = ecx;
-    fp_push((double)SMEM32(esp + 0x14)); /* fild */
-    MEM32(esp + 0x14) = edx;
-    MEMF(esp + 0x20) = (float)fp_top(); fp_pop(); /* fstp */
-    fp_push((double)SMEM32(esp + 0x14)); /* fild */
-    MEMF(esp + 0x24) = (float)fp_top(); fp_pop(); /* fstp */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4B9F; /* je: equal / zero */
-
-loc_001E4C3B: ;
-    ecx = MEM32(esp + 0x444);
-    eax = ZX8(LO8(eax));
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E4C4Cu); RECOMP_ABI_CALL(0x001E4070u, sub_001E4070); /* call 0x001E4070 */
-
-loc_001E4C4C: ;
-    ecx = MEM32(esp + 0x44C);
-    ecx = (uint32_t)((int32_t)ecx * (int32_t)0x43);
-    edx = ZX8(LO8(eax));
-    _fb = (uint32_t)(edx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ecx = ecx + edx;
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = MEM32(ecx * 4 + 0x6204A8);
-    PUSH32(esp, eax);
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001E4C69u); RECOMP_ABI_CALL(0x00109240u, sub_00109240); /* call 0x00109240 */
-
-loc_001E4C69: ;
-    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x10;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    goto loc_001E4C7E;
-
-loc_001E4C6E: ;
-    eax = MEM32(esi + 0x6204B4);
-    PUSH32(esp, eax);
-
-loc_001E4C75: ;
-    PUSH32(esp, ebx);
-    PUSH32(esp, 0x001E4C7Bu); RECOMP_ABI_CALL(0x00109240u, sub_00109240); /* call 0x00109240 */
-
-loc_001E4C7B: ;
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001E4C7E: ;
-    ecx = esp + 0x1C;
-    PUSH32(esp, ecx);
-    ebx = eax;
-    edx = ecx;
-    PUSH32(esp, ebx);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E4C8Eu); RECOMP_ABI_CALL(0x0015CC00u, sub_0015CC00); /* call 0x0015CC00 */
-
-loc_001E4C8E: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x001E4C95u); RECOMP_ABI_CALL(0x0015A430u, sub_0015A430); /* call 0x0015A430 */
-
-loc_001E4C95: ;
-    edi = eax;
-    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x10;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    edi = edi & 0x80000001u;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    if ((_fas >= 0)) goto loc_001E4CA7; /* jns: not sign (positive) */
-
-loc_001E4CA2: ;
-    edi--;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x7FFFFFFFu); /* dec result/SF/OF; CF unchanged */
-    edi = edi | 0xFFFFFFFEu;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    edi++;
-    _fa = (uint32_t)(edi) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fb = (_fa == 0x80000000u); /* inc result/SF/OF; CF unchanged */
-
-loc_001E4CA7: ;
-    eax = MEM32(esp + 0x448);
-    esi = MEM32(esp + 0x18);
-    ecx = eax + esi * 2;
-    _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esi = esi + ecx;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    ebp = edi + esi * 2;
-    _fb = (uint32_t)(esi) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    ebp = ebp + esi;
-    _fa = (uint32_t)(ebp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = MEM32(ebp * 4 + 0x71A548);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    ebp = ebp * 4 + 0x71A548;
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4D6E; /* je: equal / zero */
-
-loc_001E4CD3: ;
-    SET_LO8(ecx, MEM8(esp + 0x12));
-    _fa = (uint32_t)(LO8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4CF9; /* je: equal / zero */
-
-loc_001E4CDB: ;
-    edx = esi + esi * 2;
-    fp_push((double)SMEM32(edx * 4 + 0x71A550)); /* fild */
-    PUSH32(esp, ecx);
-    ecx = esp + 0x20;
-    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, ecx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E4CF4u); RECOMP_ABI_CALL(0x00157C50u, sub_00157C50); /* call 0x00157C50 */
-
-loc_001E4CF4: ;
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    goto loc_001E4D6E;
-
-loc_001E4CF9: ;
-    edx = ZX8(MEM8(esp + 0x13));
-    MEM32(esp + 0x14) = edx;
-    eax = esp + 0x30;
-    PUSH32(esp, eax);
-    fp_push((double)SMEM32(esp + 0x18)); /* fild */
-    ecx = eax;
-    PUSH32(esp, ebx);
-    PUSH32(esp, ecx);
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49F0A8)); /* fmul dword ptr [0x49f0a8] */
-    MEM32(esp + 0x3C) = 0;
-    MEM32(esp + 0x48) = 0;
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E43C)); /* fmul dword ptr [0x49e43c] */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E438)); /* fmul dword ptr [0x49e438] */
-    { double _t = fp_top(); fp_push(_t); } /* fld st(0) */
-    fp_top() = cos(fp_top()); /* fcos */
-    fp_top() = -fp_top(); /* fchs */
-    MEMF(esp + 0x40) = (float)fp_top(); fp_pop(); /* fstp */
-    fp_top() = sin(fp_top()); /* fsin */
-    fp_top() = -fp_top(); /* fchs */
-    MEMF(esp + 0x44) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, 0x001E4D48u); RECOMP_ABI_CALL(0x0015CC00u, sub_0015CC00); /* call 0x0015CC00 */
-
-loc_001E4D48: ;
-    edx = esi + esi * 2;
-    fp_push((double)SMEM32(edx * 4 + 0x71A550)); /* fild */
-    edx = MEM32(ebp);
-    _fb = (uint32_t)(8) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 8;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    eax = esp + 0x34;
-    MEMF(esp) = (float)fp_top(); fp_pop(); /* fstp */
-    PUSH32(esp, eax);
-    ecx = esp + 0x24;
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E4D6Bu); RECOMP_ABI_CALL(0x00157B70u, sub_00157B70); /* call 0x00157B70 */
-
-loc_001E4D6B: ;
-    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x10;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-
-loc_001E4D6E: ;
-    esi = edi + esi * 8;
-    esi = esi << 2;
-    _fa = (uint32_t)(esi) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* shift result */
-    eax = MEM32(esi + 0x71A188);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0xFFFFFFFFu) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0xFFFFFFFFu (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E4DA1; /* je: equal / zero */
-
-loc_001E4D7F: ;
-    edx = MEM32(esi + 0x71A1A0);
-    ecx = esp + 0x1C;
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x3F800000);
-    PUSH32(esp, eax);
-    PUSH32(esp, edx);
-    ecx = 0x653BC0;
-    PUSH32(esp, 0x001E4DA1u); RECOMP_ABI_CALL(0x00151B90u, sub_00151B90); /* call 0x00151B90 */
-
-loc_001E4DA1: ;
-    POP32(esp, esi);
-    POP32(esp, ebp);
-    POP32(esp, ebx);
-
-loc_001E4DA4: ;
-    POP32(esp, edi);
-    _fb = (uint32_t)(0x430) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x430;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E4E40
- * Original: 0x001E4E40 - 0x001E4FA2 (354 bytes, 72 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4E40(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4E40: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x719300) = eax;
-    MEM32(0x719304) = eax;
-    MEM32(0x719308) = eax;
-    MEM32(0x71930C) = eax;
-    MEM32(0x719310) = eax;
-    MEM32(0x719314) = eax;
-    MEM32(0x719318) = eax;
-    MEM32(0x71931C) = eax;
-    MEM32(0x719320) = eax;
-    MEM32(0x719324) = eax;
-    MEM32(0x719328) = eax;
-    MEM32(0x71932C) = eax;
-    MEM32(0x719330) = eax;
-    MEM32(0x719334) = eax;
-    MEM32(0x719338) = eax;
-    MEM32(0x71933C) = eax;
-    MEM32(0x719340) = eax;
-    MEM32(0x719344) = eax;
-    MEM32(0x719348) = eax;
-    MEM32(0x71934C) = eax;
-    MEM32(0x719350) = eax;
-    MEM32(0x719354) = eax;
-    MEM32(0x719358) = eax;
-    MEM32(0x71935C) = eax;
-    MEM32(0x719360) = eax;
-    MEM32(0x719364) = eax;
-    MEM32(0x719368) = eax;
-    MEM32(0x71936C) = eax;
-    MEM32(0x719370) = eax;
-    MEM32(0x719374) = eax;
-    MEM32(0x719378) = eax;
-    MEM32(0x71937C) = eax;
-    MEM32(0x719380) = eax;
-    MEM32(0x719384) = eax;
-    MEM32(0x719388) = eax;
-    MEM32(0x71938C) = eax;
-    MEM32(0x719390) = eax;
-    MEM32(0x719394) = eax;
-    MEM32(0x719398) = eax;
-    MEM32(0x71939C) = eax;
-    MEM32(0x7193A0) = eax;
-    MEM32(0x7193A4) = eax;
-    MEM32(0x7193A8) = eax;
-    MEM32(0x7193AC) = eax;
-    MEM32(0x7193B0) = eax;
-    MEM32(0x7193B4) = eax;
-    MEM32(0x7193B8) = eax;
-    MEM32(0x7193BC) = eax;
-    MEM32(0x7193C0) = eax;
-    MEM32(0x7193C4) = eax;
-    MEM32(0x7193C8) = eax;
-    MEM32(0x7193CC) = eax;
-    MEM32(0x7193D0) = eax;
-    MEM32(0x7193D4) = eax;
-    MEM32(0x7193D8) = eax;
-    MEM32(0x7193DC) = eax;
-    MEM32(0x7193E0) = eax;
-    MEM32(0x7193E4) = eax;
-    MEM32(0x7193E8) = eax;
-    MEM32(0x7193EC) = eax;
-    MEM32(0x7193F0) = eax;
-    MEM32(0x7193F4) = eax;
-    MEM32(0x7193F8) = eax;
-    MEM32(0x7193FC) = eax;
-    MEM32(0x719400) = eax;
-    MEM32(0x719404) = eax;
-    MEM32(0x719408) = eax;
-    MEM32(0x71940C) = eax;
-    MEM32(0x719410) = eax;
-    MEM32(0x719414) = eax;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4FB0
- * Original: 0x001E4FB0 - 0x001E4FC7 (23 bytes, 8 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4FB0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E4FB0: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    edx = MEM32(eax + 0x719300);
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, 0 (32-bit) */
-    SET_LO8(ecx, (CMP_GE(_fas, _fbs)) ? 1 : 0); /* setge */
-    SET_LO8(eax, LO8(ecx));
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4FD0
- * Original: 0x001E4FD0 - 0x001E4FDE (14 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4FD0(void)
-{
-
-loc_001E4FD0: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    eax = MEM32(eax + 0x719300);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4FE0
- * Original: 0x001E4FE0 - 0x001E4FEE (14 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4FE0(void)
-{
-
-loc_001E4FE0: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    eax = MEM32(eax + 0x719304);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E4FF0
- * Original: 0x001E4FF0 - 0x001E4FFE (14 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E4FF0(void)
-{
-
-loc_001E4FF0: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    eax = MEM32(eax + 0x719308);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5000
- * Original: 0x001E5000 - 0x001E500E (14 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5000(void)
-{
-
-loc_001E5000: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    eax = MEM32(eax + 0x71930C);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5010
- * Original: 0x001E5010 - 0x001E501E (14 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5010(void)
-{
-
-loc_001E5010: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    eax = MEM32(eax + 0x719310);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5020
- * Original: 0x001E5020 - 0x001E502E (14 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5020(void)
-{
-
-loc_001E5020: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    eax = MEM32(eax + 0x719314);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5030
- * Original: 0x001E5030 - 0x001E503E (14 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5030(void)
-{
-
-loc_001E5030: ;
-    eax = MEM32(esp + 4);
-    eax = (uint32_t)((int32_t)eax * (int32_t)0x1C);
-    eax = MEM32(eax + 0x719318);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5040
- * Original: 0x001E5040 - 0x001E5076 (54 bytes, 12 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5040(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5040: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x71A960) = eax;
-    MEM32(0x71A970) = eax;
-    MEM32(0x71A980) = eax;
-    MEM32(0x71A990) = eax;
-    MEM32(0x71A9A0) = eax;
-    MEM32(0x71A9B0) = eax;
-    MEM32(0x71A9C0) = eax;
-    MEM32(0x71A9D0) = eax;
-    MEM32(0x71A9E0) = eax;
-    MEM32(0x71A9F0) = eax;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5080
- * Original: 0x001E5080 - 0x001E51B0 (304 bytes, 62 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5080(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5080: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x719418) = eax;
-    MEM32(0x71941C) = eax;
-    MEM32(0x719420) = eax;
-    MEM32(0x719424) = eax;
-    MEM32(0x719428) = eax;
-    MEM32(0x71942C) = eax;
-    MEM32(0x719430) = eax;
-    MEM32(0x719434) = eax;
-    MEM32(0x719438) = eax;
-    MEM32(0x71943C) = eax;
-    MEM32(0x719440) = eax;
-    MEM32(0x719444) = eax;
-    MEM32(0x719448) = eax;
-    MEM32(0x71944C) = eax;
-    MEM32(0x719450) = eax;
-    MEM32(0x719454) = eax;
-    MEM32(0x719458) = eax;
-    MEM32(0x71945C) = eax;
-    MEM32(0x719460) = eax;
-    MEM32(0x719464) = eax;
-    MEM32(0x719468) = eax;
-    MEM32(0x71946C) = eax;
-    MEM32(0x719470) = eax;
-    MEM32(0x719474) = eax;
-    MEM32(0x719478) = eax;
-    MEM32(0x71947C) = eax;
-    MEM32(0x719480) = eax;
-    MEM32(0x719484) = eax;
-    MEM32(0x719488) = eax;
-    MEM32(0x71948C) = eax;
-    MEM32(0x719490) = eax;
-    MEM32(0x719494) = eax;
-    MEM32(0x719498) = eax;
-    MEM32(0x71949C) = eax;
-    MEM32(0x7194A0) = eax;
-    MEM32(0x7194A4) = eax;
-    MEM32(0x7194A8) = eax;
-    MEM32(0x7194AC) = eax;
-    MEM32(0x7194B0) = eax;
-    MEM32(0x7194B4) = eax;
-    MEM32(0x7194B8) = eax;
-    MEM32(0x7194BC) = eax;
-    MEM32(0x7194C0) = eax;
-    MEM32(0x7194C4) = eax;
-    MEM32(0x7194C8) = eax;
-    MEM32(0x7194CC) = eax;
-    MEM32(0x7194D0) = eax;
-    MEM32(0x7194D4) = eax;
-    MEM32(0x7194D8) = eax;
-    MEM32(0x7194DC) = eax;
-    MEM32(0x7194E0) = eax;
-    MEM32(0x7194E4) = eax;
-    MEM32(0x7194E8) = eax;
-    MEM32(0x7194EC) = eax;
-    MEM32(0x7194F0) = eax;
-    MEM32(0x7194F4) = eax;
-    MEM32(0x7194F8) = eax;
-    MEM32(0x7194FC) = eax;
-    MEM32(0x719500) = eax;
-    MEM32(0x719504) = eax;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E51B0
- * Original: 0x001E51B0 - 0x001E51D2 (34 bytes, 12 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E51B0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E51B0: ;
-    eax = MEM32(esp + 0x10);
-    ecx = MEM32(esp + 0xC);
-    edx = MEM32(esp + 8);
-    PUSH32(esp, 0x71A960);
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0xC);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E51CEu); RECOMP_ABI_CALL(0x001E4160u, sub_001E4160); /* call 0x001E4160 */
-
-loc_001E51CE: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E51E0
- * Original: 0x001E51E0 - 0x001E5220 (64 bytes, 20 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E51E0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E51E0: ;
-    eax = MEM32(esp + 8);
-    ecx = MEM32(esp + 4);
-    PUSH32(esp, 0x719418);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E51F4u); RECOMP_ABI_CALL(0x001E41F0u, sub_001E41F0); /* call 0x001E41F0 */
-
-loc_001E51F4: ;
-    edx = MEM32(esp + 0x1C);
-    eax = MEM32(esp + 0x18);
-    PUSH32(esp, 0x719468);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E5208u); RECOMP_ABI_CALL(0x001E41F0u, sub_001E41F0); /* call 0x001E41F0 */
-
-loc_001E5208: ;
-    ecx = MEM32(esp + 0x30);
-    edx = MEM32(esp + 0x2C);
-    PUSH32(esp, 0x7194B8);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E521Cu); RECOMP_ABI_CALL(0x001E41F0u, sub_001E41F0); /* call 0x001E41F0 */
-
-loc_001E521C: ;
-    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x24;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5220
- * Original: 0x001E5220 - 0x001E525D (61 bytes, 23 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5220(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5220: ;
-    PUSH32(esp, esi);
-    esi = MEM32(esp + 0xC);
-    PUSH32(esp, edi);
-    edi = MEM32(esp + 0xC);
-    PUSH32(esp, 0x71A960);
-    PUSH32(esp, 0x719418);
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E523Bu); RECOMP_ABI_CALL(0x001E4250u, sub_001E4250); /* call 0x001E4250 */
-
-loc_001E523B: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x719468);
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E5249u); RECOMP_ABI_CALL(0x001E4250u, sub_001E4250); /* call 0x001E4250 */
-
-loc_001E5249: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x7194B8);
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E5257u); RECOMP_ABI_CALL(0x001E4250u, sub_001E4250); /* call 0x001E4250 */
-
-loc_001E5257: ;
-    _fb = (uint32_t)(0x30) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x30;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5260
- * Original: 0x001E5260 - 0x001E5296 (54 bytes, 12 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5260(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5260: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x71A6B0) = eax;
-    MEM32(0x71A6C0) = eax;
-    MEM32(0x71A6D0) = eax;
-    MEM32(0x71A6E0) = eax;
-    MEM32(0x71A6F0) = eax;
-    MEM32(0x71A700) = eax;
-    MEM32(0x71A710) = eax;
-    MEM32(0x71A720) = eax;
-    MEM32(0x71A730) = eax;
-    MEM32(0x71A740) = eax;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5320
- * Original: 0x001E5320 - 0x001E5366 (70 bytes, 18 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5320(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5320: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    PUSH32(esp, edi);
-    MEM32(0x71A758) = eax;
-    MEM32(0x71A770) = eax;
-    MEM32(0x71A788) = eax;
-    MEM32(0x71A7A0) = eax;
-    MEM32(0x71A7B8) = eax;
-    MEM32(0x71A7D0) = eax;
-    MEM32(0x71A7E8) = eax;
-    MEM32(0x71A800) = eax;
-    MEM32(0x71A818) = eax;
-    MEM32(0x71A830) = eax;
-    ecx = 0x320;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    edi = 0x719508;
-    { uint32_t _i; int32_t _st = RECOMP_DF_STEP(4); for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*_st) = eax; edi += ecx * _st; }
-    ecx = 0; /* rep stosd */
-    POP32(esp, edi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5740
- * Original: 0x001E5740 - 0x001E5870 (304 bytes, 62 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5740(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5740: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x71AAA0) = eax;
-    MEM32(0x71AAA4) = eax;
-    MEM32(0x71AAA8) = eax;
-    MEM32(0x71AAAC) = eax;
-    MEM32(0x71AAB0) = eax;
-    MEM32(0x71AAB4) = eax;
-    MEM32(0x71AAB8) = eax;
-    MEM32(0x71AABC) = eax;
-    MEM32(0x71AAC0) = eax;
-    MEM32(0x71AAC4) = eax;
-    MEM32(0x71AAC8) = eax;
-    MEM32(0x71AACC) = eax;
-    MEM32(0x71AAD0) = eax;
-    MEM32(0x71AAD4) = eax;
-    MEM32(0x71AAD8) = eax;
-    MEM32(0x71AADC) = eax;
-    MEM32(0x71AAE0) = eax;
-    MEM32(0x71AAE4) = eax;
-    MEM32(0x71AAE8) = eax;
-    MEM32(0x71AAEC) = eax;
-    MEM32(0x71AAF0) = eax;
-    MEM32(0x71AAF4) = eax;
-    MEM32(0x71AAF8) = eax;
-    MEM32(0x71AAFC) = eax;
-    MEM32(0x71AB00) = eax;
-    MEM32(0x71AB04) = eax;
-    MEM32(0x71AB08) = eax;
-    MEM32(0x71AB0C) = eax;
-    MEM32(0x71AB10) = eax;
-    MEM32(0x71AB14) = eax;
-    MEM32(0x71AB18) = eax;
-    MEM32(0x71AB1C) = eax;
-    MEM32(0x71AB20) = eax;
-    MEM32(0x71AB24) = eax;
-    MEM32(0x71AB28) = eax;
-    MEM32(0x71AB2C) = eax;
-    MEM32(0x71AB30) = eax;
-    MEM32(0x71AB34) = eax;
-    MEM32(0x71AB38) = eax;
-    MEM32(0x71AB3C) = eax;
-    MEM32(0x71AB40) = eax;
-    MEM32(0x71AB44) = eax;
-    MEM32(0x71AB48) = eax;
-    MEM32(0x71AB4C) = eax;
-    MEM32(0x71AB50) = eax;
-    MEM32(0x71AB54) = eax;
-    MEM32(0x71AB58) = eax;
-    MEM32(0x71AB5C) = eax;
-    MEM32(0x71AB60) = eax;
-    MEM32(0x71AB64) = eax;
-    MEM32(0x71AB68) = eax;
-    MEM32(0x71AB6C) = eax;
-    MEM32(0x71AB70) = eax;
-    MEM32(0x71AB74) = eax;
-    MEM32(0x71AB78) = eax;
-    MEM32(0x71AB7C) = eax;
-    MEM32(0x71AB80) = eax;
-    MEM32(0x71AB84) = eax;
-    MEM32(0x71AB88) = eax;
-    MEM32(0x71AB8C) = eax;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5870
- * Original: 0x001E5870 - 0x001E5892 (34 bytes, 12 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5870(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5870: ;
-    eax = MEM32(esp + 0x10);
-    ecx = MEM32(esp + 0xC);
-    edx = MEM32(esp + 8);
-    PUSH32(esp, 0x719260);
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0xC);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E588Eu); RECOMP_ABI_CALL(0x001E4160u, sub_001E4160); /* call 0x001E4160 */
-
-loc_001E588E: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E58A0
- * Original: 0x001E58A0 - 0x001E58E0 (64 bytes, 20 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E58A0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E58A0: ;
-    eax = MEM32(esp + 8);
-    ecx = MEM32(esp + 4);
-    PUSH32(esp, 0x71AAA0);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E58B4u); RECOMP_ABI_CALL(0x001E41F0u, sub_001E41F0); /* call 0x001E41F0 */
-
-loc_001E58B4: ;
-    edx = MEM32(esp + 0x1C);
-    eax = MEM32(esp + 0x18);
-    PUSH32(esp, 0x71AAF0);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E58C8u); RECOMP_ABI_CALL(0x001E41F0u, sub_001E41F0); /* call 0x001E41F0 */
-
-loc_001E58C8: ;
-    ecx = MEM32(esp + 0x30);
-    edx = MEM32(esp + 0x2C);
-    PUSH32(esp, 0x71AB40);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, 0x001E58DCu); RECOMP_ABI_CALL(0x001E41F0u, sub_001E41F0); /* call 0x001E41F0 */
-
-loc_001E58DC: ;
-    _fb = (uint32_t)(0x24) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x24;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E58E0
- * Original: 0x001E58E0 - 0x001E591D (61 bytes, 23 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E58E0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E58E0: ;
-    PUSH32(esp, esi);
-    esi = MEM32(esp + 0xC);
-    PUSH32(esp, edi);
-    edi = MEM32(esp + 0xC);
-    PUSH32(esp, 0x719260);
-    PUSH32(esp, 0x71AAA0);
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E58FBu); RECOMP_ABI_CALL(0x001E4250u, sub_001E4250); /* call 0x001E4250 */
-
-loc_001E58FB: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x71AAF0);
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E5909u); RECOMP_ABI_CALL(0x001E4250u, sub_001E4250); /* call 0x001E4250 */
-
-loc_001E5909: ;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0x71AB40);
-    PUSH32(esp, esi);
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E5917u); RECOMP_ABI_CALL(0x001E4250u, sub_001E4250); /* call 0x001E4250 */
-
-loc_001E5917: ;
-    _fb = (uint32_t)(0x30) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x30;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    POP32(esp, edi);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5920
- * Original: 0x001E5920 - 0x001E5956 (54 bytes, 12 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5920(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5920: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x71AA00) = eax;
-    MEM32(0x71AA10) = eax;
-    MEM32(0x71AA20) = eax;
-    MEM32(0x71AA30) = eax;
-    MEM32(0x71AA40) = eax;
-    MEM32(0x71AA50) = eax;
-    MEM32(0x71AA60) = eax;
-    MEM32(0x71AA70) = eax;
-    MEM32(0x71AA80) = eax;
-    MEM32(0x71AA90) = eax;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5960
- * Original: 0x001E5960 - 0x001E59C8 (104 bytes, 22 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5960(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5960: ;
-    eax = eax | 0xFFFFFFFFu;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x71A910) = eax;
-    MEM32(0x71A914) = eax;
-    MEM32(0x71A918) = eax;
-    MEM32(0x71A91C) = eax;
-    MEM32(0x71A920) = eax;
-    MEM32(0x71A924) = eax;
-    MEM32(0x71A928) = eax;
-    MEM32(0x71A92C) = eax;
-    MEM32(0x71A930) = eax;
-    MEM32(0x71A934) = eax;
-    MEM32(0x71A938) = eax;
-    MEM32(0x71A93C) = eax;
-    MEM32(0x71A940) = eax;
-    MEM32(0x71A944) = eax;
-    MEM32(0x71A948) = eax;
-    MEM32(0x71A94C) = eax;
-    MEM32(0x71A950) = eax;
-    MEM32(0x71A954) = eax;
-    MEM32(0x71A958) = eax;
-    MEM32(0x71A95C) = eax;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E59D0
- * Original: 0x001E59D0 - 0x001E59F2 (34 bytes, 12 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E59D0(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E59D0: ;
-    eax = MEM32(esp + 0x10);
-    ecx = MEM32(esp + 0xC);
-    edx = MEM32(esp + 8);
-    PUSH32(esp, 0x71AA00);
-    PUSH32(esp, eax);
-    eax = MEM32(esp + 0xC);
-    PUSH32(esp, ecx);
-    PUSH32(esp, edx);
-    PUSH32(esp, eax);
-    PUSH32(esp, 0x001E59EEu); RECOMP_ABI_CALL(0x001E4160u, sub_001E4160); /* call 0x001E4160 */
-
-loc_001E59EE: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5A00
- * Original: 0x001E5A00 - 0x001E5A18 (24 bytes, 8 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5A00(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5A00: ;
-    eax = MEM32(esp + 8);
-    ecx = MEM32(esp + 4);
-    PUSH32(esp, 0x71A910);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E5A14u); RECOMP_ABI_CALL(0x001E41F0u, sub_001E41F0); /* call 0x001E41F0 */
-
-loc_001E5A14: ;
-    _fb = (uint32_t)(0xC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0xC;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5BA0
- * Original: 0x001E5BA0 - 0x001E5CFD (349 bytes, 63 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5BA0(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E5BA0: ;
-    PUSH32(esp, edi);
-    PUSH32(esp, 0x001E5BA6u); RECOMP_ABI_CALL(0x001E4500u, sub_001E4500); /* call 0x001E4500 */
-
-loc_001E5BA6: ;
-    PUSH32(esp, 0x001E5BABu); RECOMP_ABI_CALL(0x001E4530u, sub_001E4530); /* call 0x001E4530 */
-
-loc_001E5BAB: ;
-    PUSH32(esp, 0x001E5BB0u); RECOMP_ABI_CALL(0x001E4E40u, sub_001E4E40); /* call 0x001E4E40 */
-
-loc_001E5BB0: ;
-    edx = edx | 0xFFFFFFFFu;
-    _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
-    MEM32(0x71A960) = edx;
-    MEM32(0x71A970) = edx;
-    MEM32(0x71A980) = edx;
-    MEM32(0x71A990) = edx;
-    MEM32(0x71A9A0) = edx;
-    MEM32(0x71A9B0) = edx;
-    MEM32(0x71A9C0) = edx;
-    MEM32(0x71A9D0) = edx;
-    MEM32(0x71A9E0) = edx;
-    MEM32(0x71A9F0) = edx;
-    PUSH32(esp, 0x001E5BF4u); RECOMP_ABI_CALL(0x001E5080u, sub_001E5080); /* call 0x001E5080 */
-
-loc_001E5BF4: ;
-    eax = 0; /* xor self */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    ecx = 0x320;
-    edi = 0x719508;
-    MEM32(0x71A6B0) = edx;
-    MEM32(0x71A6C0) = edx;
-    MEM32(0x71A6D0) = edx;
-    MEM32(0x71A6E0) = edx;
-    MEM32(0x71A6F0) = edx;
-    MEM32(0x71A700) = edx;
-    MEM32(0x71A710) = edx;
-    MEM32(0x71A720) = edx;
-    MEM32(0x71A730) = edx;
-    MEM32(0x71A740) = edx;
-    MEM32(0x71A758) = edx;
-    MEM32(0x71A770) = edx;
-    MEM32(0x71A788) = edx;
-    MEM32(0x71A7A0) = edx;
-    MEM32(0x71A7B8) = edx;
-    MEM32(0x71A7D0) = edx;
-    MEM32(0x71A7E8) = edx;
-    MEM32(0x71A800) = edx;
-    MEM32(0x71A818) = edx;
-    MEM32(0x71A830) = edx;
-    { uint32_t _i; int32_t _st = RECOMP_DF_STEP(4); for (_i = 0; _i < ecx; _i++) MEM32(edi + _i*_st) = eax; edi += ecx * _st; }
-    ecx = 0; /* rep stosd */
-    MEM32(0x719260) = edx;
-    MEM32(0x719270) = edx;
-    MEM32(0x719280) = edx;
-    MEM32(0x719290) = edx;
-    MEM32(0x7192A0) = edx;
-    MEM32(0x7192B0) = edx;
-    MEM32(0x7192C0) = edx;
-    MEM32(0x7192D0) = edx;
-    MEM32(0x7192E0) = edx;
-    MEM32(0x7192F0) = edx;
-    PUSH32(esp, 0x001E5CBBu); RECOMP_ABI_CALL(0x001E5740u, sub_001E5740); /* call 0x001E5740 */
-
-loc_001E5CBB: ;
-    MEM32(0x71AA00) = edx;
-    MEM32(0x71AA10) = edx;
-    MEM32(0x71AA20) = edx;
-    MEM32(0x71AA30) = edx;
-    MEM32(0x71AA40) = edx;
-    MEM32(0x71AA50) = edx;
-    MEM32(0x71AA60) = edx;
-    MEM32(0x71AA70) = edx;
-    MEM32(0x71AA80) = edx;
-    MEM32(0x71AA90) = edx;
-    POP32(esp, edi);
-    g_seh_ebp = ebp; sub_001E5960(); return; /* tail jmp 0x001E5960 */
-
-}
-
-/**
- * sub_001E5D00
- * Original: 0x001E5D00 - 0x001E5D19 (25 bytes, 10 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5D00(void)
-{
-
-loc_001E5D00: ;
-    ecx = MEM32(0x62EBAC);
-    eax = MEM32(ecx);
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, esi);
-    esi = MEM32(esp + 8);
-    PUSH32(esp, 0xE);
-    PUSH32(esp, esi);
-    { uint32_t _icall_target = MEM32(eax + 0x10); PUSH32(esp, 0x001E5D13u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001E5D10u); } /* indirect call */
-    }
-
-loc_001E5D13: ;
-    MEM16(eax + 4) = LO16(esi);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5D20
- * Original: 0x001E5D20 - 0x001E5D3A (26 bytes, 11 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5D20(void)
-{
-
-loc_001E5D20: ;
-    eax = MEM32(esp + 4);
-    ecx = MEM32(0x62EBAC);
-    edx = MEM32(ecx);
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, esi);
-    esi = ZX16(MEM16(eax + 4));
-    PUSH32(esp, 0xE);
-    PUSH32(esp, esi);
-    PUSH32(esp, eax);
-    { uint32_t _icall_target = MEM32(edx + 0x14); PUSH32(esp, 0x001E5D38u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001E5D35u); } /* indirect call */
-    }
-
-loc_001E5D38: ;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5D40
- * Original: 0x001E5D40 - 0x001E5D5E (30 bytes, 12 insns)
- * CC: cdecl, 2 params, returns int_or_void
- * Frame: standard_frame
- */
-void sub_001E5D40(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* prologue saves caller's frame */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5D40: ;
-    PUSH32(esp, ebp);
-    ebp = esp;
-    g_ebp = ebp; /* publish frame for frameless callees */
-    g_seh_ebp = ebp;
-    eax = MEM32(ebp + 0xC);
-    edx = MEM32(ebp + 8);
-    xmm0 = XMM_MEM(eax); /* movaps */
-    xmm1 = XMM_MEM(edx); /* movaps */
-    xmm1 = XMM_SUB(xmm1, xmm0); /* subps */
-    esp = esp & 0xFFFFFFF0u;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    XMM_STORE(ecx, xmm1); /* movaps */
-    esp = ebp;
-    POP32(esp, ebp);
-    esp += 12; return; /* ret 8 */
-
-}
-
-/**
- * sub_001E5D60
- * Original: 0x001E5D60 - 0x001E5D64 (4 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5D60(void)
-{
-
-loc_001E5D60: ;
-    eax = MEM32(ecx + 4);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5D70
- * Original: 0x001E5D70 - 0x001E5D73 (3 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5D70(void)
-{
-
-loc_001E5D70: ;
-    eax = ecx;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5D80
- * Original: 0x001E5D80 - 0x001E5D84 (4 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5D80(void)
-{
-
-loc_001E5D80: ;
-    eax = ecx + 0x10;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5D90
- * Original: 0x001E5D90 - 0x001E5D97 (7 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5D90(void)
-{
-
-loc_001E5D90: ;
-    MEM32(ecx) = 0x4AE714;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5DA0
- * Original: 0x001E5DA0 - 0x001E5DA7 (7 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5DA0(void)
-{
-
-loc_001E5DA0: ;
-    MEM32(ecx) = 0x4AE714;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5DB0
- * Original: 0x001E5DB0 - 0x001E5DBE (14 bytes, 4 insns)
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5DB0(void)
-{
-
-loc_001E5DB0: ;
-    eax = MEM32(esp + 4);
-    xmm0 = XMM_MEM(eax); /* movaps */
-    XMM_STORE(ecx + 0x10, xmm0); /* movaps */
-    esp += 8; return; /* ret 4 */
-
-}
-
-/**
- * sub_001E5DC0
- * Original: 0x001E5DC0 - 0x001E5DD9 (25 bytes, 10 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5DC0(void)
-{
-
-loc_001E5DC0: ;
-    ecx = MEM32(0x62EBAC);
-    eax = MEM32(ecx);
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, esi);
-    esi = MEM32(esp + 8);
-    PUSH32(esp, 0x2A);
-    PUSH32(esp, esi);
-    { uint32_t _icall_target = MEM32(eax + 0x10); PUSH32(esp, 0x001E5DD3u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001E5DD0u); } /* indirect call */
-    }
-
-loc_001E5DD3: ;
-    MEM16(eax + 4) = LO16(esi);
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5DE0
- * Original: 0x001E5DE0 - 0x001E5DFA (26 bytes, 11 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5DE0(void)
-{
-
-loc_001E5DE0: ;
-    eax = MEM32(esp + 4);
-    ecx = MEM32(0x62EBAC);
-    edx = MEM32(ecx);
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, esi);
-    esi = ZX16(MEM16(eax + 4));
-    PUSH32(esp, 0x2A);
-    PUSH32(esp, esi);
-    PUSH32(esp, eax);
-    { uint32_t _icall_target = MEM32(edx + 0x14); PUSH32(esp, 0x001E5DF8u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001E5DF5u); } /* indirect call */
-    }
-
-loc_001E5DF8: ;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5E00
- * Original: 0x001E5E00 - 0x001E5E1E (30 bytes, 10 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5E00(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5E00: ;
-    eax = MEM32(esp + 4);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_GE(_fas, _fbs)) goto loc_001E5E13; /* jge: greater or equal (signed >=) */
-
-loc_001E5E08: ;
-    eax = MEM32(0x51750C);
-    MEM32(0x517510) = eax;
-    esp += 4; return; /* ret */
-
-loc_001E5E13: ;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(3) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 3 (32-bit) */
-    if (CMP_G(_fas, _fbs)) goto loc_001E5E1D; /* jg: greater (signed >) */
-
-loc_001E5E18: ;
-    MEM32(0x517510) = eax;
-
-loc_001E5E1D: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5E20
- * Original: 0x001E5E20 - 0x001E5E43 (35 bytes, 11 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5E20(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5E20: ;
-    eax = MEM32(esp + 4);
-    ecx = MEM32(0x506310);
-    PUSH32(esp, 0x77);
-    PUSH32(esp, 0x4B2EB8);
-    PUSH32(esp, 0x4B2E7C);
-    PUSH32(esp, 1);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E5E3Fu); RECOMP_ABI_CALL(0x001050A0u, sub_001050A0); /* call 0x001050A0 */
-
-loc_001E5E3F: ;
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x18;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5E50
- * Original: 0x001E5E50 - 0x001E5E71 (33 bytes, 10 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5E50(void)
-{
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5E50: ;
-    eax = MEM32(esp + 4);
-    ecx = MEM32(0x506310);
-    PUSH32(esp, 0x77);
-    PUSH32(esp, 0x4B2EE0);
-    PUSH32(esp, 0x4B2E7C);
-    PUSH32(esp, eax);
-    PUSH32(esp, ecx);
-    PUSH32(esp, 0x001E5E6Du); RECOMP_ABI_CALL(0x001031A0u, sub_001031A0); /* call 0x001031A0 */
-
-loc_001E5E6D: ;
-    _fb = (uint32_t)(0x14) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    esp = esp + 0x14;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5E80
- * Original: 0x001E5E80 - 0x001E5E89 (9 bytes, 3 insns)
- * Category: game_vtable
- * CC: thiscall, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5E80(void)
-{
-
-loc_001E5E80: ;
-    eax = ecx;
-    MEM32(eax) = 0x4B2F0C;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5E90
- * Original: 0x001E5E90 - 0x001E5E93 (3 bytes, 1 insns)
- * Category: game_vtable
- * CC: cdecl, 2 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5E90(void)
-{
-
-loc_001E5E90: ;
-    esp += 12; return; /* ret 8 */
-
-}
-
-/**
- * sub_001E5EA0
- * Original: 0x001E5EA0 - 0x001E5EA3 (3 bytes, 1 insns)
- * Category: game_vtable
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5EA0(void)
-{
-
-loc_001E5EA0: ;
-    esp += 8; return; /* ret 4 */
-
-}
-
-/**
- * sub_001E5EB0
- * Original: 0x001E5EB0 - 0x001E5EB3 (3 bytes, 1 insns)
- * Category: game_vtable
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5EB0(void)
-{
-
-loc_001E5EB0: ;
-    esp += 8; return; /* ret 4 */
-
-}
-
-/**
- * sub_001E5EC0
- * Original: 0x001E5EC0 - 0x001E5EC3 (3 bytes, 1 insns)
- * Category: game_vtable
- * CC: cdecl, 3 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5EC0(void)
-{
-
-loc_001E5EC0: ;
-    esp += 16; return; /* ret 12 */
-
-}
-
-/**
- * sub_001E5ED0
- * Original: 0x001E5ED0 - 0x001E5ED3 (3 bytes, 1 insns)
- * Category: game_vtable
- * CC: cdecl, 3 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5ED0(void)
-{
-
-loc_001E5ED0: ;
-    esp += 16; return; /* ret 12 */
-
-}
-
-/**
- * sub_001E5EE0
- * Original: 0x001E5EE0 - 0x001E5EE8 (8 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5EE0(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* frameless: caller's frame */
-    ebp = g_seh_ebp; /* fpo_leaf: inherit caller's frame */
-
-loc_001E5EE0: ;
-    ecx = MEM32(ecx + 4);
-    g_seh_ebp = ebp; sub_002787C0(); return; /* tail jmp 0x002787C0 */
-
-}
-
-/**
- * sub_001E5EF0
- * Original: 0x001E5EF0 - 0x001E5EF9 (9 bytes, 4 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5EF0(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5EF0: ;
-    _fa = (uint32_t)(MEM8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E5EF8; /* je: equal / zero */
-
-loc_001E5EF5: ;
-    MEM8(ecx) = 0;
-
-loc_001E5EF8: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5F00
- * Original: 0x001E5F00 - 0x001E5F36 (54 bytes, 21 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E5F00(void)
-{
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5F00: ;
-    PUSH32(esp, esi);
-    esi = ecx;
-    _fa = (uint32_t)(MEM8(esi)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E5F34; /* je: equal / zero */
-
-loc_001E5F08: ;
-    ecx = MEM32(esi + 4);
-    PUSH32(esp, edi);
-    edi = MEM32(0x67D144);
-    PUSH32(esp, 0x001E5F17u); RECOMP_ABI_CALL(0x002787C0u, sub_002787C0); /* call 0x002787C0 */
-
-loc_001E5F17: ;
-    PUSH32(esp, eax);
-    ecx = edi;
-    PUSH32(esp, 0x001E5F1Fu); RECOMP_ABI_CALL(0x00200AA0u, sub_00200AA0); /* call 0x00200AA0 */
-
-loc_001E5F1F: ;
-    ecx = MEM32(esi + 4);
-    MEM16(ecx + 6) = MEM16(ecx + 6) - 1;
-    _fa = (uint32_t)(MEM16(ecx + 6)) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fb = (_fa == 0x7FFFu); /* dec result/SF/OF; CF unchanged */
-    _fa = (uint32_t)(MEM16(ecx + 6)) & 0xFFFFu; _fb = (uint32_t)(0) & 0xFFFFu;
-    _fas = (int32_t)(int16_t)(_fa); _fbs = (int32_t)(int16_t)(_fb); /* cmp MEM16(ecx + 6), 0 (16-bit) */
-    POP32(esp, edi);
-    if (CMP_NE(_fa, _fb)) goto loc_001E5F34; /* jne: not equal / not zero */
-
-loc_001E5F2E: ;
-    eax = MEM32(ecx);
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, 1);
-    { uint32_t _icall_target = MEM32(eax); PUSH32(esp, 0x001E5F34u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001E5F32u); } /* indirect call */
-    }
-
-loc_001E5F34: ;
-    POP32(esp, esi);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E5F40
- * Original: 0x001E5F40 - 0x001E5FFE (190 bytes, 68 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: standard_frame
- */
-void sub_001E5F40(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* prologue saves caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-
-loc_001E5F40: ;
-    PUSH32(esp, ebp);
-    ebp = esp;
-    g_ebp = ebp; /* publish frame for frameless callees */
-    g_seh_ebp = ebp;
-    esp = esp & 0xFFFFFFF0u;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    _fb = (uint32_t)(0x18) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0x18;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, esi);
-    esi = ecx;
-    _fa = (uint32_t)(MEM8(esi)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi), 0 (8-bit) */
-    PUSH32(esp, edi);
-    if (CMP_EQ(_fa, _fb)) goto loc_001E5FF8; /* je: equal / zero */
-
-loc_001E5F56: ;
-    eax = MEM32(esi + 8);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E5FCB; /* je: equal / zero */
-
-loc_001E5F5D: ;
-    ecx = MEM32(esi + 4);
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E5F65u); RECOMP_ABI_CALL(0x00278770u, sub_00278770); /* call 0x00278770 */
-
-loc_001E5F65: ;
-    edi = MEM32(esi + 8);
-    xmm0 = XMM_MEM(eax); /* movaps */
-    ecx = edi;
-    XMM_STORE(esp + 0x10, xmm0); /* movaps */
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E5F77u); RECOMP_ABI_CALL(0x001F9DD0u, sub_001F9DD0); /* call 0x001F9DD0 */
-
-loc_001E5F77: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E5F89; /* jne: not equal / not zero */
-
-loc_001E5F7B: ;
-    eax = MEM32(edi + 0x44);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E5F89; /* je: equal / zero */
-
-loc_001E5F82: ;
-    ecx = edi;
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E5F89u); RECOMP_ABI_CALL(0x001F9DE0u, sub_001F9DE0); /* call 0x001F9DE0 */
-
-loc_001E5F89: ;
-    _fa = (uint32_t)(MEM8(edi + 0x40)) & 0xFFu; _fb = (uint32_t)(1) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* test MEM8(edi + 0x40), 1 (8-bit) */
-    if (TEST_Z(_fa, _fb)) goto loc_001E5F96; /* je: equal / zero */
-
-loc_001E5F8F: ;
-    eax = MEM32(edi + 8);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E5FA3; /* jne: not equal / not zero */
-
-loc_001E5F96: ;
-    ecx = MEM32(edi + 0x3C);
-    eax = MEM32(ecx);
-    edx = esp + 0x10;
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, edx);
-    { uint32_t _icall_target = MEM32(eax + 0x40); PUSH32(esp, 0x001E5FA3u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001E5FA0u); } /* indirect call */
-    }
-
-loc_001E5FA3: ;
-    edi = MEM32(esi + 8);
-    ecx = edi;
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E5FADu); RECOMP_ABI_CALL(0x001F9DD0u, sub_001F9DD0); /* call 0x001F9DD0 */
-
-loc_001E5FAD: ;
-    _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
-    if (CMP_NE(_fa, _fb)) goto loc_001E5FBF; /* jne: not equal / not zero */
-
-loc_001E5FB1: ;
-    eax = MEM32(edi + 0x44);
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E5FBF; /* je: equal / zero */
-
-loc_001E5FB8: ;
-    ecx = edi;
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E5FBFu); RECOMP_ABI_CALL(0x001F9DE0u, sub_001F9DE0); /* call 0x001F9DE0 */
-
-loc_001E5FBF: ;
-    ecx = MEM32(edi + 0x3C);
-    eax = MEM32(ecx);
-    edx = esi + 0x10;
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, edx);
-    { uint32_t _icall_target = MEM32(eax + 0x50); PUSH32(esp, 0x001E5FCBu); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x001E5FC8u); } /* indirect call */
-    }
-
-loc_001E5FCB: ;
-    ecx = MEM32(esi + 4);
-    eax = esi + 0x10;
-    PUSH32(esp, eax);
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E5FD7u); RECOMP_ABI_CALL(0x002787A0u, sub_002787A0); /* call 0x002787A0 */
-
-loc_001E5FD7: ;
-    ecx = MEM32(0x51003C);
-    edx = MEM32(0x4AE700);
-    eax = esp + 8;
-    MEM32(esp + 8) = ecx;
-    ecx = MEM32(esi + 4);
-    PUSH32(esp, eax);
-    MEM32(esp + 0x10) = edx;
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E5FF8u); RECOMP_ABI_CALL(0x00279D50u, sub_00279D50); /* call 0x00279D50 */
-
-loc_001E5FF8: ;
-    POP32(esp, edi);
-    POP32(esp, esi);
-    esp = ebp;
-    POP32(esp, ebp);
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E6000
- * Original: 0x001E6000 - 0x001E601E (30 bytes, 8 insns)
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E6000(void)
-{
-
-loc_001E6000: ;
-    eax = MEM32(esp + 4);
-    xmm0 = XMM_MEM(eax); /* movaps */
-    XMM_STORE(ecx + 0x30, xmm0); /* movaps */
-    xmm0 = XMM_MEM(eax + 0x10); /* movaps */
-    XMM_STORE(ecx + 0x40, xmm0); /* movaps */
-    xmm0 = XMM_MEM(eax + 0x20); /* movaps */
-    XMM_STORE(ecx + 0x50, xmm0); /* movaps */
-    esp += 8; return; /* ret 4 */
-
-}
-
-/**
- * sub_001E6020
- * Original: 0x001E6020 - 0x001E607F (95 bytes, 29 insns)
- * CC: cdecl, 1 params, returns int_or_void
- * Frame: standard_frame
- */
-void sub_001E6020(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* prologue saves caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-
-loc_001E6020: ;
-    PUSH32(esp, ebp);
-    ebp = esp;
-    g_ebp = ebp; /* publish frame for frameless callees */
-    g_seh_ebp = ebp;
-    esp = esp & 0xFFFFFFF0u;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    _fb = (uint32_t)(0x1C) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0x1C;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    PUSH32(esp, esi);
-    esi = ecx;
-    _fa = (uint32_t)(MEM8(esi)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(esi), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E6078; /* je: equal / zero */
-
-loc_001E6031: ;
-    ecx = MEM32(esi + 4);
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E6039u); RECOMP_ABI_CALL(0x00278770u, sub_00278770); /* call 0x00278770 */
-
-loc_001E6039: ;
-    xmm1 = XMM_MEM(eax); /* movaps */
-    xmm0 = XMM_MEM(esi + 0x20); /* movaps */
-    eax = MEM32(ebp + 8);
-    xmm1 = XMM_SUB(xmm1, xmm0); /* subps */
-    XMM_STORE(esp + 0x10, xmm1); /* movaps */
-    fp_push(MEMF(esp + 0x10)); /* fld float */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E578)); /* fmul dword ptr [0x49e578] */
-    MEM32(eax + 0xC) = 0x3F800000;
-    MEMF(eax) = (float)fp_top(); fp_pop(); /* fstp */
-    fp_push(MEMF(esp + 0x14)); /* fld float */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E578)); /* fmul dword ptr [0x49e578] */
-    MEMF(eax + 4) = (float)fp_top(); fp_pop(); /* fstp */
-    fp_push(MEMF(esp + 0x18)); /* fld float */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E578)); /* fmul dword ptr [0x49e578] */
-    MEMF(eax + 8) = (float)fp_top(); fp_pop(); /* fstp */
-
-loc_001E6078: ;
-    POP32(esp, esi);
-    esp = ebp;
-    POP32(esp, ebp);
-    esp += 8; return; /* ret 4 */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E6080
- * Original: 0x001E6080 - 0x001E60D2 (82 bytes, 24 insns)
- * CC: cdecl, 1 params, returns float_sse
- * Frame: standard_frame
- */
-void sub_001E6080(void)
-{
-    uint32_t ebp = 0;
-    ebp = g_ebp;  /* prologue saves caller's frame */
-    int _flags = 0; /* fallback flag var */
-    uint32_t _fa = 0, _fb = 0;
-    int32_t _fas = 0, _fbs = 0;
-    (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
-    #define fp_push(v) do { double _fp_value = (v); \
-        g_fp_top = (g_fp_top + 7u) & 7u; \
-        g_fp_stack[g_fp_top] = _fp_value; } while (0)
-    #define fp_pop() (g_fp_top = (g_fp_top + 1u) & 7u)
-    #define fp_top() g_fp_stack[g_fp_top]
-    #define fp_st(i) g_fp_stack[(g_fp_top + (i)) & 7u]
-    #define fp_st1() fp_st(1)
-
-loc_001E6080: ;
-    PUSH32(esp, ebp);
-    ebp = esp;
-    g_ebp = ebp; /* publish frame for frameless callees */
-    g_seh_ebp = ebp;
-    esp = esp & 0xFFFFFFF0u;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    _fb = (uint32_t)(0x10) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
-    esp = esp - 0x10;
-    _fa = (uint32_t)(esp) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
-    _fa = (uint32_t)(MEM8(ecx)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
-    _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp MEM8(ecx), 0 (8-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_001E60CC; /* je: equal / zero */
-
-loc_001E608E: ;
-    ecx = MEM32(ecx + 4);
-    g_ebp = ebp; /* frame stays current across calls */
-    g_seh_ebp = ebp;
-    PUSH32(esp, 0x001E6096u); RECOMP_ABI_CALL(0x00278770u, sub_00278770); /* call 0x00278770 */
-
-loc_001E6096: ;
-    xmm0 = XMM_MEM(eax); /* movaps */
-    eax = MEM32(ebp + 8);
-    XMM_STORE(esp, xmm0); /* movaps */
-    fp_push(MEMF(esp)); /* fld float */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E578)); /* fmul dword ptr [0x49e578] */
-    MEM32(eax + 0xC) = 0x3F800000;
-    MEMF(eax) = (float)fp_top(); fp_pop(); /* fstp */
-    fp_push(MEMF(esp + 4)); /* fld float */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E578)); /* fmul dword ptr [0x49e578] */
-    MEMF(eax + 4) = (float)fp_top(); fp_pop(); /* fstp */
-    fp_push(MEMF(esp + 8)); /* fld float */
-    fp_top() = RECOMP_FP_PC(fp_top() * MEMF(0x49E578)); /* fmul dword ptr [0x49e578] */
-    MEMF(eax + 8) = (float)fp_top(); fp_pop(); /* fstp */
-
-loc_001E60CC: ;
-    esp = ebp;
-    POP32(esp, ebp);
-    esp += 8; return; /* ret 4 */
-
-    #undef fp_push
-    #undef fp_pop
-    #undef fp_top
-    #undef fp_st
-    #undef fp_st1
-}
-
-/**
- * sub_001E60E0
- * Original: 0x001E60E0 - 0x001E60E1 (1 bytes, 1 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E60E0(void)
-{
-
-loc_001E60E0: ;
-    esp += 4; return; /* ret */
-
-}
-
-/**
- * sub_001E60F0
- * Original: 0x001E60F0 - 0x001E60F7 (7 bytes, 2 insns)
- * CC: cdecl, 0 params, returns int_or_void
- * Frame: fpo_leaf
- */
-void sub_001E60F0(void)
-{
-
-loc_001E60F0: ;
-    MEM32(ecx) = 0x4AE714;
-    esp += 4; return; /* ret */
-
 }

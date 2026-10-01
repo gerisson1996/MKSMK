@@ -1,6 +1,16 @@
 [
   {
     "start": "0x00000000",
-    "note": "Initial template entry. Run seeds generation as indirect calls are discovered."
+    "note": "Initial template entry."
+  },
+  {
+    "start": "0x000F4056",
+    "observed": true,
+    "note": "PsCreateSystemThreadEx StartContext1"
+  },
+  {
+    "start": "0x00114D60",
+    "observed": true,
+    "note": "Mortal Kombat: Shaolin Monks GameMain entry point"
   }
 ]
