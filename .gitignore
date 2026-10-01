@@ -1,0 +1,28 @@
+# Build artifacts
+build/
+build-switch/
+*.elf
+*.o
+*.a
+*.ninja
+*.ninja_deps
+*.ninja_log
+CMakeCache.txt
+CMakeFiles/
+link_err.txt
+
+# Disassembly and intermediate large analysis outputs
+tools/**/output/
+*.asm
+
+# Game copyrighted assets (do not commit to public repository)
+game/*.xbe
+game/data/
+game/audio/
+*.xbe
+*.iso
+
+# Logs and user data
+*.log
+mksm_log.txt
+save/

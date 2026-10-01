@@ -1,0 +1,6 @@
+[
+  {
+    "start": "0x00000000",
+    "note": "Initial template entry. Run seeds generation as indirect calls are discovered."
+  }
+]
