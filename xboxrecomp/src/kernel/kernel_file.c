@@ -800,6 +800,12 @@ NTSTATUS __stdcall xbox_NtCreateFile(
         return STATUS_OBJECT_PATH_NOT_FOUND;
     }
 
+    /* A partition device opened as a directory for volume/free space query */
+    if ((CreateOptions & XBOX_FILE_DIRECTORY_FILE) && strstr(host_path, "Partition") && strstr(host_path, ".img")) {
+        char *slash = strrchr(host_path, '/');
+        if (slash) *slash = '\0';
+    }
+
     struct stat st;
     int is_dir = (CreateOptions & XBOX_FILE_DIRECTORY_FILE) != 0;
     if (!is_dir && stat(host_path, &st) == 0 && S_ISDIR(st.st_mode)) {

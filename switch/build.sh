@@ -30,10 +30,9 @@ echo "[2/3] Compilando arquivos C para ARM64 com Ninja..."
 ninja -C "$BUILD_DIR"
 
 echo "[3/3] Gerando pacote .NRO para Switch Homebrew..."
-elf2nro "$BUILD_DIR/mksm_recomp.elf" "$BUILD_DIR/mksm.nro" \
-    --name="MK: Shaolin Monks" \
-    --author="Recomp Port" \
-    --version="1.0.0" 2>/dev/null || elf2nro "$BUILD_DIR/mksm_recomp" "$BUILD_DIR/mksm.nro"
+ELF_FILE="$BUILD_DIR/mksm_recomp.elf"
+[ ! -f "$ELF_FILE" ] && ELF_FILE="$BUILD_DIR/mksm_recomp"
+elf2nro "$ELF_FILE" "$BUILD_DIR/mksm.nro" --nacp="$ROOT_DIR/control.nacp" --icon="$ROOT_DIR/icon.png"
 
 echo ""
 echo "======================================================="

@@ -441,6 +441,10 @@ void xbox_kernel_init(void)
             ordinal = g_thunk_ordinals[i];
         }
 
+        if (ordinal == 0) {
+            continue;
+        }
+
         ULONG_PTR ptr = xbox_resolve_ordinal(ordinal);
 
         if (ptr) {

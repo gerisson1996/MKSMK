@@ -37,8 +37,10 @@ Write-Host "[3/3] Gerando pacote .NRO para Switch Homebrew..." -ForegroundColor 
 $ELF_FILE = "$BUILD_DIR\mksm_recomp.elf"
 if (-not (Test-Path $ELF_FILE)) { $ELF_FILE = "$BUILD_DIR\mksm_recomp" }
 $NRO_FILE = "$BUILD_DIR\mksm.nro"
+$NACP_FILE = "$ROOT_DIR\control.nacp"
+$ICON_FILE = "$ROOT_DIR\icon.png"
 
-elf2nro "$ELF_FILE" "$NRO_FILE" --name="MK: Shaolin Monks" --author="Recomp Port" --version="1.0.0"
+elf2nro "$ELF_FILE" "$NRO_FILE" --nacp="$NACP_FILE" --icon="$ICON_FILE"
 
 Write-Host ""
 Write-Host "[+] SUCESSO! Executavel do Nintendo Switch gerado em:" -ForegroundColor Green

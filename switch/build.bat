@@ -29,7 +29,9 @@ ninja -C build-switch
 if errorlevel 1 goto error
 
 echo [3/3] Gerando pacote .NRO...
-elf2nro "build-switch/mksm_recomp.elf" "build-switch/mksm.nro" --name="MK: Shaolin Monks" --author="Recomp Port" --version="1.0.0" 2>nul || elf2nro "build-switch/mksm_recomp" "build-switch/mksm.nro"
+set "ELF_FILE=build-switch\mksm_recomp.elf"
+if not exist "%ELF_FILE%" set "ELF_FILE=build-switch\mksm_recomp"
+elf2nro "%ELF_FILE%" "build-switch\mksm.nro" --nacp="control.nacp" --icon="icon.png"
 
 echo.
 echo =======================================================
