@@ -322,6 +322,8 @@ typedef struct w32_object {
     int             exited;
     DWORD           exit_code;
     int             suspend_count;
+    int             suspend_parked;
+    unsigned int    suspend_epoch;
     pthread_cond_t  gate;
     LPTHREAD_START_ROUTINE start;
     LPVOID          start_param;
@@ -810,8 +812,15 @@ static void *thread_trampoline(void *arg)
 
     /* CREATE_SUSPENDED gate */
     pthread_mutex_lock(&o->lock);
-    while (o->suspend_count > 0)
-        pthread_cond_wait(&o->gate, &o->lock);
+    if (o->suspend_count > 0) {
+        o->suspend_parked = 1;
+        o->suspend_epoch++;
+        pthread_cond_broadcast(&o->gate);
+        while (o->suspend_count > 0)
+            pthread_cond_wait(&o->gate, &o->lock);
+        o->suspend_parked = 0;
+        pthread_cond_broadcast(&o->gate);
+    }
     pthread_mutex_unlock(&o->lock);
 
     DWORD rc = o->start ? o->start(o->start_param) : 0;
@@ -885,13 +894,41 @@ BOOL GetExitCodeThread(HANDLE h, LPDWORD exitCode)
 
 /* Cooperative suspension checkpoint for POSIX/libnx.
  *
- * pthreads has no safe SuspendThread equivalent. External SuspendThread()
- * therefore records the suspend count, and the target parks itself the next
- * time it reaches a scheduler boundary (yield/sleep). MKSM hits those
- * boundaries constantly in its worker loops, so this preserves the Xbox
- * suspend/resume protocol without asynchronously freezing a thread while it
- * owns a host mutex.
+ * pthreads has no safe asynchronous SuspendThread equivalent. A suspension
+ * request is recorded in suspend_count and the target acknowledges it by
+ * setting suspend_parked at a scheduler boundary. SuspendThread waits briefly
+ * for that acknowledgement so a fast Suspend/Resume pair cannot disappear
+ * before the target ever observes the request.
+ *
+ * The acknowledgement wait is bounded: a target may legitimately be blocked
+ * inside another host wait and therefore unable to reach this checkpoint.
  */
+#define W32_SUSPEND_ACK_MS 20
+#define W32_SUSPEND_TRACE_LIMIT 256
+static volatile LONG s_suspend_trace_count;
+
+static void suspend_trace(const char *op, w32_object *o, int before, int after)
+{
+#ifdef __SWITCH__
+    LONG n = InterlockedIncrement(&s_suspend_trace_count);
+    if (n <= W32_SUSPEND_TRACE_LIMIT) {
+        fprintf(stderr,
+                "  [THREAD-SUSPEND] #%ld caller=t%lu target=t%lu %-7s count=%d->%d parked=%d epoch=%u\n",
+                n,
+                GetCurrentThreadId(),
+                o ? o->tid : 0,
+                op,
+                before,
+                after,
+                o ? o->suspend_parked : 0,
+                o ? o->suspend_epoch : 0);
+        fflush(stderr);
+    }
+#else
+    (void)op; (void)o; (void)before; (void)after;
+#endif
+}
+
 static void thread_suspend_checkpoint(void)
 {
     w32_object *o = t_self_obj;
@@ -899,8 +936,20 @@ static void thread_suspend_checkpoint(void)
         return;
 
     pthread_mutex_lock(&o->lock);
-    while (o->suspend_count > 0 && !o->exited)
-        pthread_cond_wait(&o->gate, &o->lock);
+    if (o->suspend_count > 0 && !o->exited) {
+        int before = o->suspend_count;
+        o->suspend_parked = 1;
+        o->suspend_epoch++;
+        suspend_trace("park", o, before, o->suspend_count);
+        pthread_cond_broadcast(&o->gate); /* acknowledge SuspendThread */
+
+        while (o->suspend_count > 0 && !o->exited)
+            pthread_cond_wait(&o->gate, &o->lock);
+
+        o->suspend_parked = 0;
+        suspend_trace("wake", o, 0, o->suspend_count);
+        pthread_cond_broadcast(&o->gate);
+    }
     pthread_mutex_unlock(&o->lock);
 }
 
@@ -908,10 +957,18 @@ DWORD ResumeThread(HANDLE h)
 {
     w32_object *o = (h == PSEUDO_CURRENT_THREAD) ? t_self_obj : (w32_object *)h;
     if (!o || o->kind != K_THREAD) return (DWORD)-1;
+
     pthread_mutex_lock(&o->lock);
     DWORD prev = (DWORD)o->suspend_count;
-    if (o->suspend_count > 0 && --o->suspend_count == 0)
-        pthread_cond_broadcast(&o->gate);
+    int before = o->suspend_count;
+
+    if (o->suspend_count > 0) {
+        o->suspend_count--;
+        if (o->suspend_count == 0)
+            pthread_cond_broadcast(&o->gate);
+    }
+
+    suspend_trace("resume", o, before, o->suspend_count);
     pthread_mutex_unlock(&o->lock);
     return prev;
 }
@@ -920,14 +977,51 @@ DWORD SuspendThread(HANDLE h)
 {
     w32_object *o = (h == PSEUDO_CURRENT_THREAD) ? t_self_obj : (w32_object *)h;
     if (!o || o->kind != K_THREAD) return (DWORD)-1;
+
     pthread_mutex_lock(&o->lock);
     DWORD prev = (DWORD)o->suspend_count;
+    int before = o->suspend_count;
+    unsigned int epoch_before = o->suspend_epoch;
+
     o->suspend_count++;
+    suspend_trace("request", o, before, o->suspend_count);
+
     if (o == t_self_obj || (o->thread && pthread_equal(o->thread, pthread_self()))) {
-        while (o->suspend_count > 0 && !o->exited) {
+        o->suspend_parked = 1;
+        o->suspend_epoch++;
+        suspend_trace("park", o, o->suspend_count, o->suspend_count);
+        pthread_cond_broadcast(&o->gate);
+
+        while (o->suspend_count > 0 && !o->exited)
             pthread_cond_wait(&o->gate, &o->lock);
+
+        o->suspend_parked = 0;
+        suspend_trace("wake", o, 0, o->suspend_count);
+        pthread_cond_broadcast(&o->gate);
+    } else if (!o->exited) {
+        /*
+         * Close the lost-suspend race: wait until the target has observed this
+         * request. Do not wait forever because a target blocked in an unrelated
+         * host syscall cannot cooperatively acknowledge until that wait ends.
+         */
+        struct timespec deadline;
+        deadline_from_ms(W32_SUSPEND_ACK_MS, &deadline);
+
+        while (!o->exited &&
+               o->suspend_count > 0 &&
+               !o->suspend_parked &&
+               o->suspend_epoch == epoch_before) {
+            int rc = pthread_cond_timedwait(&o->gate, &o->lock, &deadline);
+            if (rc == ETIMEDOUT) {
+                suspend_trace("ackTO", o, o->suspend_count, o->suspend_count);
+                break;
+            }
         }
+
+        if (o->suspend_parked || o->suspend_epoch != epoch_before)
+            suspend_trace("acked", o, o->suspend_count, o->suspend_count);
     }
+
     pthread_mutex_unlock(&o->lock);
     return prev;
 }
