@@ -390,7 +390,7 @@ void xbox_FramebufferWindowStart(void)
         InterlockedExchange(&s_fb_running, 0);
 }
 
-#else
+#elif !defined(__SWITCH__)
 void xbox_FramebufferWindowSet(uint32_t fb_va, uint32_t pitch) { (void)fb_va; (void)pitch; }
 void xbox_FramebufferWindowPresent(uint32_t fb_va, uint32_t pitch) { (void)fb_va; (void)pitch; }
 void xbox_FramebufferWindowStart(void) {}

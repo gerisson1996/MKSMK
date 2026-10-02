@@ -3,6 +3,7 @@
  *
  * - Log device (stdout/stderr → SD card mksm_log.txt with auto-sync)
  * - Environment file reader (mksm_env.txt)
+ * - Video display / Framebuffer presenter (60Hz blit & aspect scale to 1280x720)
  * - Boot / shutdown
  */
 
@@ -11,6 +12,7 @@
 #include <switch.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/iosupport.h>
@@ -25,6 +27,161 @@ uint8_t *g_switch_nv2a = NULL;
 uint8_t *g_switch_mcpx = NULL;
 uint8_t *g_switch_flash = NULL;
 
+/* ================================================================
+ * Video Display & Presentation Layer (libnx Native Framebuffer)
+ * ================================================================ */
+static Framebuffer s_switch_fb;
+static Thread s_present_thread;
+static volatile bool s_present_running = false;
+static volatile bool s_present_ready = false;
+static volatile uint32_t s_xbox_fb_va = 0;
+static volatile uint32_t s_xbox_fb_pitch = 2560;
+
+static inline uintptr_t switch_translate_xbox_ptr(uint32_t a)
+{
+    if (__builtin_expect(a < 0x08000000u, 1)) {
+        return (uintptr_t)g_switch_ram + (a & 0x03FFFFFFu);
+    }
+    if (a >= 0x80000000u && a < 0x84000000u) {
+        return (uintptr_t)g_switch_contig + ((a - 0x80000000u) & 0x03FFFFFFu);
+    }
+    if (a >= 0xFD000000u && a < 0xFE000000u) {
+        return (uintptr_t)g_switch_nv2a + (a - 0xFD000000u);
+    }
+    if (a >= 0xFE800000u && a < 0xFF000000u) {
+        return (uintptr_t)g_switch_mcpx + (a - 0xFE800000u);
+    }
+    if (a >= 0xFF000000u) {
+        return (uintptr_t)g_switch_flash + (a & 0x000FFFFFu);
+    }
+    return (uintptr_t)g_switch_ram + (a & 0x03FFFFFFu);
+}
+
+static void switch_blit_frame(uint32_t *dst, u32 dst_stride_bytes, uint32_t fb_va, uint32_t pitch)
+{
+    if (!dst || !fb_va || !g_switch_contig) return;
+
+    const uint8_t *src_base = (const uint8_t *)switch_translate_xbox_ptr(fb_va);
+    u32 dst_stride_px = dst_stride_bytes / sizeof(uint32_t);
+
+    /* Xbox: 640x480. Switch screen: 1280x720.
+     * 4:3 Aspect ratio on 16:9 screen -> 960x720 centered with 160px pillarboxes on sides. */
+    for (u32 y = 0; y < 720; y++) {
+        u32 src_y = (y * 480) / 720;
+        const uint32_t *src_row = (const uint32_t *)(src_base + src_y * pitch);
+        uint32_t *dst_row = dst + y * dst_stride_px;
+
+        /* Left pillarbox (black) */
+        for (u32 x = 0; x < 160; x++) {
+            dst_row[x] = 0xFF000000u;
+        }
+
+        /* 4:3 Active game video area (960 pixels wide) */
+        for (u32 x = 160; x < 1120; x++) {
+            u32 src_x = ((x - 160) * 640) / 960;
+            uint32_t px = src_row[src_x];
+            /* Xbox Little-Endian XRGB (0xAARRGGBB) -> Switch RGBA_8888 (0xAABBGGRR) */
+            uint32_t b = px & 0xFF;
+            uint32_t g = (px >> 8) & 0xFF;
+            uint32_t r = (px >> 16) & 0xFF;
+            dst_row[x] = 0xFF000000u | (b << 16) | (g << 8) | r;
+        }
+
+        /* Right pillarbox (black) */
+        for (u32 x = 1120; x < 1280; x++) {
+            dst_row[x] = 0xFF000000u;
+        }
+    }
+}
+
+static void switch_present_thread_func(void *arg)
+{
+    (void)arg;
+    fprintf(stderr, "[MKSM-VIDEO] Switch 60Hz presentation thread active!\n");
+    fflush(stderr);
+
+    while (s_present_running && appletMainLoop()) {
+        u32 stride = 0;
+        uint32_t *dst = (uint32_t *)framebufferBegin(&s_switch_fb, &stride);
+        if (dst) {
+            uint32_t fb_va = s_xbox_fb_va;
+            uint32_t pitch = s_xbox_fb_pitch;
+
+            if (fb_va != 0 && g_switch_contig != NULL) {
+                switch_blit_frame(dst, stride, fb_va, pitch);
+            } else {
+                /* Background splash screen while loading resources */
+                u32 dst_stride_px = stride / sizeof(uint32_t);
+                for (u32 y = 0; y < 720; y++) {
+                    uint32_t *dst_row = dst + y * dst_stride_px;
+                    for (u32 x = 0; x < 1280; x++) {
+                        dst_row[x] = 0xFF140802u; /* Dark MK dragon theme */
+                    }
+                }
+            }
+            framebufferEnd(&s_switch_fb);
+        }
+        svcSleepThread(16000000ULL); /* ~60 FPS (16ms) */
+    }
+}
+
+void xbox_FramebufferWindowSet(uint32_t fb_va, uint32_t pitch)
+{
+    s_xbox_fb_va = fb_va;
+    if (pitch) s_xbox_fb_pitch = pitch;
+}
+
+void xbox_FramebufferWindowPresent(uint32_t fb_va, uint32_t pitch)
+{
+    s_xbox_fb_va = fb_va;
+    if (pitch) s_xbox_fb_pitch = pitch;
+}
+
+void xbox_FramebufferWindowSetTitle(const uint16_t *n, int m)
+{
+    (void)n; (void)m;
+}
+
+void xbox_FramebufferWindowFrameStats(uint32_t draws)
+{
+    (void)draws;
+}
+
+int xbox_FramebufferKeyDown(int vk)
+{
+    (void)vk;
+    return 0;
+}
+
+void xbox_FramebufferWindowStart(void)
+{
+    if (s_present_running) return;
+    s_present_running = true;
+
+    Result rc = framebufferCreate(&s_switch_fb, nwindowGetDefault(), 1280, 720, PIXEL_FORMAT_RGBA_8888, 2);
+    if (R_FAILED(rc)) {
+        fprintf(stderr, "[MKSM-VIDEO] framebufferCreate failed: 0x%x\n", rc);
+        fflush(stderr);
+        s_present_running = false;
+        return;
+    }
+    framebufferMakeLinear(&s_switch_fb);
+    s_present_ready = true;
+    fprintf(stderr, "[MKSM-VIDEO] Native Switch Framebuffer (1280x720) initialized successfully!\n");
+    fflush(stderr);
+
+    rc = threadCreate(&s_present_thread, switch_present_thread_func, NULL, NULL, 0x10000, 0x2B, -2);
+    if (R_SUCCEEDED(rc)) {
+        threadStart(&s_present_thread);
+    } else {
+        fprintf(stderr, "[MKSM-VIDEO] Failed to create presentation thread: 0x%x\n", rc);
+        fflush(stderr);
+    }
+}
+
+/* ================================================================
+ * Logging & Boot System
+ * ================================================================ */
 static ssize_t mksm_log_write_r(struct _reent *r, void *fd, const char *ptr, size_t len)
 {
     (void)r; (void)fd;
@@ -105,6 +262,9 @@ void switch_boot(void)
         fclose(f);
     }
 
+    /* Start the Switch native video presentation subsystem */
+    xbox_FramebufferWindowStart();
+
     fprintf(stderr, "[MKSM-NX] Switch boot complete\n");
     fsdevCommitDevice("sdmc");
 }
@@ -112,6 +272,15 @@ void switch_boot(void)
 void switch_shutdown(void)
 {
     fprintf(stderr, "[MKSM-NX] Shutting down\n");
+    if (s_present_running) {
+        s_present_running = false;
+        threadWaitForExit(&s_present_thread);
+        threadClose(&s_present_thread);
+    }
+    if (s_present_ready) {
+        framebufferClose(&s_switch_fb);
+        s_present_ready = false;
+    }
     if (s_log_fd >= 0) {
         fsync(s_log_fd);
         fsdevCommitDevice("sdmc");
