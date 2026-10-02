@@ -1,9 +1,10 @@
 /**
  * Switch (libnx) platform layer for MK: Shaolin Monks
  *
- * - Log device (stdout/stderr → SD card mksm_log.txt with auto-sync)
+ * - Log device (stdout/stderr → SD card mksm_log.txt with buffered sync)
  * - Environment file reader (mksm_env.txt)
  * - Video display / Framebuffer presenter (60Hz blit & aspect scale to 1280x720)
+ * - Audio output driver (libnx audout - 48kHz stereo 16-bit PCM)
  * - Boot / shutdown
  */
 
@@ -180,6 +181,72 @@ void xbox_FramebufferWindowStart(void)
 }
 
 /* ================================================================
+ * Audio Output Driver (libnx audout - 48kHz Stereo 16-bit PCM)
+ * ================================================================ */
+#define SWITCH_AUDIO_SAMPLES 2048
+#define SWITCH_AUDIO_BUFFERS 4
+
+static AudioOutBuffer s_nx_audio_bufs[SWITCH_AUDIO_BUFFERS];
+static int16_t s_nx_audio_pcm[SWITCH_AUDIO_BUFFERS][SWITCH_AUDIO_SAMPLES * 2] __attribute__((aligned(0x1000)));
+static int s_nx_audio_buf_idx = 0;
+static bool s_nx_audio_ready = false;
+
+bool switch_audio_init(void)
+{
+    Result rc = audoutInitialize();
+    if (R_FAILED(rc)) {
+        fprintf(stderr, "[MKSM-AUDIO] audoutInitialize failed: 0x%x\n", rc);
+        fflush(stderr);
+        return false;
+    }
+    rc = audoutStartAudioOut();
+    if (R_FAILED(rc)) {
+        fprintf(stderr, "[MKSM-AUDIO] audoutStartAudioOut failed: 0x%x\n", rc);
+        fflush(stderr);
+        audoutExit();
+        return false;
+    }
+
+    for (int i = 0; i < SWITCH_AUDIO_BUFFERS; i++) {
+        memset(&s_nx_audio_bufs[i], 0, sizeof(AudioOutBuffer));
+        s_nx_audio_bufs[i].buffer = s_nx_audio_pcm[i];
+        s_nx_audio_bufs[i].buffer_size = sizeof(s_nx_audio_pcm[i]);
+        s_nx_audio_bufs[i].data_size = sizeof(s_nx_audio_pcm[i]);
+    }
+    s_nx_audio_buf_idx = 0;
+    s_nx_audio_ready = true;
+    fprintf(stderr, "[MKSM-AUDIO] Nintendo Switch native audout initialized (48kHz stereo 16-bit)!\n");
+    fflush(stderr);
+    return true;
+}
+
+void switch_audio_play_samples(const int16_t *samples, int num_samples)
+{
+    if (!s_nx_audio_ready || !samples || num_samples <= 0) return;
+
+    AudioOutBuffer *released = NULL;
+    u32 released_count = 0;
+    audoutGetReleasedAudioOutBuffer(&released, &released_count);
+
+    int idx = s_nx_audio_buf_idx;
+    int copy_samples = (num_samples > SWITCH_AUDIO_SAMPLES) ? SWITCH_AUDIO_SAMPLES : num_samples;
+    memcpy(s_nx_audio_pcm[idx], samples, copy_samples * 2 * sizeof(int16_t));
+    s_nx_audio_bufs[idx].data_size = copy_samples * 2 * sizeof(int16_t);
+
+    audoutAppendAudioOutBuffer(&s_nx_audio_bufs[idx]);
+    s_nx_audio_buf_idx = (s_nx_audio_buf_idx + 1) % SWITCH_AUDIO_BUFFERS;
+}
+
+void switch_audio_shutdown(void)
+{
+    if (s_nx_audio_ready) {
+        s_nx_audio_ready = false;
+        audoutStopAudioOut();
+        audoutExit();
+    }
+}
+
+/* ================================================================
  * Logging & Boot System
  * ================================================================ */
 static ssize_t mksm_log_write_r(struct _reent *r, void *fd, const char *ptr, size_t len)
@@ -187,8 +254,11 @@ static ssize_t mksm_log_write_r(struct _reent *r, void *fd, const char *ptr, siz
     (void)r; (void)fd;
     if (s_log_fd >= 0 && len > 0) {
         write(s_log_fd, ptr, len);
-        fsync(s_log_fd);
-        fsdevCommitDevice("sdmc");
+        static unsigned s_write_count = 0;
+        if ((++s_write_count % 128) == 0) {
+            fsync(s_log_fd);
+            fsdevCommitDevice("sdmc");
+        }
     }
     return len;
 }
@@ -285,6 +355,7 @@ void switch_shutdown(void)
         framebufferClose(&s_switch_fb);
         s_present_ready = false;
     }
+    switch_audio_shutdown();
     if (s_log_fd >= 0) {
         fsync(s_log_fd);
         fsdevCommitDevice("sdmc");

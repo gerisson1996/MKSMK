@@ -312,12 +312,25 @@ typedef struct {
 
 static WaveOutState g_waveout = { 0 };
 
+#ifdef __SWITCH__
+extern bool switch_audio_init(void);
+extern void switch_audio_play_samples(const int16_t *samples, int num_samples);
+extern void switch_audio_shutdown(void);
+#endif
+
 void mcpx_apu_monitor_init(MCPXAPUState *d, Error **errp)
 {
     (void)errp;
     d->monitor.stream = NULL;
     d->monitor.queued_bytes_low = 1024;
     d->monitor.queued_bytes_high = 3072;
+
+#ifdef __SWITCH__
+    if (switch_audio_init()) {
+        fprintf(stderr, "[APU] Using Switch native audout backend\n");
+        return;
+    }
+#endif
 
     /* Try XAudio2 first (lower latency) */
     if (xa2_init()) {
@@ -361,6 +374,10 @@ void mcpx_apu_monitor_init(MCPXAPUState *d, Error **errp)
 void mcpx_apu_monitor_finalize(MCPXAPUState *d)
 {
     (void)d;
+#ifdef __SWITCH__
+    switch_audio_shutdown();
+    return;
+#endif
     if (xa2_is_active()) {
         xa2_shutdown();
         return;
@@ -382,6 +399,40 @@ void mcpx_apu_monitor_frame(MCPXAPUState *d)
     if ((d->ep_frame_div + 1) % 8) {
         return;
     }
+
+#ifdef __SWITCH__
+    {
+        int16_t nx_tmp[WAVEOUT_BUF_SAMPLES][2];
+        int remaining = WAVEOUT_BUF_SAMPLES;
+        int out_offset = 0;
+
+        while (remaining > 0) {
+            int chunk = (remaining < MIXER_FRAME_SAMPLES) ? remaining : MIXER_FRAME_SAMPLES;
+            memset(d->monitor.frame_buf, 0, sizeof(d->monitor.frame_buf));
+
+            if (g_test_tone.active && !g_audio_muted) {
+                for (int i = 0; i < chunk; i++) {
+                    int16_t s = (int16_t)(sin(g_test_tone.phase) * g_test_tone.amplitude);
+                    d->monitor.frame_buf[i][0] = s;
+                    d->monitor.frame_buf[i][1] = s;
+                    g_test_tone.phase += g_test_tone.phase_inc;
+                    if (g_test_tone.phase >= 2.0 * M_PI)
+                        g_test_tone.phase -= 2.0 * M_PI;
+                }
+            }
+
+            if (!g_audio_muted)
+                mixer_render(d->monitor.frame_buf, chunk);
+
+            memcpy(nx_tmp + out_offset, d->monitor.frame_buf, chunk * 2 * sizeof(int16_t));
+            out_offset += chunk;
+            remaining -= chunk;
+        }
+
+        switch_audio_play_samples((const int16_t *)nx_tmp, WAVEOUT_BUF_SAMPLES);
+        return;
+    }
+#endif
 
     /* XAudio2 path: render and submit a buffer */
     if (xa2_is_active()) {
