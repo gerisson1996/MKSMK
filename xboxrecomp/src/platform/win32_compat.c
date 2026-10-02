@@ -816,7 +816,7 @@ BOOL GetExitCodeThread(HANDLE h, LPDWORD exitCode)
 
 DWORD ResumeThread(HANDLE h)
 {
-    w32_object *o = (w32_object *)h;
+    w32_object *o = (h == PSEUDO_CURRENT_THREAD) ? t_self_obj : (w32_object *)h;
     if (!o || o->kind != K_THREAD) return (DWORD)-1;
     pthread_mutex_lock(&o->lock);
     DWORD prev = (DWORD)o->suspend_count;
@@ -828,13 +828,16 @@ DWORD ResumeThread(HANDLE h)
 
 DWORD SuspendThread(HANDLE h)
 {
-    /* True mid-run suspension is not supported on POSIX; only the
-     * CREATE_SUSPENDED start gate is. Track the count for ResumeThread. */
-    w32_object *o = (w32_object *)h;
+    w32_object *o = (h == PSEUDO_CURRENT_THREAD) ? t_self_obj : (w32_object *)h;
     if (!o || o->kind != K_THREAD) return (DWORD)-1;
     pthread_mutex_lock(&o->lock);
     DWORD prev = (DWORD)o->suspend_count;
     o->suspend_count++;
+    if (o == t_self_obj || (o->thread && pthread_equal(o->thread, pthread_self()))) {
+        while (o->suspend_count > 0 && !o->exited) {
+            pthread_cond_wait(&o->gate, &o->lock);
+        }
+    }
     pthread_mutex_unlock(&o->lock);
     return prev;
 }
