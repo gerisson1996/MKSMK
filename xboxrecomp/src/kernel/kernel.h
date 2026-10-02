@@ -1044,6 +1044,17 @@ NTSTATUS __stdcall xbox_ExSaveNonVolatileSetting(ULONG ValueIndex, ULONG Type, P
 #define XC_VIDEO_FLAGS_PAL_I        0x04
 #define XC_VIDEO_FLAGS_LETTERBOX    0x10
 
+/* Factory settings (indices 0x100+) */
+#define XC_FACTORY_SERIAL_NUMBER    0x100
+#define XC_FACTORY_ETHERNET_ADDR    0x101
+#define XC_FACTORY_ONLINE_KEY       0x102
+#define XC_FACTORY_AV_REGION        0x103
+#define XC_FACTORY_GAME_REGION      0x104
+
+#define XC_GAME_REGION_NA           0x00000001
+#define XC_GAME_REGION_JAP          0x00000002
+#define XC_GAME_REGION_RESTOFWORLD  0x00000004
+
 /* Unknown ordinals - stub */
 VOID    __stdcall xbox_Unknown_8(void);
 VOID    __stdcall xbox_Unknown_23(void);

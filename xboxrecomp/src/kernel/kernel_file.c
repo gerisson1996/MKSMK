@@ -1313,6 +1313,14 @@ NTSTATUS __stdcall xbox_NtFsControlFile(
 {
     (void)FileHandle; (void)Event; (void)ApcRoutine; (void)ApcContext;
     (void)InputBuffer; (void)InputBufferLength; (void)OutputBuffer; (void)OutputBufferLength;
+    if (FsControlCode == 0x00090018 || FsControlCode == 0x0009001C ||
+        FsControlCode == 0x00090020 || FsControlCode == 0x00090028) {
+        if (IoStatusBlock) {
+            IoStatusBlock->Status = STATUS_SUCCESS;
+            IoStatusBlock->Information = 0;
+        }
+        return STATUS_SUCCESS;
+    }
     xbox_log(XBOX_LOG_WARN, XBOX_LOG_FILE, "NtFsControlFile(0x%X) - stub", FsControlCode);
     if (IoStatusBlock) {
         IoStatusBlock->Status = STATUS_NOT_IMPLEMENTED;

@@ -384,7 +384,7 @@ static long kernel_log_budget(void)
 
     if (budget < 0) {
         const char *env = getenv("RECOMP_KERNEL_LOG_BUDGET");
-        budget = env ? strtol(env, NULL, 0) : 200;
+        budget = env ? strtol(env, NULL, 0) : 1000;
         if (budget < 0)
             budget = 0;
     }
@@ -3742,7 +3742,15 @@ static void bridge_NtFsControlFile(void)
 {
     uint32_t fsctl = STACK_ARG(5);
     uint32_t ios_va = STACK_ARG(4);
-    fprintf(stderr, "  [FILE] NtFsControlFile(0x%X) - stub\n", fsctl);
+    fprintf(stderr, "  [FILE] NtFsControlFile(0x%X)\n", fsctl);
+    /* FSCTL_LOCK_VOLUME (0x90018), FSCTL_UNLOCK_VOLUME (0x9001C),
+     * FSCTL_DISMOUNT_VOLUME (0x90020), FSCTL_IS_VOLUME_MOUNTED (0x90028) */
+    if (fsctl == 0x00090018 || fsctl == 0x0009001C ||
+        fsctl == 0x00090020 || fsctl == 0x00090028) {
+        bridge_write_iostatus(ios_va, 0, 0);
+        g_eax = 0; /* STATUS_SUCCESS */
+        return;
+    }
     bridge_write_iostatus(ios_va, 0xC00000BBu, 0);
     g_eax = 0xC00000BBu;
 }
