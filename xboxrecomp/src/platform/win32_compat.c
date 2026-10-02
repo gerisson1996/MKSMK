@@ -869,7 +869,11 @@ int GetThreadPriority(HANDLE h)
     return (o && o->kind == K_THREAD) ? o->priority : THREAD_PRIORITY_NORMAL;
 }
 
+#ifdef __SWITCH__
+VOID SwitchToThread(void) { svcSleepThread(0); }
+#else
 VOID SwitchToThread(void) { sched_yield(); }
+#endif
 
 DWORD QueueUserAPC(PAPCFUNC func, HANDLE thread, ULONG_PTR data)
 {
@@ -893,9 +897,17 @@ DWORD QueueUserAPC(PAPCFUNC func, HANDLE thread, ULONG_PTR data)
 
 VOID Sleep(DWORD ms)
 {
+#ifdef __SWITCH__
+    if (ms == 0) {
+        svcSleepThread(0);
+        return;
+    }
+    svcSleepThread((int64_t)ms * 1000000LL);
+#else
     if (ms == 0) { sched_yield(); return; }
     struct timespec ts = { ms / 1000, (long)(ms % 1000) * 1000000L };
     while (nanosleep(&ts, &ts) == -1 && errno == EINTR) { }
+#endif
 }
 
 DWORD SleepEx(DWORD ms, BOOL alertable)
