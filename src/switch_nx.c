@@ -128,12 +128,14 @@ static void switch_present_thread_func(void *arg)
 
 void xbox_FramebufferWindowSet(uint32_t fb_va, uint32_t pitch)
 {
+    if (fb_va && fb_va < 0x08000000u) fb_va |= 0x80000000u;
     s_xbox_fb_va = fb_va;
     if (pitch) s_xbox_fb_pitch = pitch;
 }
 
 void xbox_FramebufferWindowPresent(uint32_t fb_va, uint32_t pitch)
 {
+    if (fb_va && fb_va < 0x08000000u) fb_va |= 0x80000000u;
     s_xbox_fb_va = fb_va;
     if (pitch) s_xbox_fb_pitch = pitch;
 }

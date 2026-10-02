@@ -1388,9 +1388,13 @@ static void bridge_NtCreateEvent(void)
         bridge_write_handle(handle_ptr, local_handle);
     }
 
-    fprintf(stderr, "  [BRIDGE] NtCreateEvent: handle_ptr=0x%08X type=%u init=%u → status=0x%08X handle=0x%08X\n",
-            handle_ptr, event_type, initial_state, (uint32_t)status,
-            (uint32_t)(uintptr_t)local_handle);
+    static int s_event_log_count = 0;
+    if (s_event_log_count < 20) {
+        s_event_log_count++;
+        fprintf(stderr, "  [BRIDGE] NtCreateEvent: handle_ptr=0x%08X type=%u init=%u → status=0x%08X handle=0x%08X\n",
+                handle_ptr, event_type, initial_state, (uint32_t)status,
+                (uint32_t)(uintptr_t)local_handle);
+    }
 
     g_eax = (uint32_t)status;
 }
@@ -3294,27 +3298,26 @@ static void bridge_NtReadFile(void)
      * say whether the bytes were wrong or the read was, and the two look
      * identical from inside the title -- the first bytes settle it. */
     {
-        const uint8_t *p = (const uint8_t *)XBOX_TO_NATIVE(buffer_va);
-        uint32_t got = (uint32_t)ios.Information;
-        /* The offset matters as much as the length. A title streaming a pack
-         * file reads sector-aligned chunks, so the first bytes belong to
-         * whatever precedes the file it actually wants, and a read that stops
-         * early looks identical to one that never started -- until you can
-         * see where each one landed. */
-        if (poff)
-            fprintf(stderr, "  [READ] from=0x%08X ev=%08X apc=%08X @%lld want=%u got=%u st=0x%08X  %02X %02X %02X %02X\n",
-                    g_xbox_kernel_caller, STACK_ARG(1), STACK_ARG(2),
-                    (long long)off.QuadPart, length, got,
-                    (uint32_t)ios.Status,
-                    got > 0 ? p[0] : 0, got > 1 ? p[1] : 0,
-                    got > 2 ? p[2] : 0, got > 3 ? p[3] : 0);
-        else
-            fprintf(stderr, "  [READ] from=0x%08X @seq want=%u got=%u st=0x%08X  %02X %02X %02X %02X\n",
-                    g_xbox_kernel_caller,
-                    length, got, (uint32_t)ios.Status,
-                    got > 0 ? p[0] : 0, got > 1 ? p[1] : 0,
-                    got > 2 ? p[2] : 0, got > 3 ? p[3] : 0);
-        fflush(stderr);
+        static int s_read_log_count = 0;
+        if (s_read_log_count < 20) {
+            s_read_log_count++;
+            const uint8_t *p = (const uint8_t *)XBOX_TO_NATIVE(buffer_va);
+            uint32_t got = (uint32_t)ios.Information;
+            if (poff)
+                fprintf(stderr, "  [READ] from=0x%08X ev=%08X apc=%08X @%lld want=%u got=%u st=0x%08X  %02X %02X %02X %02X\n",
+                        g_xbox_kernel_caller, STACK_ARG(1), STACK_ARG(2),
+                        (long long)off.QuadPart, length, got,
+                        (uint32_t)ios.Status,
+                        got > 0 ? p[0] : 0, got > 1 ? p[1] : 0,
+                        got > 2 ? p[2] : 0, got > 3 ? p[3] : 0);
+            else
+                fprintf(stderr, "  [READ] from=0x%08X @seq want=%u got=%u st=0x%08X  %02X %02X %02X %02X\n",
+                        g_xbox_kernel_caller,
+                        length, got, (uint32_t)ios.Status,
+                        got > 0 ? p[0] : 0, got > 1 ? p[1] : 0,
+                        got > 2 ? p[2] : 0, got > 3 ? p[3] : 0);
+            fflush(stderr);
+        }
     }
     bridge_write_iostatus(iostatus, ios.Status, (uint32_t)ios.Information);
     bridge_complete_file_io(STACK_ARG(1), STACK_ARG(2), STACK_ARG(3),
