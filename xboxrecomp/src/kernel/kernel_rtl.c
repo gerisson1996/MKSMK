@@ -350,6 +350,7 @@ static void xbox_guest_backtrace(int depth)
 
 static LONG g_cs_contention_reports;
 static LONG g_cs_enters, g_cs_leaves;
+extern RECOMP_TLS uint32_t g_xbox_kernel_caller;
 
 /* MKSM currently stalls around this guest critical section on Switch.
  * Keep a small bounded trace enabled for this one address so the SD log tells
