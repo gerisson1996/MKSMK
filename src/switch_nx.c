@@ -244,6 +244,10 @@ void switch_boot(void)
     fprintf(stderr, "[MKSM-NX] Booting libnx environment...\n");
     fsdevCommitDevice("sdmc");
 
+    /* Enable GPU pushbuffer execution and scanning by default */
+    setenv("RECOMP_PB_EXEC", "1", 0);
+    setenv("RECOMP_PB_SCAN", "1", 0);
+
     /* Read environment overrides from SD card if present */
     FILE *f = fopen("sdmc:/switch/mksm/mksm_env.txt", "r");
     if (f) {

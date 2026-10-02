@@ -23,6 +23,43 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#if defined(__SWITCH__)
+extern uint8_t *g_switch_ram;
+extern uint8_t *g_switch_contig;
+extern uint8_t *g_switch_nv2a;
+extern uint8_t *g_switch_mcpx;
+extern uint8_t *g_switch_flash;
+
+static inline void *xbox_to_native(uint32_t va)
+{
+    if (!va) return NULL;
+    if (__builtin_expect(va < 0x08000000u, 1)) {
+        return (void *)(g_switch_ram + (va & 0x03FFFFFFu));
+    }
+    if (va >= 0x80000000u && va < 0x84000000u) {
+        return (void *)(g_switch_contig + ((va - 0x80000000u) & 0x03FFFFFFu));
+    }
+    if (va >= 0xFD000000u && va < 0xFE000000u) {
+        return (void *)(g_switch_nv2a + (va - 0xFD000000u));
+    }
+    if (va >= 0xFE800000u && va < 0xFF000000u) {
+        return (void *)(g_switch_mcpx + (va - 0xFE800000u));
+    }
+    if (va >= 0xFF000000u) {
+        return (void *)(g_switch_flash + (va & 0x000FFFFFu));
+    }
+    return (void *)(g_switch_ram + (va & 0x03FFFFFFu));
+}
+#ifndef XBOX_TO_NATIVE
+#define XBOX_TO_NATIVE(va) xbox_to_native((uint32_t)(va))
+#endif
+#else
+extern ptrdiff_t g_xbox_mem_offset;
+#ifndef XBOX_TO_NATIVE
+#define XBOX_TO_NATIVE(va) ((va) ? (void*)((uintptr_t)(va) + g_xbox_mem_offset) : NULL)
+#endif
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -62,36 +62,9 @@ int  xbox_worker_stack_alloc(void);
 recomp_func_t recomp_lookup_manual(uint32_t xbox_va);
 
 #if defined(__SWITCH__)
-extern uint8_t *g_switch_ram;
-extern uint8_t *g_switch_contig;
-extern uint8_t *g_switch_nv2a;
-extern uint8_t *g_switch_mcpx;
-extern uint8_t *g_switch_flash;
-
-static inline void *xbox_to_native(uint32_t va)
-{
-    if (!va) return NULL;
-    if (__builtin_expect(va < 0x08000000u, 1)) {
-        return (void *)(g_switch_ram + (va & 0x03FFFFFFu));
-    }
-    if (va >= 0x80000000u && va < 0x84000000u) {
-        return (void *)(g_switch_contig + ((va - 0x80000000u) & 0x03FFFFFFu));
-    }
-    if (va >= 0xFD000000u && va < 0xFE000000u) {
-        return (void *)(g_switch_nv2a + (va - 0xFD000000u));
-    }
-    if (va >= 0xFE800000u && va < 0xFF000000u) {
-        return (void *)(g_switch_mcpx + (va - 0xFE800000u));
-    }
-    if (va >= 0xFF000000u) {
-        return (void *)(g_switch_flash + (va & 0x000FFFFFu));
-    }
-    return (void *)(g_switch_ram + (va & 0x03FFFFFFu));
-}
-#define XBOX_TO_NATIVE(va) xbox_to_native((uint32_t)(va))
-#define BRIDGE_MEM32(addr) (*(volatile uint32_t *)xbox_to_native((uint32_t)(addr)))
-#define BRIDGE_MEM16(addr) (*(volatile uint16_t *)xbox_to_native((uint32_t)(addr)))
-#define BRIDGE_MEM8(addr)  (*(volatile uint8_t  *)xbox_to_native((uint32_t)(addr)))
+#define BRIDGE_MEM32(addr) (*(volatile uint32_t *)XBOX_TO_NATIVE((uint32_t)(addr)))
+#define BRIDGE_MEM16(addr) (*(volatile uint16_t *)XBOX_TO_NATIVE((uint32_t)(addr)))
+#define BRIDGE_MEM8(addr)  (*(volatile uint8_t  *)XBOX_TO_NATIVE((uint32_t)(addr)))
 #else
 /* Memory access - same as recomp_types.h MEM32 but without the #define guard */
 #define BRIDGE_MEM32(addr) (*(volatile uint32_t *)((uintptr_t)(addr) + g_xbox_mem_offset))
