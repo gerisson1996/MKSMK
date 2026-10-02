@@ -1,0 +1,52 @@
+name: Build Nintendo Switch
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - fix/switch-thread-suspend-cs-diagnostics
+
+jobs:
+  build-switch:
+    runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkita64:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Switch dependencies
+        shell: bash
+        run: |
+          dkp-pacman -Syu --noconfirm
+          dkp-pacman -S --needed --noconfirm switch-sdl2 switch-mesa
+
+      - name: Check build tools
+        shell: bash
+        run: |
+          cmake --version
+          ninja --version
+
+      - name: Build NRO
+        shell: bash
+        run: |
+          chmod +x switch/build.sh
+          ./switch/build.sh
+
+      - name: Show outputs
+        if: always()
+        shell: bash
+        run: |
+          find build-switch -maxdepth 2 -type f -printf '%p %s bytes\n' 2>/dev/null || true
+
+      - name: Upload NRO
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mksm-switch
+          path: |
+            build-switch/mksm.nro
+            build-switch/mksm_recomp.elf
+          if-no-files-found: error
+          retention-days: 14

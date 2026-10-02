@@ -350,6 +350,49 @@ static void xbox_guest_backtrace(int depth)
 
 static LONG g_cs_contention_reports;
 static LONG g_cs_enters, g_cs_leaves;
+extern RECOMP_TLS uint32_t g_xbox_kernel_caller;
+
+/* MKSM currently stalls around this guest critical section on Switch.
+ * Keep a small bounded trace enabled for this one address so the SD log tells
+ * us whether the same thread acquires recursively, whether another thread
+ * drops it, and which guest call site performed each operation. */
+#define XBOX_CS_DIAG_WATCH_VA 0x00791340u
+#define XBOX_CS_DIAG_WATCH_LIMIT 192
+static LONG g_cs_diag_watch_ops;
+
+static void xbox_cs_diag_watch(const char *what,
+                               PRTL_CRITICAL_SECTION guest,
+                               CRITICAL_SECTION *cs)
+{
+    uint32_t va;
+    XBOX_CS_SLOT *slot;
+    LONG n;
+
+    if (!guest || !cs)
+        return;
+
+    va = (uint32_t)((uintptr_t)guest - (uintptr_t)g_xbox_mem_offset);
+    if (va != XBOX_CS_DIAG_WATCH_VA)
+        return;
+
+    n = InterlockedIncrement(&g_cs_diag_watch_ops);
+    if (n > XBOX_CS_DIAG_WATCH_LIMIT)
+        return;
+
+    slot = xbox_cs_slot_of(cs);
+    fprintf(stderr,
+            "  [CSWATCH-MKSM] #%ld t%lu %-5s lock=0x%08X caller=0x%08X owner=%lu depth=%ld\n",
+            n,
+            GetCurrentThreadId(),
+            what,
+            va,
+            g_xbox_kernel_caller,
+            slot ? slot->owner_tid : 0,
+            slot ? slot->depth : 0);
+    if (n <= 32)
+        xbox_guest_backtrace(8);
+    fflush(stderr);
+}
 
 /* Which CRT lock is this?
  *
@@ -477,17 +520,24 @@ VOID __stdcall xbox_RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSectio
         return;
     InterlockedIncrement(&g_cs_enters);
     crt_lock_trace("take", CriticalSection);
+    xbox_cs_diag_watch("want", CriticalSection, cs);
     if (TryEnterCriticalSection(cs)) {
         xbox_cs_note_owner(cs);
+        xbox_cs_diag_watch("got", CriticalSection, cs);
         return;
     }
     if (InterlockedIncrement(&g_cs_contention_reports) <= 16) {
+        XBOX_CS_SLOT* owner_slot = xbox_cs_slot_of(cs);
+        unsigned long owner_tid =
+            (owner_slot && owner_slot->owner_tid)
+                ? owner_slot->owner_tid
+                : (unsigned long)(uintptr_t)cs->OwningThread;
         fprintf(stderr, "  [CS] thread %lu waiting on guest lock 0x%08X"
                         " (held by thread %lu)\n",
                 GetCurrentThreadId(),
                 (uint32_t)((uintptr_t)CriticalSection
                            - (uintptr_t)g_xbox_mem_offset),
-                (unsigned long)(uintptr_t)cs->OwningThread);
+                owner_tid);
         {
             int idx = xbox_crt_lock_index(
                 (uint32_t)((uintptr_t)CriticalSection
@@ -512,6 +562,7 @@ VOID __stdcall xbox_RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSectio
     }
     EnterCriticalSection(cs);
     xbox_cs_note_owner(cs);
+    xbox_cs_diag_watch("got", CriticalSection, cs);
     if (g_cs_contention_reports <= 16) {
         fprintf(stderr, "  [CS] thread %lu acquired 0x%08X\n",
                 GetCurrentThreadId(),
@@ -525,8 +576,28 @@ VOID __stdcall xbox_RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSectio
 {
     CRITICAL_SECTION* cs = xbox_cs_shadow(CriticalSection);
     if (cs) {
+        XBOX_CS_SLOT* slot = xbox_cs_slot_of(cs);
+        unsigned long tid = GetCurrentThreadId();
+
         InterlockedIncrement(&g_cs_leaves);
         crt_lock_trace("drop", CriticalSection);
+        xbox_cs_diag_watch("drop", CriticalSection, cs);
+
+        if (slot && slot->depth > 0 && slot->owner_tid &&
+            slot->owner_tid != tid) {
+            fprintf(stderr,
+                    "  [CS-ERROR] thread %lu releasing guest lock 0x%08X owned by thread %lu"
+                    " (owner site 0x%08X depth %ld)\n",
+                    tid,
+                    (uint32_t)((uintptr_t)CriticalSection
+                               - (uintptr_t)g_xbox_mem_offset),
+                    slot->owner_tid,
+                    slot->owner_site,
+                    slot->depth);
+            xbox_guest_backtrace(10);
+            fflush(stderr);
+        }
+
         xbox_cs_clear_owner(cs);
         LeaveCriticalSection(cs);
     }

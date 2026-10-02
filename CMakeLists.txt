@@ -48,6 +48,13 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE xboxrecomp)
 
+# Keep the game entry point in sync with xboxrecomp's selected NV2A renderer.
+# xboxrecomp/CMakeLists.txt owns XBOXRECOMP_VULKAN; when it is enabled the
+# executable must call nv2a_vk_install() instead of nv2a_gl_install().
+if(XBOXRECOMP_VULKAN)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE MKSM_VULKAN=1)
+endif()
+
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${MKSM_GEN_DIR}
     ${XBOXRECOMP_DIR}/include
