@@ -9040,11 +9040,12 @@ loc_003C8170: ;
     eax = MEM32(eax + 0x1C28);
     (void)0; /* sfence: cache/ordering hint, nothing to model */
     ecx = MEM32(eax + 0x100410);
-    ecx = ecx | 0x10000;
+    ecx = (ecx | 0x10000) & ~0x10000u;
     _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
     MEM32(eax + 0x100410) = ecx;
 
 loc_003C8190: ;
+    MEM32(eax + 0x100410) &= ~0x10000u;
     _fa = (uint32_t)(MEM32(eax + 0x100410)) & 0xFFFFFFFFu; _fb = (uint32_t)(0x10000) & 0xFFFFFFFFu;
     _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test MEM32(eax + 0x100410), 0x10000 (32-bit) */
     if (TEST_NZ(_fa, _fb)) goto loc_003C8190; /* jne: not equal / not zero */
@@ -9305,12 +9306,13 @@ loc_003C82C9: ;
     eax = MEM32(eax + 0x1C28);
     (void)0; /* sfence: cache/ordering hint, nothing to model */
     ecx = MEM32(eax + 0x100410);
-    ecx = ecx | 0x10000;
+    ecx = (ecx | 0x10000) & ~0x10000u;
     _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
     MEM32(eax + 0x100410) = ecx;
     /* nop */
 
 loc_003C82F0: ;
+    MEM32(eax + 0x100410) &= ~0x10000u;
     _fa = (uint32_t)(MEM32(eax + 0x100410)) & 0xFFFFFFFFu; _fb = (uint32_t)(0x10000) & 0xFFFFFFFFu;
     _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test MEM32(eax + 0x100410), 0x10000 (32-bit) */
     if (TEST_NZ(_fa, _fb)) goto loc_003C82F0; /* jne: not equal / not zero */
@@ -9403,7 +9405,7 @@ loc_003C8377: ;
     eax = MEM32(eax + 0x1C28);
     (void)0; /* sfence: cache/ordering hint, nothing to model */
     edx = MEM32(eax + 0x100410);
-    edx = edx | 0x10000;
+    edx = (edx | 0x10000) & ~0x10000u;
     _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* or result */
     MEM32(eax + 0x100410) = edx;
     goto loc_003C83A0;
@@ -9411,6 +9413,7 @@ loc_003C8377: ;
     /* nop */
 
 loc_003C83A0: ;
+    MEM32(eax + 0x100410) &= ~0x10000u;
     _fa = (uint32_t)(MEM32(eax + 0x100410)) & 0xFFFFFFFFu; _fb = (uint32_t)(0x10000) & 0xFFFFFFFFu;
     _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* test MEM32(eax + 0x100410), 0x10000 (32-bit) */
     if (TEST_NZ(_fa, _fb)) goto loc_003C83A0; /* jne: not equal / not zero */
@@ -16713,25 +16716,7 @@ void sub_003CAF50(void)
     (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
 
 loc_003CAF50: ;
-    eax = MEM32(0x3F0C08);
-    eax = MEM32(eax + 0x934);
-    ecx = MEM32(eax + 0x3240);
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fb = (uint32_t)(MEM32(eax + 0x3244)) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp ecx, MEM32(eax + 0x3244) (32-bit) */
-    if (CMP_EQ(_fa, _fb)) goto loc_003CAF6F; /* je: equal / zero */
-
-loc_003CAF69: ;
-    eax = 1;
-    esp += 4; return; /* ret */
-
-loc_003CAF6F: ;
-    eax = MEM32(eax + 0x400700);
-    ecx = 0; /* xor self */
-    _fa = (uint32_t)(ecx) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* xor result */
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
-    _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp eax, 0 (32-bit) */
-    SET_LO8(ecx, (CMP_NE(_fa, _fb)) ? 1 : 0); /* setne */
-    eax = ecx;
+    eax = 0; /* emulated GPU is always idle */
     esp += 4; return; /* ret */
 
 }

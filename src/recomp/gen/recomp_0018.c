@@ -6,6 +6,7 @@
 #define RECOMP_GENERATED_CODE
 #include "recomp_funcs.h"
 #include <math.h>
+#include <stdio.h>
 
 /**
  * sub_001110E0
@@ -9094,6 +9095,8 @@ loc_00114EDA: ;
     PUSH32(esp, 0x00114EE9u); RECOMP_ABI_CALL(0x0011B7C0u, sub_0011B7C0); /* call 0x0011B7C0 */
 
 loc_00114EE9: ;
+    fprintf(stderr, "[MKSM-VIDEO] Video & Render sub-system initialized successfully!\n");
+    fflush(stderr);
     ecx = MEM32(0x5062C0);
     edx = MEM32(0x4A8664);
     eax = MEM32(0x4A865C);
@@ -25884,6 +25887,8 @@ loc_0011B8E8: ;
     esp += 4; return; /* ret */
 
 loc_0011B8EF: ;
+    fprintf(stderr, "[MKSM-VIDEO] Direct3D Device created successfully (0x%08X)\n", MEM32(0x3F0C08));
+    fflush(stderr);
     PUSH32(esp, 0x638530);
     PUSH32(esp, 0x0011B8F9u); RECOMP_ABI_CALL(0x003C8980u, sub_003C8980); /* call 0x003C8980 */
 
