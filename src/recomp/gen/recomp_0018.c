@@ -34723,6 +34723,13 @@ loc_0011F0B8: ;
     MEM32(0x63923C) = ecx;
 
 loc_0011F0D0: ;
+    {
+        static int s_frame_count = 0;
+        if ((++s_frame_count % 60) == 1) {
+            fprintf(stderr, "[MKSM-GAME] Running main game loop! Frame #%d\n", s_frame_count);
+            fflush(stderr);
+        }
+    }
     _fa = (uint32_t)(LO8(eax)) & 0xFFu; _fb = (uint32_t)(0) & 0xFFu;
     _fas = (int32_t)(int8_t)(_fa); _fbs = (int32_t)(int8_t)(_fb); /* cmp LO8(eax), 0 (8-bit) */
     MEM8(0x639238) = LO8(eax);

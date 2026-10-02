@@ -1458,6 +1458,12 @@ static void bridge_KeWaitForSingleObject(void)
     uint32_t timeout_ptr = STACK_ARG(4);
     HANDLE h;
 
+    /* D3D VBlank / Flip sync event: without hardware CRT interrupt, return immediately */
+    if (object >= 0x003F0000 && (object & 0xFFFF) >= 0x1D00 && timeout_ptr == 0) {
+        g_eax = 0;
+        return;
+    }
+
     h = ke_shadow_lookup(object);
     if (!h)
         h = bridge_resolve_handle(object);

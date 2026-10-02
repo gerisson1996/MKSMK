@@ -11320,20 +11320,8 @@ void sub_003C8EC0(void)
 
 loc_003C8EC0: ;
     eax = MEM32(0x3F0C08);
-    { uint32_t _icall_esp = g_esp;
-    PUSH32(esp, 0);
-    PUSH32(esp, 0);
-    PUSH32(esp, 1);
     MEM32(eax + 0x1DC0) = 0;
-    PUSH32(esp, 6);
-    _fb = (uint32_t)(0x1DBC) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* add source, before the write */
-    eax = eax + 0x1DBC;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* add result */
-    PUSH32(esp, eax);
-    { uint32_t _icall_target = MEM32(0x8B4950); PUSH32(esp, 0x003C8EE3u); RECOMP_ICALL_SAFE_AT(_icall_target, _icall_esp, 0x003C8EDDu); } /* indirect call */
-    }
-
-loc_003C8EE3: ;
+    eax = 0;
     esp += 4; return; /* ret */
 
 }
