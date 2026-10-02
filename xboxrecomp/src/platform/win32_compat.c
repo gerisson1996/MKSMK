@@ -570,6 +570,33 @@ DWORD WaitForSingleObjectEx(HANDLE h, DWORD ms, BOOL alertable)
  * WaitForMultipleObjects: polling implementation. Adequate for the light
  * multi-object waits the Xbox kernel HLE issues; not a high-throughput path.
  */
+static inline int is_object_ready(w32_object *o)
+{
+    if (!o) return 1;
+    switch (o->kind) {
+    case K_EVENT:  return o->signaled;
+    case K_THREAD: return o->exited;
+    case K_SEM:    return (o->sem_count > 0);
+    case K_MUTEX:  return (o->mtx_owner == 0 || o->mtx_owner == GetCurrentThreadId());
+    case K_WAITABLE_TIMER: return waitable_due(o);
+    default:       return 1;
+    }
+}
+
+static inline void consume_object(w32_object *o)
+{
+    if (!o) return;
+    switch (o->kind) {
+    case K_EVENT: if (!o->manual_reset) o->signaled = 0; break;
+    case K_WAITABLE_TIMER:
+        if (!o->waitable_manual_reset) { o->waitable_triggered = 0; o->waitable_armed = 0; }
+        break;
+    case K_SEM:   o->sem_count--; break;
+    case K_MUTEX: o->mtx_owner = GetCurrentThreadId(); o->mtx_recursion++; break;
+    default: break;
+    }
+}
+
 DWORD WaitForMultipleObjects(DWORD count, const HANDLE *handles, BOOL waitAll, DWORD ms)
 {
     return WaitForMultipleObjectsEx(count, handles, waitAll, ms, FALSE);
@@ -578,6 +605,7 @@ DWORD WaitForMultipleObjects(DWORD count, const HANDLE *handles, BOOL waitAll, D
 DWORD WaitForMultipleObjectsEx(DWORD count, const HANDLE *handles, BOOL waitAll,
                                DWORD ms, BOOL alertable)
 {
+    if (count == 0 || !handles) return WAIT_FAILED;
     struct timespec ts;
     int timed = (ms != INFINITE);
     if (timed) deadline_from_ms(ms, &ts);
@@ -587,14 +615,50 @@ DWORD WaitForMultipleObjectsEx(DWORD count, const HANDLE *handles, BOOL waitAll,
             return WAIT_IO_COMPLETION;
 
         if (waitAll) {
-            DWORD got = 0;
-            for (DWORD i = 0; i < count; i++)
-                if (WaitForSingleObject(handles[i], 0) == WAIT_OBJECT_0) got++;
-            if (got == count) return WAIT_OBJECT_0;
+            int all_ready = 1;
+            /* Phase 1: Lock and check all objects */
+            for (DWORD i = 0; i < count; i++) {
+                w32_object *o = (w32_object *)handles[i];
+                if (o && (HANDLE)o != PSEUDO_CURRENT_THREAD && (HANDLE)o != PSEUDO_CURRENT_PROCESS) {
+                    pthread_mutex_lock(&o->lock);
+                    if (!is_object_ready(o)) {
+                        all_ready = 0;
+                        pthread_mutex_unlock(&o->lock);
+                        for (DWORD j = 0; j < i; j++) {
+                            w32_object *pj = (w32_object *)handles[j];
+                            if (pj && (HANDLE)pj != PSEUDO_CURRENT_THREAD && (HANDLE)pj != PSEUDO_CURRENT_PROCESS)
+                                pthread_mutex_unlock(&pj->lock);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if (all_ready) {
+                /* Phase 2: Consume and unlock all */
+                for (DWORD i = 0; i < count; i++) {
+                    w32_object *o = (w32_object *)handles[i];
+                    if (o && (HANDLE)o != PSEUDO_CURRENT_THREAD && (HANDLE)o != PSEUDO_CURRENT_PROCESS) {
+                        consume_object(o);
+                        pthread_mutex_unlock(&o->lock);
+                    }
+                }
+                return WAIT_OBJECT_0;
+            }
         } else {
-            for (DWORD i = 0; i < count; i++)
-                if (WaitForSingleObject(handles[i], 0) == WAIT_OBJECT_0)
+            for (DWORD i = 0; i < count; i++) {
+                w32_object *o = (w32_object *)handles[i];
+                if (!o || (HANDLE)o == PSEUDO_CURRENT_THREAD || (HANDLE)o == PSEUDO_CURRENT_PROCESS)
                     return WAIT_OBJECT_0 + i;
+
+                pthread_mutex_lock(&o->lock);
+                if (is_object_ready(o)) {
+                    consume_object(o);
+                    pthread_mutex_unlock(&o->lock);
+                    return WAIT_OBJECT_0 + i;
+                }
+                pthread_mutex_unlock(&o->lock);
+            }
         }
 
         if (timed) {
@@ -604,7 +668,12 @@ DWORD WaitForMultipleObjectsEx(DWORD count, const HANDLE *handles, BOOL waitAll,
                 (now.tv_sec == ts.tv_sec && now.tv_nsec >= ts.tv_nsec))
                 return WAIT_TIMEOUT;
         }
-        usleep(1000);
+
+#ifdef __SWITCH__
+        svcSleepThread(50000ULL); /* 50 microseconds low-latency yield */
+#else
+        usleep(50);
+#endif
     }
 }
 
