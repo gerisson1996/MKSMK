@@ -9759,11 +9759,13 @@ void sub_003D37A0(void)
     (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
 
 loc_003D37A0: ;
-    eax = MEM32(ecx + 0x1BC);
-    eax = eax & 1;
-    _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* and result */
-    eax = eax + eax * 2 + 0x5D;
-    eax = MEM32(ecx + eax * 4);
+    /* D3D8 VBlank query: on recompilation there is no physical NV2A interrupt
+     * to clear this counter, so clear it and return 0 to prevent infinite spin. */
+    if (ecx) {
+        MEM32(ecx + 0x174) = 0;
+        MEM32(ecx + 0x180) = 0;
+    }
+    eax = 0;
     esp += 4; return; /* ret */
 
 }
