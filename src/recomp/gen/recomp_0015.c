@@ -56212,12 +56212,17 @@ void sub_000F0BB0(void)
     int _cf = 0; /* carry flag */
 
 loc_000F0BB0: ;
-    PUSH32(esp, ebp);
-    ebp = esp;
-    g_ebp = ebp; /* publish frame for frameless callees */
-    g_seh_ebp = ebp;
-    PUSH32(esp, edi);
-    PUSH32(esp, esi);
+    {
+        uint32_t _dst = MEM32(esp + 4);
+        uint32_t _src = MEM32(esp + 8);
+        uint32_t _n   = MEM32(esp + 12);
+        if (_n && _dst && _src && g_xbox_mem_offset) {
+            memmove((void *)XBOX_PTR(_dst), (const void *)XBOX_PTR(_src), _n);
+        }
+        eax = _dst;
+        esp += 4;
+        return;
+    }
     esi = MEM32(ebp + 0xC);
     ecx = MEM32(ebp + 0x10);
     edi = MEM32(ebp + 8);

@@ -3703,6 +3703,22 @@ static void bridge_NtDeviceIoControlFile(void)
         size.QuadPart = 0;
         if (h && h != INVALID_HANDLE_VALUE)
             GetFileSizeEx(h, &size);
+        if (size.QuadPart == 0) {
+#ifndef _WIN32
+            const char *w32_handle_path(HANDLE);
+            const char *path = w32_handle_path(h);
+            if (path && strstr(path, "Partition1")) {
+                size.QuadPart = 0x00465400ull * 512ull;
+            } else if (path && strstr(path, "Partition2")) {
+                size.QuadPart = 0x000FA000ull * 512ull;
+            } else {
+                size.QuadPart = 0x00177000ull * 512ull; /* 750 MB for cache partitions 3, 4, 5 */
+            }
+#else
+            size.QuadPart = 0x00177000ull * 512ull;
+#endif
+        }
+        fprintf(stderr, "  [FILE] IOCTL_DISK_GET_PARTITION_INFO -> size=%llu bytes\n", (unsigned long long)size.QuadPart);
         BRIDGE_MEM32(out_va +  0) = 0;                       /* StartingOffset */
         BRIDGE_MEM32(out_va +  4) = 0;
         BRIDGE_MEM32(out_va +  8) = (uint32_t)size.LowPart;  /* PartitionLength */
