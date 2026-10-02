@@ -22626,6 +22626,8 @@ void sub_00119F80(void)
     (void)_fa; (void)_fb; (void)_fas; (void)_fbs;
 
 loc_00119F80: ;
+    fprintf(stderr, "[MKSM-VIDEO] sub_00119F80 (setup frame buffers & states)...\n");
+    fflush(stderr);
     edx = MEM32(0x638988);
     _fa = (uint32_t)(edx) & 0xFFFFFFFFu; _fb = (uint32_t)(0) & 0xFFFFFFFFu;
     _fas = (int32_t)(int32_t)(_fa); _fbs = (int32_t)(int32_t)(_fb); /* cmp edx, 0 (32-bit) */
@@ -22744,6 +22746,8 @@ loc_0011A089: ;
     PUSH32(esp, 0x0011A090u); RECOMP_ABI_CALL(0x003D9F40u, sub_003D9F40); /* call 0x003D9F40 */
 
 loc_0011A090: ;
+    fprintf(stderr, "[MKSM-VIDEO] sub_00119F80 complete\n");
+    fflush(stderr);
     esp += 4; return; /* ret */
 
 }

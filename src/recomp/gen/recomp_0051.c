@@ -9752,6 +9752,7 @@ loc_003C85BD: ;
     _fa = (uint32_t)(eax) & 0xFFFFFFFFu; _fas = (int32_t)(int32_t)(_fa); /* sub result */
 
 loc_003C85C7: ;
+    MEM32(edx) = esi;
     ecx = MEM32(edx);
     edi = esi;
     _fb = (uint32_t)(ecx) & 0xFFFFFFFFu; _fbs = (int32_t)(int32_t)(_fb); /* sub source, before the write */
