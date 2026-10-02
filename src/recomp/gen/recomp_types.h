@@ -410,7 +410,36 @@ void recomp_trace_esp(const char *name, const char *tag);
  * uintptr_t cast preserves the overflow bits, landing us 4GB+ past
  * our mapping and causing access violations.
  */
+#if defined(__SWITCH__)
+extern uint8_t *g_switch_ram;
+extern uint8_t *g_switch_contig;
+extern uint8_t *g_switch_nv2a;
+extern uint8_t *g_switch_mcpx;
+extern uint8_t *g_switch_flash;
+
+static inline uintptr_t xbox_switch_translate_ptr(uint32_t a)
+{
+    if (__builtin_expect(a < 0x08000000u, 1)) {
+        return (uintptr_t)g_switch_ram + (a & 0x03FFFFFFu);
+    }
+    if (a >= 0x80000000u && a < 0x84000000u) {
+        return (uintptr_t)g_switch_contig + ((a - 0x80000000u) & 0x03FFFFFFu);
+    }
+    if (a >= 0xFD000000u && a < 0xFE000000u) {
+        return (uintptr_t)g_switch_nv2a + (a - 0xFD000000u);
+    }
+    if (a >= 0xFE800000u && a < 0xFF000000u) {
+        return (uintptr_t)g_switch_mcpx + (a - 0xFE800000u);
+    }
+    if (a >= 0xFF000000u) {
+        return (uintptr_t)g_switch_flash + (a & 0x000FFFFFu);
+    }
+    return (uintptr_t)g_switch_ram + (a & 0x03FFFFFFu);
+}
+#define XBOX_PTR(addr) xbox_switch_translate_ptr((uint32_t)(addr))
+#else
 #define XBOX_PTR(addr) ((uintptr_t)(uint32_t)(addr) + g_xbox_mem_offset)
+#endif
 
 /** Read/write N bytes at a flat Xbox memory address. */
 #define MEM8(addr)   (*(volatile uint8_t  *)XBOX_PTR(addr))

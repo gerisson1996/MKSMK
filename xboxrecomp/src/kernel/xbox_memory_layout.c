@@ -1817,7 +1817,13 @@ BOOL xbox_MemoryLayoutInit(const void *xbe_data, size_t xbe_size)
         g_contig_memory = g_switch_contig;
 
         g_switch_nv2a = (uint8_t *)memalign(4096, XBOX_NV2A_SIZE);
-        if (g_switch_nv2a) memset(g_switch_nv2a, 0, XBOX_NV2A_SIZE);
+        if (g_switch_nv2a) {
+            memset(g_switch_nv2a, 0, XBOX_NV2A_SIZE);
+            *(uint32_t *)(g_switch_nv2a + 0x0000) = 0x02A000A3;   /* NV_PMC_BOOT_0 */
+            *(uint32_t *)(g_switch_nv2a + 0x1800) = 0x02A010DE;   /* NV_PBUS_PCI_NV_1 (Vendor=0x10DE, Device=0x02A0) */
+            *(uint32_t *)(g_switch_nv2a + 0x1808) = 0x000000B2;   /* NV_PBUS_PCI_NV_3 (Revision ID) */
+            *(uint32_t *)(g_switch_nv2a + 0x10020C) = 0x00000003; /* NV_PFB_CFG0 */
+        }
         g_nv2a_memory = g_switch_nv2a;
 
         g_switch_mcpx = (uint8_t *)memalign(4096, XBOX_MCPX_SIZE);
