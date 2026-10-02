@@ -98,8 +98,14 @@ static void stub_mov_eax_1_ret(void) { eax = 1; esp += 4; }
 recomp_func_t recomp_lookup_manual(uint32_t va)
 {
     if (va == 0x000F0BB0) return sub_000F0BB0_manual; /* CRT memmove */
+    if (va == 0x000F1A07 || va == 0x000F1A06) return stub_empty_ret; /* CRT thread init callback */
 
-    /* Generic x86 thunk & instruction decoder for un-indexed jump thunks and small stubs */
+    /* Synthetic kernel exports range */
+    if (va >= 0xFE000000u && va < 0xFF000000u) {
+        extern recomp_func_t recomp_lookup_kernel(uint32_t xbox_va);
+        recomp_func_t kfn = recomp_lookup_kernel(va);
+        if (kfn) return kfn;
+    }
     if (va >= 0x00010000 && va < 0x008C0000 && g_xbox_mem_offset) {
         const uint8_t *code = (const uint8_t *)XBOX_PTR(va);
         

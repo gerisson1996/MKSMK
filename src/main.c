@@ -217,6 +217,18 @@ int main(int argc, char **argv)
     xbox_path_init(game_dir, save_dir);
     xbox_kernel_bridge_init();
 
+#if !defined(_WIN32)
+#  if defined(MKSM_VULKAN)
+    extern void nv2a_vk_install(void);
+    nv2a_vk_install();
+    fprintf(stderr, "[MKSM] GPU Hardware Renderer: Vulkan backend installed.\n");
+#  else
+    extern void nv2a_gl_install(void);
+    nv2a_gl_install();
+    fprintf(stderr, "[MKSM] GPU Hardware Renderer: OpenGL / EGL backend installed.\n");
+#  endif
+#endif
+
     /* APU (audio) */
     if (xbox_GetMemoryBase()) {
         g_apu_state = mcpx_apu_init_standalone((uint8_t *)xbox_GetMemoryBase());
