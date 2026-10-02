@@ -883,6 +883,27 @@ BOOL GetExitCodeThread(HANDLE h, LPDWORD exitCode)
     return TRUE;
 }
 
+/* Cooperative suspension checkpoint for POSIX/libnx.
+ *
+ * pthreads has no safe SuspendThread equivalent. External SuspendThread()
+ * therefore records the suspend count, and the target parks itself the next
+ * time it reaches a scheduler boundary (yield/sleep). MKSM hits those
+ * boundaries constantly in its worker loops, so this preserves the Xbox
+ * suspend/resume protocol without asynchronously freezing a thread while it
+ * owns a host mutex.
+ */
+static void thread_suspend_checkpoint(void)
+{
+    w32_object *o = t_self_obj;
+    if (!o || o->kind != K_THREAD)
+        return;
+
+    pthread_mutex_lock(&o->lock);
+    while (o->suspend_count > 0 && !o->exited)
+        pthread_cond_wait(&o->gate, &o->lock);
+    pthread_mutex_unlock(&o->lock);
+}
+
 DWORD ResumeThread(HANDLE h)
 {
     w32_object *o = (h == PSEUDO_CURRENT_THREAD) ? t_self_obj : (w32_object *)h;
@@ -939,9 +960,17 @@ int GetThreadPriority(HANDLE h)
 }
 
 #ifdef __SWITCH__
-VOID SwitchToThread(void) { svcSleepThread(0); }
+VOID SwitchToThread(void)
+{
+    thread_suspend_checkpoint();
+    svcSleepThread(0);
+}
 #else
-VOID SwitchToThread(void) { sched_yield(); }
+VOID SwitchToThread(void)
+{
+    thread_suspend_checkpoint();
+    sched_yield();
+}
 #endif
 
 DWORD QueueUserAPC(PAPCFUNC func, HANDLE thread, ULONG_PTR data)
@@ -966,17 +995,24 @@ DWORD QueueUserAPC(PAPCFUNC func, HANDLE thread, ULONG_PTR data)
 
 VOID Sleep(DWORD ms)
 {
+    thread_suspend_checkpoint();
 #ifdef __SWITCH__
     if (ms == 0) {
         svcSleepThread(0);
+        thread_suspend_checkpoint();
         return;
     }
     svcSleepThread((int64_t)ms * 1000000LL);
 #else
-    if (ms == 0) { sched_yield(); return; }
+    if (ms == 0) {
+        sched_yield();
+        thread_suspend_checkpoint();
+        return;
+    }
     struct timespec ts = { ms / 1000, (long)(ms % 1000) * 1000000L };
     while (nanosleep(&ts, &ts) == -1 && errno == EINTR) { }
 #endif
+    thread_suspend_checkpoint();
 }
 
 DWORD SleepEx(DWORD ms, BOOL alertable)
