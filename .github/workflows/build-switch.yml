@@ -16,11 +16,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install build dependencies
+      - name: Install Switch dependencies
         shell: bash
         run: |
           dkp-pacman -Syu --noconfirm
-          dkp-pacman -S --needed --noconfirm             cmake ninja             switch-sdl2             switch-mesa
+          dkp-pacman -S --needed --noconfirm switch-sdl2 switch-mesa
+
+      - name: Check build tools
+        shell: bash
+        run: |
+          cmake --version
+          ninja --version
 
       - name: Build NRO
         shell: bash
