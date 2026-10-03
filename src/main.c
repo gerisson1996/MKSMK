@@ -221,8 +221,24 @@ static int game_main(void)
         fflush(stderr);
         return 1;
     }
-    fprintf(stderr, "[MKSM] Memory layout initialized successfully.\n");
+    g_xbox_mem_offset = xbox_GetMemoryOffset();
+    fprintf(stderr, "[MKSM] Memory layout initialized (offset 0x%llX).\n",
+            (unsigned long long)g_xbox_mem_offset);
     fflush(stderr);
+
+#ifdef __SWITCH__
+    extern uint8_t *g_switch_ram;
+    extern uint8_t *g_switch_contig;
+    extern uint8_t *g_switch_nv2a;
+    extern uint8_t *g_switch_mcpx;
+    extern uint8_t *g_switch_flash;
+
+    g_switch_ram = (uint8_t *)g_xbox_mem_offset;
+    g_switch_contig = (uint8_t *)g_xbox_mem_offset;
+    g_switch_nv2a = (uint8_t *)g_xbox_mem_offset;
+    g_switch_mcpx = (uint8_t *)g_xbox_mem_offset;
+    g_switch_flash = (uint8_t *)g_xbox_mem_offset;
+#endif
 
     /* Gamepad (USB OHCI) */
     xbox_OhciInit();
