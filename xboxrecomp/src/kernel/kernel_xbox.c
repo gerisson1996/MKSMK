@@ -11,6 +11,7 @@
 
 #include "kernel.h"
 #include <string.h>
+#include <stdlib.h>
 
 /* ============================================================================
  * Exported Data Objects
@@ -119,11 +120,21 @@ NTSTATUS __stdcall xbox_XeUnloadSection(PXBE_SECTION_HEADER Section)
  * settings. On real hardware these are stored in the 256-byte EEPROM on the
  * SMBus. For recompilation, we return sensible defaults:
  *   - Region: North America
- *   - Video: NTSC, widescreen+HDTV enabled
+ *   - Video: NTSC, widescreen (RECOMP_WIDESCREEN=0 for 4:3)
  *   - Language: English
  *   - Audio: Stereo, Dolby Digital
  *   - DVD Region: Region 1 (North America)
  * ============================================================================ */
+
+int xbox_video_widescreen(void)
+{
+    static int ws = -1;
+    if (ws < 0) {
+        const char *e = getenv("RECOMP_WIDESCREEN");
+        ws = !(e && e[0] == '0');
+    }
+    return ws;
+}
 
 NTSTATUS __stdcall xbox_ExQueryNonVolatileSetting(
     ULONG ValueIndex, PULONG Type, PVOID Value, ULONG ValueLength, PULONG ResultLength)
@@ -145,11 +156,10 @@ NTSTATUS __stdcall xbox_ExQueryNonVolatileSetting(
         break;
 
     case XC_VIDEO:
-        /* NTSC with widescreen, 480p/720p/1080i, letterbox and 60Hz enabled.
-         * The Xbox EEPROM places user video feature flags in bits 16-23 (e.g. 0x005B0000)
-         * while basic display capabilities reside in the low word. */
+        /* NTSC 480i, widescreen unless RECOMP_WIDESCREEN=0. HDTV modes
+         * stay off: the presenter scales whatever the title renders. */
         if (ValueLength >= sizeof(ULONG)) {
-            *(PULONG)Value = 0x005B0003;
+            *(PULONG)Value = xbox_video_widescreen() ? XC_VIDEO_FLAGS_WIDESCREEN : 0;
             if (Type) *Type = 4; /* REG_DWORD */
             if (ResultLength) *ResultLength = sizeof(ULONG);
         }
@@ -203,56 +213,6 @@ NTSTATUS __stdcall xbox_ExQueryNonVolatileSetting(
             if (ResultLength) *ResultLength = sizeof(LONG);
         }
         break;
-
-    case XC_FACTORY_SERIAL_NUMBER:
-        /* 12-digit ASCII serial number */
-        if (ValueLength > 0) {
-            const char serial[] = "403212345601";
-            ULONG copy_len = ValueLength < sizeof(serial) ? ValueLength : (ULONG)sizeof(serial);
-            memcpy(Value, serial, copy_len);
-            if (Type) *Type = 1; /* REG_SZ */
-            if (ResultLength) *ResultLength = copy_len;
-        }
-        break;
-
-    case XC_FACTORY_ETHERNET_ADDR:
-        /* 6-byte MAC address */
-        if (ValueLength >= 6) {
-            const unsigned char mac[6] = { 0x00, 0x50, 0xF2, 0x01, 0x02, 0x03 };
-            memcpy(Value, mac, 6);
-            if (Type) *Type = 3; /* REG_BINARY */
-            if (ResultLength) *ResultLength = 6;
-        }
-        break;
-
-    case XC_FACTORY_ONLINE_KEY:
-        /* 16-byte online key */
-        if (ValueLength >= 16) {
-            memset(Value, 0xAA, 16);
-            if (Type) *Type = 3; /* REG_BINARY */
-            if (ResultLength) *ResultLength = 16;
-        }
-        break;
-
-    case XC_FACTORY_AV_REGION:
-        /* AV Region DWORD: byte 1 (bits 8-15) is standard (1 = NTSC_M, 2 = NTSC_J, 3 = PAL_I).
-         * 0x00400100 gives byte 1 = 1 (NTSC_M) and 60Hz capability flag in byte 2 (0x40). */
-        if (ValueLength >= sizeof(ULONG)) {
-            *(PULONG)Value = 0x00400100;
-            if (Type) *Type = 4; /* REG_DWORD */
-            if (ResultLength) *ResultLength = sizeof(ULONG);
-        }
-        break;
-
-    case XC_FACTORY_GAME_REGION:
-        /* Game Region DWORD: 1 = North America, 2 = Japan, 4 = Rest of World */
-        if (ValueLength >= sizeof(ULONG)) {
-            *(PULONG)Value = XC_GAME_REGION_NA;
-            if (Type) *Type = 4; /* REG_DWORD */
-            if (ResultLength) *ResultLength = sizeof(ULONG);
-        }
-        break;
-
 
     default:
         xbox_log(XBOX_LOG_WARN, XBOX_LOG_XBOX,

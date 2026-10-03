@@ -25,11 +25,7 @@
 #include "d3d8_fvf.h"
 
 #include <SDL.h>
-#ifdef __SWITCH__
-#include <glad/glad.h>
-#else
 #include <epoxy/gl.h>
-#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -1010,9 +1006,6 @@ static HRESULT __stdcall d3d_CreateDevice(IDirect3D8 *s, UINT adapter, DWORD dev
         return D3DERR_INVALIDCALL;
     }
     SDL_GL_MakeCurrent(g.window, g.glctx);
-#ifdef __SWITCH__
-    gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress);
-#endif
     SDL_GL_SetSwapInterval(1);
 
     fprintf(stderr, "[d3d8_gl] GL %s / GLSL %s\n",

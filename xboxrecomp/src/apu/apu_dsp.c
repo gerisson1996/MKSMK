@@ -94,7 +94,7 @@ static int mcpx_apu_mixdown_all(void)
     return on;
 }
 
-void mcpx_apu_dsp_ack_poll(MCPXAPUState *d)
+static void dsp_ack_frame(MCPXAPUState *d)
 {
     int i;
 
@@ -157,6 +157,8 @@ void mcpx_apu_dsp_frame(MCPXAPUState *d,
 
     int off = (d->ep_frame_div % 8) * NUM_SAMPLES_PER_FRAME;
 
+    dsp_ack_frame(d);
+
     if (d->monitor.point != MCPX_APU_DEBUG_MON_VP) {
         for (int i = 0; i < NUM_SAMPLES_PER_FRAME; i++) {
             /* Bins 2..31 used to be computed and then dropped on the floor.
@@ -198,11 +200,11 @@ void mcpx_apu_dsp_frame(MCPXAPUState *d,
                 left = mixbins[0][i];
                 right = mixbins[1][i];
             }
-            /* Clamp to [-1, 1] range */
-            if (left > 1.0f) left = 1.0f;
-            if (left < -1.0f) left = -1.0f;
-            if (right > 1.0f) right = 1.0f;
-            if (right < -1.0f) right = -1.0f;
+            /* Summing every bin goes past full scale (1.33 in the intro
+             * movies), and a hard clamp there is audible distortion. tanh is
+             * near-linear below ~0.5 and bends smoothly into [-1, 1]. */
+            left = tanhf(left);
+            right = tanhf(right);
 
             /* Convert to 16-bit and write (not accumulate) into frame buffer.
              * Each of the 8 sub-frames writes its own 32-sample slice. */

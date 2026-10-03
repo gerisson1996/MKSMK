@@ -8,12 +8,17 @@
  *
  * Kept apart from ohci.c because it is a different concern. The controller
  * walks descriptor lists and raises interrupts and would do the same for a
- * memory unit or a headset; this knows one device and nothing about lists.
+ * memory unit or a headset; this knows the pads and nothing about lists.
+ *
+ * Up to USB_GAMEPADS of them; `dev` is also the host pad (xbox_InputGetState
+ * port) that drives it.
  */
 #ifndef XBOX_USB_GAMEPAD_H
 #define XBOX_USB_GAMEPAD_H
 
 #include <stdint.h>
+
+#define USB_GAMEPADS 2
 
 /* USB setup packet, as it arrives in a SETUP transfer's buffer. */
 typedef struct {
@@ -31,18 +36,26 @@ typedef struct {
  * stall rather than as a short transfer, because those mean different things
  * to a driver.
  */
-int usb_gamepad_control(int pad, const UsbSetup *setup, uint8_t *out, int max);
+int usb_gamepad_control(int dev, const UsbSetup *setup, uint8_t *out, int max);
 
-/* Fill in pad `pad`'s 20-byte input report. Returns the byte count written. */
-int usb_gamepad_report(int pad, uint8_t *out, int max);
+/* Fill in the 20-byte input report. Returns the byte count written. */
+int usb_gamepad_report(int dev, uint8_t *out, int max);
 
-/* The address the host assigned pad `pad` with SET_ADDRESS, 0 until it does,
- * and whether it has been configured. */
-uint8_t usb_gamepad_address(int pad);
-int usb_gamepad_configured(int pad);
+/* An output report from the host: the 6-byte rumble report
+ * (id 0, length 6, left and right motor speeds as little-endian words),
+ * from interrupt endpoint 2 or a class SET_REPORT. Forwarded to the host
+ * pad; anything else is ignored. */
+void usb_gamepad_output(int dev, const uint8_t *data, int len);
 
-/* Up to four pads, one per Xbox controller port. Pad n is driven by host
- * XInput pad n and by pad-script steps prefixed "p<n+1>-". */
-#define USB_GAMEPAD_MAX 4
+/* The address the host assigned with SET_ADDRESS, 0 until it does. */
+uint8_t usb_gamepad_address(int dev);
+
+/* A bus reset on the device's port: back to address 0, unconfigured. */
+void usb_gamepad_reset(int dev);
+
+/* Whether a host pad is there to drive `dev`. Pad 0 always is (the device
+ * is plugged whether or not a host pad is); the others follow the host pad
+ * (or RECOMP_PAD2_SCRIPT for pad 1), so the title sees them come and go. */
+int usb_gamepad_connected(int dev);
 
 #endif /* XBOX_USB_GAMEPAD_H */

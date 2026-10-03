@@ -23,6 +23,7 @@
 #include <xbox/xboxrecomp.h>
 
 #ifdef __SWITCH__
+#include <pthread.h>
 /* libnx lives in switch_nx.c: <switch.h> and the Win32 vocabulary collide. */
 void switch_boot(void);
 void switch_shutdown(void);
@@ -37,16 +38,17 @@ extern volatile uint32_t g_icall_trace_idx;
 typedef struct MCPXAPUState MCPXAPUState;
 extern MCPXAPUState *mcpx_apu_init_standalone(uint8_t *ram_ptr);
 extern MCPXAPUState *g_apu_state;
+extern void xbox_OhciInit(void);
+extern void xbox_WatchdogStart(void);
 
 #define MKSM_ENTRY_POINT  0x000F40CAu   /* MK:SM Xbox retail entry point */
-
 
 extern void xbe_entry_point(void);
 extern int recomp_dispatch_init(void);
 extern void xbox_path_init(const char *game_dir, const char *save_dir);
 
 #if defined(__SWITCH__)
-#  define MKSM_DEFAULT_GAME_DIR "sdmc:/switch/mksm/game"
+#  define MKSM_DEFAULT_GAME_DIR "sdmc:/switch/mksm"
 #  define MKSM_DEFAULT_SAVE_DIR "sdmc:/switch/mksm/save"
 #else
 #  define MKSM_DEFAULT_GAME_DIR "game"
@@ -142,10 +144,10 @@ static void *read_entire_file(const char *path, size_t *out_size)
 }
 
 /* ------------------------------------------------------------------ */
-/* main                                                                */
+/* game_main                                                           */
 /* ------------------------------------------------------------------ */
 
-int main(int argc, char **argv)
+static int game_main(void)
 {
     const char *game_dir, *save_dir;
     char xbe_path[512];
@@ -153,6 +155,10 @@ int main(int argc, char **argv)
 #ifdef _WIN32
     SymInitialize(GetCurrentProcess(), NULL, TRUE);
     AddVectoredExceptionHandler(1, veh_handler);
+    if (!getenv("RECOMP_VBLANK"))     _putenv("RECOMP_VBLANK=1");
+    if (!getenv("RECOMP_AC97_READY")) _putenv("RECOMP_AC97_READY=plain");
+    if (!getenv("RECOMP_USB"))        _putenv("RECOMP_USB=1");
+    if (!getenv("RECOMP_PB_EXEC"))    _putenv("RECOMP_PB_EXEC=1");
 #elif !defined(__SWITCH__)
     {
         struct sigaction sa = {0};
@@ -162,11 +168,19 @@ int main(int argc, char **argv)
         sigaction(SIGBUS, &sa, NULL);
         sigaction(SIGABRT, &sa, NULL);
     }
+    setenv("RECOMP_VBLANK", "1", 0);
+    setenv("RECOMP_AC97_READY", "plain", 0);
+    setenv("RECOMP_USB", "1", 0);
+    setenv("RECOMP_PB_EXEC", "1", 0);
+#else
+    setenv("RECOMP_VBLANK", "1", 0);
+    setenv("RECOMP_AC97_READY", "plain", 0);
+    setenv("RECOMP_USB", "1", 0);
+    setenv("RECOMP_PB_EXEC", "1", 0);
+    setenv("RECOMP_QUIET", "1", 0);
 #endif
 
 #ifdef __SWITCH__
-    switch_boot();
-
     /* Automatically find default.xbe on SD card */
     FILE *test_xbe = fopen("sdmc:/switch/mksm/default.xbe", "rb");
     if (test_xbe) {
@@ -205,17 +219,13 @@ int main(int argc, char **argv)
     if (!xbox_MemoryLayoutInit(xbe_data, xbe_size)) {
         fprintf(stderr, "[MKSM] FATAL: xbox_MemoryLayoutInit failed!\n");
         fflush(stderr);
-#ifdef __SWITCH__
-        switch_shutdown();
-#endif
         return 1;
     }
     fprintf(stderr, "[MKSM] Memory layout initialized successfully.\n");
     fflush(stderr);
 
-    xbox_kernel_init();
-    xbox_path_init(game_dir, save_dir);
-    xbox_kernel_bridge_init();
+    /* Gamepad (USB OHCI) */
+    xbox_OhciInit();
 
 #if !defined(_WIN32)
 #  if defined(MKSM_VULKAN)
@@ -229,6 +239,10 @@ int main(int argc, char **argv)
 #  endif
 #endif
 
+    xbox_kernel_init();
+    xbox_path_init(game_dir, save_dir);
+    xbox_kernel_bridge_init();
+
     /* APU (audio) */
     if (xbox_GetMemoryBase()) {
         g_apu_state = mcpx_apu_init_standalone((uint8_t *)xbox_GetMemoryBase());
@@ -240,6 +254,8 @@ int main(int argc, char **argv)
     g_esp = XBOX_STACK_TOP;
 
     recomp_dispatch_init();
+    xbox_WatchdogStart();
+
     fprintf(stderr, "[MKSM] Dispatch table ready.\n");
     fprintf(stderr, "[MKSM] Launching MK: Shaolin Monks (entry 0x%08X)...\n",
             MKSM_ENTRY_POINT);
@@ -250,9 +266,42 @@ int main(int argc, char **argv)
     fprintf(stderr, "[MKSM] Game returned.\n");
 
     if (xbe_data) free(xbe_data);
-
-#ifdef __SWITCH__
-    switch_shutdown();
-#endif
     return 0;
 }
+
+#ifdef __SWITCH__
+static void *switch_game_thread(void *arg)
+{
+    *(int *)arg = game_main();
+    return NULL;
+}
+
+int main(int argc, char **argv)
+{
+    pthread_attr_t attr;
+    pthread_t th;
+    int rc = 1;
+
+    (void)argc;
+    (void)argv;
+    switch_boot();
+
+    pthread_attr_init(&attr);
+    pthread_attr_setstacksize(&attr, 16u * 1024 * 1024);
+    if (pthread_create(&th, &attr, switch_game_thread, &rc) == 0) {
+        pthread_join(th, NULL);
+    } else {
+        fprintf(stderr, "[FATAL] cannot start the game thread\n");
+    }
+
+    switch_shutdown();
+    return rc;
+}
+#else
+int main(int argc, char **argv)
+{
+    (void)argc;
+    (void)argv;
+    return game_main();
+}
+#endif

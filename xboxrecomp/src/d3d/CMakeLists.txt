@@ -17,13 +17,11 @@ if(WIN32)
     # Offline smoke test for the pure format layer (no D3D11 device needed).
     add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../../tests/d3d8_smoke
                      ${CMAKE_CURRENT_BINARY_DIR}/d3d8_smoke)
-elseif(CMAKE_SYSTEM_NAME MATCHES "Switch" OR SWITCH OR __SWITCH__)
-    add_library(xbox_d3d8 STATIC
-        d3d8_gl.c
-    )
-    find_package(SDL2 REQUIRED)
-    target_include_directories(xbox_d3d8 PUBLIC /opt/devkitpro/portlibs/switch/include)
-    target_link_libraries(xbox_d3d8 PUBLIC platform SDL2::SDL2 glad EGL glapi drm_nouveau nx)
+elseif(NINTENDO_SWITCH)
+    # No HLE D3D8 renderer on the Switch: titles there draw through the NV2A
+    # executor and src/nv2a_gl.
+    add_library(xbox_d3d8 STATIC d3d8_null.c)
+    target_link_libraries(xbox_d3d8 PUBLIC platform)
 else()
     add_library(xbox_d3d8 STATIC
         d3d8_gl.c
@@ -32,6 +30,11 @@ else()
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(EPOXY REQUIRED epoxy)
     target_include_directories(xbox_d3d8 PRIVATE ${EPOXY_INCLUDE_DIRS})
+    # EPOXY_LINK_LIBRARIES, not EPOXY_LIBRARIES: the latter is the bare name
+    # `epoxy`, which only resolves if EPOXY_LIBRARY_DIRS happens to be on the
+    # link path. That holds for the top-level build and not when this is pulled
+    # in via add_subdirectory from tests/, where the link fails with
+    # "library 'epoxy' not found". The _LINK_LIBRARIES form is absolute paths.
     target_link_libraries(xbox_d3d8 PUBLIC platform SDL2::SDL2 ${EPOXY_LINK_LIBRARIES})
 endif()
 

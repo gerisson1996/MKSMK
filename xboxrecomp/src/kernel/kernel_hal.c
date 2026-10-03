@@ -12,7 +12,6 @@
  */
 
 #include "kernel.h"
-#include "xbox_memory_layout.h"   /* RECOMP_TLS, g_fs_base */
 #include <stdio.h>
 #include <stdlib.h>
 #if defined(_WIN32)
@@ -39,27 +38,6 @@
  * ============================================================================ */
 
 static XBOX_THREAD_LOCAL KIRQL g_current_irql = PASSIVE_LEVEL;
-
-/* The current IRQL, where guest code reads it: KPCR.Irql, fs:[0x24].
- *
- * The XDK does not always ask the kernel. DirectSound's lock
- * (sub_002F4175 in Burnout 3) reads fs:[0x24] directly and skips its
- * critical section at raised IRQL, because a DPC must never block. Nothing
- * wrote that byte, so it read 0 everywhere: DirectSound's DPC took the
- * critical section, blocked against the thread that held it, and the title
- * froze with IRQL raised on the blocked thread. Every change of
- * g_current_irql is published here. */
-extern RECOMP_TLS uint32_t g_fs_base;
-/* The offset lifted code adds to every guest address; host code that reads
- * guest memory on its behalf uses the same one. */
-extern ptrdiff_t g_xbox_mem_offset;
-
-static void irql_publish(void)
-{
-    if (g_fs_base)
-        *(volatile uint8_t *)((uintptr_t)g_xbox_mem_offset + g_fs_base
-                              + 0x24) = (uint8_t)g_current_irql;
-}
 
 /* How many threads are holding IRQL at or above DISPATCH_LEVEL.
  *
@@ -118,12 +96,7 @@ int xbox_IrqlTransitions(void)
  * name: these are host addresses inside the recompiled image, so nm resolves
  * them to the generated function, which is the guest function. */
 #define IRQL_HOLDERS 8
-static struct {
-    volatile LONG tid;
-    void *ra;
-    uint32_t guest_ra, guest_esp;   /* the host ra only ever names the bridge */
-} s_holders[IRQL_HOLDERS];
-extern RECOMP_TLS uint32_t g_esp;
+static struct { volatile LONG tid; void *ra; } s_holders[IRQL_HOLDERS];
 
 static void irql_holder_add(void *ra)
 {
@@ -133,9 +106,6 @@ static void irql_holder_add(void *ra)
     for (i = 0; i < IRQL_HOLDERS; i++)
         if (InterlockedCompareExchange(&s_holders[i].tid, me, 0) == 0) {
             s_holders[i].ra = ra;
-            s_holders[i].guest_esp = g_esp;
-            s_holders[i].guest_ra = g_esp
-                ? *(uint32_t *)((uintptr_t)g_xbox_mem_offset + g_esp) : 0;
             return;
         }
 }
@@ -159,10 +129,8 @@ void xbox_IrqlDumpHolders(void)
     for (i = 0; i < IRQL_HOLDERS; i++) {
         LONG t = InterlockedCompareExchange(&s_holders[i].tid, 0, 0);
         if (t)
-            fprintf(stderr, "  [IRQLHOLD]   tid %lu raised from host %p, "
-                    "guest ret %08X (esp %08X)\n",
-                    (unsigned long)t, s_holders[i].ra,
-                    s_holders[i].guest_ra, s_holders[i].guest_esp);
+            fprintf(stderr, "  [IRQLHOLD]   tid %lu raised from host %p\n",
+                    (unsigned long)t, s_holders[i].ra);
     }
     fflush(stderr);
 }
@@ -198,36 +166,74 @@ static void irql_track(KIRQL old_level, KIRQL new_level, void *ra)
     }
 }
 
-/* Bracket a host-delivered ISR or DPC.
+/* The one-CPU guarantee IRQL gives, on a many-CPU host.
  *
- * The kernel's interrupt and DPC dispatchers put the processor back at the
- * interrupted IRQL when the routine returns, whatever the routine left it at.
- * The host threads that deliver interrupts and drain DPCs here had no such
- * epilogue, so a routine that returned at DISPATCH_LEVEL left its thread
- * there and the global depth at one -- and every later USB interrupt then
- * sat out the forced-delivery timeout, a pad polled twice a second.
+ * On the Xbox, code at DISPATCH_LEVEL or above cannot be interrupted by a DPC
+ * or (at device IRQL) by an ISR, because there is one CPU and it is busy. Here
+ * ISRs and DPCs run on the kernel timer thread, in parallel with the game, so
+ * a driver's protected section (DirectSound walking its voice lists) could
+ * be torn by its own interrupt handler. Every thread that goes to DISPATCH or
+ * above therefore holds this lock until it drops below, and the timer thread
+ * raises to DISPATCH (taking it) before calling any ISR or DPC.
  *
- * They also run the routine at the level it expects -- DISPATCH_LEVEL for a
- * DPC, the device level for an ISR -- and code checks: see irql_publish. */
-int xbox_IrqlEnterInterrupt(int level)
+ * ponytail: one lock for DISPATCH and every device IRQL alike; a thread that
+ * waits while raised (illegal on hardware) would stall ISRs and DPCs.
+ */
+static CRITICAL_SECTION g_dispatch_lock;
+static INIT_ONCE        g_dispatch_once = INIT_ONCE_STATIC_INIT;
+
+static BOOL CALLBACK dispatch_lock_init(PINIT_ONCE o, PVOID p, PVOID *c)
 {
-    int saved = (int)g_current_irql;
-    if (g_current_irql != (KIRQL)level) {
-        irql_track(g_current_irql, (KIRQL)level, IRQL_CALLER());
-        g_current_irql = (KIRQL)level;
-        irql_publish();
-    }
-    return saved;
+    (void)o; (void)p; (void)c;
+    InitializeCriticalSection(&g_dispatch_lock);
+    return TRUE;
 }
 
-void xbox_IrqlLeaveInterrupt(int saved)
+/* Whether this thread holds the dispatch lock. IRQL itself (g_current_irql)
+ * is one value for the one emulated CPU, so "is IRQL raised?" answers for
+ * whoever raised it last; decisions about *this* thread -- may it be
+ * pre-empted, is it a DPC waiting for the guest lock -- ask this instead. */
+#ifdef _MSC_VER
+static __declspec(thread) int t_dispatch_held;
+#else
+static _Thread_local int t_dispatch_held;
+#endif
+int xbox_thread_holds_dispatch(void) { return t_dispatch_held; }
+
+int  xbox_gil_suspend(void);
+void xbox_gil_resume(int depth);
+
+static void irql_transition(KIRQL from, KIRQL to)
 {
-    if (g_current_irql != (KIRQL)saved) {
-        irql_track(g_current_irql, (KIRQL)saved, IRQL_CALLER());
-        g_current_irql = (KIRQL)saved;
-        irql_publish();
+    InitOnceExecuteOnce(&g_dispatch_once, dispatch_lock_init, NULL, NULL);
+    /* Raised also counts as busy for NtSuspendThread: suspension is an APC,
+     * which the Xbox only delivers below DISPATCH, and a thread frozen here
+     * would hold the dispatch lock (every ISR, DPC and raised section) with
+     * it.
+     *
+     * The IRQL calls keep the guest lock (kernel_call_keeps_gil): DirectSound
+     * raises and lowers around every voice-list update, and handing the lock
+     * over at each one let the main thread in between a DPC's raises, with
+     * the DPC then waiting for it while holding the dispatch lock. Blocking
+     * here with the guest lock held could deadlock against a DPC that holds
+     * the dispatch lock and wants the guest lock, so a contended raise lets
+     * go of it first (a no-op when the caller does not hold it). */
+    if (from < DISPATCH_LEVEL && to >= DISPATCH_LEVEL) {
+        if (!TryEnterCriticalSection(&g_dispatch_lock)) {
+            int gil = xbox_gil_suspend();
+            EnterCriticalSection(&g_dispatch_lock);
+            xbox_gil_resume(gil);
+        }
+        t_dispatch_held = 1;
+        xbox_kernel_busy(1);
+    } else if (from >= DISPATCH_LEVEL && to < DISPATCH_LEVEL) {
+        xbox_kernel_busy(-1);
+        t_dispatch_held = 0;
+        LeaveCriticalSection(&g_dispatch_lock);
     }
 }
+
+KIRQL xbox_CurrentIrql(void) { return g_current_irql; }
 
 /*
  * KfRaiseIrql - Raises IRQL to the specified level.
@@ -244,8 +250,8 @@ KIRQL __fastcall xbox_KfRaiseIrql(KIRQL NewIrql)
     }
 
     irql_track(old, NewIrql, IRQL_CALLER());
+    irql_transition(old, NewIrql);
     g_current_irql = NewIrql;
-    irql_publish();
     return old;
 }
 
@@ -281,8 +287,8 @@ VOID __fastcall xbox_KfLowerIrql(KIRQL NewIrql)
     }
 
     irql_track(g_current_irql, NewIrql, IRQL_CALLER());
+    irql_transition(g_current_irql, NewIrql);
     g_current_irql = NewIrql;
-    irql_publish();
 }
 
 /*
@@ -293,8 +299,8 @@ KIRQL __stdcall xbox_KeRaiseIrqlToDpcLevel(void)
     KIRQL old = g_current_irql;
 
     irql_track(old, DISPATCH_LEVEL, IRQL_CALLER());
+    irql_transition(old, DISPATCH_LEVEL);
     g_current_irql = DISPATCH_LEVEL;
-    irql_publish();
     return old;
 }
 
@@ -721,9 +727,13 @@ VOID __stdcall xbox_AvSendTVEncoderOption(
          * HDTV pack keeps 480p/720p available to titles that offer them;
          * NTSC-M and 60Hz are the North American retail default, and match
          * the region reported by ExQueryNonVolatileSetting. */
+        /* The real kernel also ORs in the EEPROM video flags; D3D's
+         * CreateDevice fails a D3DPRESENTFLAG_WIDESCREEN request unless the
+         * widescreen bit (0x00010000) is here. */
         *Result = AV_PACK_HDTV
                 | (AV_STANDARD_NTSC_M << AV_STANDARD_SHIFT)
-                | AV_REFRESH_60Hz;
+                | AV_REFRESH_60Hz
+                | (xbox_video_widescreen() ? XC_VIDEO_FLAGS_WIDESCREEN : 0);
         break;
 
     case AV_OPTION_QUERY_MODE:

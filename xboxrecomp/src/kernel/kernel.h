@@ -23,43 +23,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#if defined(__SWITCH__)
-extern uint8_t *g_switch_ram;
-extern uint8_t *g_switch_contig;
-extern uint8_t *g_switch_nv2a;
-extern uint8_t *g_switch_mcpx;
-extern uint8_t *g_switch_flash;
-
-static inline void *xbox_to_native(uint32_t va)
-{
-    if (!va) return NULL;
-    if (__builtin_expect(va < 0x08000000u, 1)) {
-        return (void *)(g_switch_ram + (va & 0x03FFFFFFu));
-    }
-    if (va >= 0x80000000u && va < 0x84000000u) {
-        return (void *)(g_switch_contig + ((va - 0x80000000u) & 0x03FFFFFFu));
-    }
-    if (va >= 0xFD000000u && va < 0xFE000000u) {
-        return (void *)(g_switch_nv2a + (va - 0xFD000000u));
-    }
-    if (va >= 0xFE800000u && va < 0xFF000000u) {
-        return (void *)(g_switch_mcpx + (va - 0xFE800000u));
-    }
-    if (va >= 0xFF000000u) {
-        return (void *)(g_switch_flash + (va & 0x000FFFFFu));
-    }
-    return (void *)(g_switch_ram + (va & 0x03FFFFFFu));
-}
-#ifndef XBOX_TO_NATIVE
-#define XBOX_TO_NATIVE(va) xbox_to_native((uint32_t)(va))
-#endif
-#else
-extern ptrdiff_t g_xbox_mem_offset;
-#ifndef XBOX_TO_NATIVE
-#define XBOX_TO_NATIVE(va) ((va) ? (void*)((uintptr_t)(va) + g_xbox_mem_offset) : NULL)
-#endif
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -142,6 +105,9 @@ enum {
 #endif
 #ifndef STATUS_NO_MEMORY
 #define STATUS_NO_MEMORY                ((NTSTATUS)0xC0000017L)
+#endif
+#ifndef STATUS_CONFLICTING_ADDRESSES
+#define STATUS_CONFLICTING_ADDRESSES    ((NTSTATUS)0xC0000018L)
 #endif
 #ifndef STATUS_ALREADY_COMMITTED
 #define STATUS_ALREADY_COMMITTED        ((NTSTATUS)0xC0000021L)
@@ -693,6 +659,11 @@ NTSTATUS __stdcall xbox_NtReadFile(
     PXBOX_IO_STATUS_BLOCK IoStatusBlock, PVOID Buffer, ULONG Length,
     PLARGE_INTEGER ByteOffset);
 
+/* Called after every successful NtReadFile (POSIX/Switch) with the bytes read
+ * and the file offset they came from, so a port can patch game data as it
+ * loads. NULL (the default) = no hook. */
+extern void (*xbox_file_read_hook)(void *buf, size_t len, int64_t offset);
+
 NTSTATUS __stdcall xbox_NtWriteFile(
     HANDLE FileHandle, HANDLE Event, PIO_APC_ROUTINE ApcRoutine, PVOID ApcContext,
     PXBOX_IO_STATUS_BLOCK IoStatusBlock, PVOID Buffer, ULONG Length,
@@ -818,14 +789,16 @@ KIRQL   __fastcall xbox_KfRaiseIrql(KIRQL NewIrql);
  * line for the whole processor on hardware, not just for one thread. */
 int     xbox_IrqlBlocksInterrupts(void);
 int     xbox_IrqlRaisedCount(void);
-int     xbox_IrqlEnterInterrupt(int level);     /* around host-run ISRs and DPCs */
-void    xbox_IrqlLeaveInterrupt(int saved);
 
 /* Total crossings of the DISPATCH boundary, and who is holding it up.
  * A depth that is non-zero while this stops moving is stuck, not busy. */
 int     xbox_IrqlTransitions(void);
 void    xbox_IrqlDumpHolders(void);
 VOID    __fastcall xbox_KfLowerIrql(KIRQL NewIrql);
+
+/* This thread entering (+1) or leaving (-1) kernel code that may hold host
+ * locks; NtSuspendThread only leaves a thread suspended outside it. */
+void    xbox_kernel_busy(int delta);
 KIRQL   __stdcall xbox_KeRaiseIrqlToDpcLevel(void);
 
 VOID    __stdcall xbox_KeStallExecutionProcessor(ULONG MicroSeconds);
@@ -1075,22 +1048,20 @@ NTSTATUS __stdcall xbox_ExSaveNonVolatileSetting(ULONG ValueIndex, ULONG Type, P
 #define XC_PARENTAL_CONTROL       XC_P_CONTROL_GAMES
 #define XC_PARENTAL_PASSWORD      XC_P_CONTROL_PASSWORD
 
-/* Video standard flags in XC_VIDEO */
-#define XC_VIDEO_FLAGS_WIDESCREEN   0x01
-#define XC_VIDEO_FLAGS_HDTV         0x02
-#define XC_VIDEO_FLAGS_PAL_I        0x04
-#define XC_VIDEO_FLAGS_LETTERBOX    0x10
+/* Flags in XC_VIDEO, as the EEPROM stores them: XAPI's XGetVideoFlags
+ * returns (value >> 16) & 0x5F, so the XDK's XC_VIDEO_FLAGS_* bits sit in
+ * the upper half. */
+#define XC_VIDEO_FLAGS_WIDESCREEN   0x00010000
+#define XC_VIDEO_FLAGS_HDTV_720p    0x00020000
+#define XC_VIDEO_FLAGS_HDTV_1080i   0x00040000
+#define XC_VIDEO_FLAGS_HDTV_480p    0x00080000
+#define XC_VIDEO_FLAGS_LETTERBOX    0x00100000
+#define XC_VIDEO_FLAGS_PAL_60Hz     0x00400000
 
-/* Factory settings (indices 0x100+) */
-#define XC_FACTORY_SERIAL_NUMBER    0x100
-#define XC_FACTORY_ETHERNET_ADDR    0x101
-#define XC_FACTORY_ONLINE_KEY       0x102
-#define XC_FACTORY_AV_REGION        0x103
-#define XC_FACTORY_GAME_REGION      0x104
-
-#define XC_GAME_REGION_NA           0x00000001
-#define XC_GAME_REGION_JAP          0x00000002
-#define XC_GAME_REGION_RESTOFWORLD  0x00000004
+/* Whether the title is told the TV is 16:9 (RECOMP_WIDESCREEN, default 1).
+ * A title that honours it renders 640x480 anamorphic, and the presenter
+ * stretches it to 16:9. */
+int xbox_video_widescreen(void);
 
 /* Unknown ordinals - stub */
 VOID    __stdcall xbox_Unknown_8(void);

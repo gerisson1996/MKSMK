@@ -4,10 +4,10 @@ cmake_minimum_required(VERSION 3.20)
 # Mortal Kombat: Shaolin Monks (Xbox, NTSC-U) - Static Recompilation
 #
 # Hosts: Windows (MSVC, D3D11), Linux (GCC, SDL2 + OpenGL) and Nintendo
-# Switch homebrew (devkitA64 + libnx, built with switch/build.sh).
+# Switch homebrew (devkitA64 + libnx).
 # ============================================================================
 
-project(mksm_recomp LANGUAGES C)
+project(mksm_recomp C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -20,8 +20,6 @@ add_compile_definitions(
 set(XBOXRECOMP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/xboxrecomp" CACHE PATH
     "Path to the xboxrecomp toolkit root directory")
 
-# The lifted code is generated from the retail XBE. It is never committed;
-# point this at wherever tools.recomp --gen-dir wrote it.
 set(MKSM_GEN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/recomp/gen" CACHE PATH
     "Directory holding the tools.recomp output (recomp_*.c, recomp_funcs.h)")
 
@@ -29,6 +27,10 @@ if(NOT EXISTS "${MKSM_GEN_DIR}/recomp_funcs.h")
     message(FATAL_ERROR "No generated code in ${MKSM_GEN_DIR}. Run tools.recomp "
                         "with --gen-dir, or pass -DMKSM_GEN_DIR=<dir>.")
 endif()
+
+# The Vulkan renderer (xboxrecomp nv2a_vk) instead of OpenGL.
+option(MKSM_VULKAN "Render with Vulkan instead of OpenGL" OFF)
+set(XBOXRECOMP_VULKAN ${MKSM_VULKAN} CACHE BOOL "" FORCE)
 
 add_subdirectory(${XBOXRECOMP_DIR} ${CMAKE_BINARY_DIR}/xboxrecomp)
 
@@ -48,26 +50,66 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE xboxrecomp)
 
+if(MKSM_VULKAN)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE MKSM_VULKAN=1)
+endif()
+
 target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${MKSM_GEN_DIR}
     ${XBOXRECOMP_DIR}/include
-    ${XBOXRECOMP_DIR}/include/xbox
-    ${XBOXRECOMP_DIR}/src
-    ${XBOXRECOMP_DIR}/src/kernel
-    ${XBOXRECOMP_DIR}/src/d3d
-    ${XBOXRECOMP_DIR}/src/audio
-    ${XBOXRECOMP_DIR}/src/input
-    ${XBOXRECOMP_DIR}/src/apu
-    ${XBOXRECOMP_DIR}/src/nv2a
-    ${XBOXRECOMP_DIR}/src/platform
 )
 
-# Generated code needs permissive warnings
-if(MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE /W3 /wd4244 /wd4267 /wd4018)
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        d3d11 dxgi dxguid xinput winmm dbghelp)
+    if(MSVC)
+        target_link_options(${PROJECT_NAME} PRIVATE /LARGEADDRESSAWARE)
+        target_compile_options(${PROJECT_NAME} PRIVATE /bigobj)
+    endif()
 else()
-    target_compile_options(${PROJECT_NAME} PRIVATE
-        -O1 -fno-var-tracking -fno-var-tracking-assignments
-        -Wall -Wno-unused-variable -Wno-unused-but-set-variable
-        -Wno-sign-compare -Wno-parentheses)
+    if(NINTENDO_SWITCH)
+        set(MKSM_GEN_OPT "-O2" CACHE STRING "Optimisation for the lifted code")
+    else()
+        set(MKSM_GEN_OPT "-O1" CACHE STRING "Optimisation for the lifted code")
+    endif()
+    set(MKSM_GEN_FLAGS "${MKSM_GEN_OPT};-w;-fno-strict-aliasing;-fwrapv")
+    set_source_files_properties(${RECOMP_GEN_SOURCES} PROPERTIES
+        COMPILE_OPTIONS "${MKSM_GEN_FLAGS}")
+    target_link_libraries(${PROJECT_NAME} PRIVATE m)
+endif()
+
+# ── Nintendo Switch homebrew (devkitA64 + libnx) ────────────────
+if(NINTENDO_SWITCH)
+    set(MKSM_SWITCH_APP_NAME "MK: Shaolin Monks (Xbox recomp)" CACHE STRING
+        "Title shown in the homebrew menu")
+    set(MKSM_SWITCH_AUTHOR "Midway / Recomp" CACHE STRING "Author shown in the homebrew menu")
+    set(MKSM_SWITCH_VERSION "1.4.0" CACHE STRING "Version shown in the homebrew menu")
+    set(MKSM_SWITCH_ICON "${CMAKE_CURRENT_SOURCE_DIR}/icon.jpg" CACHE FILEPATH
+        "256x256 JPEG icon (libnx default when empty)")
+
+    if(MKSM_VULKAN)
+        target_link_libraries(${PROJECT_NAME} PRIVATE nx m)
+    else()
+        target_link_libraries(${PROJECT_NAME} PRIVATE EGL glapi drm_nouveau nx m)
+    endif()
+
+    target_link_options(${PROJECT_NAME} PRIVATE
+        "LINKER:--wrap=SDL_SYS_SetThreadPriority"
+        "LINKER:--wrap=audrvVoiceAddWaveBuf")
+    set_property(SOURCE src/switch_nx.c APPEND PROPERTY
+        INCLUDE_DIRECTORIES "${XBOXRECOMP_DIR}/src/apu")
+    target_include_directories(${PROJECT_NAME} PRIVATE "$ENV{DEVKITPRO}/portlibs/switch/include")
+
+    set(MKSM_NACP "${CMAKE_CURRENT_BINARY_DIR}/mksm.nacp")
+    nx_generate_nacp(OUTPUT "${MKSM_NACP}"
+        NAME "${MKSM_SWITCH_APP_NAME}"
+        AUTHOR "${MKSM_SWITCH_AUTHOR}"
+        VERSION "${MKSM_SWITCH_VERSION}"
+        TITLE_ID "0100454100830000")
+    if(MKSM_SWITCH_ICON)
+        nx_create_nro(${PROJECT_NAME} NACP "${MKSM_NACP}" ICON "${MKSM_SWITCH_ICON}")
+    else()
+        nx_create_nro(${PROJECT_NAME} NACP "${MKSM_NACP}")
+    endif()
 endif()

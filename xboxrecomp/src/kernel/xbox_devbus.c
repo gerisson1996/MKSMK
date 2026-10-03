@@ -61,26 +61,12 @@ void xbox_set_irq_line(uint32_t vector, int level)
     if (vector >= 32)
         return;
     if (level) {
-#if defined(_WIN32)
         InterlockedOr(&g_irq_lines, (LONG)(1u << vector));
-#else
-        __sync_fetch_and_or(&g_irq_lines, (LONG)(1u << vector));
-#endif
         SetEvent(xbox_irq_line_event());
     } else {
-#if defined(_WIN32)
         InterlockedAnd(&g_irq_lines, ~(LONG)(1u << vector));
-#else
-        __sync_fetch_and_and(&g_irq_lines, ~(LONG)(1u << vector));
-#endif
     }
 }
-
-int xbox_log_quiet(void) { return 0; }
-void xbox_Nv2aHoldInterrupts(int on) { (void)on; }
-int xbox_video_widescreen(void) { return 1; }
-void xbox_nx_spread_thread(void) {}
-void xbox_nx_track_thread(void *entry) { (void)entry; }
 
 uint32_t xbox_irq_lines(void)
 {
